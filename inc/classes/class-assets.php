@@ -30,19 +30,25 @@ class Assets {
 	public function register_styles() {
 		// Register styles.
 		wp_register_style( 'base-css', get_template_directory_uri() . '/assets/css/base.css');
+		wp_register_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css');
 		// Enqueue Styles.
+		wp_enqueue_style( 'swiper-css' );
 		wp_enqueue_style( 'base-css' );
+		
 
 
 	}
 
 	public function register_scripts() {
 		// Register scripts.
-		// wp_register_script( 'main-js', THEME_JS_URI . '/main.js', ['jquery', 'slick-js'], filemtime( THEME_JS_DIR_PATH . '/main.js' ), true );
+		wp_register_script( 'main-js', THEME_JS_URI . '/main.js', [], filemtime( THEME_JS_DIR_PATH . '/main.js' ), true );
+		wp_register_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js', [], true );
 
 
 		// Enqueue Scripts.
-		// wp_enqueue_script( 'main-js' );
+		wp_enqueue_script( 'swiper-js' );
+		wp_enqueue_script( 'main-js' );
+	
 	}
 
 

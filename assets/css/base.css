@@ -1,5 +1,14 @@
 @import "home/home.css";
 @import "reset/reset.css";
+.swiper {
+  width: 95%;
+  height: 100%;
+}
+
+.swiper-button-prev, .swiper-button-next {
+  --swiper-navigation-sides-offset: 200px;
+}
+
 /* Glogal options */
 .closed {
   display: none;

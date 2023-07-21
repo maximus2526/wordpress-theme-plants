@@ -92,13 +92,17 @@ get_header();
                 </div>
             </div>
         </div>
-
-        <div class="products-carousel">
-            <div class="row justify-around">
-                <div class="col-2">
+        <!-- Slider main container -->
+        <div class="swiper">
+            <!-- Additional required wrapper -->
+            <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide">
+                    
                     <div class="product display-flex align-center column">
                         <div class="product-img">
-                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt>
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" loading="lazy" alt>
+                            <div class="swiper-lazy-preloader"></div>
                         </div>
                         <div class="product-name">
                             <a href="#">Golden Petra</a>
@@ -107,79 +111,9 @@ get_header();
                             <p>$79</p>
                         </div>
                         <div class="select-options-button display-flex text-center">
-                            <a href="#" class="button">
-                                Select options
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="product display-flex align-center column">
-                        <div class="product-img">
-                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt>
-                        </div>
-                        <div class="product-name">
-                            <a href="#">Golden Petra</a>
-                        </div>
-                        <div class="price">
-                            <p>$79</p>
-                        </div>
-                        <div class="select-options-button display-flex text-center">
-                            <a href="#" class="button">
-                                Select options
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="product display-flex align-center column">
-                        <div class="product-img">
-                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt>
-                        </div>
-                        <div class="product-name">
-                            <a href="#">Golden Petra</a>
-                        </div>
-                        <div class="price">
-                            <p>$79</p>
-                        </div>
-                        <div class="select-options-button display-flex text-center">
-                            <a href="#" class="button">
-                                Select options
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="product display-flex align-center column">
-                        <div class="product-img">
-                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt>
-                        </div>
-                        <div class="product-name">
-                            <a href="#">Golden Petra</a>
-                        </div>
-                        <div class="price">
-                            <p>$79</p>
-                        </div>
-                        <div class="select-options-button display-flex text-center">
-                            <a href="#" class="button">
-                                Select options
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-2">
-                    <div class="product display-flex align-center column">
-                        <div class="product-img">
-                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt>
-                        </div>
-                        <div class="product-name">
-                            <a href="#">Golden Petra</a>
-                        </div>
-                        <div class="price">
-                            <p>$79</p>
-                        </div>
-                        <div class="select-options-button display-flex text-center">
-                            <a href="#" class="button">
+                            <a 
+                            href="" 
+                            class="button">
                                 Select options
                             </a>
                         </div>
@@ -187,10 +121,11 @@ get_header();
                 </div>
 
             </div>
-
+            <!-- If we need navigation buttons -->
+            <div class="swiper-button-prev"><img src="<?php echo THEME_IMG_URI ?>/svg/swiper/slider-left.svg" alt=""></div>
+            <div class="swiper-button-next"><img src="<?php echo THEME_IMG_URI ?>/svg/swiper/slider-right.svg" alt=""></div>
         </div>
-
-
+   
     </div>
     <div class="container">
         <div class="instagram-galery">
