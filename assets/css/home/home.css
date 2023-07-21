@@ -64,19 +64,17 @@ header .container {
   margin-bottom: 100px;
 }
 
+.popular-products {
+  padding-bottom: 150px;
+}
 .popular-products .block-heading {
   margin-bottom: 40px;
 }
-
-.products-carousel {
+.popular-products .products-carousel {
   margin-bottom: 100px;
 }
-.products-carousel .product-name a {
+.popular-products .products-carousel .product-name a {
   color: black;
-}
-.products-carousel .product-img {
-  width: 100%;
-  margin-bottom: 20px;
 }
 
 .galery-photos img {
@@ -85,6 +83,37 @@ header .container {
 
 .instagram-galery {
   padding-bottom: 60px;
+  border-bottom: 2px solid #5E6821;
+}
+
+.size-banners {
+  margin-bottom: 100px;
+}
+.size-banners .size-banner {
+  position: relative;
+}
+.size-banners .size-banner img {
+  max-height: 500px;
+  width: 100%;
+}
+.size-banners .size-banner .banner-content {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+}
+
+.exotic-products {
+  margin-bottom: 160px;
+}
+.exotic-products .block-heading {
+  margin-bottom: 40px;
+}
+
+.our-articles {
+  margin-bottom: 100px;
+}
+.our-articles .block-title {
+  padding-bottom: 40px;
   border-bottom: 2px solid #5E6821;
 }
 

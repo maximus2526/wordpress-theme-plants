@@ -20,13 +20,13 @@
         <div class="header-promo text-center">
             <a href="#">Sign up for our newsletter to get 10% off for the
                 week!</a>
-              
+
         </div>
         <div class="container">
             <div class="header scheme-dark display-flex space-between">
                 <div class="nav-section">
                     <ul class="nav ">
-                        <li><a href="#">Shop</a></li>
+                        <li><a href="/shop">Shop</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Care library</a></li>
                         <li><a href="#">About us</a></li>
@@ -52,7 +52,7 @@
                             </a>
                         </div>
                         <div class="cart">
-                            <a href="<?php echo esc_url(wc_get_cart_url())?>;" class="display-flex gap-5">
+                            <a href="<?php echo esc_url(wc_get_cart_url()) ?>;" class="display-flex gap-5">
                                 <img src="<?php echo THEME_IMG_URI ?>/svg/profile-icons/cart.svg" alt>
                                 <span class="cart-count">
                                     <?php
