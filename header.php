@@ -52,7 +52,7 @@
                             </a>
                         </div>
                         <div class="cart">
-                            <a href="<?php echo esc_url(wc_get_cart_url()) ?>;" class="display-flex gap-5">
+                            <a href="<?php echo esc_url(wc_get_cart_url()) ?>" class="display-flex gap-5">
                                 <img src="<?php echo THEME_IMG_URI ?>/svg/profile-icons/cart.svg" alt>
                                 <span class="cart-count">
                                     <?php

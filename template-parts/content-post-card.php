@@ -14,7 +14,7 @@
             </div>
         </div>
 
-        <div class="continue-button display-flex text-center ">
+        <div class="continue-button text-center ">
             <a href="#" class="button">
                 Continue reading
             </a>
