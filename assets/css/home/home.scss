@@ -70,6 +70,7 @@ header .container {
     align-items: flex-end;
 
     .slider-content {
+        z-index: 2;
         max-width: 500px;
         padding: 20px;
     }
@@ -101,6 +102,9 @@ header .container {
 .galery-photos {
     img {
         max-width: 100%;
+        &:hover {
+            filter: grayscale(.75)
+        }
     }
 }
 

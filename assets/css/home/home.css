@@ -54,6 +54,7 @@ header .container {
   align-items: flex-end;
 }
 .top-slider .slider-content {
+  z-index: 2;
   max-width: 500px;
   padding: 20px;
 }
@@ -79,6 +80,9 @@ header .container {
 
 .galery-photos img {
   max-width: 100%;
+}
+.galery-photos img:hover {
+  filter: grayscale(0.75);
 }
 
 .instagram-galery {

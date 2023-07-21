@@ -98,7 +98,7 @@ get_header();
             <div class="swiper-wrapper">
                 <!-- Slides -->
                 <?php
-                $mypost_Query = new WP_Query(
+                $product_Query = new WP_Query(
                     array(
                         "post_type" => "product",
                         "post_status" => "publish",
@@ -106,9 +106,9 @@ get_header();
                     )
                 );
 
-                if ($mypost_Query->have_posts()) {
-                    while ($mypost_Query->have_posts()) {
-                        $mypost_Query->the_post();
+                if ($product_Query->have_posts()) {
+                    while ($product_Query->have_posts()) {
+                        $product_Query->the_post();
                         ?>
                         <div class="swiper-slide">
                             <?php get_template_part("template-parts/content", 'product-card', ['lazy-attr' => 'loading="lazy"', 'lazy-preloader' => '<div class="swiper-lazy-preloader"></div>']); ?>
@@ -242,11 +242,10 @@ get_header();
                         while ($post_Query->have_posts()):
                             ?>
 
-                            <div class="col-2">
+                            <div class="col-12">
                                 <?php
                                 $post_Query->the_post();
-                                get_template_part("template-parts/content", 'article-card');
-
+                                get_template_part("template-parts/content", 'post-card');
                                 ?>
                             </div>
 
