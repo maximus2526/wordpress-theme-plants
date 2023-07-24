@@ -8,10 +8,10 @@
                 <label for="footer-subscribe-input">Join our newsletter
                     to
                     stay up to date on features and releases.</label>
-                <div id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
+                <form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
                     <input placeholder="Enter your email" type="email" name="subscribe-email">
                     <button class="button" type="submit">Subscribe</button>
-                </div>
+                </form>
                 <div class="text">
                     By subscribing you agree to with our Privacy Policy
                     and
@@ -19,9 +19,9 @@
                 </div>
             </div>
             <div class="social">
-                <span class="social-icons">FB</span>
-                <span class="social-icons">TW</span>
-                <span class="social-icons">IN</span>
+                <a href=""><span class="social-icons">FB</span></a>
+                <a href=""><span class="social-icons">TW</span></a>
+                <a href=""><span class="social-icons">IN</span></a>
             </div>
         </div>
         <div class="right-side display-flex justify-around">

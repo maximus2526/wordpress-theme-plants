@@ -90,17 +90,17 @@ header .container {
   border-bottom: 2px solid #5E6821;
 }
 
-.size-banners {
+.product-size-banners {
   margin-bottom: 100px;
 }
-.size-banners .size-banner {
+.product-size-banners .size-banner {
   position: relative;
 }
-.size-banners .size-banner img {
+.product-size-banners .size-banner img {
   max-height: 500px;
   width: 100%;
 }
-.size-banners .size-banner .banner-content {
+.product-size-banners .size-banner .banner-content {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -177,4 +177,51 @@ footer .right-side .nav-items li {
   background: #5e6821;
   border: none;
   color: white;
+}
+
+.continue-button a {
+  white-space: nowrap;
+  width: 100%;
+  display: block;
+  border: 2px solid #5e6821;
+  color: #5e6821;
+  background: #ffffff;
+  padding: 15px;
+}
+
+.quotes {
+  flex-basis: 40%;
+  background: #E7E5D9;
+  padding: 40px;
+}
+.quotes .quote-text p {
+  font-size: 38px;
+}
+
+.promo-video {
+  margin-bottom: 100px;
+  background: linear-gradient(to bottom, #5e6821 70%, white 70% 60%);
+}
+
+.promo-video .block-title {
+  color: white;
+}
+.promo-video .block-title img {
+  display: inline;
+  vertical-align: middle;
+}
+.promo-video .block-title h1 {
+  width: 70%;
+  padding: 40px 0;
+}
+
+.video {
+  flex-basis: 60%;
+  background: #000;
+}
+
+.quote-text {
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  border-bottom: 2px solid #5E6821;
 }/*# sourceMappingURL=home.css.map */

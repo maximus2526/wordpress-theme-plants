@@ -11,6 +11,20 @@ const swiper = new Swiper('.swiper', {
     },
 
     autoHeight: true,
-    slidesPerView: 5,
     spaceBetween: 100,
+
+    breakpoints: {// настройки для разных разрешений
+      768: {
+          slidesPerView: 'auto',
+          spaceBetween: 8
+      },
+      991: {
+          slidesPerView: 2,
+          spaceBetween: 30
+      },
+      1192: {
+          slidesPerView: 5,
+          spaceBetween: 20
+      }
+  }
   });

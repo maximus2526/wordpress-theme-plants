@@ -422,6 +422,10 @@ p {
   font-size: 15px;
 }
 
+.size-l {
+  font-size: 38px;
+}
+
 h5 {
   font-size: 20px;
 }
@@ -436,6 +440,10 @@ h3 {
 
 h2 {
   font-size: 40px;
+}
+
+h1 {
+  font-size: 68px;
 }
 
 .container {
