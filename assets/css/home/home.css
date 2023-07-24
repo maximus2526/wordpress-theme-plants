@@ -14,7 +14,7 @@
   margin-bottom: 20px;
 }
 .header .profile-section,
-.header .nav-section {
+.header .menu-header-menu-container {
   flex-basis: 33.3%;
 }
 

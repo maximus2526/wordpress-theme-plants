@@ -226,15 +226,15 @@
   margin-right: 10px;
 }
 
-.nav {
+.menu-header-menu-container ul {
   display: flex;
   align-items: center;
   gap: 20px;
 }
-.nav .span {
+.menu-header-menu-container ul .span {
   padding: 0;
 }
-.nav .active {
+.menu-header-menu-container ul .active {
   height: 100%;
   border-bottom: 3px solid #5E6821;
   display: inline-block;

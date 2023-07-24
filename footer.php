@@ -1,6 +1,14 @@
 <footer class="container">
     <div class="top-footer display-flex">
         <div class="left-side">
+            <section class="sidebar">
+
+                <aside>
+                    <?php dynamic_sidebar('sidebar-1'); ?>
+                </aside>
+
+            </section>
+
             <div class="logo-section">
                 <a href="/"><img src="<?php echo THEME_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
             </div>

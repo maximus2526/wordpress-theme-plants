@@ -24,14 +24,9 @@
         </div>
         <div class="container">
             <div class="header scheme-dark display-flex space-between">
+
                 <div class="nav-section">
-                    <ul class="nav ">
-                        <li><a href="/shop">Shop</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Care library</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Contact us</a></li>
-                    </ul>
+                    <?php get_template_part('template-parts/content', 'nav-header'); ?>
                 </div>
                 <div class="logo-section">
                     <a href="/"><img src="<?php echo THEME_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
