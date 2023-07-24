@@ -132,7 +132,7 @@ get_header();
 
     </div>
 
-    <div class="size-banners">
+    <div class="product-size-banners">
         <div class="container">
             <div class="block-title">
                 <h4 class="title">Shopping by size</h4>
@@ -175,7 +175,40 @@ get_header();
         </div>
     </div>
 
+    <div class="promo-video">
+        <div class="container">
+            <div class="block-title">
+                <h1> Explore our  <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-1.png" alt=""> extensive range of plants  <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-2.png" alt=""> for your  <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-3.png" alt=""> room. </h3>
+            </div>
+            <div class="promo-content display-flex gap">
+                <div class="quotes">
+                    <div class="quote-text">
+                        <img src="<?php echo THEME_IMG_URI ?>/svg/quotes.svg" alt="">
+                        <p>I am so happy, my dear friend, so absorbed in the exquisite sense of mere existence.</p>
+                    </div>
 
+                    <div class="quote-author display-flex gap">
+                        <div class="avatar">
+                            <img src="<?php echo THEME_IMG_URI ?>/size-banners/avatar.png" alt="">
+                        </div>
+                        <div class="quote-author-info">
+                            <div class="quote-author-name">
+                                <p class="title">Jenny Wilson</p>
+                            </div>
+                            <div class="quote-author-position">
+                                <p class="text">Founder</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
     <div class="container">
         <div class="exotic-products">
@@ -200,7 +233,7 @@ get_header();
                         "post_type" => "product",
                         "post_status" => "publish",
                         "posts_per_page" => 5,
-                        
+
                     )
                 );
 
@@ -208,7 +241,7 @@ get_header();
                     while ($product_Query->have_posts()):
                         ?>
 
-                        <div class="col-2">
+                        <div class="col-2 col-sm-6">
                             <?php
                             $product_Query->the_post();
                             get_template_part("template-parts/content", 'product-card');
