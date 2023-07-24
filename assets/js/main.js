@@ -13,7 +13,7 @@ const swiper = new Swiper('.swiper', {
     autoHeight: true,
     spaceBetween: 100,
 
-    breakpoints: {// настройки для разных разрешений
+    breakpoints: {
       768: {
           slidesPerView: 'auto',
           spaceBetween: 8
