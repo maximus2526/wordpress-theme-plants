@@ -14,7 +14,7 @@
             </div>
         </div>
         <div class="continue-button">
-            <a href="#">
+            <a href="<?php echo get_permalink() ?>">
                 Continue reading →
             </a>
         </div>

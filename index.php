@@ -21,6 +21,8 @@ get_header();
             
         }elseif ( is_shop() ) {
             get_template_part('shop');
+        }elseif (is_single()) {
+            get_template_part('template-parts/content', 'single-post');
         }
 
 
