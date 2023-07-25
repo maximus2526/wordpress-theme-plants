@@ -84,7 +84,7 @@ get_header();
                     <h4 class="title">Most popular products</h4>
                 </div>
                 <div class="nav-section scheme-dark">
-                    <ul class="nav">
+                    <ul class="nav display-flex gap">
                         <li><a class="active" href="#">Plants</a></li>
                         <li><a href="#">Planters</a></li>
                         <li><a href="#">Plant care</a></li>
@@ -178,7 +178,9 @@ get_header();
     <div class="promo-video">
         <div class="container">
             <div class="block-title">
-                <h1> Explore our  <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-1.png" alt=""> extensive range of plants  <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-2.png" alt=""> for your  <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-3.png" alt=""> room. </h3>
+                <h1> Explore our <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-1.png" alt=""> extensive
+                    range of plants <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-2.png" alt=""> for
+                    your <img src="<?php echo THEME_IMG_URI ?>/title-images/ps-top-min-3.png" alt=""> room. </h3>
             </div>
             <div class="promo-content display-flex gap">
                 <div class="quotes">
@@ -290,30 +292,31 @@ get_header();
             </div>
 
         </div>
-
-        <div class="instagram-galery">
-            <div class="block-title">
-                <h4 class="title">View our instagram</h4>
-            </div>
-            <div class="galery-photos ">
-                <div class="row display-flex space-between">
-                    <div class="col-2">
-                        <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
-                    </div>
-                    <div class="col-2">
-                        <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
-                    </div>
-                    <div class="col-2">
-                        <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
-                    </div>
-                    <div class="col-2">
-                        <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
-                    </div>
-                    <div class="col-2">
-                        <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
-                    </div>
-                    <div class="col-2">
-                        <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+        <div class="container">
+            <div class="instagram-galery">
+                <div class="block-title">
+                    <h4 class="title">View our instagram</h4>
+                </div>
+                <div class="galery-photos ">
+                    <div class="row display-flex space-between">
+                        <div class="col-2">
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+                        </div>
+                        <div class="col-2">
+                            <img src="<?php echo THEME_IMG_URI ?>/products/productimg.png" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
