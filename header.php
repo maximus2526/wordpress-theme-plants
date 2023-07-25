@@ -4,7 +4,9 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php wp_title(); ?></title>
+    <title>
+        <?php wp_title(); ?>
+    </title>
     <?php wp_head(); ?>
 
 </head>
@@ -26,7 +28,14 @@
             <div class="header scheme-dark display-flex space-between">
 
                 <div class="nav-section">
-                    <?php get_template_part('template-parts/content', 'nav-header'); ?>
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'menu' => 'header-menu',
+                        )
+
+                    )
+                    ?>
                 </div>
                 <div class="logo-section">
                     <a href="/"><img src="<?php echo THEME_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
@@ -51,9 +60,8 @@
                                 <img src="<?php echo THEME_IMG_URI ?>/svg/profile-icons/cart.svg" alt>
                                 <span class="cart-count">
                                     <?php
-                                    global $woocommerce;
-                                    echo sprintf($woocommerce->cart->cart_contents_count);
-                                    ?>
+                                    echo count(WC()->cart->get_cart())
+                                        ?>
                                 </span>
                             </a>
                         </div>

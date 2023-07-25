@@ -111,7 +111,7 @@ get_header();
                         $product_Query->the_post();
                         ?>
                         <div class="swiper-slide">
-                            <?php get_template_part("template-parts/content", 'product-card', ['lazy-attr' => 'loading="lazy"', 'lazy-preloader' => '<div class="swiper-lazy-preloader"></div>']); ?>
+                            <?php echo do_shortcode('[products limit="4" visibility="featured" ]') ?>
                         </div>
                         <?php
                     }
