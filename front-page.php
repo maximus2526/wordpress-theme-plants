@@ -92,6 +92,7 @@ get_header();
                 </div>
             </div>
         </div>
+        
         <!-- Slider main container -->
         <div class="swiper">
             <!-- Additional required wrapper -->
@@ -105,14 +106,13 @@ get_header();
                         "posts_per_page" => 10,
                     )
                 );
-
+                
                 if ($product_Query->have_posts()) {
                     while ($product_Query->have_posts()) {
                         $product_Query->the_post();
                         ?>
-                        <div class="swiper-slide">
-                            <?php echo do_shortcode('[products limit="4" visibility="featured" ]') ?>
-                        </div>
+                        <?php echo do_shortcode('[featured_products columns="1" class="swiper-slide"]') ?>
+
                         <?php
                     }
                 } else {
@@ -246,7 +246,7 @@ get_header();
                         <div class="col-2 col-sm-6">
                             <?php
                             $product_Query->the_post();
-                            get_template_part("template-parts/content", 'product-card');
+                            get_template_part("template-parts/content/", 'post-card');
 
                             ?>
                         </div>

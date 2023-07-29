@@ -35,10 +35,6 @@ class Menus {
 	 *
 	 * @return void
 	 */
-	public function setup_theme() {
 
-	
-
-	}
 
 }
