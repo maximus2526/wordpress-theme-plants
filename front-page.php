@@ -280,7 +280,7 @@ get_header();
                             <div class="col-12">
                                 <?php
                                 $post_Query->the_post();
-                                get_template_part("template-parts/content", 'post-card');
+                                get_template_part( 'template-parts/content/content-post-card' );
                                 ?>
                             </div>
 
