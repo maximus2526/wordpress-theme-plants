@@ -6,7 +6,7 @@
  */
 
 get_header();
-
+the_content();
 ?>
 <main>
     <div class="container">
@@ -97,6 +97,7 @@ get_header();
         <div class="swiper">
             <!-- Additional required wrapper -->
             <div class="swiper-wrapper">
+
                 <!-- Slides -->
                 <?php
                 $product_Query = new WP_Query(
