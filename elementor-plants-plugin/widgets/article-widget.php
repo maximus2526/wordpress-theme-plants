@@ -64,6 +64,19 @@ class Articles_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'add_to_container',
+            [
+                'label' => esc_html__('Add To Container?', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'no' => false,
+                    'yes' => true
+                ],
+                'default' => 'no',
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -79,9 +92,24 @@ class Articles_Widget extends \Elementor\Widget_Base
             'order' => 'DESC',
         ];
 
+        if ($settings['category'] !== 'all') {
+            $args['tax_query'] = [
+                [
+                    'taxonomy' => 'category',
+                    'field' => 'term_id',
+                    'terms' => $settings['category'],
+                ],
+            ];
+        }
+
         $articles_query = new WP_Query($args);
 
+
+
         if ($articles_query->have_posts()) {
+            if ($settings['add_to_container'] === 'yes') {
+                echo '<div class="container">';
+            }
             if ($settings['is_slider'] === 'yes') {
                 echo '<div class="swiper-banner">';
                 echo '<div class="swiper-wrapper">';
@@ -89,19 +117,15 @@ class Articles_Widget extends \Elementor\Widget_Base
                 while ($articles_query->have_posts()) {
                     $articles_query->the_post();
                     ?>
-                    <div class="swiper-slide">
+                    <div class="swiper-slide" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
                         <div class="article-banner">
-                            <div class="banner-img">
-                                <?php echo get_the_post_thumbnail(); ?>
-                            </div>
-
-                            <div class="banner-content">
-                                <div class="banner-header scheme-dark">
+                            <div class="banner-content  scheme-light">
+                                <div class="banner-header">
                                     <a href="<?php echo get_permalink(); ?>">
-                                        <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+                                        <?php the_title('<h3 class="entry-title">', '</h3>'); ?>
                                     </a>
                                 </div>
-                                <div class="banner-description">
+                                <div class="banner-description opacity-80">
                                     <?php the_excerpt(); ?>
                                 </div>
                             </div>
@@ -154,6 +178,10 @@ class Articles_Widget extends \Elementor\Widget_Base
             }
 
             wp_reset_postdata();
+
+            if ($settings['add_to_container'] === 'yes') {
+                echo '</div>';
+            }
         } else {
             echo esc_html__('No articles found.', 'plants');
         }

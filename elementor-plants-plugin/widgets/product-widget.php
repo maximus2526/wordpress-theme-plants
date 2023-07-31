@@ -64,6 +64,19 @@ class Products_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'add_to_container',
+            [
+                'label' => esc_html__('Add To Container?', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'no' => false,
+                    'yes' => true
+                ],
+                'default' => 'no',
+            ]
+        );
+
         $this->end_controls_section();
     }
 
@@ -91,6 +104,9 @@ class Products_Widget extends \Elementor\Widget_Base
         $products_query = new WP_Query($args);
 
         if ($products_query->have_posts()) {
+            if ($settings['add_to_container'] === 'yes') {
+                echo '<div class="container">';
+            }
             if ($settings['is_slider'] === 'yes') {
                 echo '<div class="swiper">';
                 echo '<div class="swiper-wrapper">';
@@ -133,6 +149,9 @@ class Products_Widget extends \Elementor\Widget_Base
                 echo '<div class="swiper-button-prev"><img src="' . THEME_IMG_URI . '/svg/swiper/slider-left.svg" alt=""></div>';
                 echo '<div class="swiper-button-next"><img src="' . THEME_IMG_URI . '/svg/swiper/slider-right.svg" alt=""></div>';
                 echo '</div>'; // Close .swiper
+            }
+            if ($settings['add_to_container'] === 'yes') {
+                echo '</div>';
             }
         } else {
             echo esc_html__('No products found.', 'elementor-addon');
