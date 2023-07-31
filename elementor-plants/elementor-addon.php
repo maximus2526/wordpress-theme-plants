@@ -19,7 +19,7 @@ function register_widgets( $widgets_manager ) {
 
 	$widgets_manager->register( new \Products_Widget() );
 	$widgets_manager->register( new \Articles_Widget() );
-	$widgets_manager->register( new \Articles_Widget() );
+	$widgets_manager->register( new \Menus_Widget() );
 
 }
 function custom_elementor_widget_category($elements_manager)
