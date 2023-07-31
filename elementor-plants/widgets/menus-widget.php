@@ -39,6 +39,18 @@ class Menus_Widget extends \Elementor\Widget_Base
                 'options' => $this->get_menus_names(),
             ]
         );
+        $this->add_control(
+            'vertical',
+            [
+                'label' => esc_html__('Vertical', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'no' => false,
+                    'yes' => true
+                ],
+                'default' => 'no',
+            ]
+        );
 
 
 
@@ -49,14 +61,14 @@ class Menus_Widget extends \Elementor\Widget_Base
     protected function render()
     {
         $settings = $this->get_settings_for_display();
-        echo '<div class="nav-section">';
-        wp_nav_menu(
-            array(
-                'menu' => $this->get_menus_names()[$settings['menus']],
-            )
+            wp_nav_menu(
+                array(
+                    'menu' => $this->get_menus_names()[$settings['menus']],
+                    'menu_class' => $settings['vertical'] == 'no' ? 'display-flex gap' : '',
 
-        );
-        echo '</div>';
+                )
+
+            );
     }
 
     protected function get_menus_names()
