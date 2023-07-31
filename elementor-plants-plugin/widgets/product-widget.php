@@ -23,7 +23,7 @@ class Products_Widget extends \Elementor\Widget_Base
 
     protected function _register_controls()
     {
-        // Настройки виджета
+   
         $this->start_controls_section(
             'section_content',
             [
@@ -37,21 +37,10 @@ class Products_Widget extends \Elementor\Widget_Base
                 'label' => esc_html__('Product Category', 'elementor-addon'),
                 'type' => \Elementor\Controls_Manager::SELECT,
                 'options' => $this->get_product_categories(),
-                'default' => 'all', // Опция "all" будет выводить все продукты без фильтрации по категориям
+                'default' => 'all',
             ]
         );
 
-        $this->add_control(
-            'featured_only',
-            [
-                'label' => esc_html__('Featured Products Only', 'elementor-addon'),
-                'type' => \Elementor\Controls_Manager::SWITCHER,
-                'label_on' => esc_html__('Yes', 'elementor-addon'),
-                'label_off' => esc_html__('No', 'elementor-addon'),
-                'return_value' => 'yes',
-                'default' => 'no',
-            ]
-        );
 
         $this->add_control(
             'posts_per_page',
@@ -69,7 +58,7 @@ class Products_Widget extends \Elementor\Widget_Base
     {
         $settings = $this->get_settings_for_display();
 
-        // Параметры запроса для WP_Query
+      
         $args = [
             'post_type' => 'product',
             'posts_per_page' => $settings['posts_per_page'],
@@ -77,7 +66,7 @@ class Products_Widget extends \Elementor\Widget_Base
             'order' => 'DESC',
         ];
 
-        // Если выбрана конкретная категория или "Featured Only", добавляем соответствующие параметры
+      
         if ($settings['category'] !== 'all') {
             $args['tax_query'] = [
                 [
@@ -88,29 +77,20 @@ class Products_Widget extends \Elementor\Widget_Base
             ];
         }
 
-        if ($settings['featured_only'] === 'yes') {
-            $args['meta_query'] = [
-                [
-                    'key' => '_featured',
-                    'value' => 'yes',
-                ],
-            ];
-        }
 
-        // Получаем продукты с помощью WP_Query
+
         $products_query = new WP_Query($args);
 
         if ($products_query->have_posts()) {
             while ($products_query->have_posts()) {
                 $products_query->the_post();
 
-                // Выводим информацию о продукте
                 the_title('<h2>', '</h2>');
                 the_post_thumbnail();
                 the_content();
                 echo '<hr>';
             }
-            wp_reset_postdata(); // Сбрасываем запрос, чтобы не повлиять на другие элементы на странице
+            wp_reset_postdata(); 
         } else {
             echo esc_html__('No products found.', 'elementor-addon');
         }
@@ -118,7 +98,6 @@ class Products_Widget extends \Elementor\Widget_Base
 
     protected function get_product_categories()
     {
-        // Получаем список категорий продуктов
         $categories = get_terms([
             'taxonomy' => 'product_cat',
             'hide_empty' => true,
