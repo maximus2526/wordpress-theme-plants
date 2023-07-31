@@ -5,4 +5,8 @@
 
 .swiper-button-prev, .swiper-button-next {
   --swiper-navigation-sides-offset: 200px;
+}
+
+.swiper-banner {
+  overflow: hidden;
 }/*# sourceMappingURL=custom-swiper.css.map */

@@ -14,8 +14,10 @@ if (!defined('ABSPATH')) {
 function register_widgets( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/product-widget.php' );
+	require_once( __DIR__ . '/widgets/article-widget.php' );
 
 	$widgets_manager->register( new \Products_Widget() );
+	$widgets_manager->register( new \Articles_Widget() );
 
 }
 function custom_elementor_widget_category($elements_manager)

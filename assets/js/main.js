@@ -28,3 +28,8 @@ const swiper = new Swiper('.swiper', {
       }
   }
   });
+
+const swiper_banner = new Swiper('.swiper-banner', {
+    slidesPerView: 1,
+    loop: true,
+  });

@@ -9,6 +9,11 @@
   --swiper-navigation-sides-offset: 200px;
 }
 
+.swiper-banner {
+  overflow: hidden;
+  max-width: 500px;
+}
+
 /* Glogal options */
 .closed {
   display: none;

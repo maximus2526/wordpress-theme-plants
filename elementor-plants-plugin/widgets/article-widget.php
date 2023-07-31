@@ -1,29 +1,68 @@
 <?php
-class Article_Widget extends \Elementor\Widget_Base
+class Articles_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
     {
-        return 'products_widget';
+        return 'article_widget';
     }
 
     public function get_title()
     {
-        return esc_html__('Products Widget', 'elementor-addon');
+        return esc_html__('Article Widget', 'elementor-addon');
     }
 
     public function get_icon()
     {
-        return 'eicon-products';
+        return ' eicon-post';
     }
 
     public function get_categories()
     {
-        return ['basic'];
+        return ['theme-widgets'];
     }
 
     protected function _register_controls()
     {
 
+        $this->start_controls_section(
+            'section_content',
+            [
+                'label' => esc_html__('Content', 'elementor-addon'),
+            ]
+        );
+
+        $this->add_control(
+            'category',
+            [
+                'label' => esc_html__('Articles Category', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => $this->get_article_categories(),
+                'default' => 'all',
+            ]
+        );
+
+
+        $this->add_control(
+            'posts_per_page',
+            [
+                'label' => esc_html__('Number of Articles', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::NUMBER,
+                'default' => 3,
+            ]
+        );
+
+        $this->add_control(
+            'is_slider',
+            [
+                'label' => esc_html__('Is slider', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'no' => false,
+                    'yes' => true
+                ],
+                'default' => 'no',
+            ]
+        );
 
         $this->end_controls_section();
     }
@@ -33,81 +72,103 @@ class Article_Widget extends \Elementor\Widget_Base
         $settings = $this->get_settings_for_display();
 
         $args = [
-            'post_type' => 'product',
+            'post_type' => 'post',
+            'post_status' => 'publish',
             'posts_per_page' => $settings['posts_per_page'],
             'orderby' => 'date',
             'order' => 'DESC',
         ];
 
-        if ($settings['category'] !== 'all') {
-            $args['tax_query'] = [
-                [
-                    'taxonomy' => 'product_cat',
-                    'field' => 'term_id',
-                    'terms' => $settings['category'],
-                ],
-            ];
-        }
+        $articles_query = new WP_Query($args);
 
-        $products_query = new WP_Query($args);
-
-        if ($products_query->have_posts()) {
+        if ($articles_query->have_posts()) {
             if ($settings['is_slider'] === 'yes') {
-                echo '<div class="swiper">';
+                echo '<div class="swiper-banner">';
                 echo '<div class="swiper-wrapper">';
-            }
 
+                while ($articles_query->have_posts()) {
+                    $articles_query->the_post();
+                    ?>
+                    <div class="swiper-slide">
+                        <div class="article-banner">
+                            <div class="banner-img">
+                                <?php echo get_the_post_thumbnail(); ?>
+                            </div>
 
-            while ($products_query->have_posts()) {
-                $products_query->the_post();
-                global $product;
+                            <div class="banner-content">
+                                <div class="banner-header scheme-dark">
+                                    <a href="<?php echo get_permalink(); ?>">
+                                        <?php the_title('<h2 class="entry-title">', '</h2>'); ?>
+                                    </a>
+                                </div>
+                                <div class="banner-description">
+                                    <?php the_excerpt(); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <?php
+                }
+
+                echo '</div>'; // Close .swiper-wrapper
+                echo '</div>'; // Close .swiper
+            } else {
                 ?>
-                <div class="swiper-slide">
-                    <div class="products display-flex wrap">
-                        <div class="product">
-                            <?php
+                <div class="row">
+    <?php
+                            while ($articles_query->have_posts()) {
+                                $articles_query->the_post();
+                                ?>
 
-                            if (has_post_thumbnail()) {
-                                if ($product->is_on_sale()) {
-                                    echo '<span class="onsale">Sale!</span>';
-                                }
-                                echo '<div class="product-image">';
-                                the_post_thumbnail('thumbnail', ['style' => 'width: 100%;']);
-                                echo '</div>';
+            <div class="col-12">
+                <div class="article display-flex align-center gap">
+                    <div class="article-img">
+                        <?php echo get_the_post_thumbnail(); ?>
+                    </div>
 
-
-                            }
-                            // Output product title as a link to the product page
-                            echo '<p><a href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
-
-                            echo '<div class="product-add-to-cart gap">' . do_shortcode('[add_to_cart id="' . get_the_ID() . '"]') . '</div>';
-                            ?>
+                    <div class="article-content-wrapper display-flex space-between align-center">
+                        <div class="article-content">
+                            <div class="author">
+                                Posted by
+                                <?php the_author(); ?>
+                            </div>
+                            <div class="article-header">
+                                <?php the_title('<h3 class="entry-title">', '</h3>'); ?>
+                            </div>
+                        </div>
+                        <div class="continue-button">
+                            <a href="<?php echo get_permalink(); ?>">
+                                Continue reading →
+                            </a>
                         </div>
                     </div>
                 </div>
-                <?php
+            </div>
+
+            <?php
+                            }
+                            ?>
+                </div>
+<?php
             }
 
             wp_reset_postdata();
-            if ($settings['is_slider'] === 'yes') {
-                echo '</div>'; // Close .swiper-wrapper
-                echo '<div class="swiper-button-prev"><img src="' . THEME_IMG_URI . '/svg/swiper/slider-left.svg" alt=""></div>';
-                echo '<div class="swiper-button-next"><img src="' . THEME_IMG_URI . '/svg/swiper/slider-right.svg" alt=""></div>';
-                echo '</div>'; // Close .swiper
-            }
         } else {
-            echo esc_html__('No products found.', 'elementor-addon');
+            echo esc_html__('No articles found.', 'plants');
         }
     }
 
-    protected function get_product_categories()
+
+
+    protected function get_article_categories()
     {
         $categories = get_terms([
-            'taxonomy' => 'product_cat',
+            'taxonomy' => 'category',
             'hide_empty' => true,
         ]);
 
-        $category_options = ['all' => esc_html__('All Products', 'elementor-addon')];
+        $category_options = ['all' => esc_html__('All Articles', 'elementor-addon')];
 
         foreach ($categories as $category) {
             $category_options[$category->term_id] = $category->name;
