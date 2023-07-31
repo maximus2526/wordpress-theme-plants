@@ -15,8 +15,10 @@ function register_widgets( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/product-widget.php' );
 	require_once( __DIR__ . '/widgets/article-widget.php' );
+	require_once( __DIR__ . '/widgets/menus-widget.php' );
 
 	$widgets_manager->register( new \Products_Widget() );
+	$widgets_manager->register( new \Articles_Widget() );
 	$widgets_manager->register( new \Articles_Widget() );
 
 }
