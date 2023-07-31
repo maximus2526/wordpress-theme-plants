@@ -8,13 +8,30 @@
  * Text Domain: plants
  */
 
+if (!defined('ABSPATH')) {
+    exit; // Защита от прямого доступа к файлу
+}
 function register_widgets( $widgets_manager ) {
 
 	require_once( __DIR__ . '/widgets/product-widget.php' );
-	require_once( __DIR__ . '/widgets/swiper-widget.php' );
 
 	$widgets_manager->register( new \Products_Widget() );
-	$widgets_manager->register( new \Swiper_Widget() );
 
 }
+function custom_elementor_widget_category($elements_manager)
+{
+    $elements_manager->add_category(
+		
+        'theme-widgets',
+        [
+            'title' => __('Theme Widgets', 'plants'), 
+            'icon' => 'fa fa-plug', 
+        ]
+		
+    );
+}
+
+add_action('elementor/elements/categories_registered', 'custom_elementor_widget_category');
+
+
 add_action( 'elementor/widgets/register', 'register_widgets' );
