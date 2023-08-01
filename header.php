@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
 
 </head>
-
+<?php if (!is_front_page()): ?> 
 <body <?php body_class(); ?>>
 
     <?php
@@ -70,3 +70,5 @@
             </div>
         </div>
     </header>
+
+    <?php endif; ?> 
