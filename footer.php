@@ -1,3 +1,4 @@
+<?php if (!is_front_page()): ?> 
 <footer class="container">
     <div class="top-footer display-flex">
         <div class="left-side">
@@ -76,9 +77,11 @@
     </div>
 
 </footer>
+<?php endif ?>
 <?php
 wp_footer();
 ?>
 </body>
 
 </html>
+
