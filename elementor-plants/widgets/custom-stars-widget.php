@@ -375,12 +375,12 @@ class Widget_Star_Rating_Plus extends Elementor\Widget_Base {
 	 * @access protected
 	 */
 	public function render() {
-		$settings = array(
-			'rating_scale' => '5', // Стандартне значення для шкали рейтингу
-			'rating' => '5', // Стандартне значення для рейтингу
-			'star_style' => 'star_fontawesome', // Стандартний стиль іконки зірки
-			'unmarked_star_style' => 'solid', // Стандартний стиль неоцінених зірок (заповнений)
-			'title' => '', // Порожній заголовок за замовчуванням
+		isset($settings) ? $settings = $this->get_settings_for_display() : $settings = array(
+			'rating_scale' => '5', 
+			'rating' => '5', 
+			'star_style' => 'star_fontawesome', 
+			'unmarked_star_style' => 'solid', 
+			'title' => '', 
 		);
 		$rating_data = $this->get_rating();
 		$textual_rating = $rating_data[0] . '/' . $rating_data[1];

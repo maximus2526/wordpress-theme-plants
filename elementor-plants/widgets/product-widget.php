@@ -123,7 +123,7 @@ class Products_Widget extends \Elementor\Widget_Base
                             <?php
                             if (has_post_thumbnail()) {
                                 echo '<div class="product-image">';
-                                the_post_thumbnail('thumbnail', ['style' => 'width: 100%;']);
+                                the_post_thumbnail('thumbnail', ['style' => 'width: 100%;height: 400px;']);
                                 echo '</div>';
                             }
 
@@ -136,10 +136,11 @@ class Products_Widget extends \Elementor\Widget_Base
                                 $product_obj = wc_get_product( $product->get_id() );
                                
  
-
+                                // Моя спроба виводити один віджет з іншого
                                 // require_once ('custom-stars-widget.php');
                                 // $stars = new Widget_Star_Rating_Plus($star_rating_settings);
                                 // $stars->render();
+
                                 $product_obj = wc_get_product($product->get_id());
                                 echo wc_get_rating_html($product_obj->get_average_rating());
 

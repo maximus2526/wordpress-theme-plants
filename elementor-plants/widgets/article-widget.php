@@ -13,7 +13,7 @@ class Articles_Widget extends \Elementor\Widget_Base
 
     public function get_icon()
     {
-        return ' eicon-post';
+        return 'eicon-post';
     }
 
     public function get_categories()
@@ -112,12 +112,12 @@ class Articles_Widget extends \Elementor\Widget_Base
             }
             if ($settings['is_slider'] === 'yes') {
                 echo '<div class="swiper-banner">';
-                echo '<div class="swiper-wrapper">';
+                echo '<div class="swiper-wrapper ">';
 
                 while ($articles_query->have_posts()) {
                     $articles_query->the_post();
                     ?>
-                    <div class="swiper-slide" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
+                    <div class="swiper-slide darken-image" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
                         <div class="article-banner">
                             <div class="banner-content  scheme-light">
                                 <div class="banner-header">

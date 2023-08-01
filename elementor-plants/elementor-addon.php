@@ -17,11 +17,13 @@ function register_widgets( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/article-widget.php' );
 	require_once( __DIR__ . '/widgets/menus-widget.php' );
 	require_once( __DIR__ . '/widgets/custom-stars-widget.php' );
+	require_once( __DIR__ . '/widgets/user-panel-widget.php' );
 
 	$widgets_manager->register( new \Products_Widget() );
 	$widgets_manager->register( new \Articles_Widget() );
 	$widgets_manager->register( new \Menus_Widget() );
 	$widgets_manager->register( new \Widget_Star_Rating_Plus() );
+	$widgets_manager->register( new \User_Panel_Widget() );
 
 }
 function custom_elementor_widget_category($elements_manager)
