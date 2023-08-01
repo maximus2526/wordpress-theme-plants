@@ -5,6 +5,7 @@ get_header();
     <?php
     if (function_exists('is_product') && is_product()) {
         woocommerce_content();
+        comments_template();
     } else if (have_posts()) {
         while (have_posts()) {
             the_post(); ?>
@@ -13,11 +14,12 @@ get_header();
                 </h2>
                 <?php
                 the_content();
+                comments_template();
         }
     } else {
         get_template_part('template-parts/content/content-none');
     }
-    comment_form();
+    ;
     ?>
 
 </div>

@@ -9,8 +9,7 @@ const swiper = new Swiper('.swiper', {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
-
-    autoHeight: true,
+    
     spaceBetween: 100,
 
     breakpoints: {

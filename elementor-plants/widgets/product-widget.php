@@ -116,31 +116,47 @@ class Products_Widget extends \Elementor\Widget_Base
             while ($products_query->have_posts()) {
                 $products_query->the_post();
                 global $product;
-                ?>
+?>
                 <div class="swiper-slide">
                     <div class="products display-flex wrap">
                         <div class="product">
                             <?php
-
                             if (has_post_thumbnail()) {
-                                if ($product->is_on_sale()) {
-                                    echo '<span class="onsale">Sale!</span>';
-                                }
                                 echo '<div class="product-image">';
                                 the_post_thumbnail('thumbnail', ['style' => 'width: 100%;']);
                                 echo '</div>';
-
-
                             }
-                            // Output product title as a link to the product page
-                            echo '<p><a href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
 
-                            echo '<div class="product-add-to-cart gap">' . do_shortcode('[add_to_cart id="' . get_the_ID() . '"]') . '</div>';
+                            echo '<p><a class="scheme-dark" href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
+                            ?>
+                            <div class="banner-rating">
+                                <?php
+                                
+
+                                $product_obj = wc_get_product( $product->get_id() );
+                               
+ 
+
+                                // require_once ('custom-stars-widget.php');
+                                // $stars = new Widget_Star_Rating_Plus($star_rating_settings);
+                                // $stars->render();
+                                $product_obj = wc_get_product($product->get_id());
+                                echo wc_get_rating_html($product_obj->get_average_rating());
+
+
+
+                                ?>
+                            </div>
+                            <?php
+                            echo '<div class="product-add-to-cart gap">';
+                            woocommerce_template_loop_add_to_cart(array('button_text' => 'Select options'));
+                            echo '</div>';
                             ?>
                         </div>
                     </div>
                 </div>
-                <?php
+
+<?php
             }
 
             wp_reset_postdata();
