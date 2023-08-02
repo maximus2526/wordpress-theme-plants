@@ -20,6 +20,8 @@ function register_widgets( $widgets_manager ) {
 	require_once( __DIR__ . '/widgets/user-panel-widget.php' );
 	require_once( __DIR__ . '/widgets/logo-widget.php' );
 	require_once( __DIR__ . '/widgets/subscribe-widget.php' );
+	require_once( __DIR__ . '/widgets/social-widget.php' );
+	require_once( __DIR__ . '/widgets/partners-widget.php' );
 
 	$widgets_manager->register( new \Products_Widget() );
 	$widgets_manager->register( new \Articles_Widget() );
@@ -28,6 +30,8 @@ function register_widgets( $widgets_manager ) {
 	$widgets_manager->register( new \User_Panel_Widget() );
 	$widgets_manager->register( new \Custom_Logo_Widget() );
 	$widgets_manager->register( new \Subscribe_Widget() );
+	$widgets_manager->register( new \Social_Links_Widget() );
+	$widgets_manager->register( new \Partners_Links_Widget() );
 
 }
 function custom_elementor_widget_category($elements_manager)
