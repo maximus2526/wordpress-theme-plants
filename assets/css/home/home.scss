@@ -28,38 +28,48 @@ header .container {
     margin-bottom: 40px;
 }
 
-// Content
 
 .vertical-nav {
-    border-right: 2px solid #5E6821;
-    align-self: center;
-    flex-basis: 30%;
-
-    .vertical-nav-item {
+    li {
         margin-bottom: 20px;
 
         &:last-child {
             margin-bottom: 0;
         }
-    }
 
-    .nav-title {
-        font-size: 38px;
-    }
-
-
-    .nav-img {
-        margin: 15px 0 0 10px;
-        width: 15px;
-        height: 30px;
-    }
-
-    a:hover {
-        .nav-img {
+        a:hover {
             opacity: 50%;
         }
     }
 }
+
+.vertical-nav-item {
+
+    li {
+        font-size: 38px;
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        a:hover {
+            opacity: 50%;
+        }
+    }
+
+}
+
+.nav-img {
+    > ::after {
+        content: url('../../img/svg/dropdown-icons/ref-icon.svg');
+        margin: 15px 0 0 10px;
+        width: 15px;
+        height: 30px;
+    }
+}
+
+
 
 .top-slider {
     background: url('../../img/banners/top-banner.png');
@@ -101,6 +111,7 @@ header .container {
 .galery-photos {
     img {
         max-width: 100%;
+
         &:hover {
             filter: grayscale(.75)
         }
@@ -237,12 +248,12 @@ footer {
     color: white;
 }
 
-.continue-button a{
+.continue-button a {
     white-space: nowrap;
     width: 100%;
     display: block;
     border: 2px solid #5e6821;
-    color: #5e6821; 
+    color: #5e6821;
     background: #ffffff;
     padding: 15px;
 }
@@ -252,14 +263,14 @@ footer {
     background: #E7E5D9;
     padding: 40px;
 
-    .quote-text p{
+    .quote-text p {
         font-size: 38px;
     }
 }
 
 .promo-video {
     margin-bottom: 100px;
-    background: linear-gradient( to bottom, #5e6821 70%, white 70% 60%);
+    background: linear-gradient(to bottom, #5e6821 70%, white 70% 60%);
 }
 
 .promo-video .block-title {
@@ -267,7 +278,9 @@ footer {
         display: inline;
         vertical-align: middle;
     }
+
     color: white;
+
     h1 {
         width: 70%;
         padding: 40px 0;

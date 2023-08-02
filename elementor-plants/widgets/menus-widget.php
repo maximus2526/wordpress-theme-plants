@@ -52,6 +52,19 @@ class Menus_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        $this->add_control(
+            'with_signs',
+            [
+                'label' => esc_html__('With Signs', 'elementor-addon'),
+                'type' => \Elementor\Controls_Manager::SELECT,
+                'options' => [
+                    'no' => false,
+                    'yes' => true
+                ],
+                'default' => 'no',
+            ]
+        );
+
 
 
 
@@ -64,8 +77,7 @@ class Menus_Widget extends \Elementor\Widget_Base
             wp_nav_menu(
                 array(
                     'menu' => $this->get_menus_names()[$settings['menus']],
-                    'menu_class' => $settings['vertical'] == 'no' ? 'display-flex gap' : '',
-
+                    'menu_class' => 'scheme-dark ' . ($settings['vertical'] == 'no' ? 'display-flex gap' : 'vertical-nav') . ($settings['with_signs'] == 'no' ? '' : ' menu-sign vertical-nav-item nav-img'),
                 )
 
             );

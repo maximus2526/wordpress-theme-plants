@@ -23,27 +23,32 @@ header .container {
   margin-bottom: 40px;
 }
 
-.vertical-nav {
-  border-right: 2px solid #5E6821;
-  align-self: center;
-  flex-basis: 30%;
-}
-.vertical-nav .vertical-nav-item {
+.vertical-nav li {
   margin-bottom: 20px;
 }
-.vertical-nav .vertical-nav-item:last-child {
+.vertical-nav li:last-child {
   margin-bottom: 0;
 }
-.vertical-nav .nav-title {
-  font-size: 38px;
+.vertical-nav li a:hover {
+  opacity: 50%;
 }
-.vertical-nav .nav-img {
+
+.vertical-nav-item li {
+  font-size: 38px;
+  margin-bottom: 20px;
+}
+.vertical-nav-item li:last-child {
+  margin-bottom: 0;
+}
+.vertical-nav-item li a:hover {
+  opacity: 50%;
+}
+
+.nav-img > ::after {
+  content: url("../../img/svg/dropdown-icons/ref-icon.svg");
   margin: 15px 0 0 10px;
   width: 15px;
   height: 30px;
-}
-.vertical-nav a:hover .nav-img {
-  opacity: 50%;
 }
 
 .top-slider {
