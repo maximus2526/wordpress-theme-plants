@@ -14,7 +14,8 @@ function theme_option_page()
         <h2><?php echo $settings_output['plants_page_title'];?></h2>
         <form method="post" action="options.php">
             <p class="submit">
-                <?php 
+                <?php
+                wp_nonce_field(); 
                 do_settings_sections(__FILE__);
                 // var_dump($settings_output['plants_page_fields']);
                 settings_fields($settings_output['plants_option_name']);
