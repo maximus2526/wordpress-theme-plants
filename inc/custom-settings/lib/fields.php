@@ -1,7 +1,7 @@
 <?php
 function get_sanitizes_values($options, $value)
 {
-    return isset($options[$value]) ? $options[$value] : '';
+    return isset($options[$value]) ? esc_html__($options[$value], 'plants') : '';
 }
 
 // header_section
