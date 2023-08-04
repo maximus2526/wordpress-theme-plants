@@ -12,7 +12,7 @@ if (post_password_required()) {
     <?php
     // Выводим список комментариев
     if (have_comments()) :
-    ?>
+        ?>
         <h2 class="comments-title">
             <?php
             $comments_number = get_comments_number();
@@ -36,7 +36,7 @@ if (post_password_required()) {
         the_comments_pagination();
         ?>
 
-    <?php
+        <?php
     endif;
     ?>
 

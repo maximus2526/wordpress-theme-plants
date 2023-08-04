@@ -19,8 +19,8 @@
     }
     ?>
     <header>
-        <div class="header-promo text-center <?php echo (get_option( 'plants_options' )['header_banner_hide_option'] != 'Yes') ? 'hide' : '' ?>">
-            <a href="<?php echo get_option( 'plants_options' )['header_banner_anchor'] ?>"><?php echo get_option( 'plants_options' )['header_banner_info'] ?></a>
+        <div class="header-promo text-center <?php echo (get_option('plants_options')['header_banner_hide_option'] != 'Yes') ? 'hide' : '' ?>">
+            <a href="<?php echo get_option('plants_options')['header_banner_anchor'] ?>"><?php echo get_option('plants_options')['header_banner_info'] ?></a>
         </div>
         <div class="container">
             <div class="header scheme-dark display-flex space-between">
@@ -31,7 +31,6 @@
                         array(
                             'menu' => 'header-menu',
                         )
-
                     )
                     ?>
                 </div>
@@ -59,7 +58,7 @@
                                 <span class="cart-count">
                                     <?php
                                     echo count(WC()->cart->get_cart())
-                                        ?>
+                                    ?>
                                 </span>
                             </a>
                         </div>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Main template file.
  *
@@ -9,8 +10,8 @@ get_header();
 
 ?>
 <main>
-   
-<?php the_content(); ?>
+
+    <?php the_content(); ?>
 
 </main>
 
