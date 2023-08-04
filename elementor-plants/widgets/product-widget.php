@@ -121,7 +121,7 @@ class Products_Widget extends \Elementor\Widget_Base
                 if ($settings['is_slider'] === 'yes') {
                     echo '<div  style="text-align: center;" class="swiper-slide">';
                 } 
-?>
+                ?>
                 <div style="text-align: center;" class="product ">
                     <?php
                     if (has_post_thumbnail()) {
@@ -163,7 +163,7 @@ class Products_Widget extends \Elementor\Widget_Base
 
 
 
-<?php
+                <?php
                 echo ' </div>'; // swiper-slide ::end
             }
 
@@ -186,10 +186,12 @@ class Products_Widget extends \Elementor\Widget_Base
 
     protected function get_product_categories()
     {
-        $categories = get_terms([
+        $categories = get_terms(
+            [
             'taxonomy' => 'product_cat',
             'hide_empty' => true,
-        ]);
+            ]
+        );
 
         $category_options = ['all' => esc_html__('All Products', 'elementor-addon')];
 

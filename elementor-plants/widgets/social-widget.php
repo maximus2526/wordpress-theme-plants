@@ -21,7 +21,8 @@ class Social_Links_Widget extends \Elementor\Widget_Base
         return ['theme-widgets'];
     }
 
-    protected function _register_controls() {
+    protected function _register_controls()
+    {
         $this->start_controls_section(
             'section_social_links',
             [

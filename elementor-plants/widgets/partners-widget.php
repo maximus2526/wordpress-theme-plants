@@ -21,7 +21,8 @@ class Partners_Links_Widget extends \Elementor\Widget_Base
         return ['theme-widgets'];
     }
 
-    protected function _register_controls() {
+    protected function _register_controls()
+    {
         
         $this->start_controls_section(
             'img_size',
@@ -29,8 +30,6 @@ class Partners_Links_Widget extends \Elementor\Widget_Base
                 'label' => esc_html__('Size', 'plants'),
             ]
         );
-
-        
 
         $this->add_control(
             'width',
@@ -109,7 +108,8 @@ class Partners_Links_Widget extends \Elementor\Widget_Base
 
         $this->end_controls_section();
     }
-    protected function render() {
+    protected function render()
+    {
         $settings = $this->get_settings_for_display();
         $width = $settings['width'];
         $height = $settings['height'];

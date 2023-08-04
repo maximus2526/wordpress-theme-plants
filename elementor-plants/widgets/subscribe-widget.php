@@ -1,5 +1,4 @@
 <?php
-
 class Subscribe_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
@@ -21,13 +20,14 @@ class Subscribe_Widget extends \Elementor\Widget_Base
     {
         return ['theme-widgets'];
     }
+
     protected function render()
     {
-    ?>
-            <form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
-                <input placeholder="Enter your email" type="email" name="subscribe-email">
-                <button class="button" type="submit">Subscribe</button>
-            </form>
-    <?php
+        ?>
+        <form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
+            <input placeholder="Enter your email" type="email" name="subscribe-email">
+            <button class="button" type="submit">Subscribe</button>
+        </form>
+        <?php
     }
 }

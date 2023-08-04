@@ -140,15 +140,15 @@ class Articles_Widget extends \Elementor\Widget_Base
             } else {
                 ?>
                 <div class="row">
-    <?php
-                            while ($articles_query->have_posts()) {
-                                $articles_query->the_post();
-                                ?>
+                <?php
+                while ($articles_query->have_posts()) {
+                    $articles_query->the_post();
+                    ?>
 
             <div class="col-12">
                 <div class="article display-flex align-center gap">
                     <div class="article-img">
-                        <?php echo get_the_post_thumbnail(); ?>
+                    <?php echo get_the_post_thumbnail(); ?>
                     </div>
 
                     <div class="article-content-wrapper display-flex space-between align-center">
@@ -170,11 +170,11 @@ class Articles_Widget extends \Elementor\Widget_Base
                 </div>
             </div>
 
-            <?php
-                            }
-                            ?>
+                    <?php
+                }
+                ?>
                 </div>
-<?php
+                <?php
             }
 
             wp_reset_postdata();
@@ -191,10 +191,12 @@ class Articles_Widget extends \Elementor\Widget_Base
 
     protected function get_article_categories()
     {
-        $categories = get_terms([
+        $categories = get_terms(
+            [
             'taxonomy' => 'category',
             'hide_empty' => true,
-        ]);
+            ]
+        );
 
         $category_options = ['all' => esc_html__('All Articles', 'elementor-addon')];
 

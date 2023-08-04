@@ -26,8 +26,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base
 
     protected function render()
     {
-?>
-
+        ?>
         <div class="profile-section display-flex align-center gap col-right scheme-dark">
             <div class="search-field">
                 <a href><img src="<?php echo PLANTS_IMG_URI ?>/svg/search.svg" alt="search-sign"></a>
@@ -45,8 +44,8 @@ class User_Panel_Widget extends \Elementor\Widget_Base
                 </div>
                 <div class="cart">
                     <?php
-                    global $woocommerce;
-                    if (!WC()->cart) {
+                    global $woocommerce; 
+                    if(!WC()->cart ) {
                         return;
                     }
                     ?>
@@ -60,6 +59,6 @@ class User_Panel_Widget extends \Elementor\Widget_Base
 
             </div>
         </div>
-<?php
+        <?php
     }
 }
