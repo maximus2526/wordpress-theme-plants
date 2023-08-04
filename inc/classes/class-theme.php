@@ -2,7 +2,7 @@
 /**
  * Bootstraps the Theme.
  *
- * @package THEME
+ * @package PLANTS
  */
 
 namespace PLANTS\Inc;

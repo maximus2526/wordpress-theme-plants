@@ -170,8 +170,8 @@ class Products_Widget extends \Elementor\Widget_Base
             wp_reset_postdata();
             if ($settings['is_slider'] === 'yes') {
                 echo '</div>'; // Close .swiper
-                echo '<div class="swiper-button-prev"><img src="' . THEME_IMG_URI . '/svg/swiper/slider-left.svg" alt=""></div>';
-                echo '<div class="swiper-button-next"><img src="' . THEME_IMG_URI . '/svg/swiper/slider-right.svg" alt=""></div>';
+                echo '<div class="swiper-button-prev"><img src="' . PLANTS_IMG_URI . '/svg/swiper/slider-left.svg" alt=""></div>';
+                echo '<div class="swiper-button-next"><img src="' . PLANTS_IMG_URI . '/svg/swiper/slider-right.svg" alt=""></div>';
                 echo '</div>'; // Close .swiper-wrapper 
             } else {
                 echo '</div>';

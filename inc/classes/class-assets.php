@@ -2,7 +2,7 @@
 /**
  * Enqueue theme assets
  *
- * @package THEME
+ * @package PLANTS
  */
 
 namespace PLANTS\Inc;
@@ -41,7 +41,7 @@ class Assets {
 
 	public function register_scripts() {
 		// Register scripts.
-		wp_register_script( 'main-js', THEME_JS_URI . '/main.js', [], filemtime( THEME_JS_DIR_PATH . '/main.js' ), true );
+		wp_register_script( 'main-js', PLANTS_JS_URI . '/main.js', [], filemtime( PLANTS_JS_DIR_PATH . '/main.js' ), true );
 		wp_register_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js', [], true );
 
 

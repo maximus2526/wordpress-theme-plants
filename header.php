@@ -36,11 +36,11 @@
                     ?>
                 </div>
                 <div class="logo-section">
-                    <a href="/"><img src="<?php echo THEME_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
+                    <a href="/"><img src="<?php echo PLANTS_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
                 </div>
                 <div class="profile-section display-flex align-center gap col-right">
                     <div class="search-field">
-                        <a href><img src="<?php echo THEME_IMG_URI ?>/svg/search.svg" alt="search-sign"></a>
+                        <a href><img src="<?php echo PLANTS_IMG_URI ?>/svg/search.svg" alt="search-sign"></a>
                     </div>
                     <div class="auth display-flex gap-5">
                         <a href="">Login</a> / <a href="#">Register</a>
@@ -49,13 +49,13 @@
                     <div class="cart-section display-flex gap ">
                         <div class="favorite">
                             <a href class="display-flex gap-5">
-                                <img src="<?php echo THEME_IMG_URI ?>/svg/profile-icons/favorite.svg" alt>
+                                <img src="<?php echo PLANTS_IMG_URI ?>/svg/profile-icons/favorite.svg" alt>
                                 <span class="favorite-count">0</span>
                             </a>
                         </div>
                         <div class="cart">
                             <a href="<?php echo esc_url(wc_get_cart_url()) ?>" class="display-flex gap-5">
-                                <img src="<?php echo THEME_IMG_URI ?>/svg/profile-icons/cart.svg" alt>
+                                <img src="<?php echo PLANTS_IMG_URI ?>/svg/profile-icons/cart.svg" alt>
                                 <span class="cart-count">
                                     <?php
                                     echo count(WC()->cart->get_cart())

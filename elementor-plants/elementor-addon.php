@@ -13,15 +13,15 @@ if (!defined('ABSPATH')) {
 }
 function register_widgets( $widgets_manager ) {
 
-	require_once( __DIR__ . '/widgets/product-widget.php' );
-	require_once( __DIR__ . '/widgets/article-widget.php' );
-	require_once( __DIR__ . '/widgets/menus-widget.php' );
-	require_once( __DIR__ . '/widgets/custom-stars-widget.php' );
-	require_once( __DIR__ . '/widgets/user-panel-widget.php' );
-	require_once( __DIR__ . '/widgets/logo-widget.php' );
-	require_once( __DIR__ . '/widgets/subscribe-widget.php' );
-	require_once( __DIR__ . '/widgets/social-widget.php' );
-	require_once( __DIR__ . '/widgets/partners-widget.php' );
+	include_once( __DIR__ . '/widgets/product-widget.php');
+	include_once( __DIR__ . '/widgets/article-widget.php');
+	include_once( __DIR__ . '/widgets/menus-widget.php' );
+	include_once( __DIR__ . '/widgets/custom-stars-widget.php');
+	include_once( __DIR__ . '/widgets/user-panel-widget.php');
+	include_once( __DIR__ . '/widgets/logo-widget.php');
+	include_once( __DIR__ . '/widgets/subscribe-widget.php');
+	include_once( __DIR__ . '/widgets/social-widget.php');
+	include_once( __DIR__ . '/widgets/partners-widget.php');
 
 	$widgets_manager->register( new \Products_Widget() );
 	$widgets_manager->register( new \Articles_Widget() );

@@ -30,6 +30,8 @@ class Partners_Links_Widget extends \Elementor\Widget_Base
             ]
         );
 
+        
+
         $this->add_control(
             'width',
             [

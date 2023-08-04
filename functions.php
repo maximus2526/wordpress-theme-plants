@@ -2,51 +2,25 @@
 /**
  * Theme Functions.
  *
- * @package THEME
+ * @package PLANTS
  */
 
 
-if (!defined('THEME_DIR_PATH')) {
-	define('THEME_DIR_PATH', untrailingslashit(get_template_directory()));
-}
 
-if (!defined('THEME_DIR_URI')) {
-	define('THEME_DIR_URI', untrailingslashit(get_template_directory_uri()));
-}
+	define('PLANTS_DIR_PATH', untrailingslashit(get_template_directory()));
+	define('PLANTS_DIR_URI', untrailingslashit(get_template_directory_uri()));
+	define('PLANTS_URI', untrailingslashit(get_template_directory_uri()) . '/assets');
+	define('PLANTS_PATH', untrailingslashit(get_template_directory()) . '/assets');
+	define('PLANTS_JS_URI', untrailingslashit(get_template_directory_uri()) . '/assets/js');
+	define('PLANTS_JS_DIR_PATH', untrailingslashit(get_template_directory()) . '/assets/js');
+	define('PLANTS_IMG_URI', untrailingslashit(get_template_directory_uri()) . '/assets/img');
+	define('PLANTS_CSS_URI', untrailingslashit(get_template_directory_uri()) . '/assets/css');
+	define('PLANTS_CSS_DIR_PATH', untrailingslashit(get_template_directory()) . '/assets/css');
 
-if (!defined('THEME_URI')) {
-	define('THEME_URI', untrailingslashit(get_template_directory_uri()) . '/assets');
-}
-
-if (!defined('THEME_PATH')) {
-	define('THEME_PATH', untrailingslashit(get_template_directory()) . '/assets');
-}
-
-if (!defined('THEME_JS_URI')) {
-	define('THEME_JS_URI', untrailingslashit(get_template_directory_uri()) . '/assets/js');
-}
-
-if (!defined('THEME_JS_DIR_PATH')) {
-	define('THEME_JS_DIR_PATH', untrailingslashit(get_template_directory()) . '/assets/js');
-}
-
-if (!defined('THEME_IMG_URI')) {
-	define('THEME_IMG_URI', untrailingslashit(get_template_directory_uri()) . '/assets/img');
-}
-
-if (!defined('THEME_CSS_URI')) {
-	define('THEME_CSS_URI', untrailingslashit(get_template_directory_uri()) . '/assets/css');
-}
-
-if (!defined('THEME_CSS_DIR_PATH')) {
-	define('THEME_CSS_DIR_PATH', untrailingslashit(get_template_directory()) . '/assets/css');
-}
+require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
 
 
-require_once THEME_DIR_PATH . '/inc/helpers/autoloader.php';
-
-
-function theme_get_theme_instance()
+function plants_get_theme_instance()
 {
 	PLANTS\Inc\THEME::get_instance();
 }
@@ -78,8 +52,9 @@ function custom_allow_svg_in_content( $tags ) {
 }
 add_filter( 'wp_kses_allowed_html', 'custom_allow_svg_in_content' );
 
-theme_get_theme_instance();
+plants_get_theme_instance();
 
-if(is_admin()){
-    require_once 'inc/custom-settings/custom-settings.php';
+if (is_admin()){
+    require_once('inc/custom-settings/custom-settings.php');
 }
+

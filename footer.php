@@ -11,7 +11,7 @@
             </section>
 
             <div class="logo-section">
-                <a href="/"><img src="<?php echo THEME_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
+                <a href="/"><img src="<?php echo PLANTS_IMG_URI ?>/svg/logo.svg" alt="Woodmart"></a>
             </div>
             <div class="subscribe-block display-flex column gap">
                 <label for="footer-subscribe-input">Join our newsletter
@@ -72,7 +72,7 @@
             <span>WoodMart. 2023 created by Xtemos Studio.</span>
         </div>
         <div class="partners">
-            <img src="<?php echo THEME_IMG_URI ?>/svg/partners.svg" alt>
+            <img src="<?php echo PLANTS_IMG_URI ?>/svg/partners.svg" alt>
         </div>
     </div>
 

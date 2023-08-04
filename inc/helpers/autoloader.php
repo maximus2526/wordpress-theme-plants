@@ -1,6 +1,6 @@
 <?php
 /**
- * Autoloader file for theme.
+ * Autoloader file for PLANTS.
  *
  * @package PLANTS
  */
@@ -68,7 +68,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( THEME_DIR_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( PLANTS_DIR_PATH ), $directory, $file_name );
 
 	}
 

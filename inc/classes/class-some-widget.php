@@ -2,14 +2,14 @@
 /**
  * Clock Widget
  *
- * @package Aquila
+ * @package PLANTS
  */
 
 namespace PLANTS\Inc;
 
 use WP_Widget;
 
-use AQUILA_THEME\Inc\Traits\Singleton;
+use PLANTS\Inc\Traits\Singleton;
 
 class Some_Widget extends WP_Widget {
 
