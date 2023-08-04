@@ -3,7 +3,7 @@ get_header();
 ?>
 <div class="container">
     <?php
-    if (function_exists('is_product') && is_product()) {
+    if (is_product()) {
         woocommerce_content();
         comments_template();
     } else if (have_posts()) {

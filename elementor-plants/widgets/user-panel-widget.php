@@ -1,6 +1,7 @@
 <?php
 class User_Panel_Widget extends \Elementor\Widget_Base
 {
+    
     public function get_name()
     {
         return 'user_panel_widget';

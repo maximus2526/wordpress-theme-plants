@@ -9,7 +9,7 @@
  */
 
 if (!defined('ABSPATH')) {
-    exit; // Защита от прямого доступа к файлу
+    exit; 
 }
 function register_widgets( $widgets_manager )
 {
@@ -17,7 +17,6 @@ function register_widgets( $widgets_manager )
     include_once __DIR__ . '/widgets/product-widget.php';
     include_once __DIR__ . '/widgets/article-widget.php';
     include_once __DIR__ . '/widgets/menus-widget.php';
-    include_once __DIR__ . '/widgets/custom-stars-widget.php';
     include_once __DIR__ . '/widgets/user-panel-widget.php';
     include_once __DIR__ . '/widgets/logo-widget.php';
     include_once __DIR__ . '/widgets/subscribe-widget.php';
@@ -27,7 +26,6 @@ function register_widgets( $widgets_manager )
     $widgets_manager->register(new \Products_Widget());
     $widgets_manager->register(new \Articles_Widget());
     $widgets_manager->register(new \Menus_Widget());
-    $widgets_manager->register(new \Widget_Star_Rating_Plus());
     $widgets_manager->register(new \User_Panel_Widget());
     $widgets_manager->register(new \Custom_Logo_Widget());
     $widgets_manager->register(new \Subscribe_Widget());
