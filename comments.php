@@ -14,7 +14,7 @@ if (post_password_required()) {
         <h2 class="comments-title">
             <?php
             $comments_number = get_comments_number();
-            if ($comments_number === 1) {
+            if (1 === $comments_number) {
                 echo esc_html__('1 Comment', 'plants');
             } else {
                 echo $comments_number . esc_html__(' Comments', 'plants');
