@@ -162,6 +162,9 @@ footer .subscribe-block label {
 footer .subscribe-block input {
   width: 70%;
 }
+footer .subscribe-block input::-moz-placeholder {
+  padding-left: 10px;
+}
 footer .subscribe-block input::placeholder {
   padding-left: 10px;
 }

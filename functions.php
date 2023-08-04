@@ -80,4 +80,6 @@ add_filter( 'wp_kses_allowed_html', 'custom_allow_svg_in_content' );
 
 theme_get_theme_instance();
 
-include 'inc/helpers/custom-settings.php';
+if(is_admin()){
+    require_once 'inc/custom-settings/custom-settings.php';
+}

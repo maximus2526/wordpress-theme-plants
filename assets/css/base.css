@@ -31,7 +31,7 @@
 }
 
 /* Glogal options */
-.closed {
+.hide {
   display: none;
 }
 
@@ -304,6 +304,9 @@
 .input-form {
   align-items: center;
   gap: 5px;
+}
+.input-form .input-field::-moz-placeholder {
+  padding-left: 20px;
 }
 .input-form .input-field::placeholder {
   padding-left: 20px;

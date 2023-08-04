@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
 
 </head>
-<?php if (!is_front_page()): ?> 
+
 <body <?php body_class(); ?>>
 
     <?php
@@ -19,10 +19,8 @@
     }
     ?>
     <header>
-        <div class="header-promo text-center">
-            <a href="#">Sign up for our newsletter to get 10% off for the
-                week!</a>
-
+        <div class="header-promo text-center <?php echo (get_option( 'plants_options' )['header_banner_hide_option'] != 'Yes') ? 'hide' : '' ?>">
+            <a href="<?php echo get_option( 'plants_options' )['header_banner_anchor'] ?>"><?php echo get_option( 'plants_options' )['header_banner_info'] ?></a>
         </div>
         <div class="container">
             <div class="header scheme-dark display-flex space-between">
@@ -71,4 +69,3 @@
         </div>
     </header>
 
-    <?php endif; ?> 
