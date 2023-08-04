@@ -3,14 +3,14 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
     {
-        return 'logo_widget';
+        return esc_html('logo_widget', 'plants');
     }
 
     public function get_title()
     {
         return esc_html__('Logo Widget', 'elementor-addon');
     }
-
+ 
     public function get_icon()
     {
         return 'eicon-logo';

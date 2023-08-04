@@ -1,4 +1,5 @@
 <?php
+
 class Social_Links_Widget extends \Elementor\Widget_Base
 {
     public function get_name()

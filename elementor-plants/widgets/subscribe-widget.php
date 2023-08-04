@@ -3,7 +3,7 @@ class Subscribe_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
     {
-        return 'subscribe_widget';
+        return esc_html__('subscribe_widget', 'plants');
     }
 
     public function get_title()

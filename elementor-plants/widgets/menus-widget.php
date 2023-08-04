@@ -3,7 +3,7 @@ class Menus_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
     {
-        return 'menus_widget';
+        return esc_html('menus_widget', 'plants');
     }
 
     public function get_title()

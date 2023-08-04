@@ -3,7 +3,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base
 {
     public function get_name()
     {
-        return 'partners_links_widget';
+        return esc_html('partners_links_widget', 'plants');
     }
 
     public function get_title()
@@ -119,7 +119,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base
                 
                 $url = $link['partner_url']['url'];
                 $image_url = $link['partner_img']['url'];
-                echo '<a href="' . esc_url($url) . '"><img style="width: '. $width .'; height: '. $height .';" src="' . $image_url . '"></a>';
+                echo '<a href="' . esc_url($url) . '"><img style="width: '. esc_html( $width , 'plants') .'; height: '. esc_html($height, 'plants') .';" src="' . esc_url($image_url) . '"></a>';
             }
         }
         echo '</div>';
