@@ -1,44 +1,62 @@
 <?php
 /**
- * Bootstraps the Theme.
+ * Register menus
  *
- * @package PLANTS
+ * @package  plants
+ * @author   Maxim Kliakhin
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://www.hashbangcode.com/
  */
 
 namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
 
-class Menus
-{
-    use Singleton;
+/**
+ * Menus
+ */
+class Menus {
 
-    protected function __construct()
-    {
-        Menus::get_instance();
-        $this->setup_hooks();
-    
-    }
+	use Singleton;
 
-    protected function setup_hooks()
-    {
-        add_action('init', 'register_my_menus');
-    }
+	/**
+	 * __construct
+	 *
+	 * @return void
+	 */
+	protected function __construct() {
+		self::get_instance();
+		$this->setup_hooks();
 
-    protected function register_my_menus()
-    {
-        register_nav_menus(
-            array(
-            'header-menu' => __('header-menu'),
-            )
-        );
-    }
-       
-    /**
-     * Setup theme.
-     *
-     * @return void
-     */
+	}
+
+	/**
+	 * setup_hooks
+	 *
+	 * @return void
+	 */
+	protected function setup_hooks() {
+		add_action( 'init', 'register_my_menus' );
+	}
+
+	/**
+	 * register_my_menus
+	 *
+	 * @return void
+	 */
+	protected function register_my_menus() {
+		register_nav_menus(
+			array(
+				'header-menu' => __( 'header-menu' ),
+			)
+		);
+	}
+
+	/**
+	 * Setup theme.
+	 *
+	 * @return void
+	 */
 
 
 }

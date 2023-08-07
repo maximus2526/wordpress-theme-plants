@@ -8,43 +8,54 @@
  * Text Domain: plants
  */
 
-if (!defined('ABSPATH')) {
-    exit; 
-}
-function register_widgets( $widgets_manager )
-{
-
-    include_once __DIR__ . '/widgets/product-widget.php';
-    include_once __DIR__ . '/widgets/article-widget.php';
-    include_once __DIR__ . '/widgets/menus-widget.php';
-    include_once __DIR__ . '/widgets/user-panel-widget.php';
-    include_once __DIR__ . '/widgets/logo-widget.php';
-    include_once __DIR__ . '/widgets/subscribe-widget.php';
-    include_once __DIR__ . '/widgets/social-widget.php';
-    include_once __DIR__ . '/widgets/partners-widget.php';
-
-    $widgets_manager->register(new \Products_Widget());
-    $widgets_manager->register(new \Articles_Widget());
-    $widgets_manager->register(new \Menus_Widget());
-    $widgets_manager->register(new \User_Panel_Widget());
-    $widgets_manager->register(new \Custom_Logo_Widget());
-    $widgets_manager->register(new \Subscribe_Widget());
-    $widgets_manager->register(new \Social_Links_Widget());
-    $widgets_manager->register(new \Partners_Links_Widget());
-
-}
-function custom_elementor_widget_category($elements_manager)
-{
-    $elements_manager->add_category(
-        'theme-widgets',
-        [
-            'title' => __('Theme Widgets', 'plants'), 
-            'icon' => 'fa fa-plug', 
-        ]
-    );
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-add_action('elementor/elements/categories_registered', 'custom_elementor_widget_category');
+/**
+ * register_widgets
+ *
+ * @param  mixed $widgets_manager
+ * @return void
+ */
+function register_widgets( $widgets_manager ) {
+	include_once __DIR__ . '/widgets/product-widget.php';
+	include_once __DIR__ . '/widgets/article-widget.php';
+	include_once __DIR__ . '/widgets/menus-widget.php';
+	include_once __DIR__ . '/widgets/user-panel-widget.php';
+	include_once __DIR__ . '/widgets/logo-widget.php';
+	include_once __DIR__ . '/widgets/subscribe-widget.php';
+	include_once __DIR__ . '/widgets/social-widget.php';
+	include_once __DIR__ . '/widgets/partners-widget.php';
+
+	$widgets_manager->register( new \Products_Widget() );
+	$widgets_manager->register( new \Articles_Widget() );
+	$widgets_manager->register( new \Menus_Widget() );
+	$widgets_manager->register( new \User_Panel_Widget() );
+	$widgets_manager->register( new \Custom_Logo_Widget() );
+	$widgets_manager->register( new \Subscribe_Widget() );
+	$widgets_manager->register( new \Social_Links_Widget() );
+	$widgets_manager->register( new \Partners_Links_Widget() );
+
+}
+
+/**
+ * custom_elementor_widget_category
+ *
+ * @param  mixed $elements_manager
+ * @return void
+ */
+function custom_elementor_widget_category( $elements_manager ) {
+	$elements_manager->add_category(
+		'theme-widgets',
+		array(
+			'title' => __( 'Theme Widgets', 'plants' ),
+			'icon'  => 'fa fa-plug',
+		)
+	);
+}
+
+add_action( 'elementor/elements/categories_registered', 'custom_elementor_widget_category' );
 
 
-add_action('elementor/widgets/register', 'register_widgets');
+add_action( 'elementor/widgets/register', 'register_widgets' );

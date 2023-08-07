@@ -1,11 +1,22 @@
-<?php if (is_search() ) : ?>
+<?php
+/**
+ * Content None
+ *
+ * @package  plants
+ * @author   Maxim Kliakhin
+ * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link     http://www.hashbangcode.com/
+ */
 
-<p><?php esc_html_e('Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'plants'); ?></p>
-    <?php get_search_form(); ?>
+if ( is_search() ) :
+	?>
+
+<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'plants' ); ?></p>
+	<?php get_search_form(); ?>
 
 <?php else : ?>
 
-<p><?php esc_html_e('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'plants'); ?></p>
-    <?php get_search_form(); ?>
+<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'plants' ); ?></p>
+	<?php get_search_form(); ?>
 
 <?php endif; ?>
