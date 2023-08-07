@@ -65,7 +65,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	protected function render() {       ?>
 		<div class="profile-section display-flex align-center gap col-right scheme-dark">
 			<div class="search-field">
-				<a href><img src="<?php echo esc_html__(PLANTS_IMG_URI, 'plants'); ?>/svg/search.svg" alt="search-sign"></a>
+				<a href><img src="<?php echo esc_html__( PLANTS_IMG_URI, 'plants' ); ?>/svg/search.svg" alt="search-sign"></a>
 			</div>
 			<div class="auth display-flex gap-5">
 				<a href="">Login</a> / <a href="/wp-login.php?action=register">Register</a>
@@ -74,7 +74,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 			<div class="cart-section display-flex gap ">
 				<div class="favorite">
 					<a href class="display-flex gap-5">
-						<img src="<?php echo esc_html__(PLANTS_IMG_URI, 'plants'); ?>/svg/profile-icons/favorite.svg" alt>
+						<img src="<?php echo esc_html__( PLANTS_IMG_URI, 'plants' ); ?>/svg/profile-icons/favorite.svg" alt>
 						<span class="favorite-count">0</span>
 					</a>
 				</div>
