@@ -26,9 +26,8 @@ require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
  *
  * @return void
  */
-function plants_get_theme_instance()
-{
-    PLANTS\Inc\THEME::get_instance();
+function plants_get_theme_instance() {
+	PLANTS\Inc\THEME::get_instance();
 }
 
 

@@ -99,10 +99,7 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		if ( $settings['choice'] === 'upload' ) {
-			echo '<img src="' . $settings['upload_image']['url'] . '">';
-			$this->add_render_attribute( 'image', 'alt', \Elementor\Control_Media::get_image_alt( $settings['image'] ) );
-			$this->add_render_attribute( 'image', 'title', \Elementor\Control_Media::get_image_title( $settings['image'] ) );
-			$this->add_render_attribute( 'image', 'class', 'my-custom-class' );
+			echo '<img src="' . $settings['upload_image']['url'] . '">';  // Todo: переробити без Img
 		} else {
 			the_custom_logo();
 		}

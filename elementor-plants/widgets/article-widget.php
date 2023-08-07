@@ -8,7 +8,7 @@
  * @link     http://www.hashbangcode.com/
  */
 
-use \Elementor;
+
 use \Elementor\Controls_Manager;
 
 /**
