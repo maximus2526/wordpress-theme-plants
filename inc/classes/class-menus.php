@@ -26,7 +26,7 @@ class Menus {
 	 */
 	protected function __construct() {
 		self::get_instance();
-		$this->setup_hooks();
+		$this->plants_setup_hooks();
 
 	}
 
@@ -35,7 +35,7 @@ class Menus {
 	 *
 	 * @return void
 	 */
-	protected function setup_hooks() {
+	protected function plants_setup_hooks() {
 		add_action( 'init', 'register_my_menus' );
 	}
 
@@ -44,7 +44,7 @@ class Menus {
 	 *
 	 * @return void
 	 */
-	protected function register_my_menus() {
+	protected function plants_register_my_menus() {
 		register_nav_menus(
 			array(
 				'header-menu' => __( 'header-menu' ),

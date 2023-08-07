@@ -23,10 +23,10 @@ function autoloader( $resource = '' ) {
 	$namespace_root = 'PLANTS\\';
 	$resource       = trim( $resource, '\\' );
 
-	if ( false === empty( $resource ) || strpos( $resource, '\\' ) || 0 !== strpos( $resource, $namespace_root ) ) {
+ if (empty($resource) || false === strpos($resource, '\\') || 0 !== strpos($resource, $namespace_root) ) {
 		// Not our namespace, bail out.
 		return;
-	}
+}
 
 	// Remove our root namespace.
 	$resource = str_replace( $namespace_root, '', $resource );

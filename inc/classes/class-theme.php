@@ -27,7 +27,7 @@ class THEME {
 	protected function __construct() {
 		// Load class.
 		Assets::get_instance();
-		$this->setup_hooks();
+		$this->plants_setup_hooks();
 	}
 
 	/**
@@ -35,7 +35,7 @@ class THEME {
 	 *
 	 * @return void
 	 */
-	protected function setup_hooks() {
+	protected function plants_setup_hooks() {
 		/**
 		 * Actions.
 		 */
