@@ -12,6 +12,9 @@ namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
 
+/**
+ * THEME
+ */
 class THEME {
 
 	use Singleton;
