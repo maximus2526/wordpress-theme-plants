@@ -11,6 +11,8 @@
 /**
  * Custom_Logo_Widget
  */
+use \Elementor\Controls_Manager;
+use \Elementor\Utils;
 class Custom_Logo_Widget extends \Elementor\Widget_Base {
 
 	/**
@@ -67,7 +69,7 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 			'choice',
 			array(
 				'label'   => esc_html__( 'Choose Image:', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'default' => 'Default',
 					'upload'  => 'Upload',
@@ -80,13 +82,13 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 			'upload_image',
 			array(
 				'label'      => esc_html__( 'Choose Image', 'elementor-addon' ),
-				'type'       => \Elementor\Controls_Manager::MEDIA,
+				'type'       => Controls_Manager::MEDIA,
 				'media_type' => 'image',
 				'condition'  => array(
 					'choice' => 'upload',
 				),
 				'default'    => array(
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
+					'url' => Utils::get_placeholder_image_src(),
 				),
 			)
 		);

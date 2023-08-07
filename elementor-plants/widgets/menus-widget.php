@@ -7,7 +7,7 @@
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://www.hashbangcode.com/
  */
-
+use \Elementor\Controls_Manager;
 class Menus_Widget extends \Elementor\Widget_Base {
 
 	/**
@@ -63,7 +63,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 			'menus',
 			array(
 				'label'   => esc_html__( 'Choice Menu', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => $this->get_menus_names(),
 			)
 		);
@@ -71,7 +71,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 			'vertical',
 			array(
 				'label'   => esc_html__( 'Vertical', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'no'  => false,
 					'yes' => true,
@@ -84,7 +84,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 			'with_signs',
 			array(
 				'label'   => esc_html__( 'With Signs', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'no'  => false,
 					'yes' => true,

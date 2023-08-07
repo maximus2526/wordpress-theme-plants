@@ -11,6 +11,8 @@
 /**
  * Products_Widget
  */
+
+	use \Elementor\Controls_Manager;
 class Products_Widget extends \Elementor\Widget_Base {
 
 	/**
@@ -66,7 +68,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			'category',
 			array(
 				'label'   => esc_html__( 'Product Category', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => $this->get_product_categories(),
 				'default' => 'all',
 			)
@@ -76,7 +78,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			'posts_per_page',
 			array(
 				'label'   => esc_html__( 'Number of Products', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::NUMBER,
+				'type'    => Controls_Manager::NUMBER,
 				'default' => 4,
 			)
 		);
@@ -85,7 +87,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			'is_slider',
 			array(
 				'label'   => esc_html__( 'Is slider', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'no'  => false,
 					'yes' => true,
@@ -98,7 +100,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			'add_to_container',
 			array(
 				'label'   => esc_html__( 'Add To Container?', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'no'  => false,
 					'yes' => true,

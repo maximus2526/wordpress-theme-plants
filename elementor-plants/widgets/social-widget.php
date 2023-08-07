@@ -11,6 +11,8 @@
 /**
  * Social_Links_Widget
  */
+
+use \Elementor\Controls_Manager;
 class Social_Links_Widget extends \Elementor\Widget_Base {
 
 	/**
@@ -68,7 +70,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 			'social_url',
 			array(
 				'label'         => esc_html__( 'URL', 'plants' ),
-				'type'          => \Elementor\Controls_Manager::URL,
+				'type'          => Controls_Manager::URL,
 				'placeholder'   => esc_html__( 'https://your-social-url.com', 'plants' ),
 				'show_external' => true,
 				'default'       => array(
@@ -83,7 +85,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 			'social_abbreviation',
 			array(
 				'label'   => esc_html__( 'Abbreviation', 'plants' ),
-				'type'    => \Elementor\Controls_Manager::TEXT,
+				'type'    => Controls_Manager::TEXT,
 				'default' => 'FB',
 			)
 		);
@@ -92,7 +94,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 			'social_links_list',
 			array(
 				'label'   => esc_html__( 'Social Links List', 'plants' ),
-				'type'    => \Elementor\Controls_Manager::REPEATER,
+				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => array(
 					array(

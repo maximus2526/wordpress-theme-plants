@@ -11,6 +11,7 @@
 /**
  * Subscribe_Widget
  */
+
 class Subscribe_Widget extends \Elementor\Widget_Base {
 
 	/**

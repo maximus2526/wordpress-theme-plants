@@ -11,6 +11,9 @@
 /**
  * Partners_Links_Widget
  */
+
+use \Elementor\Controls_Manager;
+use \Elementor\Utils;
 class Partners_Links_Widget extends \Elementor\Widget_Base {
 
 	/**
@@ -66,7 +69,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 			'width',
 			array(
 				'label'   => esc_html__( 'Width', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::TEXT,
+				'type'    => Controls_Manager::TEXT,
 				'default' => '60px',
 			)
 		);
@@ -74,7 +77,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 			'height',
 			array(
 				'label'   => esc_html__( 'Height', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::TEXT,
+				'type'    => Controls_Manager::TEXT,
 				'default' => '40px',
 			)
 		);
@@ -94,7 +97,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 			'partner_url',
 			array(
 				'label'         => esc_html__( 'URL', 'plants' ),
-				'type'          => \Elementor\Controls_Manager::URL,
+				'type'          => Controls_Manager::URL,
 				'placeholder'   => esc_html__( 'https://your-partner-url.com', 'plants' ),
 				'show_external' => true,
 				'default'       => array(
@@ -109,9 +112,9 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 			'partner_img',
 			array(
 				'label'   => esc_html__( 'Choose Image', 'elementor-addon' ),
-				'type'    => \Elementor\Controls_Manager::MEDIA,
+				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
-					'url' => \Elementor\Utils::get_placeholder_image_src(),
+					'url' => Utils::get_placeholder_image_src(),
 				),
 			)
 		);
@@ -120,7 +123,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 			'partner_links_list',
 			array(
 				'label'   => esc_html__( 'Social Links List', 'plants' ),
-				'type'    => \Elementor\Controls_Manager::REPEATER,
+				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => array(
 					array(
