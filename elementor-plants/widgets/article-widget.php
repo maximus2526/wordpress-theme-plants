@@ -88,7 +88,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 			'is_slider',
 			array(
 				'label'   => esc_html__( 'Is slider', 'elementor-addon' ),
-				'type'    => Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SWITCHER,
 				'options' => array(
 					'no'  => false,
 					'yes' => true,

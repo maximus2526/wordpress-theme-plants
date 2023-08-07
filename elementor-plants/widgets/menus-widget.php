@@ -71,7 +71,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 			'vertical',
 			array(
 				'label'   => esc_html__( 'Vertical', 'elementor-addon' ),
-				'type'    => Controls_Manager::SELECT,
+				'type'    => Controls_Manager::SWITCHER,
 				'options' => array(
 					'no'  => false,
 					'yes' => true,
