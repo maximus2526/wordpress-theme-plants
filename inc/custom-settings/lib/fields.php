@@ -32,7 +32,7 @@ function render_header_banner_text_field() {
 	$options = get_option( 'plants_options' );
 	?>
 	<input type='text' name='plants_options[header_banner_info]' value='<?php echo get_sanitizes_values( $options, 'header_banner_info' ); ?>'>
-
+	
 	<?php
 }
 
@@ -75,30 +75,50 @@ function plants_hide_header_banner() {
  * @return void
  */
 function render_menu_choice_field() {
-	$options = get_option( 'plants_options' );
+	$options     = get_option( 'plants_options' );
+	$menus_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
 	?>
-   
-		<?php
-		// if (isset(has_nav_menu()))  Зроби потім перевірку
-		$locations = get_nav_menu_locations();
-		var_dump( $locations );
-		$menus_name = array();
-		foreach ( $locations as $location ) {
-			var_dump( $location );
-			$menus_names[] = wp_get_nav_menu_name( $location );
-		}
-
-		var_dump( $menus_name );
+	<select name='plants_options[header_menu]'>
+	<?php
+	foreach ( $menus_names as $name ) :
 		?>
-
-
-
+		<option value='<?php echo esc_html__( $name, 'plants' ); ?>' <?php selected( get_sanitizes_values( $options, 'header_menu' ), esc_html__( $name, 'plants' ) ); ?>><?php echo esc_html__( $name, 'plants' ); ?></option>
+		<?php
+	endforeach;
+	?>
+	</select>
 	<?php
 }
 
 
 
 // footer sections
+
+/**
+ * render_footer_menus_field
+ *
+ * @return void
+ */
 function render_footer_menus_field() {
-	$options = get_option( 'plants_options' );
+	$options     = get_option( 'plants_options' );
+	$menus_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
+	?>
+	<?php
+	$input_id = 1;
+	foreach ( $menus_names as $name ) :
+		$name = esc_html__( $name, 'plants' );
+		?>
+		</br>
+		<div class="row">
+			<!-- Не зберігає -->
+			<input value="<?php echo get_sanitizes_values( $options, $name . '_title' ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo $name . '_title'; ?> ]">
+			<label for="<?php echo 'footer_menu_' . $input_id; ?>"><?php echo $name; ?></label>
+			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . $input_id; ?>" value="<?php echo $name; ?>"  name='plants_options[<?php echo $name; ?>]' type="checkbox" />
+		</div>
+		<?php
+		$input_id++;
+	endforeach;
+
+	?>
+	<?php
 }

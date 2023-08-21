@@ -29,13 +29,13 @@
 					<?php
 					wp_nav_menu(
 						array(
-							'menu' => 'header-menu',
+							'menu' => isset( get_option( 'plants_options' )['header_menu'] ) ? get_option( 'plants_options' )['header_menu'] : '',
 						)
-					)
+					);
 					?>
 				</div>
 				<div class="logo-section">
-					<a href="/"><img src="<?php echo PLANTS_IMG_URI; ?>/svg/logo.svg" alt="Woodmart"></a>
+					<a href="/"><?php echo get_custom_logo(); ?></a>
 				</div>
 				<div class="profile-section display-flex align-center gap col-right">
 					<div class="search-field">

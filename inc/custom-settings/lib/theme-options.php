@@ -47,6 +47,13 @@ function plants_options_page_fields() {
 	);
 
 	$options[] = array(
+		'section'  => 'header_promo_section',
+		'id'       => 'plants_enter_anchor',
+		'title'    => __( 'Enter link for banner:', 'plants' ),
+		'callback' => 'plants_header_banner_anchor',
+	);
+
+	$options[] = array(
 		'section'  => 'header_menu_choice',
 		'id'       => 'plants_header_menu_choice',
 		'title'    => __( 'Choice menu:', 'plants' ),
