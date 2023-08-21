@@ -35,7 +35,8 @@
 					?>
 				</div>
 				<div class="logo-section">
-					<a href="/"><?php echo get_custom_logo(); ?></a>
+					<a href="/"><?php echo wp_kses( get_custom_logo(), array( 'img' => 
+					array( 'src' => array(),'alt' => array() ), 'a' ) ); ?></a>
 				</div>
 				<div class="profile-section display-flex align-center gap col-right">
 					<div class="search-field">
