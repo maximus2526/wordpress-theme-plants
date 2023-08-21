@@ -110,7 +110,7 @@ function render_footer_menus_field() {
 		?>
 		</br>
 		<div class="row">
-			<!-- Не зберігає -->
+			<!-- Не зберігає, value пусте -->
 			<input value="<?php echo get_sanitizes_values( $options, $name . '_title' ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo $name . '_title'; ?> ]">
 			<label for="<?php echo 'footer_menu_' . $input_id; ?>"><?php echo $name; ?></label>
 			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . $input_id; ?>" value="<?php echo $name; ?>"  name='plants_options[<?php echo $name; ?>]' type="checkbox" />
@@ -120,5 +120,16 @@ function render_footer_menus_field() {
 	endforeach;
 
 	?>
+	<?php
+}
+
+
+
+function render_rights_field() {
+	$options = get_option( 'plants_options' );
+	?>
+	
+	<input type='text' name='plants_options[footer_rights_text]' value='<?php echo get_sanitizes_values( $options, 'footer_rights_text' ); ?>'>
+
 	<?php
 }

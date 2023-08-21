@@ -80,7 +80,9 @@
 	</div>
 	<div class="bottom-footer display-flex space-between align-center">
 		<div class="rights">
-			<span>WoodMart. 2023 created by Xtemos Studio.</span>
+			<span>
+				<?php echo get_option( 'plants_options' )['footer_rights_text']; ?>
+			</span>
 		</div>
 		<div class="partners">
 			<img src="<?php echo esc_html__( PLANTS_IMG_URI, 'plants' ); ?>/svg/partners.svg" alt>

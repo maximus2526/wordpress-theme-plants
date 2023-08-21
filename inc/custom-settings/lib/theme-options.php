@@ -69,6 +69,13 @@ function plants_options_page_fields() {
 		'callback' => 'render_footer_menus_field',
 	);
 
+	$options[] = array(
+		'section'  => 'footer_section',
+		'id'       => 'plants_rights_section',
+		'title'    => __( 'Footer rights field:', 'plants' ),
+		'callback' => 'render_rights_field',
+	);
+
 	return $options;
 }
 
