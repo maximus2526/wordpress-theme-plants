@@ -111,7 +111,7 @@ function render_footer_menus_field() {
 		</br>
 		<div class="row">
 			<!-- Не зберігає, value пусте -->
-			<input value="<?php echo get_sanitizes_values( $options, $name . '_title' ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo $name . '_title'; ?> ]">
+			<input value="<?php echo get_sanitizes_values( $options, $name . '_menu_title' ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo $name . '_menu_title'; ?> ]">
 			<label for="<?php echo 'footer_menu_' . $input_id; ?>"><?php echo $name; ?></label>
 			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . $input_id; ?>" value="<?php echo $name; ?>"  name='plants_options[<?php echo $name; ?>]' type="checkbox" />
 		</div>
