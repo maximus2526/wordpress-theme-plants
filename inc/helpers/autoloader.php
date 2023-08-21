@@ -19,7 +19,7 @@ namespace PLANTS\Inc\Helpers;
  * @return void
  */
 function autoloader( $resource = '' ) {
-	 $resource_path = false;
+	$resource_path  = false;
 	$namespace_root = 'PLANTS\\';
 	$resource       = trim( $resource, '\\' );
 

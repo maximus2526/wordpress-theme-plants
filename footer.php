@@ -44,6 +44,9 @@
 				<a href=""><span class="social-icons">IN</span></a>
 			</div>
 		</div>
+		<?php
+		foreach ( get_option( 'plants_options' ) as $menu ) :
+			?>
 		<div class="right-side display-flex justify-around">
 			<div class="footer-nav display-flex column">
 				<div class="nav-title">Shop</div>
@@ -55,26 +58,9 @@
 					<li><a href>Pet Friendly</a></li>
 				</ul>
 			</div>
-			<div class="footer-nav display-flex column">
-				<div class="nav-title">Shop</div>
-				<ul class="nav-items scheme-dark">
-					<li><a href>Plants</a></li>
-					<li><a href>Planters</a></li>
-					<li><a href>Plant care</a></li>
-					<li><a href>Gift cards</a></li>
-					<li><a href>Pet Friendly</a></li>
-				</ul>
-			</div>
-			<div class="footer-nav display-flex column">
-				<div class="nav-title">Shop</div>
-				<ul class="nav-items scheme-dark">
-					<li><a href>Plants</a></li>
-					<li><a href>Planters</a></li>
-					<li><a href>Plant care</a></li>
-					<li><a href>Gift cards</a></li>
-					<li><a href>Pet Friendly</a></li>
-				</ul>
-			</div>
+			<?php
+	endforeach;
+		?>
 
 		</div>
 	</div>
