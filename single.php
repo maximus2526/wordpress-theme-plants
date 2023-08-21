@@ -2,7 +2,7 @@
 /**
  * Single.php show post/product pages
  *
- * @package  plants
+ * @package  Plants
  * @author   Maxim Kliakhin
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://www.hashbangcode.com/
@@ -13,10 +13,7 @@ get_header();
 ?>
 <div class="container">
 	<?php
-	if ( is_product() ) {
-		woocommerce_content();
-		comments_template();
-	} elseif ( have_posts() ) {
+	if ( have_posts() ) {
 		while ( have_posts() ) {
 			the_post();
 			?>

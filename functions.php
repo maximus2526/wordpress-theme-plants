@@ -22,7 +22,7 @@ require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
 
 
 /**
- * plants_get_theme_instance
+ * Plants_get_theme_instance.
  *
  * @return void
  */
@@ -32,10 +32,10 @@ function plants_get_theme_instance() {
 
 
 /**
- * custom_allow_svg_upload
+ * Custom_allow_svg_upload.
  *
  * @param  mixed $mimes
- * @return void
+ * @return array
  */
 
 function custom_allow_svg_upload( $mimes ) {
@@ -45,29 +45,30 @@ function custom_allow_svg_upload( $mimes ) {
 
 add_filter( 'upload_mimes', 'custom_allow_svg_upload' );
 
+
 /**
- * custom_allow_svg_in_content
+ * Custom_allow_svg_in_content.
  *
  * @param  mixed $tags
- * @return void
+ * @return array
  */
 function custom_allow_svg_in_content( $tags ) {
-	 $tags['svg'] = array(
-		 'class'       => true,
-		 'width'       => true,
-		 'height'      => true,
-		 'viewbox'     => true,
-		 'xmlns'       => true,
-		 'fill'        => true,
-		 'aria-hidden' => true,
-		 'role'        => true,
-		 'focusable'   => true,
-	 );
+	$tags['svg'] = array(
+		'class'       => true,
+		'width'       => true,
+		'height'      => true,
+		'viewbox'     => true,
+		'xmlns'       => true,
+		'fill'        => true,
+		'aria-hidden' => true,
+		'role'        => true,
+		'focusable'   => true,
+	);
 
-	 $tags['use'] = array(
-		 'href'       => true,
-		 'xlink:href' => true,
-	 );
+	$tags['use'] = array(
+		'href'       => true,
+		'xlink:href' => true,
+	);
 
 	 return $tags;
 }

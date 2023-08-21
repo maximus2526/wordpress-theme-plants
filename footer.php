@@ -22,7 +22,7 @@
 			</section>
 
 			<div class="logo-section">
-				<a href="/"><img src="<?php echo esc_html__( PLANTS_IMG_URI, 'plants' ); ?>/svg/logo.svg" alt="Woodmart"></a>
+				<a href="/"><img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/logo.svg" alt="Woodmart"></a>
 			</div>
 			<div class="subscribe-block display-flex column gap">
 				<label for="footer-subscribe-input">Join our newsletter
@@ -44,8 +44,9 @@
 				<a href=""><span class="social-icons">IN</span></a>
 			</div>
 		</div>
+
 		<?php
-		foreach ( get_option( 'plants_options' ) as $menu ) :
+		foreach ( get_option( 'plants_options' ) as $single_menu ) :
 			?>
 		<div class="right-side display-flex justify-around">
 			<div class="footer-nav display-flex column">
@@ -67,11 +68,14 @@
 	<div class="bottom-footer display-flex space-between align-center">
 		<div class="rights">
 			<span>
-				<?php echo get_option( 'plants_options' )['footer_rights_text']; ?>
+				<?php
+					$footer_rights_text = get_option( 'plants_options' )['footer_rights_text'];
+					echo esc_html( $footer_rights_text );
+				?>
 			</span>
 		</div>
 		<div class="partners">
-			<img src="<?php echo esc_html__( PLANTS_IMG_URI, 'plants' ); ?>/svg/partners.svg" alt>
+			<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/partners.svg" alt>
 		</div>
 	</div>
 

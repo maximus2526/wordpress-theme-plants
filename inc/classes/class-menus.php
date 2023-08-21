@@ -31,7 +31,7 @@ class Menus {
 	}
 
 	/**
-	 * setup_hooks
+	 * Setup_hooks.
 	 *
 	 * @return void
 	 */
@@ -40,23 +40,19 @@ class Menus {
 	}
 
 	/**
-	 * register_my_menus
+	 * Register_my_menus.
 	 *
 	 * @return void
 	 */
 	protected function plants_register_my_menus() {
 		register_nav_menus(
 			array(
-				'header-menu' => __( 'header-menu' ),
+				'header-menu' => esc_html__( 'header-menu', 'plants' ),
 			)
 		);
 	}
 
-	/**
-	 * Setup theme.
-	 *
-	 * @return void
-	 */
+
 
 
 }

@@ -34,7 +34,7 @@ if ( $articles_query->have_posts() ) {
 					</div>
 				</div>
 				<div class="continue-button">
-					<a href="<?php echo get_permalink(); ?>">
+					<a href="<?php echo esc_url( get_permalink() ); ?>">
 						Continue reading →
 					</a>
 				</div>

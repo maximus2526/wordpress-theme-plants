@@ -14,8 +14,8 @@
 
 use \Elementor\Controls_Manager;
 use \Elementor\Utils;
-class Partners_Links_Widget extends \Elementor\Widget_Base {
 
+class Partners_Links_Widget extends \Elementor\Widget_Base {
 	/**
 	 * get_name
 	 *

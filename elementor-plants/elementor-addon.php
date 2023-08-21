@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * register_widgets
+ * Register_widgets.
  *
  * @param  mixed $widgets_manager
  * @return void
@@ -40,7 +40,7 @@ function register_widgets( $widgets_manager ) {
 }
 
 /**
- * custom_elementor_widget_category
+ * Custom_elementor_widget_category.
  *
  * @param  mixed $elements_manager
  * @return void

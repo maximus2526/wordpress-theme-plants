@@ -31,7 +31,7 @@ class THEME {
 	}
 
 	/**
-	 * setup_hooks
+	 * Setup_hooks.
 	 *
 	 * @return void
 	 */

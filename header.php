@@ -19,8 +19,8 @@
 	}
 	?>
 	<header>
-		<div class="header-promo text-center <?php echo ( get_option( 'plants_options' )['header_banner_hide_option'] != 'Yes' ) ? 'hide' : ''; ?>">
-			<a href="<?php echo get_option( 'plants_options' )['header_banner_anchor']; ?>"><?php echo get_option( 'plants_options' )['header_banner_info']; ?></a>
+		<div class="header-promo text-center <?php echo ( 'Yes' !== get_option( 'plants_options' )['header_banner_hide_option'] ) ? 'hide' : ''; ?>">
+			<a href="<?php echo esc_html( get_option( 'plants_options' )['header_banner_anchor'] ); ?>"><?php echo esc_html( get_option( 'plants_options' )['header_banner_info'] ); ?></a>
 		</div>
 		<div class="container">
 			<div class="header scheme-dark display-flex space-between">
@@ -39,7 +39,7 @@
 				</div>
 				<div class="profile-section display-flex align-center gap col-right">
 					<div class="search-field">
-						<a href><img src="<?php echo PLANTS_IMG_URI; ?>/svg/search.svg" alt="search-sign"></a>
+						<a href><img src="<?php echo esc_attr( PLANTS_IMG_URI ); ?>/svg/search.svg" alt="search-sign"></a>
 					</div>
 					<div class="auth display-flex gap-5">
 						<a href="">Login</a> / <a href="#">Register</a>
@@ -48,13 +48,13 @@
 					<div class="cart-section display-flex gap ">
 						<div class="favorite">
 							<a href class="display-flex gap-5">
-								<img src="<?php echo PLANTS_IMG_URI; ?>/svg/profile-icons/favorite.svg" alt>
+								<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/favorite.svg" alt>
 								<span class="favorite-count">0</span>
 							</a>
 						</div>
 						<div class="cart">
 							<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="display-flex gap-5">
-								<img src="<?php echo PLANTS_IMG_URI; ?>/svg/profile-icons/cart.svg" alt>
+								<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/cart.svg" alt>
 								<span class="cart-count">
 									<?php
 									echo count( WC()->cart->get_cart() )

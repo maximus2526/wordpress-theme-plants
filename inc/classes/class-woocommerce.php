@@ -7,6 +7,7 @@
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://www.hashbangcode.com/
  */
+
 namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
@@ -29,7 +30,7 @@ class WooCommerce {
 	}
 
 	/**
-	 * setup_hooks
+	 * Setup_hooks.
 	 *
 	 * @return void
 	 */
@@ -40,11 +41,11 @@ class WooCommerce {
 	}
 
 	/**
-	 * theme_add_woocommerce_support
+	 * Theme_add_woocommerce_support.
 	 *
 	 * @return void
 	 */
-	function plants_add_woocommerce_support() {
+	private function plants_add_woocommerce_support() {
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
@@ -52,13 +53,13 @@ class WooCommerce {
 	}
 
 	/**
-	 * theme_load_woocommerce_styles
+	 * Theme_load_woocommerce_styles.
 	 *
 	 * @return void
 	 */
-	function plants_load_woocommerce_styles() {
+	private function plants_load_woocommerce_styles() {
 		if ( class_exists( 'WooCommerce' ) ) {
-			wp_enqueue_style( 'woocommerce-style', plugins_url( '/woocommerce/woocommerce.css' ) );
+			wp_enqueue_style( 'woocommerce-style', plugins_url( '/woocommerce/woocommerce.css' ), 1, 1 );
 		}
 	}
 

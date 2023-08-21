@@ -8,7 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-
 namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
@@ -50,7 +49,7 @@ class Sidebars {
 	public function plants_register_sidebars() {
 		register_sidebar(
 			array(
-				'name'          => esc_html__( 'Footer', 'plants' ),
+				'name'          => 'Footer',
 				'id'            => 'sidebar-1',
 				'description'   => 'Footer area for widgets',
 				'before_widget' => '<div class="widget widget-footer">',
@@ -62,6 +61,11 @@ class Sidebars {
 
 	}
 
+	/**
+	 * Plants_register_some_widget.
+	 *
+	 * @return void
+	 */
 	public function plants_register_some_widget() {
 		register_widget( 'PLANTS\Inc\Some_Widget' );
 	}

@@ -24,7 +24,7 @@ function get_sanitizes_values( $options, $value ) {
 // header banner
 
 /**
- * render_header_banner_text_field
+ * Render_header_banner_text_field.
  *
  * @return void
  */
@@ -37,7 +37,7 @@ function render_header_banner_text_field() {
 }
 
 /**
- * plants_header_banner_anchor
+ * Plants_header_banner_anchor.
  *
  * @return void
  */
@@ -51,7 +51,7 @@ function plants_header_banner_anchor() {
 }
 
 /**
- * plants_hide_header_banner
+ * Plants_hide_header_banner.
  *
  * @return void
  */
@@ -70,7 +70,7 @@ function plants_hide_header_banner() {
 // menu section
 
 /**
- * render_menu_choice_field
+ * Render_menu_choice_field.
  *
  * @return void
  */
@@ -91,11 +91,8 @@ function render_menu_choice_field() {
 }
 
 
-
-// footer sections
-
 /**
- * render_footer_menus_field
+ * Render_footer_menus_field.
  *
  * @return void
  */
@@ -106,7 +103,7 @@ function render_footer_menus_field() {
 	<?php
 	$input_id = 1;
 	foreach ( $menus_names as $name ) :
-		$name = esc_html__( $name, 'plants' );
+		$name = esc_attr( $name );
 		?>
 		</br>
 		<div class="row">
@@ -125,11 +122,17 @@ function render_footer_menus_field() {
 
 
 
+/**
+ * Render_rights_field.
+ *
+ * @return void
+ */
+
 function render_rights_field() {
 	$options = get_option( 'plants_options' );
 	?>
 	
-	<input type='text' name='plants_options[footer_rights_text]' value='<?php echo get_sanitizes_values( $options, 'footer_rights_text' ); ?>'>
+	<input type='text' name='plants_options[footer_rights_text]' value='<?php echo esc_attr( get_sanitizes_values( $options, 'footer_rights_text' ) ); ?>'>
 
 	<?php
 }

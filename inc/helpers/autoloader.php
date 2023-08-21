@@ -8,7 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-
 namespace PLANTS\Inc\Helpers;
 
 /**

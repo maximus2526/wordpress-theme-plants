@@ -12,7 +12,6 @@
  * Custom_Logo_Widget
  */
 use \Elementor\Controls_Manager;
-use \Elementor\Utils;
 class Custom_Logo_Widget extends \Elementor\Widget_Base {
 
 	/**
@@ -78,19 +77,26 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 			)
 		);
 
+
 		$this->add_control(
-			'upload_image',
-			array(
-				'label'      => esc_html__( 'Choose Image', 'elementor-addon' ),
-				'type'       => Controls_Manager::MEDIA,
-				'media_type' => 'image',
-				'condition'  => array(
-					'choice' => 'upload',
-				),
-				'default'    => array(
-					'url' => Utils::get_placeholder_image_src(),
-				),
-			)
+			'image',
+			[
+				'label' => esc_html__( 'Choose Image', 'textdomain' ),
+				'type' => \Elementor\Controls_Manager::MEDIA,
+				'default' => [
+					'url' => \Elementor\Utils::get_placeholder_image_src(),
+				],
+			]
+		);
+
+		$this->add_group_control(
+			\Elementor\Group_Control_Image_Size::get_type(),
+			[
+				'name' => 'thumbnail', // Usage: `{name}_size` and `{name}_custom_dimension`, in this case `thumbnail_size` and `thumbnail_custom_dimension`.
+				'exclude' => [ 'custom' ],
+				'include' => [],
+				'default' => 'large',
+			]
 		);
 
 		$this->end_controls_section();
@@ -99,9 +105,11 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 	protected function render() {
 		$settings = $this->get_settings_for_display();
 		if ( $settings['choice'] === 'upload' ) {
-			echo '<img src="' . $settings['upload_image']['url'] . '">';  // Todo: переробити без Img
+			echo \Elementor\Group_Control_Image_Size::get_attachment_image_html($settings, 'thumbnail', 'image' );
 		} else {
 			the_custom_logo();
 		}
 	}
 }
+
+

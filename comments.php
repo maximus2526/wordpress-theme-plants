@@ -24,7 +24,7 @@ if ( post_password_required() ) {
 			if ( 1 === $comments_number ) {
 				echo esc_html__( '1 Comment', 'plants' );
 			} else {
-				echo esc_html__( $comments_number, 'plants' ) . esc_html__( ' Comments', 'plants' );
+				echo (int) $comments_number . esc_html__( ' Comments', 'plants' );
 			}
 			?>
 		</h2>
