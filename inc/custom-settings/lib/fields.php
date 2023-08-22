@@ -32,7 +32,6 @@ function render_header_banner_text_field() {
 	$options = get_option( 'plants_options' );
 	?>
 	<input type='text' name='plants_options[header_banner_info]' value='<?php echo esc_attr( get_sanitizes_values( $options, 'header_banner_info' ) ); ?>'>
-	
 	<?php
 }
 
