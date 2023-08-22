@@ -6,6 +6,7 @@
  * Author:      Maxim Kliakhin
  * Author URI:  https://developers.elementor.com/
  * Text Domain: plants
+ * @package plants
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -19,14 +20,14 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return void
  */
 function register_widgets( $widgets_manager ) {
-	include_once __DIR__ . '/widgets/product-widget.php';
-	include_once __DIR__ . '/widgets/article-widget.php';
-	include_once __DIR__ . '/widgets/menus-widget.php';
-	include_once __DIR__ . '/widgets/user-panel-widget.php';
-	include_once __DIR__ . '/widgets/logo-widget.php';
-	include_once __DIR__ . '/widgets/subscribe-widget.php';
-	include_once __DIR__ . '/widgets/social-widget.php';
-	include_once __DIR__ . '/widgets/partners-widget.php';
+	include_once __DIR__ . '/widgets/class-products-widget.php';
+	include_once __DIR__ . '/widgets/class-articles-widget.php';
+	include_once __DIR__ . '/widgets/class-menus-widget.php';
+	include_once __DIR__ . '/widgets/class-user-panel-widget.php';
+	include_once __DIR__ . '/widgets/class-custom-logo-widget.php';
+	include_once __DIR__ . '/widgets/class-subscribe-widget.php';
+	include_once __DIR__ . '/widgets/class-social-links-widget.php';
+	include_once __DIR__ . '/widgets/class-partners-links-widget.php';
 
 	$widgets_manager->register( new \Products_Widget() );
 	$widgets_manager->register( new \Articles_Widget() );
@@ -42,7 +43,7 @@ function register_widgets( $widgets_manager ) {
 /**
  * Custom_elementor_widget_category.
  *
- * @param  mixed $elements_manager
+ * @param mixed $elements_manager
  * @return void
  */
 function custom_elementor_widget_category( $elements_manager ) {

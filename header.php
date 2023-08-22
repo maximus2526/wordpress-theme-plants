@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
@@ -35,8 +36,20 @@
 					?>
 				</div>
 				<div class="logo-section">
-					<a href="/"><?php echo wp_kses( get_custom_logo(), array( 'img' => 
-					array( 'src' => array(),'alt' => array() ), 'a' ) ); ?></a>
+					<a href="/">
+					<?php
+					echo wp_kses(
+						get_custom_logo(),
+						array(
+							'img' => array(
+								'src' => array(),
+								'alt' => array(),
+							),
+							'a',
+						)
+					);
+					?>
+					</a>
 				</div>
 				<div class="profile-section display-flex align-center gap col-right">
 					<div class="search-field">
@@ -58,7 +71,7 @@
 								<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/cart.svg" alt>
 								<span class="cart-count">
 									<?php
-									echo count( WC()->cart->get_cart() )
+									echo count( WC()->cart->get_cart() );
 									?>
 								</span>
 							</a>

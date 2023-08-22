@@ -8,7 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-
 use \Elementor\Controls_Manager;
 
 /**
@@ -17,36 +16,36 @@ use \Elementor\Controls_Manager;
 class Articles_Widget extends Elementor\Widget_Base {
 
 	/**
-	 * get_name
+	 * Get_name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_name() {
 		return 'article_widget';
 	}
 
 	/**
-	 * get_title
+	 * Get_title.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_title() {
 		return esc_html__( 'Article Widget', 'elementor-addon' );
 	}
 
 	/**
-	 * get_icon
+	 * Get_icon.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_icon() {
 		return 'eicon-post';
 	}
 
 	/**
-	 * get_categories
+	 * Get_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function get_categories() {
 		return array( 'theme-widgets' );
@@ -114,7 +113,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 	}
 
 	/**
-	 * render
+	 * Render.
 	 *
 	 * @return void
 	 */
@@ -129,7 +128,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 			'order'          => 'DESC',
 		);
 
-		if ( $settings['category'] !== 'all' ) {
+		if ( 'all' !== $settings['category'] ) {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => 'category',
@@ -152,11 +151,11 @@ class Articles_Widget extends Elementor\Widget_Base {
 				while ( $articles_query->have_posts() ) {
 					$articles_query->the_post();
 					?>
-					<div class="swiper-slide darken-image" style="background-image: url('<?php echo get_the_post_thumbnail_url(); ?>');">
+					<div class="swiper-slide darken-image" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url() ); ?>');">
 						<div class="article-banner">
 							<div class="banner-content  scheme-light">
 								<div class="banner-header">
-									<a href="<?php echo get_permalink(); ?>">
+									<a href="<?php echo esc_attr( get_permalink() ); ?>">
 										<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
 									</a>
 								</div>
@@ -170,8 +169,8 @@ class Articles_Widget extends Elementor\Widget_Base {
 					<?php
 				}
 
-				echo '</div>'; // Close .swiper-wrapper
-				echo '</div>'; // Close .swiper
+				echo '</div>'; // Close .swiper-wrapper.
+				echo '</div>'; // Close .swiper.
 			} else {
 				?>
 				<div class="row">
@@ -197,7 +196,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 							</div>
 						</div>
 						<div class="continue-button">
-							<a href="<?php echo get_permalink(); ?>">
+							<a href="<?php echo esc_attr( get_permalink() ); ?>">
 								Continue reading →
 							</a>
 						</div>
@@ -214,7 +213,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 
 			wp_reset_postdata();
 
-			if ( $settings['add_to_container'] === 'yes' ) {
+			if ( 'yes' === $settings['add_to_container'] ) {
 				echo '</div>';
 			}
 		} else {
@@ -225,9 +224,9 @@ class Articles_Widget extends Elementor\Widget_Base {
 
 
 	/**
-	 * get_article_categories
+	 * Get_article_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	protected function get_article_categories() {
 		$categories = get_terms(

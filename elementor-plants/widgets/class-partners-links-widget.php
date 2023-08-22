@@ -8,45 +8,44 @@
  * @link     http://www.hashbangcode.com/
  */
 
+use \Elementor\Utils;
+use \Elementor\Controls_Manager;
+
 /**
  * Partners_Links_Widget
  */
-
-use \Elementor\Controls_Manager;
-use \Elementor\Utils;
-
 class Partners_Links_Widget extends \Elementor\Widget_Base {
 	/**
-	 * get_name
+	 * Get_name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_name() {
-		return esc_html( 'partners_links_widget', 'plants' );
+		return esc_html( 'partners_links_widget' );
 	}
 
 	/**
-	 * get_title
+	 * Get_title.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_title() {
 		return esc_html__( 'Partners Links Widget', 'plants' );
 	}
 
 	/**
-	 * get_icon
+	 * Get_icon.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_icon() {
 		return 'eicon-device-mobile';
 	}
 
 	/**
-	 * get_categories
+	 * Get_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function get_categories() {
 		return array( 'theme-widgets' );
@@ -141,7 +140,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * render
+	 * Render.
 	 *
 	 * @return void
 	 */

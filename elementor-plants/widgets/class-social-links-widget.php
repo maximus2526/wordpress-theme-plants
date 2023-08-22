@@ -8,44 +8,43 @@
  * @link     http://www.hashbangcode.com/
  */
 
+use \Elementor\Controls_Manager;
 /**
  * Social_Links_Widget
  */
-
-use \Elementor\Controls_Manager;
 class Social_Links_Widget extends \Elementor\Widget_Base {
 
 	/**
-	 * get_name
+	 * Get_name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_name() {
 		return 'social_links_widget';
 	}
 
 	/**
-	 * get_title
+	 * Get_title.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_title() {
 		return esc_html__( 'Social Links Widget', 'plants' );
 	}
 
 	/**
-	 * get_icon
+	 * Get_icon.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_icon() {
 		return 'eicon-social-icons';
 	}
 
 	/**
-	 * get_categories
+	 * Get_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function get_categories() {
 		return array( 'theme-widgets' );
@@ -111,7 +110,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 		$this->end_controls_section();
 	}
 	/**
-	 * render
+	 * Render.
 	 *
 	 * @return void
 	 */

@@ -9,19 +9,19 @@
  */
 
 /**
- * get_sanitizes_values
+ * Get_sanitizes_values.
  *
  * @param  mixed $options
  * @param  mixed $value
- * @return void
+ * @return string
  */
 function get_sanitizes_values( $options, $value ) {
-	 return isset( $options[ $value ] ) ? esc_html__( $options[ $value ], 'plants' ) : '';
+	return isset( $options[ $value ] ) ? esc_html( $options[ $value ] ) : '';
 }
 
-// header_section
+// Header_section.
 
-// header banner
+// Header banner.
 
 /**
  * Render_header_banner_text_field.
@@ -31,7 +31,7 @@ function get_sanitizes_values( $options, $value ) {
 function render_header_banner_text_field() {
 	$options = get_option( 'plants_options' );
 	?>
-	<input type='text' name='plants_options[header_banner_info]' value='<?php echo get_sanitizes_values( $options, 'header_banner_info' ); ?>'>
+	<input type='text' name='plants_options[header_banner_info]' value='<?php echo esc_attr( get_sanitizes_values( $options, 'header_banner_info' ) ); ?>'>
 	
 	<?php
 }
@@ -44,7 +44,7 @@ function render_header_banner_text_field() {
 function plants_header_banner_anchor() {
 	$options = get_option( 'plants_options' );
 	?>
-	<input type='url' name='plants_options[header_banner_anchor]' value='<?php echo get_sanitizes_values( $options, 'header_banner_anchor' ); ?>'>
+	<input type='url' name='plants_options[header_banner_anchor]' value='<?php echo esc_attr( get_sanitizes_values( $options, 'header_banner_anchor' ) ); ?>'>
 
 	<?php
 
@@ -67,7 +67,7 @@ function plants_hide_header_banner() {
 
 }
 
-// menu section
+// menu section.
 
 /**
  * Render_menu_choice_field.
@@ -82,7 +82,7 @@ function render_menu_choice_field() {
 	<?php
 	foreach ( $menus_names as $name ) :
 		?>
-		<option value='<?php echo esc_html__( $name, 'plants' ); ?>' <?php selected( get_sanitizes_values( $options, 'header_menu' ), esc_html__( $name, 'plants' ) ); ?>><?php echo esc_html__( $name, 'plants' ); ?></option>
+		<option value='<?php echo esc_html( $name ); ?>' <?php selected( get_sanitizes_values( $options, 'header_menu' ), esc_html( $name ) ); ?>><?php echo esc_html( $name ); ?></option>
 		<?php
 	endforeach;
 	?>
@@ -108,9 +108,9 @@ function render_footer_menus_field() {
 		</br>
 		<div class="row">
 			<!-- Не зберігає, value пусте -->
-			<input value="<?php echo get_sanitizes_values( $options, $name . '_menu_title' ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo $name . '_menu_title'; ?> ]">
-			<label for="<?php echo 'footer_menu_' . $input_id; ?>"><?php echo $name; ?></label>
-			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . $input_id; ?>" value="<?php echo $name; ?>"  name='plants_options[<?php echo $name; ?>]' type="checkbox" />
+			<input value="<?php echo esc_attr( get_sanitizes_values( $options, $name . '_menu_title' ) ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo esc_attr( $name . '_menu_title' ); ?> ]">
+			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>
+			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo esc_attr( $name ); ?>]' type="checkbox" />
 		</div>
 		<?php
 		$input_id++;
@@ -127,12 +127,9 @@ function render_footer_menus_field() {
  *
  * @return void
  */
-
 function render_rights_field() {
 	$options = get_option( 'plants_options' );
 	?>
-	
 	<input type='text' name='plants_options[footer_rights_text]' value='<?php echo esc_attr( get_sanitizes_values( $options, 'footer_rights_text' ) ); ?>'>
-
 	<?php
 }

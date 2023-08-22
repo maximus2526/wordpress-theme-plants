@@ -11,47 +11,46 @@
 /**
  * Subscribe_Widget
  */
-
 class Subscribe_Widget extends \Elementor\Widget_Base {
 
 	/**
-	 * get_name
+	 * Get_name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_name() {
 		return esc_html__( 'subscribe_widget', 'plants' );
 	}
 
 	/**
-	 * get_title
+	 * Get_title.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_title() {
 		return esc_html__( 'Subscribe Form Widget', 'elementor-addon' );
 	}
 
 	/**
-	 * get_icon
+	 * Get_icon.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_icon() {
 		return 'eicon-star';
 	}
 
 	/**
-	 * get_categories
+	 * Get_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function get_categories() {
 		return array( 'theme-widgets' );
 	}
 
 	/**
-	 * render
+	 * Render.
 	 *
 	 * @return void
 	 */

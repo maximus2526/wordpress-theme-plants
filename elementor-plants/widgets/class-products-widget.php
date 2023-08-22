@@ -8,44 +8,43 @@
  * @link     http://www.hashbangcode.com/
  */
 
+	use \Elementor\Controls_Manager;
 /**
  * Products_Widget
  */
-
-	use \Elementor\Controls_Manager;
 class Products_Widget extends \Elementor\Widget_Base {
 
 	/**
-	 * get_name
+	 * Get_name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_name() {
 		return 'products_widget';
 	}
 
 	/**
-	 * get_title
+	 * Get_title.
 	 *
-	 * @return void
+	 * @return text
 	 */
 	public function get_title() {
 		return esc_html__( 'Products Widget', 'elementor-addon' );
 	}
 
 	/**
-	 * get_icon
+	 * Get_icon.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_icon() {
 		return 'eicon-products';
 	}
 
 	/**
-	 * get_categories
+	 * Get_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function get_categories() {
 		return array( 'theme-widgets' );
@@ -113,7 +112,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * render
+	 * Render.
 	 *
 	 * @return void
 	 */
@@ -127,7 +126,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			'order'          => 'DESC',
 		);
 
-		if ( $settings['category'] !== 'all' ) {
+		if ( 'all' !== $settings['category'] ) {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => 'product_cat',
@@ -140,10 +139,10 @@ class Products_Widget extends \Elementor\Widget_Base {
 		$products_query = new WP_Query( $args );
 
 		if ( $products_query->have_posts() ) {
-			if ( $settings['add_to_container'] === 'yes' ) {
+			if ( 'yes' === $settings['add_to_container'] ) {
 				echo '<div class="container">';
 			}
-			if ( $settings['is_slider'] === 'yes' ) {
+			if ( 'yes' === $settings['is_slider'] ) {
 				echo '<div class="swiper">';
 				echo '<div class="swiper-wrapper">';
 			} else {
@@ -153,7 +152,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			while ( $products_query->have_posts() ) {
 				$products_query->the_post();
 				global $product;
-				if ( $settings['is_slider'] === 'yes' ) {
+				if ( 'yes' === $settings['is_slider'] ) {
 					echo '<div  style="text-align: center;" class="swiper-slide">';
 				}
 				?>
@@ -165,23 +164,15 @@ class Products_Widget extends \Elementor\Widget_Base {
 						echo '</div>';
 					}
 
-					echo '<p><a  class="scheme-dark title" href="' . get_permalink() . '">' . get_the_title() . '</a></p>';
+					echo '<p><a  class="scheme-dark title" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( get_the_title() ) . '</a></p>';
 					?>
 					<div class="banner-rating">
 						<?php
-
 						$product_obj = wc_get_product( $product->get_id() );
+						echo (int) wc_get_rating_html( $product_obj->get_average_rating() );
 
-						// Моя спроба виводити один віджет з іншого
-						// require_once ('custom-stars-widget.php');
-						// $stars = new Widget_Star_Rating_Plus($star_rating_settings);
-						// $stars->render();
-
-						$product_obj = wc_get_product( $product->get_id() );
-						echo wc_get_rating_html( $product_obj->get_average_rating() );
-
-						if ( $settings['is_slider'] === 'yes' ) {
-							echo '</div>'; // end swiper slide
+						if ( 'yes' === $settings['is_slider'] ) {
+							echo '</div>'; // end swiper slide.
 						}
 
 						?>
@@ -197,19 +188,19 @@ class Products_Widget extends \Elementor\Widget_Base {
 
 
 				<?php
-				echo ' </div>'; // swiper-slide ::end
+				echo ' </div>'; // swiper-slide ::end.
 			}
 
 			wp_reset_postdata();
-			if ( $settings['is_slider'] === 'yes' ) {
-				echo '</div>'; // Close .swiper
-				echo '<div class="swiper-button-prev"><img src="' . PLANTS_IMG_URI . '/svg/swiper/slider-left.svg" alt=""></div>';
-				echo '<div class="swiper-button-next"><img src="' . PLANTS_IMG_URI . '/svg/swiper/slider-right.svg" alt=""></div>';
-				echo '</div>'; // Close .swiper-wrapper
+			if ( 'yes' === $settings['is_slider'] ) {
+				echo '</div>'; // Close .swiper.
+				echo '<div class="swiper-button-prev"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-left.svg" alt=""></div>';
+				echo '<div class="swiper-button-next"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-right.svg" alt=""></div>';
+				echo '</div>'; // Close .swiper-wrapper.
 			} else {
 				echo '</div>';
 			}
-			if ( $settings['add_to_container'] === 'yes' ) {
+			if ( 'yes' === $settings['add_to_container'] ) {
 				echo '</div>';
 			}
 		} else {
@@ -218,9 +209,9 @@ class Products_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * get_product_categories
+	 * Get_product_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	protected function get_product_categories() {
 		$categories = get_terms(

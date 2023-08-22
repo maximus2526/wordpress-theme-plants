@@ -7,40 +7,45 @@
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://www.hashbangcode.com/
  */
+
 use \Elementor\Controls_Manager;
+
+/**
+ * Menus_Widget
+ */
 class Menus_Widget extends \Elementor\Widget_Base {
 
 	/**
-	 * get_name
+	 * Get_name.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_name() {
-		return esc_html( 'menus_widget', 'plants' );
+		return esc_html( 'menus_widget' );
 	}
 
 	/**
-	 * get_title
+	 * Get_title.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_title() {
 		return esc_html__( 'Menus Widget', 'elementor-addon' );
 	}
 
 	/**
-	 * get_icon
+	 * Get_icon.
 	 *
-	 * @return void
+	 * @return string
 	 */
 	public function get_icon() {
 		return 'eicon-menu-bar';
 	}
 
 	/**
-	 * get_categories
+	 * Get_categories.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function get_categories() {
 		return array( 'theme-widgets' );
@@ -97,7 +102,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	}
 
 	/**
-	 * render
+	 * Render.
 	 *
 	 * @return void
 	 */
@@ -106,15 +111,15 @@ class Menus_Widget extends \Elementor\Widget_Base {
 			wp_nav_menu(
 				array(
 					'menu'       => $this->get_menus_names()[ $settings['menus'] ],
-					'menu_class' => 'scheme-dark ' . ( $settings['vertical'] === 'no' ? 'display-flex gap' : 'vertical-nav' ) . ( $settings['with_signs'] === 'no' ? '' : ' menu-sign vertical-nav-item nav-img' ),
+					'menu_class' => 'scheme-dark ' . ( 'no' === $settings['vertical'] ? 'display-flex gap' : 'vertical-nav' ) . ( 'no' === $settings['with_signs'] ? '' : ' menu-sign vertical-nav-item nav-img' ),
 				)
 			);
 	}
 
 	/**
-	 * get_menus_names
+	 * Get_menus_names.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	protected function get_menus_names() {
 		$menus      = wp_get_nav_menus();
