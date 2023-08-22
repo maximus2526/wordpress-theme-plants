@@ -46,7 +46,8 @@
 		</div>
 
 		<?php
-		foreach ( get_option( 'plants_options' ) as $single_menu ) :
+		$menus = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
+		foreach ( $menus  as $single_menu ) :
 			?>
 		<div class="right-side display-flex justify-around">
 			<div class="footer-nav display-flex column">
