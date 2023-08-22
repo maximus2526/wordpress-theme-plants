@@ -26,7 +26,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	protected function __construct() {
-		$this->plants_setup_hooks();
+		$this->setup_hooks();
 	}
 
 	/**
@@ -34,7 +34,7 @@ class WooCommerce {
 	 *
 	 * @return void
 	 */
-	protected function plants_setup_hooks() {
+	protected function setup_hooks() {
 		add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 		add_action( 'wp_enqueue_scripts', 'theme_load_woocommerce_styles' );
 
@@ -45,7 +45,7 @@ class WooCommerce {
 	 *
 	 * @return void
 	 */
-	private function plants_add_woocommerce_support() {
+	private function add_woocommerce_support() {
 		add_theme_support( 'woocommerce' );
 		add_theme_support( 'wc-product-gallery-zoom' );
 		add_theme_support( 'wc-product-gallery-lightbox' );
@@ -57,7 +57,7 @@ class WooCommerce {
 	 *
 	 * @return void
 	 */
-	private function plants_load_woocommerce_styles() {
+	private function load_woocommerce_styles() {
 		if ( class_exists( 'WooCommerce' ) ) {
 			wp_enqueue_style( 'woocommerce-style', plugins_url( '/woocommerce/woocommerce.css' ), 1, 1 );
 		}

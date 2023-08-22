@@ -24,7 +24,7 @@ class Sidebars {
 	 * Construct method.
 	 */
 	protected function __construct() {
-		$this->plants_setup_hooks();
+		$this->setup_hooks();
 	}
 
 	/**
@@ -32,7 +32,7 @@ class Sidebars {
 	 *
 	 * @return void
 	 */
-	protected function plants_setup_hooks() {
+	protected function setup_hooks() {
 		/**
 		 * Actions
 		 */
@@ -46,7 +46,7 @@ class Sidebars {
 	 *
 	 * @action widgets_init
 	 */
-	public function plants_register_sidebars() {
+	public function register_sidebars() {
 		register_sidebar(
 			array(
 				'name'          => 'Footer',
@@ -66,7 +66,7 @@ class Sidebars {
 	 *
 	 * @return void
 	 */
-	public function plants_register_some_widget() {
+	public function register_some_widget() {
 		register_widget( 'PLANTS\Inc\Some_Widget' );
 	}
 

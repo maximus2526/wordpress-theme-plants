@@ -26,7 +26,7 @@ class Assets {
 	 */
 	protected function __construct() {
 		// load class.
-		$this->plants_setup_hooks();
+		$this->setup_hooks();
 	}
 
 	/**
@@ -34,12 +34,12 @@ class Assets {
 	 *
 	 * @return void
 	 */
-	protected function plants_setup_hooks() {
+	protected function setup_hooks() {
 		/**
 		   * Actions.
 		   */
-		add_action( 'wp_enqueue_scripts', array( $this, 'plants_register_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'plants_register_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 	}
 
 	/**
@@ -47,7 +47,7 @@ class Assets {
 	 *
 	 * @return void
 	 */
-	public function plants_register_styles() {
+	public function register_styles() {
 		 // Register styles.
 		wp_register_style( 'base-css', get_template_directory_uri() . '/assets/css/base.css', array(), true );
 		wp_register_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css', array(), true );
@@ -62,7 +62,7 @@ class Assets {
 	 *
 	 * @return void
 	 */
-	public function plants_register_scripts() {
+	public function register_scripts() {
 		// Register scripts.
 		wp_register_script( 'main-js', PLANTS_JS_URI . '/main.js', array(), filemtime( PLANTS_JS_DIR_PATH . '/main.js' ), true );
 		wp_register_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js', array(), true, true );

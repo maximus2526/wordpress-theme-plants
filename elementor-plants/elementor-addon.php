@@ -6,6 +6,7 @@
  * Author:      Maxim Kliakhin
  * Author URI:  https://developers.elementor.com/
  * Text Domain: plants
+ *
  * @package plants
  */
 
