@@ -45,28 +45,62 @@
 			</div>
 		</div>
 
+
+		<div class="right-side display-flex justify-around">
 		<?php
 		$options = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
-		$menus   = preg_match( '^show_', $options );
-		var_dump( $menus );
-		foreach ( $menus  as $single_menu ) :
+
+		$menus_titles = array_filter(
+			array_keys( $options ),
+			function ( $str ) {
+				if ( substr( $str, -11, 10 ) === 'menu_title' ) {
+					return $str;
+				}
+			}
+		);
+
+		$menu_names = array_filter(
+			array_keys( $options ),
+			function ( $str ) {
+				if ( substr( $str, 0, 5 ) === 'show_' ) {
+					return $str;
+				}
+			}
+		);
+		// $menus        = array_combine( $menu_names, $menus_titles );
+
+
+		/**
+		 * Parse from array elements elements that contain substrю
+		 *
+		 * @param  mixed $str
+		 * @return string
+		 */
+
+
+		$plants_options = get_option( 'plants_options' );
+		var_dump( $menu_names );
+		echo '=====================';
+		die( var_dump( $menus_titles ) );
+		foreach ( $menus  as $menu_name => $menu_title ) :
 			?>
-		<div class="right-side display-flex justify-around">
-			<div class="footer-nav display-flex column">
-				<div class="nav-title">Shop</div>
-				<ul class="nav-items scheme-dark">
-					<li><a href>Plants</a></li>
-					<li><a href>Planters</a></li>
-					<li><a href>Plant care</a></li>
-					<li><a href>Gift cards</a></li>
-					<li><a href>Pet Friendly</a></li>
-				</ul>
+			
+
+			<div class="footer-nav display-flex column scheme-dark">
+				<!-- <div class="nav-title"><?php // echo esc_html( $plants_options[ plants_substr_array_parsing( $single_menu ) ] ); ?></div> -->
+				<?php
+				wp_nav_menu(
+					array(
+						'menu' => isset( $plants_options[ $single_menu ] ) ? $plants_options[ $single_menu ] : '',
+					)
+				);
+				?>
 			</div>
 			<?php
-	endforeach;
+			endforeach;
 		?>
-
 		</div>
+	</div>
 	</div>
 	<div class="bottom-footer display-flex space-between align-center">
 		<div class="rights">
@@ -81,8 +115,9 @@
 			<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/partners.svg" alt>
 		</div>
 	</div>
-
 </footer>
+
+
 <?php
 wp_footer();
 ?>

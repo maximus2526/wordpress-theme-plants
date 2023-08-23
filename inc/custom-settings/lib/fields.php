@@ -96,25 +96,38 @@ function render_menu_choice_field() {
  * @return void
  */
 function render_footer_menus_field() {
-	$options     = get_option( 'plants_options' );
-	$menus_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
+	$options    = get_option( 'plants_options' );
+	$menu_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
 	?>
 	<?php
 	$input_id = 1;
-	foreach ( $menus_names as $name ) :
+	foreach ( $menu_names as $name ) :
 		$name = esc_attr( $name );
 		?>
 		</br>
 		<div class="row">
-			<!-- Не зберігає, value пусте -->
-			<input value="<?php echo esc_attr( $options[ $name . '_menu_title ' ] ); ?>" placeholder="Menu title" type="text" name="plants_options[<?php echo esc_html( $name ) . '_menu_title'; ?> ]">
+			<?php
+
+			if ( '' === get_sanitizes_values( $options, 'show_' . $name ) ) {
+				unset( $options[ 'show_ ' . $name ] );
+				unset( $options[ $name . '_menu_title ' ] ); // This array value don't delatable. TODO: Fix.
+
+			}
+
+			?>
+			<input value="<?php echo esc_attr( isset( $options[ $name . '_menu_title ' ] ) ? $options[ $name . '_menu_title ' ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[<?php echo esc_html( $name ) . '_menu_title'; ?> ]">
 			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		
-			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo 'show_' . esc_attr( $name ); ?>]' type="checkbox" />
+			<input <?php checked( get_sanitizes_values( $options, 'show_' . $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo esc_attr( 'show_' . $name ); ?>]' type="checkbox" />
+						
+			<?php
+
+			var_dump( $options );
+			?>
+
 		</div>
 		<?php
 		$input_id++;
 	endforeach;
-	var_dump( $options );
 
 	?>
 	<?php
