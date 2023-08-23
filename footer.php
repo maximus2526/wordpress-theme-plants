@@ -46,7 +46,9 @@
 		</div>
 
 		<?php
-		$menus = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
+		$options = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
+		$menus   = preg_match( '^show_', $options );
+		var_dump( $menus );
 		foreach ( $menus  as $single_menu ) :
 			?>
 		<div class="right-side display-flex justify-around">

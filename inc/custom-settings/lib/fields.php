@@ -107,13 +107,14 @@ function render_footer_menus_field() {
 		</br>
 		<div class="row">
 			<!-- Не зберігає, value пусте -->
-			<input value="<?php echo esc_attr( get_sanitizes_values( $options, $name . '_menu_title' ) ); ?>" placeholder="Menu header" type="text" name="plants_options[<?php echo esc_attr( $name . '_menu_title' ); ?> ]">
-			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>
-			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo esc_attr( $name ); ?>]' type="checkbox" />
+			<input value="<?php echo esc_attr( $options[ $name . '_menu_title ' ] ); ?>" placeholder="Menu title" type="text" name="plants_options[<?php echo esc_html( $name ) . '_menu_title'; ?> ]">
+			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		
+			<input <?php checked( get_sanitizes_values( $options, $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo 'show_' . esc_attr( $name ); ?>]' type="checkbox" />
 		</div>
 		<?php
 		$input_id++;
 	endforeach;
+	var_dump( $options );
 
 	?>
 	<?php
