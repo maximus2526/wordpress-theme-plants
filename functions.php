@@ -17,7 +17,6 @@ define( 'PLANTS_JS_DIR_PATH', untrailingslashit( get_template_directory() ) . '/
 define( 'PLANTS_IMG_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/img' );
 define( 'PLANTS_CSS_URI', untrailingslashit( get_template_directory_uri() ) . '/assets/css' );
 define( 'PLANTS_CSS_DIR_PATH', untrailingslashit( get_template_directory() ) . '/assets/css' );
-
 require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
 
 

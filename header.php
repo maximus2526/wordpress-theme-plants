@@ -66,10 +66,16 @@
 					<div class="search-field">
 						<a href><img src="<?php echo esc_attr( PLANTS_IMG_URI ); ?>/svg/search.svg" alt="search-sign"></a>
 					</div>
-					<div class="auth display-flex gap-5">
-						<a href="">Login</a> / <a href="#">Register</a>
-
+					<?php if ( is_user_logged_in() ) : ?>
+						<a href=" <?php echo esc_url( wp_logout_url() ); ?>">Log Out</a> 
+					<?php else : ?>
+						<div class="auth display-flex gap-5">
+						<a href=" <?php echo esc_url( wp_login_url() ); ?>">Login</a> 
+						/ 
+						<a href="	<?php echo esc_url( site_url( '/wp-login.php?action=register&redirect_to=' . get_permalink() ) ); ?> ">Register</a>
 					</div>
+					<?php endif; ?>
+
 					<div class="cart-section display-flex gap ">
 						<div class="favorite">
 							<a href class="display-flex gap-5">
