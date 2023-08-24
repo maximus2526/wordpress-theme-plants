@@ -53,7 +53,6 @@
 			array_keys( $options ),
 			function ( $str ) {
 
-				echo '===========';
 				if ( substr( $str, -11 ) === 'menu_title ' ) {
 					return $str;
 				}
@@ -68,7 +67,7 @@
 				}
 			}
 		);
-		// $menus        = array_combine( $menu_names, $menus_titles );
+		$menus        = array_combine( $menu_names, $menus_titles );
 
 
 		/**
@@ -78,9 +77,9 @@
 		 * @return string
 		 */
 
-		var_dump( $menu_names );
-		echo '=====================';
-		var_dump( $menus_titles );
+		// var_dump( $menu_names );
+		// echo '=====================';
+		// var_dump( $menus_titles );
 		// foreach ( $menus  as $menu_name => $menu_title ) :
 		?>
 			
