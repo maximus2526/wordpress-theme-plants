@@ -109,8 +109,8 @@ function render_footer_menus_field() {
 			<?php
 
 			if ( '' === get_sanitizes_values( $options, 'show_' . $name ) ) {
-				unset( $options[ 'show_ ' . $name ] );
-				unset( $options[ $name . '_menu_title ' ] ); // This array value don't delatable. TODO: Fix.
+
+				unset( $options[ 'show_ ' . $name ], $options[ $name . '_menu_title ' ] ); // This array value don't delatable, DON'T DELETE TODO: Fix.
 
 			}
 
