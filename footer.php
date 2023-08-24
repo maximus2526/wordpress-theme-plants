@@ -48,20 +48,21 @@
 
 		<div class="right-side display-flex justify-around">
 		<?php
-		$options = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
-
+		$options      = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
 		$menus_titles = array_filter(
 			array_keys( $options ),
 			function ( $str ) {
-				if ( substr( $str, -11, 10 ) === 'menu_title' ) {
+
+				echo '===========';
+				if ( substr( $str, -11 ) === 'menu_title ' ) {
 					return $str;
 				}
 			}
 		);
-
-		$menu_names = array_filter(
+		$menu_names   = array_filter(
 			array_keys( $options ),
 			function ( $str ) {
+
 				if ( substr( $str, 0, 5 ) === 'show_' ) {
 					return $str;
 				}
@@ -77,28 +78,26 @@
 		 * @return string
 		 */
 
-
-		$plants_options = get_option( 'plants_options' );
 		var_dump( $menu_names );
 		echo '=====================';
-		die( var_dump( $menus_titles ) );
-		foreach ( $menus  as $menu_name => $menu_title ) :
-			?>
+		var_dump( $menus_titles );
+		// foreach ( $menus  as $menu_name => $menu_title ) :
+		?>
 			
 
 			<div class="footer-nav display-flex column scheme-dark">
 				<!-- <div class="nav-title"><?php // echo esc_html( $plants_options[ plants_substr_array_parsing( $single_menu ) ] ); ?></div> -->
 				<?php
-				wp_nav_menu(
-					array(
-						'menu' => isset( $plants_options[ $single_menu ] ) ? $plants_options[ $single_menu ] : '',
-					)
-				);
+				// wp_nav_menu(
+				// array(
+				// 'menu' => isset( $plants_options[ $single_menu ] ) ? $plants_options[ $single_menu ] : '',
+				// )
+				// );
 				?>
 			</div>
 			<?php
-			endforeach;
-		?>
+			// endforeach;
+			?>
 		</div>
 	</div>
 	</div>

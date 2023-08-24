@@ -103,32 +103,35 @@ function render_footer_menus_field() {
 	$input_id = 1;
 	foreach ( $menu_names as $name ) :
 		$name = esc_attr( $name );
+
 		?>
 		</br>
 		<div class="row">
+			<input value="<?php echo esc_attr( isset( $options[ $name . '_menu_title ' ] ) ? $options[ $name . '_menu_title ' ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[<?php echo esc_html( $name ) . '_menu_title'; ?> ]">
 			<?php
-
+			if ( '' === get_sanitizes_values( $options, 'show_' . $name ) ) {
+				unset( $options[ $name . '_menu_title ' ] ); // Dont deletable
+			}
+			echo $options[ $name . '_menu_title ' ];
+			?>
+			
+			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		
+			<input <?php checked( get_sanitizes_values( $options, 'show_' . $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo esc_attr( 'show_' . $name ); ?>]' type="checkbox" />
+			<?php
 			if ( '' === get_sanitizes_values( $options, 'show_' . $name ) ) {
 
-				unset( $options[ 'show_ ' . $name ], $options[ $name . '_menu_title ' ] ); // This array value don't delatable, DON'T DELETE TODO: Fix.
+				unset( $options[ 'show_' . $name ] );
 
 			}
 
 			?>
-			<input value="<?php echo esc_attr( isset( $options[ $name . '_menu_title ' ] ) ? $options[ $name . '_menu_title ' ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[<?php echo esc_html( $name ) . '_menu_title'; ?> ]">
-			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		
-			<input <?php checked( get_sanitizes_values( $options, 'show_' . $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo esc_attr( 'show_' . $name ); ?>]' type="checkbox" />
-						
-			<?php
-
-			var_dump( $options );
-			?>
-
+			
 		</div>
 		<?php
+
 		$input_id++;
 	endforeach;
-
+	var_dump( $options );
 	?>
 	<?php
 }
