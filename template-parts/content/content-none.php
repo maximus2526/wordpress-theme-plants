@@ -8,6 +8,9 @@
  * @link     http://www.hashbangcode.com/
  */
 
+?> 
+<div class="container">
+<?php
 if ( is_search() ) :
 	?>
 
@@ -20,3 +23,4 @@ if ( is_search() ) :
 	<?php get_search_form(); ?>
 
 <?php endif; ?>
+</div>
