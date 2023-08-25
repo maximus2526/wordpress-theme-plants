@@ -8,8 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-
-
 /**
  * Plants_options_page_sections.
  *

@@ -123,7 +123,6 @@ function render_footer_menus_field() {
 
 		$input_id++;
 	endforeach;
-	var_dump( $options );
 	?>
 	<?php
 }
