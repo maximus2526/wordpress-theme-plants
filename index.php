@@ -12,25 +12,34 @@ get_header();
 
 ?>
 
-<?php if ( is_home() && ! is_front_page() && ! empty( single_post_title( '', false ) ) ) : ?>
-	<header class="page-header alignwide">
-		<h1 class="page-title"><?php single_post_title(); ?></h1>
-	</header><!-- .page-header -->
-<?php endif; ?>
+<div class="container">
+<div class="row">
+	<div class="col-12">
+		<h3 class="green-text"><?php esc_html__( 'Blog', 'plants' ); ?></h3>
+	</div>
+</div>
+<div class="row">
+<?php if ( is_home() && ! empty( single_post_title( '', false ) ) ) : ?>
+	<?php
+	if ( have_posts() ) {
 
-<?php
-if ( have_posts() ) {
+		// Load posts loop.
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'template-parts/content/content-post-card' );
+		}
+	} else {
 
-	// Load posts loop.
-	while ( have_posts() ) {
-		the_post();
+		// If no content, include the "No posts found" template.
+		get_template_part( 'template-parts/content/content-none' );
+
 	}
-} else {
+	?>
+</div>
+</div>
+	<?php
 
-	// If no content, include the "No posts found" template.
-	get_template_part( 'template-parts/content/content-none' );
+	get_footer();
 
-}
-
-
-get_footer();
+endif;
+?>

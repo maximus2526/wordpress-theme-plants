@@ -30,28 +30,28 @@ function plants_get_theme_instance() {
 }
 
 
-/**
- * Custom_allow_svg_upload.
- *
- * @param  mixed $mimes
- * @return array
- */
-
-function custom_allow_svg_upload( $mimes ) {
-	$mimes['svg'] = 'image/svg+xml';
-	return $mimes;
+if ( ! function_exists( 'plants_option_page' ) ) {
+	/**
+	 * Custom_allow_svg_upload.
+	 *
+	 * @param  mixed $mimes Mimes types.
+	 * @return array
+	 */
+	function plants_custom_allow_svg_upload( $mimes ) {
+		$mimes['svg'] = 'image/svg+xml';
+		return $mimes;
+	}
 }
 
-add_filter( 'upload_mimes', 'custom_allow_svg_upload' );
-
+add_filter( 'upload_mimes', 'plants_custom_allow_svg_upload' );
 
 /**
  * Custom_allow_svg_in_content.
  *
- * @param  mixed $tags
+ * @param  mixed $tags Allowed html tags.
  * @return array
  */
-function custom_allow_svg_in_content( $tags ) {
+function plants_custom_allow_svg_in_content( $tags ) {
 	$tags['svg'] = array(
 		'class'       => true,
 		'width'       => true,
@@ -69,9 +69,11 @@ function custom_allow_svg_in_content( $tags ) {
 		'xlink:href' => true,
 	);
 
-	 return $tags;
+	return $tags;
 }
-add_filter( 'wp_kses_allowed_html', 'custom_allow_svg_in_content' );
+
+
+add_filter( 'wp_kses_allowed_html', 'plants_custom_allow_svg_in_content' );
 
 plants_get_theme_instance();
 
@@ -79,3 +81,49 @@ if ( is_admin() ) {
 	include_once 'inc/custom-settings/custom-settings.php';
 }
 
+
+if ( ! function_exists( 'plants_get_options' ) ) {
+	/**
+	 * Plants_get_options helper function
+	 *
+	 * @return array
+	 */
+	function plants_get_options() {
+		return get_option( 'plants_options' );
+	}
+}
+
+if ( ! function_exists( 'plants_get_footer_menus' ) ) {
+	/**
+	 * Plants_get_footer_menus.
+	 * Print footer menus in footer.
+	 *
+	 * @return void
+	 */
+	function plants_get_footer_menus() {
+		$menu_names        = plants_get_options()['show_menu'];
+		$menu_titles       = plants_get_options()['menus_titles'];
+		$arrays_difference = array_keys( array_diff_key( $menu_titles, $menu_names ) );
+
+		foreach ( $arrays_difference as $name ) {
+			unset( $menu_titles[ $name ] );
+		}
+		$menus = array_combine( $menu_names, $menu_titles );
+		foreach ( $menus as $menu_name => $menu_title ) :
+			?>
+		<div class="footer-nav display-flex column scheme-dark">
+			<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
+			<?php
+			wp_nav_menu(
+				array(
+					'menu' => $menu_name,
+				)
+			);
+			?>
+		</div>
+			<?php
+			endforeach;
+	}
+}
+
+?>

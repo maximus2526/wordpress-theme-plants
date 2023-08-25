@@ -1,6 +1,6 @@
 <?php
 /**
- * Single.php show post/product pages
+ * Single Product show product pages
  *
  * @package  Plants
  * @author   Maxim Kliakhin
@@ -22,7 +22,6 @@ get_header();
 				</h2>
 				<?php
 				the_content();
-				comments_template();
 		}
 	} else {
 		get_template_part( 'template-parts/content/content-none' );

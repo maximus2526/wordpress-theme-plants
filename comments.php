@@ -8,6 +8,7 @@
  * @link     http://www.hashbangcode.com/
  */
 
+
 if ( post_password_required() ) {
 	return;
 }

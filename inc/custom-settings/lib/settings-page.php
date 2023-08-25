@@ -8,23 +8,27 @@
  * @link     http://www.hashbangcode.com/
  */
 
-/**
- * Get_page_path
- *
- * @return __FILE__
- */
-function get_page_path() {
-	return __FILE__;
+if ( ! function_exists( 'plants_get_page_path' ) ) {
+	/**
+	 * Get_page_path.
+	 *
+	 * @return __FILE__
+	 */
+	function plants_get_page_path() {
+		return __FILE__;
+	}
 }
 
-/**
- * This function creates a simple page with title Custom Theme Options Page.
- *
- * @return void
- */
-function theme_option_page() {
-	$settings_output = plants_get_settings();
-	?>
+
+if ( ! function_exists( 'plants_option_page' ) ) {
+	/**
+	 * This function creates a simple page with title Custom Theme Options Page.
+	 *
+	 * @return void
+	 */
+	function plants_option_page() {
+		$settings_output = plants_get_settings();
+		?>
 	<div class="wrap">
 		<h2><?php echo esc_html( $settings_output['plants_page_title'] ); ?></h2>
 		<form method="post" action="options.php">
@@ -38,7 +42,8 @@ function theme_option_page() {
 			</p>
 		</form>
 	</div>
-	<?php
+		<?php
+	}
 }
 
 

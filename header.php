@@ -15,9 +15,6 @@
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>
-		<?php wp_title(); ?>
-	</title>
 	<?php wp_head(); ?>
 
 </head>
@@ -25,7 +22,7 @@
 <body <?php body_class(); ?>>
 
 	<?php
-	$plants_options = get_option( 'plants_options' );
+	$plants_options = plants_get_options();
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
 	}
@@ -67,12 +64,12 @@
 						<a href><img src="<?php echo esc_attr( PLANTS_IMG_URI ); ?>/svg/search.svg" alt="search-sign"></a>
 					</div>
 					<?php if ( is_user_logged_in() ) : ?>
-						<a href=" <?php echo esc_url( wp_logout_url() ); ?>">Log Out</a> 
+						<a href=" <?php echo esc_url( wp_logout_url() ); ?>"><?php echo esc_html__( 'Log Out', 'plants' ); ?></a> 
 					<?php else : ?>
 						<div class="auth display-flex gap-5">
-						<a href=" <?php echo esc_url( wp_login_url() ); ?>">Login</a> 
-						/ 
-						<a href="	<?php echo esc_url( site_url( '/wp-login.php?action=register&redirect_to=' . get_permalink() ) ); ?> ">Register</a>
+						<a href=" <?php echo esc_url( wp_login_url() ); ?>"><?php echo esc_html__( 'Login', 'plants' ); ?></a> 
+						<?php echo esc_html( '/' ); ?>
+						<a href="	<?php echo esc_url( site_url( '/wp-login.php?action=register&redirect_to=' . get_permalink() ) ); ?> "><?php echo esc_html__( 'Register', 'plants' ); ?></a>
 					</div>
 					<?php endif; ?>
 

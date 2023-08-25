@@ -150,23 +150,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 
 				while ( $articles_query->have_posts() ) {
 					$articles_query->the_post();
-					?>
-					<div class="swiper-slide darken-image" style="background-image: url('<?php echo esc_url( get_the_post_thumbnail_url() ); ?>');">
-						<div class="article-banner">
-							<div class="banner-content  scheme-light">
-								<div class="banner-header">
-									<a href="<?php echo esc_attr( get_permalink() ); ?>">
-										<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
-									</a>
-								</div>
-								<div class="banner-description opacity-80">
-									<?php the_excerpt(); ?>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<?php
+					get_template_part( 'template-parts/content/content-post-card-swiper' );
 				}
 
 				echo '</div>'; // Close .swiper-wrapper.
@@ -177,34 +161,8 @@ class Articles_Widget extends Elementor\Widget_Base {
 				<?php
 				while ( $articles_query->have_posts() ) {
 					$articles_query->the_post();
-					?>
 
-			<div class="col-12">
-				<div class="article display-flex align-center gap">
-					<div class="article-img">
-					<?php echo get_the_post_thumbnail(); ?>
-					</div>
-
-					<div class="article-content-wrapper display-flex space-between align-center">
-						<div class="article-content">
-							<div class="author">
-								Posted by
-								<?php the_author(); ?>
-							</div>
-							<div class="article-header">
-								<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>
-							</div>
-						</div>
-						<div class="continue-button">
-							<a href="<?php echo esc_attr( get_permalink() ); ?>">
-								Continue reading →
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-
-					<?php
+					get_template_part( 'template-parts/content/content-post-card' );
 				}
 				?>
 				</div>

@@ -169,7 +169,6 @@ class Products_Widget extends \Elementor\Widget_Base {
 					<div class="banner-rating">
 						<?php
 						$product_obj = wc_get_product( $product->get_id() );
-						echo (int) wc_get_rating_html( $product_obj->get_average_rating() );
 
 						if ( 'yes' === $settings['is_slider'] ) {
 							echo '</div>'; // end swiper slide.
