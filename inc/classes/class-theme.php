@@ -40,6 +40,7 @@ class THEME {
 		 * Actions.
 		 */
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
+		add_action( 'after_setup_theme', array( $this, 'true_load_theme_textdomain' ) );
 
 	}
 
@@ -68,4 +69,12 @@ class THEME {
 		add_theme_support( 'header-footer-elementor' );
 	}
 
+	/**
+	 * True_load_theme_textdomain.
+	 *
+	 * @return void
+	 */
+	public function true_load_theme_textdomain() {
+		load_theme_textdomain( 'plants', get_template_directory() . '/languages' );
+	}
 }

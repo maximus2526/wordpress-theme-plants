@@ -9,6 +9,7 @@
  */
 
 ?>
+<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<div class="col-12">
 	<div class="article display-flex align-center gap">
 		<div class="article-img">
@@ -32,4 +33,5 @@
 			</div>
 		</div>
 	</div>
+</div>
 </div>
