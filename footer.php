@@ -8,6 +8,9 @@
  * @link     http://www.hashbangcode.com/
  */
 
+use Elementor\Element_Section;
+use PLANTS\Inc\Menus;
+
 ?>
 
 <footer class="container">
@@ -48,55 +51,29 @@
 
 		<div class="right-side display-flex justify-around">
 		<?php
-		$options      = get_option( 'plants_options' ) ? get_option( 'plants_options' ) : array();
-		$menus_titles = array_filter(
-			array_keys( $options ),
-			function ( $str ) {
+		$menu_names        = get_option( 'plants_options' )['show_menu'];
+		$menu_titles       = get_option( 'plants_options' )['menus_titles'];
+		$arrays_difference = array_keys( array_diff_key( $menu_titles, $menu_names ) );
 
-				if ( substr( $str, -11 ) === 'menu_title ' ) {
-					return $str;
-				}
-			}
-		);
-		$menu_names   = array_filter(
-			array_keys( $options ),
-			function ( $str ) {
-
-				if ( substr( $str, 0, 5 ) === 'show_' ) {
-					return $str;
-				}
-			}
-		);
-		$menus        = array_combine( $menu_names, $menus_titles );
-
-
-		/**
-		 * Parse from array elements elements that contain substrю
-		 *
-		 * @param  mixed $str
-		 * @return string
-		 */
-
-		// var_dump( $menu_names );
-		// echo '=====================';
-		// var_dump( $menus_titles );
-		// foreach ( $menus  as $menu_name => $menu_title ) :
-		?>
-			
-
+		foreach ( $arrays_difference as $name ) {
+			unset( $menu_titles[ $name ] );
+		}
+		$menus = array_combine( $menu_names, $menu_titles );
+		foreach ( $menus as $menu_name => $menu_title ) :
+			?>
 			<div class="footer-nav display-flex column scheme-dark">
-				<!-- <div class="nav-title"><?php // echo esc_html( $plants_options[ plants_substr_array_parsing( $single_menu ) ] ); ?></div> -->
+				<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
 				<?php
-				// wp_nav_menu(
-				// array(
-				// 'menu' => isset( $plants_options[ $single_menu ] ) ? $plants_options[ $single_menu ] : '',
-				// )
-				// );
+				wp_nav_menu(
+					array(
+						'menu' => $menu_name,
+					)
+				);
 				?>
 			</div>
 			<?php
-			// endforeach;
-			?>
+			endforeach;
+		?>
 		</div>
 	</div>
 	</div>

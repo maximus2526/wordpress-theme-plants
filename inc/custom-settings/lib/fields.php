@@ -107,21 +107,13 @@ function render_footer_menus_field() {
 		?>
 		</br>
 		<div class="row">
-			<input value="<?php echo esc_attr( isset( $options[ $name . '_menu_title ' ] ) ? $options[ $name . '_menu_title ' ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[<?php echo esc_html( $name ) . '_menu_title'; ?> ]">
-			<?php
-			if ( '' === get_sanitizes_values( $options, 'show_' . $name ) ) {
-				unset( $options[ $name . '_menu_title ' ] ); // Dont deletable
-			}
-			echo $options[ $name . '_menu_title ' ];
-			?>
-			
+		<input value="<?php echo esc_attr( isset( $options['menus_titles'][ $name ] ) ? $options['menus_titles'][ $name ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
 			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		
-			<input <?php checked( get_sanitizes_values( $options, 'show_' . $name ), $name ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[<?php echo esc_attr( 'show_' . $name ); ?>]' type="checkbox" />
+			<input <?php checked( isset( $options['show_menu'][ $name ] ) && $options['show_menu'][ $name ] === $name, true ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[show_menu][<?php echo esc_attr( $name ); ?>]' type="checkbox" />
+
 			<?php
-			if ( '' === get_sanitizes_values( $options, 'show_' . $name ) ) {
-
-				unset( $options[ 'show_' . $name ] );
-
+			if ( isset( $options['show_menu'][ $name ] ) && '' === $options['show_menu'][ $name ] ) {
+				unset( $options['show_menu'][ $name ] );
 			}
 
 			?>
