@@ -79,12 +79,12 @@
 								<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/favorite.svg" alt>
 								<span class="favorite-count">0</span>
 							</a>
-						</div>
+						</div> 
 						<div class="cart">
 							<a href="<?php echo class_exists( 'WooCommerce' ) ? esc_url( wc_get_cart_url() ) : ''; ?>" class="display-flex gap-5">
 								<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/cart.svg" alt>
 								<span class="cart-count">
-									<?php echo class_exists( 'WooCommerce' ) ? count( WC()->cart->get_cart() ) : ''; ?>
+									<?php echo class_exists( 'WooCommerce' ) ? (int) WC()->cart->get_cart_contents_count() : ''; ?>
 								</span>
 							</a>
 						</div>
