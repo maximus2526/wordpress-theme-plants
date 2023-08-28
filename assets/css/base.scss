@@ -1,5 +1,6 @@
-@import "home/home.css";
-@import "reset/reset.css";
+@import "home/home.scss";
+@import "blog/single-article.scss";
+@import "reset/reset.scss";
 @import "swiper/custom-swiper.scss";
 
 /* WordPress Core
@@ -463,6 +464,9 @@ body {
     }
 }
 
+.output-padding {
+    padding: 10px;
+}
 
 .input-form {
     align-items: center;
@@ -492,19 +496,12 @@ body {
 
 
 
+
+
     & .input-field {
         position: relative;
         width: 100%;
         box-shadow: 0 0 25px rgb(243, 242, 242);
-
-        input {
-            border-radius: 5px;
-            border: 1px solid #3333331A;
-            margin-right: 5px;
-            width: 100%;
-            padding-left: 10px;
-            height: 40px;
-        }
     }
 
     & .input-button {
@@ -529,6 +526,8 @@ body {
 
     }
 }
+
+
 
 .no-filter {
     ::after {

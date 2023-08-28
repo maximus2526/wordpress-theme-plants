@@ -7,11 +7,18 @@
         color: white;
         font-weight: 500;
         font-size: 22;
-
     }
 }
 
 .header {
+    .hamburger {
+        display: none;
+        @media screen and (max-width: 900px) {
+            display: block;
+            width: 50px;
+        }
+    }
+
     height: 90px;
     align-items: center;
     margin-bottom: 20px;
@@ -19,13 +26,34 @@
     .profile-section,
     .menu-header-menu-container {
         flex-basis: 33.3%;
+
+        @media screen and (max-width: 900px) {
+            .hamburger {
+                width: 50px;
+            }
+
+            #menu-header-menu {
+                display: none;
+            }
+
+        }
     }
+
 
 }
 
 header .container {
     border-bottom: 2px solid #5E6821;
     margin-bottom: 40px;
+}
+
+
+
+
+
+.logo-section img {
+    max-width: 150px;
+    height: 100%;
 }
 
 
@@ -205,7 +233,7 @@ footer {
     }
 
     .subscribe-block {
-        width: 440px;
+        max-width: 100%;
         margin-bottom: 60px;
 
         label {
@@ -240,11 +268,21 @@ footer {
     }
 
     .left-side {
-        border-right: 2px solid #5E6821;
+        max-width: 60%;
+
     }
 
 
     .right-side {
+
+        border-left: 2px solid #5E6821;
+
+        @media screen and (max-width: 1024px) {
+            border-left: none;
+            margin-top: 40px;
+            justify-content: space-evenly;
+        }
+
         width: 100%;
 
         .nav-title {
@@ -267,6 +305,8 @@ footer {
     background: #5e6821;
     border: none;
     color: white;
+    display: inline-block;
+
 }
 
 .continue-button a {

@@ -114,7 +114,7 @@ if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 		$menus = array_combine( $menu_names, $menu_titles );
 		foreach ( $menus as $menu_name => $menu_title ) :
 			?>
-		<div class="footer-nav display-flex column scheme-dark">
+		<div class="footer-nav display-flex column scheme-dark output-padding">
 			<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
 			<?php
 			wp_nav_menu(

@@ -13,14 +13,38 @@
   align-items: center;
   margin-bottom: 20px;
 }
+.header .hamburger {
+  display: none;
+}
+@media screen and (max-width: 900px) {
+  .header .hamburger {
+    display: block;
+    width: 50px;
+  }
+}
 .header .profile-section,
 .header .menu-header-menu-container {
   flex-basis: 33.3%;
+}
+@media screen and (max-width: 900px) {
+  .header .profile-section .hamburger,
+  .header .menu-header-menu-container .hamburger {
+    width: 50px;
+  }
+  .header .profile-section #menu-header-menu,
+  .header .menu-header-menu-container #menu-header-menu {
+    display: none;
+  }
 }
 
 header .container {
   border-bottom: 2px solid #5E6821;
   margin-bottom: 40px;
+}
+
+.logo-section img {
+  max-width: 150px;
+  height: 100%;
 }
 
 .vertical-nav li {
@@ -153,7 +177,7 @@ footer .bottom-footer {
   height: 100px;
 }
 footer .subscribe-block {
-  width: 440px;
+  max-width: 100%;
   margin-bottom: 60px;
 }
 footer .subscribe-block label {
@@ -183,10 +207,18 @@ footer .social-icons:first-child {
   margin-left: 0px;
 }
 footer .left-side {
-  border-right: 2px solid #5E6821;
+  max-width: 60%;
 }
 footer .right-side {
+  border-left: 2px solid #5E6821;
   width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  footer .right-side {
+    border-left: none;
+    margin-top: 40px;
+    justify-content: space-evenly;
+  }
 }
 footer .right-side .nav-title {
   font-size: 30px;
@@ -201,6 +233,7 @@ footer .right-side .nav-items li {
   background: #5e6821;
   border: none;
   color: white;
+  display: inline-block;
 }
 
 .continue-button a {

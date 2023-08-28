@@ -42,6 +42,9 @@
 						)
 					);
 					?>
+					<div class="hamburger">
+						<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">
+					</div>
 				</div>
 				<div class="logo-section">
 					<a href="/">
