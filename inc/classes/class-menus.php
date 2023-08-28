@@ -46,9 +46,7 @@ class Menus {
 	 */
 	protected function register_my_menus() {
 		register_nav_menus(
-			array(
-				'header-menu' => esc_html__( 'header-menu', 'plants' ),
-			)
+			get_nav_menu_locations()
 		);
 	}
 

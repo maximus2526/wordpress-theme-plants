@@ -8,13 +8,12 @@
  * @link     http://www.hashbangcode.com/
  */
 
-
 if ( post_password_required() ) {
 	return;
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" <?php echo comment_class( 'comments-area' ); ?> >
 
 	<?php
 	if ( have_comments() ) :

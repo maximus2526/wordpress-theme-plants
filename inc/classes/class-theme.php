@@ -62,7 +62,6 @@ class THEME {
 
 		add_theme_support( 'custom-logo' );
 		add_theme_support( 'title-tag' );
-		add_theme_support( 'menus' );
 		add_theme_support( 'widgets' );
 		add_theme_support( 'widgets-block-editor' );
 		add_theme_support( 'elementor' );

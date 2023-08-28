@@ -19,9 +19,16 @@
 
 		<div class="article-content-wrapper display-flex space-between align-center">
 			<div class="article-content">
+				<div class="display-flex gap">
 				<div class="author">
 					<?php echo esc_html__( 'Posted by', 'plants' ); ?>
 					<?php the_author(); ?>
+				</div>
+				<div class="marks">
+					<?php
+						the_tags();
+					?>
+				</div>
 				</div>
 				<div class="article-header">
 					<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>

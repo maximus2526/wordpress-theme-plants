@@ -15,6 +15,14 @@ get_header();
 	<?php
 	if ( have_posts() ) {
 		while ( have_posts() ) {
+			?>
+			<div class="display-flex gap">
+			<?php
+				the_taxonomies();
+			?>
+			</div>
+			<?php
+
 			the_post();
 			?>
 				<h2 class='title'>

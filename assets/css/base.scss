@@ -4,66 +4,68 @@
 
 /* WordPress Core
 -------------------------------------------------------------- */
+
 .alignnone {
     margin: 5px 20px 20px 0;
 }
- 
+
 .aligncenter,
 div.aligncenter {
     display: block;
     margin: 5px auto 5px auto;
 }
- 
+
 .alignright {
-    float:right;
+    float: right;
     margin: 5px 0 20px 20px;
 }
- 
+
 .alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
- 
+
 a img.alignright {
     float: right;
     margin: 5px 0 20px 20px;
 }
- 
+
 a img.alignnone {
     margin: 5px 20px 20px 0;
 }
- 
+
 a img.alignleft {
     float: left;
     margin: 5px 20px 20px 0;
 }
- 
+
 a img.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
- 
+
 .wp-caption {
     background: #fff;
     border: 1px solid #f0f0f0;
-    max-width: 96%; /* Image does not overflow the content area */
+    max-width: 96%;
+    /* Image does not overflow the content area */
     padding: 5px 3px 10px;
     text-align: center;
 }
- 
+
 .wp-caption.alignnone {
     margin: 5px 20px 20px 0;
 }
- 
+
 .wp-caption.alignleft {
     margin: 5px 20px 20px 0;
 }
- 
+
 .wp-caption.alignright {
     margin: 5px 0 20px 20px;
 }
- 
+
 .wp-caption img {
     border: 0 none;
     height: auto;
@@ -73,22 +75,22 @@ a img.aligncenter {
     width: auto;
 }
 
-.size-auto, 
+.size-auto,
 .size-full,
 .size-large,
 .size-medium,
 .size-thumbnail {
-	max-width: 100%;
-	height: auto;
+    max-width: 100%;
+    height: auto;
 }
- 
+
 .wp-caption p.wp-caption-text {
     font-size: 11px;
     line-height: 17px;
     margin: 0;
     padding: 0 4px 5px;
 }
- 
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
     border: 0;
@@ -100,9 +102,10 @@ a img.aligncenter {
     padding: 0;
     position: absolute !important;
     width: 1px;
-    word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+    word-wrap: normal !important;
+    /* Many screen reader and browser combinations announce broken words as they would appear visually. */
 }
- 
+
 .screen-reader-text:focus {
     background-color: #eee;
     clip: auto !important;
@@ -120,6 +123,7 @@ a img.aligncenter {
     z-index: 100000;
     /* Above WP toolbar. */
 }
+
 /* Glogal options */
 
 body {
@@ -136,7 +140,7 @@ body {
 
 .green-text {
     color: #5E6821;
-}   
+}
 
 .dropdown p {
     margin-bottom: 0;
@@ -383,12 +387,13 @@ body {
 
 .block-title {
     padding-bottom: 20px;
+
     img {
         margin-right: 10px;
     }
 }
 
-.menu-header-menu-container ul{
+.menu-header-menu-container ul {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -626,6 +631,7 @@ p {
 .size-m {
     font-size: 15px;
 }
+
 .size-l {
     font-size: 38px;
 }
@@ -744,8 +750,9 @@ h1 {
 
 .article {
     padding: 40px 0;
-    border-bottom: 2px solid #5E6821 ;
-    .article-img img{
+    border-bottom: 2px solid #5E6821;
+
+    .article-img img {
         max-width: 320px;
         height: 220px;
     }

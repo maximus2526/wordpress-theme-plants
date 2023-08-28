@@ -51,7 +51,7 @@ class Assets {
 	public function register_styles() {
 		 // Register styles.
 		wp_register_style( 'base-css', get_template_directory_uri() . '/assets/css/base.css', array(), true );
-		wp_register_style( 'swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.css', array(), true );
+		wp_register_style( 'swiper-css', get_template_directory_uri() . '/assets/css/swiper/swiper-min.css', array(), true );
 		// Enqueue Styles.
 		wp_enqueue_style( 'swiper-css' );
 		wp_enqueue_style( 'base-css' );
@@ -66,7 +66,7 @@ class Assets {
 	public function register_scripts() {
 		// Register scripts.
 		wp_register_script( 'main-js', PLANTS_JS_URI . '/main.js', array(), filemtime( PLANTS_JS_DIR_PATH . '/main.js' ), true );
-		wp_register_script( 'swiper-js', 'https://cdn.jsdelivr.net/npm/swiper@10.0.4/swiper-bundle.min.js', array(), true, true );
+		wp_register_script( 'swiper-js', get_template_directory_uri() . '/assets/js/swiper-min.js', array(), true, true );
 
 		// Enqueue Scripts.
 		wp_enqueue_script( 'swiper-js' );
