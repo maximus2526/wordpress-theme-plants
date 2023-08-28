@@ -65,8 +65,8 @@ if ( ! function_exists( 'plants_hide_header_banner' ) ) {
 		$options = plants_get_options();
 		?>
 	<select name='plants_options[header_banner_hide_option]'>
-		<option value='Yes' <?php selected( plants_get_sanitizes_values( $options, 'header_banner_hide_option' ), 'Yes' ); ?>>Yes</option>
-		<option value='No' <?php selected( plants_get_sanitizes_values( $options, 'header_banner_hide_option' ), 'No' ); ?>>No</option>
+		<option value='Yes' <?php selected( plants_get_sanitizes_values( $options, 'header_banner_hide_option' ), 'Yes' ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
+		<option value='No' <?php selected( plants_get_sanitizes_values( $options, 'header_banner_hide_option' ), 'No' ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
 
 	</select>
 		<?php

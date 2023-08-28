@@ -19,7 +19,7 @@ if ( ! function_exists( 'plants_add_menu' ) ) {
 		// add_theme_page( $page_title, $menu_title, $capability, $menu_slug, $function).
 		$plants_settings_page = add_theme_page(
 			esc_html__( 'Theme Customization', 'plants' ),
-			'Theme Customization',
+			esc_html__( 'Theme Customization', 'plants' ),
 			'manage_options',
 			'theme-options',
 			'plants_option_page',

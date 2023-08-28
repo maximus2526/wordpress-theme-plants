@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plants\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-25 14:35+0000\n"
+"PO-Revision-Date: 2023-08-28 07:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: Українська\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.4; wp-6.3\n"
+"X-Domain: plants"
+
+#: widgets/class-social-links-widget.php:86
+msgid "Abbreviation"
+msgstr "Коротко"
+
+#. Author URI of the plugin
+msgid "https://developers.elementor.com/"
+msgstr "https://developers.elementor.com/"
+
+#: widgets/class-partners-links-widget.php:100
+msgid "https://your-partner-url.com"
+msgstr "https://your-partner-url.com"
+
+#: widgets/class-social-links-widget.php:73
+msgid "https://your-social-url.com"
+msgstr "https://your-social-url.com"
+
+#. Author of the plugin
+msgid "Maxim Kliakhin"
+msgstr "Максим Кляхін"
+
+#: widgets/class-articles-widget.php:178
+msgid "No articles found."
+msgstr "Статті не знайдено."
+
+#: widgets/class-partners-links-widget.php:89
+msgid "Partner Links"
+msgstr "Партнерські посилання"
+
+#: widgets/class-partners-links-widget.php:33
+msgid "Partners Links Widget"
+msgstr "Віджет партнеських посилань"
+
+#. Name of the plugin
+msgid "Plants"
+msgstr "Plants"
+
+#. Description of the plugin
+msgid "Plants Required Plugin"
+msgstr "Плагін важливий для теми Plants"
+
+#: widgets/class-partners-links-widget.php:63
+msgid "Size"
+msgstr "Розмір"
+
+#: widgets/class-social-links-widget.php:62
+msgid "Social Links"
+msgstr "Соціальні  посилання"
+
+#: widgets/class-partners-links-widget.php:124
+#: widgets/class-social-links-widget.php:95
+msgid "Social Links List"
+msgstr "Список соціальних лінків"
+
+#: widgets/class-social-links-widget.php:32
+msgid "Social Links Widget"
+msgstr "Віджет соціальних посилань"
+
+#: widgets/class-subscribe-widget.php:22
+msgid "subscribe_widget"
+msgstr "Віджет Підписки"
+
+#: elementor-addon.php:54
+msgid "Theme Widgets"
+msgstr "Віджет "
+
+#: widgets/class-partners-links-widget.php:98
+#: widgets/class-social-links-widget.php:71
+msgid "URL"
+msgstr "УРЛ"
+
+#: widgets/class-user-panel-widget.php:23
+msgid "user_panel_widget"
+msgstr "Користувач_Panel_Widget"

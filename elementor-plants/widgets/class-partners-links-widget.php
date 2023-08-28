@@ -10,18 +10,18 @@
 
 use \Elementor\Utils;
 use \Elementor\Controls_Manager;
-
+use \Elementor\Widget_Base;
 /**
  * Partners_Links_Widget
  */
-class Partners_Links_Widget extends \Elementor\Widget_Base {
+class Partners_Links_Widget extends Widget_Base {
 	/**
 	 * Get_name.
 	 *
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html( 'partners_links_widget' );
+		return esc_html__( 'partners_links_widget', 'elementor-addon' );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Partners Links Widget', 'plants' );
+		return esc_html__( 'Partners Links Widget', 'elementor-addon' );
 	}
 
 	/**
@@ -60,7 +60,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'img_size',
 			array(
-				'label' => esc_html__( 'Size', 'plants' ),
+				'label' => esc_html__( 'Size', 'elementor-addon' ),
 			)
 		);
 
@@ -86,7 +86,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_partner_links',
 			array(
-				'label' => esc_html__( 'Partner Links', 'plants' ),
+				'label' => esc_html__( 'Partner Links', 'elementor-addon' ),
 			)
 		);
 
@@ -95,9 +95,9 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'partner_url',
 			array(
-				'label'         => esc_html__( 'URL', 'plants' ),
+				'label'         => esc_html( 'URL' ),
 				'type'          => Controls_Manager::URL,
-				'placeholder'   => esc_html__( 'https://your-partner-url.com', 'plants' ),
+				'placeholder'   => esc_url( 'https://your-partner-url.com' ),
 				'show_external' => true,
 				'default'       => array(
 					'url'         => '',
@@ -121,7 +121,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'partner_links_list',
 			array(
-				'label'   => esc_html__( 'Social Links List', 'plants' ),
+				'label'   => esc_html__( 'Social Links List', 'elementor-addon' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => array(
@@ -154,7 +154,7 @@ class Partners_Links_Widget extends \Elementor\Widget_Base {
 
 				$url       = $link['partner_url']['url'];
 				$image_url = $link['partner_img']['url'];
-				echo '<a href="' . esc_url( $url ) . '"><img style="width: ' . esc_html( $width, 'plants' ) . '; height: ' . esc_html( $height, 'plants' ) . ';" src="' . esc_url( $image_url ) . '"></a>';
+				echo '<a href="' . esc_url( $url ) . '"><img style="width: ' . esc_html( $width ) . '; height: ' . esc_html( $height ) . ';" src="' . esc_url( $image_url ) . '"></a>';
 			}
 		}
 		echo '</div>';

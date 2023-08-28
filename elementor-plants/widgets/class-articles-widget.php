@@ -9,11 +9,11 @@
  */
 
 use \Elementor\Controls_Manager;
-
+use \Elementor\Widget_Base;
 /**
  * Articles_Widget
  */
-class Articles_Widget extends Elementor\Widget_Base {
+class Articles_Widget extends Widget_Base {
 
 	/**
 	 * Get_name.
@@ -21,7 +21,7 @@ class Articles_Widget extends Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'article_widget';
+		return esc_html__( 'article_widget', 'elementor-addon' );
 	}
 
 	/**

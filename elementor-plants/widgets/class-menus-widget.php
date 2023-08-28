@@ -21,7 +21,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html( 'menus_widget' );
+		return esc_html__( 'menus_widget', 'elementor-addon' );
 	}
 
 	/**

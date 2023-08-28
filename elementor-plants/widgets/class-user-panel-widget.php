@@ -20,7 +20,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'user_panel_widget', 'plants' );
+		return esc_html__( 'user_panel_widget', 'elementor-addon' );
 	}
 
 	/**
@@ -80,6 +80,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 				</div>
 				<div class="cart">
 					<?php
+					global $woocommerce;
 					if ( ! WC()->cart ) {
 						return;
 					}
@@ -87,7 +88,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="display-flex gap-5">
 						<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/cart.svg" alt>
 						<span class="cart-count">
-							<?php echo (int) WC()->cart->get_cart_contents_count(); ?>
+							<?php echo (int) $woocommerce->cart->get_cart_contents_count(); ?>
 						</span>
 					</a>
 				</div>

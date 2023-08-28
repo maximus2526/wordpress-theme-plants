@@ -19,8 +19,8 @@
 			<div class="subscribe-block display-flex column gap">
 				<label for="footer-subscribe-input"><?php echo esc_html__( 'Join our newsletter	to	stay up to date on features and releases.', 'plants' ); ?></label>
 				<form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
-					<input placeholder="Enter your email" type="email" name="subscribe-email">
-					<button class="button" type="submit"><?php echo esc_html__( 'Subscribe' ); ?></button>
+					<input placeholder=<?php echo esc_html__( 'Enter your email', 'plants' ); ?> type="email" name="subscribe-email">
+					<button class="button" type="submit"><?php echo esc_html__( 'Subscribe', 'plants' ); ?></button>
 				</form>
 				<div class="text">
 				<?php echo esc_html__( 'By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.', 'plants' ); ?>

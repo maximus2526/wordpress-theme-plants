@@ -19,7 +19,7 @@ class Subscribe_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'subscribe_widget', 'plants' );
+		return esc_html__( 'subscribe_widget', 'elementor-addon' );
 	}
 
 	/**
@@ -57,7 +57,7 @@ class Subscribe_Widget extends \Elementor\Widget_Base {
 	protected function render() {       ?>
 		<form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
 			<input placeholder="Enter your email" type="email" name="subscribe-email">
-			<button class="button" type="submit">Subscribe</button>
+			<button class="button" type="submit"><?php echo esc_html__( 'Subscribe', 'elementor-addon' ); ?></button>
 		</form>
 		<?php
 	}

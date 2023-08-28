@@ -20,7 +20,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return 'products_widget';
+		return esc_html__( 'products_widget', 'elementor-addon' );
 	}
 
 	/**
