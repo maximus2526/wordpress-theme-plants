@@ -30,6 +30,127 @@
   left: 0;
 }
 
+/* WordPress Core
+-------------------------------------------------------------- */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wp-caption {
+  background: #fff;
+  border: 1px solid #f0f0f0;
+  max-width: 96%; /* Image does not overflow the content area */
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+.size-auto,
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+.wp-caption p.wp-caption-text {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+.screen-reader-text:focus {
+  background-color: #eee;
+  clip: auto !important;
+  -webkit-clip-path: none;
+          clip-path: none;
+  color: #444;
+  display: block;
+  font-size: 1em;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+  /* Above WP toolbar. */
+}
+
 /* Glogal options */
 body {
   background-color: #f6f3ed;
@@ -83,7 +204,7 @@ body {
 
 @media screen and (max-width: 1200px) {
   .promo-block {
-	opacity: 0%;
+    opacity: 0%;
   }
 }
 
@@ -192,8 +313,8 @@ body {
 }
 @media screen and (max-width: 1024px) {
   .hot::after {
-	font-size: 8px;
-	min-width: 20px;
+    font-size: 8px;
+    min-width: 20px;
   }
 }
 
@@ -333,7 +454,7 @@ body {
 }
 @media screen and (max-width: 1200px) {
   .input-form .select-category {
-	display: none;
+    display: none;
   }
 }
 .input-form .input-field {
@@ -574,175 +695,175 @@ h1 {
 
 @media screen and (max-width: 1024px) {
   .col-md-1 {
-	flex-basis: 8.3333333333%;
-	max-width: 8.3333333333%;
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-2 {
-	flex-basis: 16.6666666667%;
-	max-width: 16.6666666667%;
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-3 {
-	flex-basis: 25%;
-	max-width: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-4 {
-	flex-basis: 33.3333333333%;
-	max-width: 33.3333333333%;
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-5 {
-	flex-basis: 41.6666666667%;
-	max-width: 41.6666666667%;
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-6 {
-	flex-basis: 50%;
-	max-width: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-7 {
-	flex-basis: 58.3333333333%;
-	max-width: 58.3333333333%;
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-8 {
-	flex-basis: 66.6666666667%;
-	max-width: 66.6666666667%;
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-9 {
-	flex-basis: 75%;
-	max-width: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-10 {
-	flex-basis: 83.3333333333%;
-	max-width: 83.3333333333%;
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-11 {
-	flex-basis: 91.6666666667%;
-	max-width: 91.6666666667%;
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-12 {
-	flex-basis: 100%;
-	max-width: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-1 {
-	flex-basis: 8.3333333333%;
-	max-width: 8.3333333333%;
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-2 {
-	flex-basis: 16.6666666667%;
-	max-width: 16.6666666667%;
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-3 {
-	flex-basis: 25%;
-	max-width: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-4 {
-	flex-basis: 33.3333333333%;
-	max-width: 33.3333333333%;
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-5 {
-	flex-basis: 41.6666666667%;
-	max-width: 41.6666666667%;
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-6 {
-	flex-basis: 50%;
-	max-width: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-7 {
-	flex-basis: 58.3333333333%;
-	max-width: 58.3333333333%;
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-8 {
-	flex-basis: 66.6666666667%;
-	max-width: 66.6666666667%;
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-9 {
-	flex-basis: 75%;
-	max-width: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-10 {
-	flex-basis: 83.3333333333%;
-	max-width: 83.3333333333%;
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-11 {
-	flex-basis: 91.6666666667%;
-	max-width: 91.6666666667%;
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-12 {
-	flex-basis: 100%;
-	max-width: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .container {
-	max-width: 95%;
+    max-width: 95%;
   }
 }
 .article {

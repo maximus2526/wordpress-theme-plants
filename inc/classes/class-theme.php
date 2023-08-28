@@ -67,6 +67,7 @@ class THEME {
 		add_theme_support( 'widgets-block-editor' );
 		add_theme_support( 'elementor' );
 		add_theme_support( 'header-footer-elementor' );
+		add_theme_support( 'automatic-feed-links' );
 	}
 
 	/**

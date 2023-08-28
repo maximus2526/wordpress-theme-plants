@@ -28,6 +28,7 @@ get_header();
 			the_post();
 			get_template_part( 'template-parts/content/content-post-card' );
 		}
+		wp_link_pages();
 	} else {
 
 		// If no content, include the "No posts found" template.

@@ -19,6 +19,9 @@ define( 'PLANTS_CSS_URI', untrailingslashit( get_template_directory_uri() ) . '/
 define( 'PLANTS_CSS_DIR_PATH', untrailingslashit( get_template_directory() ) . '/assets/css' );
 require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
 
+if ( ! isset( $content_width ) ) {
+	$content_width = 900;
+}
 
 /**
  * Plants_get_theme_instance.

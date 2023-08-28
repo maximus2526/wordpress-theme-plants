@@ -22,7 +22,10 @@ get_header();
 				</h2>
 				<?php
 				the_content();
-				the_posts_navigation();
+				if ( is_singular() ) {
+					wp_enqueue_script( 'comment-reply' );
+					comments_template();
+				}
 		}
 	} else {
 		get_template_part( 'template-parts/content/content-none' );

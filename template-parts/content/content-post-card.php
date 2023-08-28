@@ -9,9 +9,10 @@
  */
 
 ?>
-<div id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div id="blog-article  post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<div class="row">
 	<div class="col-12">
-	<div class="article display-flex align-center gap">
+	<div class="article display-flex gap">
 		<div class="article-img">
 		<?php echo get_the_post_thumbnail(); ?>
 		</div>
