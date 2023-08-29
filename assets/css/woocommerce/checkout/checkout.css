@@ -1,7 +1,8 @@
 .select2-selection__rendered, .customer_details span, .select2-selection--single {
- padding: 0 0;
+  padding: 0 0;
 }
 
 .customer_details .selection {
- width: fit-content;
-}
+  width: -moz-fit-content;
+  width: fit-content;
+}/*# sourceMappingURL=checkout.css.map */

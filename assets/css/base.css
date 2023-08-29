@@ -525,6 +525,15 @@ h6 {
   display: flex;
 }
 
+.select2-selection__rendered, .customer_details span, .select2-selection--single {
+  padding: 0 0;
+}
+
+.customer_details .selection {
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 /* WordPress Core
 -------------------------------------------------------------- */
 .alignnone {
