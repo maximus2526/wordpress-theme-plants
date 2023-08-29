@@ -65,6 +65,9 @@ class THEME {
 		add_theme_support( 'elementor' );
 		add_theme_support( 'header-footer-elementor' );
 		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
 	}
 
 	/**

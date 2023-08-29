@@ -5,6 +5,7 @@
 @import "woocommerce/my-account/my-account.scss";
 @import "woocommerce/product/product.scss";
 @import "woocommerce/cart/cart.scss";
+@import "woocommerce/checkout/checkout.scss";
 
 /* WordPress Core
 -------------------------------------------------------------- */
@@ -239,11 +240,6 @@ body {
     height: 50%;
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 }
-
-
-
-
-
 
 .content-center {
     align-items: center;
@@ -509,10 +505,6 @@ body {
         }
     }
 
-
-
-
-
     & .input-field {
         position: relative;
         width: 100%;
@@ -742,18 +734,6 @@ h1 {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (max-width: 1200px) {
     .container {
