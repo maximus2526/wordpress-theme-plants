@@ -358,3 +358,15 @@ footer {
     margin-bottom: 40px;
     border-bottom: 2px solid #5E6821;
 }
+
+.nav-links {
+    padding: 20px;
+    a {
+        color: #34381d;
+        font-weight: 700;
+        &:hover {
+            color: #5E6821;
+        }
+    }
+    
+}

@@ -21,6 +21,7 @@
 			<div class="article-content">
 				<div class="author">
 					<?php echo esc_html__( 'Posted by', 'plants' ); ?>
+					<img class="posted-by-avatar" src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ) ) ); ?>" alt="avatar">
 					<?php the_author(); ?>
 				</div>
 				<div class="article-header">

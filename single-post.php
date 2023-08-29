@@ -12,6 +12,7 @@ get_header();
 
 ?>
 <div class="container">
+	<h3 class="page-slag"><?php echo esc_html( 'Blog' ); ?></h3>
 	<?php
 	if ( have_posts() ) {
 		while ( have_posts() ) {
@@ -26,6 +27,7 @@ get_header();
 					<div class="author">
 						<?php echo esc_html__( 'Posted by', 'plants' ); ?>
 						<?php the_author_meta( 'display_name', 1 ); ?>
+						<img class="posted-by-avatar" src="<?php echo esc_url( get_avatar_url( get_the_author_meta( 'ID' ) ) ); ?>" alt="avatar">
 					</div>
 					<div class="article-header">
 						<?php the_title( '<h3 class="entry-title">', '</h3>' ); ?>

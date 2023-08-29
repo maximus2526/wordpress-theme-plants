@@ -411,6 +411,18 @@ body {
     }
 }
 
+.posted-by-avatar {
+    display: inline;
+    width: 24px;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.page-slag {
+    color: #5E6821;
+    font-weight: 600;
+}
+
 .vertical {
     gap: 0;
 
