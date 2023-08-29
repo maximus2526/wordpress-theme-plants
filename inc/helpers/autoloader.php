@@ -61,7 +61,7 @@ function autoloader( $resource = '' ) {
 				 * otherwise find in inc/ directory.
 				 */
 				if ( ! empty( $path[2] ) ) {
-					$directory = sprintf( 'classes/%s', $path[1] );
+					$directory = sprintf( 'classes\%s', $path[1] );
 					$file_name = sprintf( 'class-%s', trim( strtolower( $path[2] ) ) );
 					break;
 				}
@@ -71,7 +71,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( PLANTS_DIR_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s\inc\%s\%s.php', untrailingslashit( PLANTS_DIR_PATH ), $directory, $file_name );
 
 	}
 
@@ -80,7 +80,7 @@ function autoloader( $resource = '' ) {
 	 */
 	$is_valid_file = validate_file( $resource_path );
 
-	if ( ! empty( $resource_path ) && file_exists( $resource_path ) && ( 0 === $is_valid_file || 2 === $is_valid_file ) ) {
+	if ( file_exists( $resource_path ) && ( 0 === $is_valid_file || 2 === $is_valid_file ) ) {
 		// We already making sure that file is exists and valid.
      require_once( $resource_path ); // phpcs:ignore
 	}

@@ -8,15 +8,14 @@
  * @link     http://www.hashbangcode.com/
  */
 
-namespace PLANTS\Inc;
+	namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
 
 /**
- * WooCommerce
+ * WCommerce
  */
-class WooCommerce {
-
+class WCommerce {
 
 	use Singleton;
 
@@ -37,7 +36,21 @@ class WooCommerce {
 	protected function setup_hooks() {
 		add_action( 'after_setup_theme', 'theme_add_woocommerce_support' );
 		add_action( 'wp_enqueue_scripts', 'theme_load_woocommerce_styles' );
+		add_filter( 'woocommerce_post_class', 'private_add_products_column' );
+		apply_filters( array( $this, 'woocommerce_post_class' ), ' col-3' );
+		die( 213321231 );
+	}
 
+	/**
+	 * Add to products column system.
+	 *
+	 * @param mixed $class Class.
+	 *
+	 * @return string
+	 */
+	private function private_add_products_column( $class ) {
+		$class .= ' col-3';
+		return $class;
 	}
 
 	/**

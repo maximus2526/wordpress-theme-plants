@@ -7,7 +7,6 @@
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://www.hashbangcode.com/
  */
-
 define( 'PLANTS_DIR_PATH', untrailingslashit( get_template_directory() ) );
 define( 'PLANTS_DIR_URI', untrailingslashit( get_template_directory_uri() ) );
 define( 'PLANTS_URI', untrailingslashit( get_template_directory_uri() ) . '/assets' );
@@ -28,8 +27,10 @@ if ( ! isset( $content_width ) ) {
  *
  * @return void
  */
-function plants_get_theme_instance() {
+function plants_get_theme_instances() {
 	PLANTS\Inc\THEME::get_instance();
+	PLANTS\Inc\Menus::get_instance();
+	PLANTS\Inc\WCommerce::get_instance();
 }
 
 
@@ -78,7 +79,7 @@ function plants_custom_allow_svg_in_content( $tags ) {
 
 add_filter( 'wp_kses_allowed_html', 'plants_custom_allow_svg_in_content' );
 
-plants_get_theme_instance();
+plants_get_theme_instances();
 
 if ( is_admin() ) {
 	include_once 'inc/custom-settings/custom-settings.php';

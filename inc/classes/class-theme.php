@@ -11,7 +11,6 @@
 namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
-
 /**
  * THEME
  */

@@ -1,0 +1,7 @@
+.woocommerce-loop-product__title {
+  font-size: 18px;
+  color: black;
+}
+.woocommerce-loop-product__title:hover {
+  color: gray;
+}/*# sourceMappingURL=product.css.map */

@@ -36,11 +36,12 @@ class Assets {
 	 */
 	protected function setup_hooks() {
 		/**
-		   * Actions.
-		   */
+		* Actions.
+		*/
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
 	}
 
 	/**

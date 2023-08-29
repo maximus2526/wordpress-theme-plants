@@ -25,7 +25,6 @@ class Menus {
 	 * @return void
 	 */
 	protected function __construct() {
-		self::get_instance();
 		$this->setup_hooks();
 
 	}
@@ -36,7 +35,7 @@ class Menus {
 	 * @return void
 	 */
 	protected function setup_hooks() {
-		add_action( 'init', 'register_my_menus' );
+
 	}
 
 	/**
