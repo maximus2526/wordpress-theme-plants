@@ -2,8 +2,9 @@
 @import "blog/single-article.scss";
 @import "reset/reset.scss";
 @import "swiper/custom-swiper.scss";
-@import "woocommerce/my-account.scss";
-@import "woocommerce/product.scss";
+@import "woocommerce/my-account/my-account.scss";
+@import "woocommerce/product/product.scss";
+@import "woocommerce/cart/cart.scss";
 
 /* WordPress Core
 -------------------------------------------------------------- */
@@ -415,9 +416,9 @@ body {
 
 .posted-by-avatar {
     display: inline;
+    border-radius: 50%;
     width: 24px;
     vertical-align: middle;
-    border-radius: 50%;
 }
 
 .page-slag {

@@ -25,7 +25,6 @@ class THEME {
 	 */
 	protected function __construct() {
 		// Load class.
-		Assets::get_instance();
 		$this->setup_hooks();
 	}
 

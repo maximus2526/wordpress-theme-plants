@@ -75,6 +75,19 @@ header .container {
   height: 30px;
 }
 
+.top-slider {
+  background: url("../../img/banners/top-banner.png");
+  flex-basis: 70%;
+  background-size: cover;
+  min-height: 580px;
+  align-items: flex-end;
+}
+.top-slider .slider-content {
+  z-index: 2;
+  max-width: 500px;
+  padding: 20px;
+}
+
 .top-section {
   padding-bottom: 40px;
   border-bottom: 2px solid #5E6821;
