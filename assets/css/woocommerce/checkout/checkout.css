@@ -108,3 +108,19 @@
 .shop_table thead, .shop_table tbody, .shop_table tfoot, .shop_table tr {
   width: 100%;
 }
+
+.woocommerce-order {
+  padding: 40px;
+  background: #e7e5d9;
+}
+
+.woocommerce-thankyou-order-received {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.woocommerce-bacs-bank-details, .woocommerce-order-details, .woocommerce-customer-details {
+  padding: 40px;
+  background: #ccc9bb;
+  margin: 30px;
+}

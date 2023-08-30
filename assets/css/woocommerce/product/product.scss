@@ -1,5 +1,6 @@
 .woocommerce-loop-product__title {
  font-size: 18px;
+ margin-bottom: 0;
  color: black;
 
  &:hover {
@@ -34,12 +35,13 @@
  }
 }
 
-.woocommerce-loop-product__link {
+.product-card {
  position: relative;
 
  .onsale {
   padding: 5px;
   background: white;
+  font-weight: 700;
   color: black;
   position: absolute;
   top: 20px;
@@ -74,3 +76,8 @@
  display: flex;
 }
 
+
+.woocommerce-LoopProduct-link .woocommerce-loop-product__link img {
+ width: 700px;
+ height: 800px;
+}

@@ -132,4 +132,15 @@ if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 	}
 }
 
+/**
+ * Plants_get_product_img.
+ *
+ * @param  mixed $width Width.
+ * @param  mixed $height Height.
+ * @param  mixed $product Instanse.
+ * @return string
+ */
+function plants_get_product_img( $width, $height, $product ) {
+	return wp_get_attachment_image_src( $product->get_image_id(), array( $width, $height ) )[0];
+}
 ?>

@@ -1,0 +1,22 @@
+.shop-page .woocommerce-breadcrumb {
+  border-bottom: 2px solid #5e6821;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+}
+
+.product-card {
+  margin-bottom: 30px;
+}
+
+.woocommerce-loop-product__title h4 {
+  margin-bottom: 0;
+}
+.woocommerce-loop-product__title h4 a {
+  color: black;
+}
+
+.added_to_cart.wc-forward {
+  margin-left: 20px;
+  color: #5e6821;
+  font-weight: 600;
+}
