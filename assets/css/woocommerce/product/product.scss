@@ -29,7 +29,6 @@
  .woocommerce-loop-product__title,
  .price {
   display: block;
-  text-align: center;
  }
 
  .attachment-woocommerce_thumbnail {
@@ -182,4 +181,18 @@
   border-radius: 50%;
   display: inline;
  }
+}
+
+.variations {
+  label {
+    margin-right: 8px;
+  }
+  .reset_variations {
+    margin-left: 8px;
+  }
+}
+
+.woocommerce-product-attributes-item {
+  display: flex;
+  gap: 20px;
 }

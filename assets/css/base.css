@@ -544,7 +544,6 @@ h6 {
 .product .woocommerce-loop-product__title,
 .product .price {
   display: block;
-  text-align: center;
 }
 .product .attachment-woocommerce_thumbnail {
   margin-bottom: 10px;
@@ -683,6 +682,18 @@ h6 {
 .review .avatar {
   border-radius: 50%;
   display: inline;
+}
+
+.variations label {
+  margin-right: 8px;
+}
+.variations .reset_variations {
+  margin-left: 8px;
+}
+
+.woocommerce-product-attributes-item {
+  display: flex;
+  gap: 20px;
 }
 
 .cart-collaterals {
