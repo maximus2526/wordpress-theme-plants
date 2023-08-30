@@ -14,12 +14,14 @@
     width: 100% !important;
   }
 }
-.woocommerce-billing-fields {
+.woocommerce-billing-fields, .woocommerce-address-fields {
   width: 95%;
 }
 .woocommerce-billing-fields .input-text,
 .woocommerce-billing-fields .select2-selection__rendered,
-.woocommerce-billing-fields .select2-selection {
+.woocommerce-billing-fields .select2-selection, .woocommerce-address-fields .input-text,
+.woocommerce-address-fields .select2-selection__rendered,
+.woocommerce-address-fields .select2-selection {
   width: 100%;
   height: 40px;
   padding-left: 10px;
@@ -28,29 +30,31 @@
 }
 .woocommerce-billing-fields .input-text:focus,
 .woocommerce-billing-fields .select2-selection__rendered:focus,
-.woocommerce-billing-fields .select2-selection:focus {
+.woocommerce-billing-fields .select2-selection:focus, .woocommerce-address-fields .input-text:focus,
+.woocommerce-address-fields .select2-selection__rendered:focus,
+.woocommerce-address-fields .select2-selection:focus {
   outline: none;
 }
-.woocommerce-billing-fields p.form-row-first {
+.woocommerce-billing-fields p.form-row-first, .woocommerce-address-fields p.form-row-first {
   float: left;
   width: calc(50% - 10px);
   margin-right: 20px;
 }
-.woocommerce-billing-fields p.form-row-last {
+.woocommerce-billing-fields p.form-row-last, .woocommerce-address-fields p.form-row-last {
   float: right;
   width: calc(50% - 10px);
 }
-.woocommerce-billing-fields #billing_company_field {
+.woocommerce-billing-fields #billing_company_field, .woocommerce-address-fields #billing_company_field {
   clear: both;
 }
-.woocommerce-billing-fields .billing_last_name_field {
+.woocommerce-billing-fields .billing_last_name_field, .woocommerce-address-fields .billing_last_name_field {
   padding-left: 20px;
   display: inline;
 }
-.woocommerce-billing-fields .select2-selection__rendered {
+.woocommerce-billing-fields .select2-selection__rendered, .woocommerce-address-fields .select2-selection__rendered {
   padding-top: 5px;
 }
-.woocommerce-billing-fields .form-row {
+.woocommerce-billing-fields .form-row, .woocommerce-address-fields .form-row {
   display: flex;
   flex-direction: column;
 }
@@ -122,5 +126,5 @@
 .woocommerce-bacs-bank-details, .woocommerce-order-details, .woocommerce-customer-details {
   padding: 40px;
   background: #ccc9bb;
-  margin: 30px;
+  margin: 20px;
 }

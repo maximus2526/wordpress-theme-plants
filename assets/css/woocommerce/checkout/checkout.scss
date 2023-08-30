@@ -16,7 +16,7 @@
 }
 
 
-.woocommerce-billing-fields {
+.woocommerce-billing-fields, .woocommerce-address-fields {
  width: 95%;
 
  .input-text,
@@ -140,5 +140,5 @@
 .woocommerce-bacs-bank-details, .woocommerce-order-details, .woocommerce-customer-details {
  padding: 40px;
  background: #ccc9bb;
- margin: 30px;
+ margin: 20px;
 }

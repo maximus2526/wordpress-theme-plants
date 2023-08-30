@@ -9,7 +9,7 @@
  */
 
 ?>
-
+<div class="clearfix"></div>
 <footer class="container">
 	<div class="top-footer">
 		<div class="row">

@@ -1,1 +1,19 @@
-/*# sourceMappingURL=cart.css.map */
+.cart-collaterals {
+  padding: 50px;
+  background: #e7e5d9;
+}
+
+.shop_table {
+  margin-bottom: 30px;
+}
+.shop_table .woocommerce-cart-form__cart {
+  padding: 50px;
+}
+
+.woocommerce-cart-button {
+  margin-bottom: 20px;
+}
+
+.woocommerce-message {
+  margin-bottom: 20px;
+}

@@ -455,11 +455,54 @@ h6 {
   left: 0;
 }
 
+.woocommerce-MyAccount-navigation {
+  border-right: 1px solid gray;
+  width: 20%;
+  margin-right: 40px;
+  float: left;
+}
 .woocommerce-MyAccount-navigation li a {
   color: black;
 }
 .woocommerce-MyAccount-navigation li:hover {
   background: #f8f6f6;
+}
+
+.woocommerce-MyAccount-content {
+  width: 70%;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.woocommerce-MyAccount-content .input-text,
+.woocommerce-MyAccount-content .select2-selection__rendered,
+.woocommerce-MyAccount-content .select2-selection {
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  background: #e8e6db;
+  border: none;
+}
+.woocommerce-MyAccount-content .input-text:focus,
+.woocommerce-MyAccount-content .select2-selection__rendered:focus,
+.woocommerce-MyAccount-content .select2-selection:focus {
+  outline: none;
+}
+.woocommerce-MyAccount-content .billing_last_name_field {
+  padding-left: 20px;
+  display: inline;
+}
+.woocommerce-MyAccount-content .select2-selection__rendered {
+  padding-top: 5px;
+}
+.woocommerce-MyAccount-content .form-row {
+  display: flex;
+  flex-direction: column;
 }
 
 .woocommerce-loop-product__title {
@@ -538,6 +581,26 @@ h6 {
   height: 800px;
 }
 
+.cart-collaterals {
+  padding: 50px;
+  background: #e7e5d9;
+}
+
+.shop_table {
+  margin-bottom: 30px;
+}
+.shop_table .woocommerce-cart-form__cart {
+  padding: 50px;
+}
+
+.woocommerce-cart-button {
+  margin-bottom: 20px;
+}
+
+.woocommerce-message {
+  margin-bottom: 20px;
+}
+
 .select2-selection__rendered,
 .customer_details span,
 .select2-selection--single {
@@ -554,12 +617,14 @@ h6 {
     width: 100% !important;
   }
 }
-.woocommerce-billing-fields {
+.woocommerce-billing-fields, .woocommerce-address-fields {
   width: 95%;
 }
 .woocommerce-billing-fields .input-text,
 .woocommerce-billing-fields .select2-selection__rendered,
-.woocommerce-billing-fields .select2-selection {
+.woocommerce-billing-fields .select2-selection, .woocommerce-address-fields .input-text,
+.woocommerce-address-fields .select2-selection__rendered,
+.woocommerce-address-fields .select2-selection {
   width: 100%;
   height: 40px;
   padding-left: 10px;
@@ -568,29 +633,31 @@ h6 {
 }
 .woocommerce-billing-fields .input-text:focus,
 .woocommerce-billing-fields .select2-selection__rendered:focus,
-.woocommerce-billing-fields .select2-selection:focus {
+.woocommerce-billing-fields .select2-selection:focus, .woocommerce-address-fields .input-text:focus,
+.woocommerce-address-fields .select2-selection__rendered:focus,
+.woocommerce-address-fields .select2-selection:focus {
   outline: none;
 }
-.woocommerce-billing-fields p.form-row-first {
+.woocommerce-billing-fields p.form-row-first, .woocommerce-address-fields p.form-row-first {
   float: left;
   width: calc(50% - 10px);
   margin-right: 20px;
 }
-.woocommerce-billing-fields p.form-row-last {
+.woocommerce-billing-fields p.form-row-last, .woocommerce-address-fields p.form-row-last {
   float: right;
   width: calc(50% - 10px);
 }
-.woocommerce-billing-fields #billing_company_field {
+.woocommerce-billing-fields #billing_company_field, .woocommerce-address-fields #billing_company_field {
   clear: both;
 }
-.woocommerce-billing-fields .billing_last_name_field {
+.woocommerce-billing-fields .billing_last_name_field, .woocommerce-address-fields .billing_last_name_field {
   padding-left: 20px;
   display: inline;
 }
-.woocommerce-billing-fields .select2-selection__rendered {
+.woocommerce-billing-fields .select2-selection__rendered, .woocommerce-address-fields .select2-selection__rendered {
   padding-top: 5px;
 }
-.woocommerce-billing-fields .form-row {
+.woocommerce-billing-fields .form-row, .woocommerce-address-fields .form-row {
   display: flex;
   flex-direction: column;
 }
@@ -662,7 +729,7 @@ h6 {
 .woocommerce-bacs-bank-details, .woocommerce-order-details, .woocommerce-customer-details {
   padding: 40px;
   background: #ccc9bb;
-  margin: 30px;
+  margin: 20px;
 }
 
 .shop-page .woocommerce-breadcrumb {

@@ -1,6 +1,49 @@
+.woocommerce-MyAccount-navigation {
+  border-right: 1px solid gray;
+  width: 20%;
+  margin-right: 40px;
+  float: left;
+}
 .woocommerce-MyAccount-navigation li a {
   color: black;
 }
 .woocommerce-MyAccount-navigation li:hover {
   background: #f8f6f6;
-}/*# sourceMappingURL=my-account.css.map */
+}
+
+.woocommerce-MyAccount-content {
+  width: 70%;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.woocommerce-MyAccount-content .input-text,
+.woocommerce-MyAccount-content .select2-selection__rendered,
+.woocommerce-MyAccount-content .select2-selection {
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  background: #e8e6db;
+  border: none;
+}
+.woocommerce-MyAccount-content .input-text:focus,
+.woocommerce-MyAccount-content .select2-selection__rendered:focus,
+.woocommerce-MyAccount-content .select2-selection:focus {
+  outline: none;
+}
+.woocommerce-MyAccount-content .billing_last_name_field {
+  padding-left: 20px;
+  display: inline;
+}
+.woocommerce-MyAccount-content .select2-selection__rendered {
+  padding-top: 5px;
+}
+.woocommerce-MyAccount-content .form-row {
+  display: flex;
+  flex-direction: column;
+}
