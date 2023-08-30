@@ -41,7 +41,11 @@ class WCommerce {
 		remove_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 10 );
 		add_action( 'after_setup_theme', array( $this, 'add_woocommerce_support' ) );
 		add_filter( 'woocommerce_enqueue_styles', array( $this, 'dequeue_styles' ) );
+		add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 	}
+
+
+
 
 	/**
 	 * Dequeue_styles.

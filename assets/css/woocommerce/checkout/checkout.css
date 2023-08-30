@@ -1,8 +1,110 @@
-.select2-selection__rendered, .customer_details span, .select2-selection--single {
+.select2-selection__rendered,
+.customer_details span,
+.select2-selection--single {
   padding: 0 0;
 }
 
 .customer_details .selection {
   width: -moz-fit-content;
   width: fit-content;
-}/*# sourceMappingURL=checkout.css.map */
+}
+
+@media screen and (max-width: 1024px) {
+  .woocommerce-billing-fields {
+    width: 100% !important;
+  }
+}
+.woocommerce-billing-fields {
+  width: 95%;
+}
+.woocommerce-billing-fields .input-text,
+.woocommerce-billing-fields .select2-selection__rendered,
+.woocommerce-billing-fields .select2-selection {
+  width: 100%;
+  height: 40px;
+  padding-left: 10px;
+  background: #e8e6db;
+  border: none;
+}
+.woocommerce-billing-fields .input-text:focus,
+.woocommerce-billing-fields .select2-selection__rendered:focus,
+.woocommerce-billing-fields .select2-selection:focus {
+  outline: none;
+}
+.woocommerce-billing-fields p.form-row-first {
+  float: left;
+  width: calc(50% - 10px);
+  margin-right: 20px;
+}
+.woocommerce-billing-fields p.form-row-last {
+  float: right;
+  width: calc(50% - 10px);
+}
+.woocommerce-billing-fields #billing_company_field {
+  clear: both;
+}
+.woocommerce-billing-fields .billing_last_name_field {
+  padding-left: 20px;
+  display: inline;
+}
+.woocommerce-billing-fields .select2-selection__rendered {
+  padding-top: 5px;
+}
+.woocommerce-billing-fields .form-row {
+  display: flex;
+  flex-direction: column;
+}
+
+#order_comments_field {
+  display: flex;
+  flex-direction: column;
+}
+#order_comments_field .input {
+  width: 100% !important;
+  height: 375px !important;
+  padding-left: 10px;
+  background: #e8e6db;
+  border: none;
+}
+#order_comments_field .input:focus {
+  outline: none;
+}
+
+#order-detail-section {
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 20px 30px;
+  background: #e7e5d9;
+}
+
+#customer_details h3,
+#order-detail-section h3 {
+  display: block;
+  border-bottom: 2px solid #5e6821;
+}
+
+#customer_details h3 {
+  padding-top: 20px;
+}
+
+.woocommerce-info {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.woocommerce-info .showcoupon {
+  color: #5e6821;
+  font-weight: 600;
+}
+
+.shop_table tr {
+  display: flex;
+  justify-content: space-between;
+}
+.shop_table tr td {
+  padding: 20px;
+}
+.shop_table thead, .shop_table tbody, .shop_table tfoot, .shop_table tr {
+  width: 100%;
+}

@@ -284,6 +284,9 @@ footer .right-side .nav-items li {
 }
 
 .nav-links {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
   padding: 20px;
 }
 .nav-links a {
@@ -292,4 +295,7 @@ footer .right-side .nav-items li {
 }
 .nav-links a:hover {
   color: #5E6821;
+}
+.nav-links span .page-numbers {
+  padding: 0;
 }/*# sourceMappingURL=home.css.map */

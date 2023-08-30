@@ -360,6 +360,9 @@ footer {
 }
 
 .nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
     padding: 20px;
     a {
         color: #34381d;
@@ -368,5 +371,9 @@ footer {
             color: #5E6821;
         }
     }
+    span .page-numbers {
+        padding: 0;
+    }
     
 }
+
