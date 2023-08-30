@@ -35,17 +35,50 @@ class WCommerce {
 	 */
 	protected function setup_hooks() {
 
-		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+		if ( ! is_shop() ) {
+			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+		}
+
 		add_filter( 'woocommerce_post_class', array( $this, 'add_products_column' ) );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		remove_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 10 );
 		add_action( 'after_setup_theme', array( $this, 'add_woocommerce_support' ) );
 		add_filter( 'woocommerce_enqueue_styles', array( $this, 'dequeue_styles' ) );
 		add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
+		add_action( 'woocommerce_before_main_content', array( $this, 'print_container' ), 10, 0 );
+		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ) );
+		add_action( 'woocommerce_after_single_product_summary', array( $this, 'css_clear_fix' ), 9, 0 );
 	}
 
 
 
+
+	/**
+	 * Css_clear_fix.
+	 *
+	 * @return void
+	 */
+	public function css_clear_fix() {
+			echo '<div class="clearfix"></div>';
+	}
+
+	/**
+	 * Print container div in single product.
+	 *
+	 * @return void
+	 */
+	public function print_container() {
+			echo '<div class="container">';
+	}
+
+	/**
+	 * Print container </div> in end single product.
+	 *
+	 * @return void
+	 */
+	public function print_end_container() {
+			echo '<div class="container">';
+	}
 
 	/**
 	 * Dequeue_styles.

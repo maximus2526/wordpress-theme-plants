@@ -39,7 +39,21 @@
         }
     }
 
+    .profile-section {
+        @media screen and (max-width: 900px) {
+            .favorite,
+            .search-field {
+                display: none;
+            }
+        }
+    }
 
+
+}
+@media screen and (max-width: 900px) {
+    .elementor-widget-container {
+        border: none !important;
+    }
 }
 
 header .container {

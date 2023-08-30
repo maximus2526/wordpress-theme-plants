@@ -36,7 +36,18 @@
     display: none;
   }
 }
+@media screen and (max-width: 900px) {
+  .header .profile-section .favorite,
+  .header .profile-section .search-field {
+    display: none;
+  }
+}
 
+@media screen and (max-width: 900px) {
+  .elementor-widget-container {
+    border: none !important;
+  }
+}
 header .container {
   border-bottom: 2px solid #5E6821;
   margin-bottom: 40px;
@@ -298,4 +309,4 @@ footer .right-side .nav-items li {
 }
 .nav-links span .page-numbers {
   padding: 0;
-}/*# sourceMappingURL=home.css.map */
+}

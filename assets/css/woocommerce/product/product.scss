@@ -7,6 +7,7 @@
   color: gray;
  }
 }
+
 .products {
  align-items: baseline;
 }
@@ -30,7 +31,8 @@
   display: block;
   text-align: center;
  }
- .attachment-woocommerce_thumbnail  {
+
+ .attachment-woocommerce_thumbnail {
   margin-bottom: 10px;
  }
 }
@@ -68,16 +70,116 @@
  justify-content: space-between;
 }
 
-.woocommerce-product-gallery {
- width: 50%;
-}
 
-.single-product .single-product{
+.tabs.wc-tabs {
+ &::before {
+  content: "";
+  clear: both;
+  display: table;
+ } 
+ padding: 20px 0;
  display: flex;
+ justify-content: center;
+ border-top: 2px solid #5e6821;
+ border-bottom: 2px solid #5e6821;
+ height: 100%;
+ > :not(:last-child)::after {
+  content: "";
+  background-color: #5e6821;
+  padding-left: 2px;
+  margin-right: 10px;
+  margin-left: 10px;
+ }
+  a {
+   color: black;
+   font-weight: 700;
+   &:hover {
+    color: #373b18;
+   }
+  }
+}
+
+.woocommerce-product-gallery {
+ float: left;
+ width: 50%;
+ margin-bottom: 20px;
+}
+
+.summary.entry-summary {
+ float: right;
+ width: 45%;
+}
+
+.product {
+ position: relative;
+ .onsale {
+  z-index: 2;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  padding: 5px;
+  background: white;
+  font-weight: 700;
+  color: black;
+ }
+ .emoji {
+  font-size: large;
+  z-index: 2;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+
+ }
+}
+
+.flex-control-nav {
+ margin: 5px 0 0 0;
 }
 
 
-.woocommerce-LoopProduct-link .woocommerce-loop-product__link img {
- width: 700px;
- height: 800px;
+.form-submit {
+ .submit {
+  padding: 10px 18px;
+  background: #5e6821;
+  border: none;
+  color: white;
+  display: inline-block;
+ }
+}
+
+.single_add_to_cart_button {
+ margin: 20px 0;
+}
+
+.woocommerce-review-link {
+ color: #115817;
+}
+
+.product_meta {
+ display: flex;
+ flex-direction: column;
+ a {
+  color: #115817;
+ }
+}
+
+.comment_container {
+ border-top: 2px solid #5e6821;
+ padding-top: 20px;
+ .description {
+  padding: 20px;
+ }
+
+}
+
+.comment-form-comment {
+ display: flex;
+ flex-direction: column;
+}
+
+.review  {
+ .avatar {
+  border-radius: 50%;
+  display: inline;
+ }
 }
