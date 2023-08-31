@@ -89,6 +89,10 @@ if ( ! function_exists( 'plants_render_footer_menus_field' ) ) {
 	 */
 	function plants_render_footer_menus_field() {
 		$menu_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
+		if ( 0 === $menu_names ) {
+			echo 'No avaible menus';
+			return;
+		}
 		?>
 		<?php
 		$input_id = 1;
