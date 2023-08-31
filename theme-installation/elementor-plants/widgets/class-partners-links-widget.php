@@ -21,7 +21,7 @@ class Partners_Links_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'partners_links_widget', 'elementor-addon' );
+		return esc_html__( 'partners_links_widget', 'plants' );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Partners_Links_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Partners Links Widget', 'elementor-addon' );
+		return esc_html__( 'Partners Links Widget', 'plants' );
 	}
 
 	/**
@@ -60,14 +60,14 @@ class Partners_Links_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'img_size',
 			array(
-				'label' => esc_html__( 'Size', 'elementor-addon' ),
+				'label' => esc_html__( 'Size', 'plants' ),
 			)
 		);
 
 		$this->add_control(
 			'width',
 			array(
-				'label'   => esc_html__( 'Width', 'elementor-addon' ),
+				'label'   => esc_html__( 'Width', 'plants' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '60px',
 			)
@@ -75,7 +75,7 @@ class Partners_Links_Widget extends Widget_Base {
 		$this->add_control(
 			'height',
 			array(
-				'label'   => esc_html__( 'Height', 'elementor-addon' ),
+				'label'   => esc_html__( 'Height', 'plants' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => '40px',
 			)
@@ -86,7 +86,7 @@ class Partners_Links_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_partner_links',
 			array(
-				'label' => esc_html__( 'Partner Links', 'elementor-addon' ),
+				'label' => esc_html__( 'Partner Links', 'plants' ),
 			)
 		);
 
@@ -110,7 +110,7 @@ class Partners_Links_Widget extends Widget_Base {
 		$repeater->add_control(
 			'partner_img',
 			array(
-				'label'   => esc_html__( 'Choose Image', 'elementor-addon' ),
+				'label'   => esc_html__( 'Choose Image', 'plants' ),
 				'type'    => Controls_Manager::MEDIA,
 				'default' => array(
 					'url' => Utils::get_placeholder_image_src(),
@@ -121,7 +121,7 @@ class Partners_Links_Widget extends Widget_Base {
 		$this->add_control(
 			'partner_links_list',
 			array(
-				'label'   => esc_html__( 'Social Links List', 'elementor-addon' ),
+				'label'   => esc_html__( 'Social Links List', 'plants' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => array(

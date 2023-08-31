@@ -21,7 +21,7 @@ class Articles_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'article_widget', 'elementor-addon' );
+		return esc_html__( 'article_widget', 'plants' );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Articles_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Article Widget', 'elementor-addon' );
+		return esc_html__( 'Article Widget', 'plants' );
 	}
 
 	/**
@@ -60,14 +60,14 @@ class Articles_Widget extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			array(
-				'label' => esc_html__( 'Content', 'elementor-addon' ),
+				'label' => esc_html__( 'Content', 'plants' ),
 			)
 		);
 
 		$this->add_control(
 			'category',
 			array(
-				'label'   => esc_html__( 'Articles Category', 'elementor-addon' ),
+				'label'   => esc_html__( 'Articles Category', 'plants' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => $this->get_article_categories(),
 				'default' => 'all',
@@ -77,7 +77,7 @@ class Articles_Widget extends Widget_Base {
 		$this->add_control(
 			'posts_per_page',
 			array(
-				'label'   => esc_html__( 'Number of Articles', 'elementor-addon' ),
+				'label'   => esc_html__( 'Number of Articles', 'plants' ),
 				'type'    => Controls_Manager::NUMBER,
 				'default' => 3,
 			)
@@ -86,7 +86,7 @@ class Articles_Widget extends Widget_Base {
 		$this->add_control(
 			'is_slider',
 			array(
-				'label'   => esc_html__( 'Is slider', 'elementor-addon' ),
+				'label'   => esc_html__( 'Is slider', 'plants' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'options' => array(
 					'no'  => false,
@@ -99,7 +99,7 @@ class Articles_Widget extends Widget_Base {
 		$this->add_control(
 			'add_to_container',
 			array(
-				'label'   => esc_html__( 'Add To Container?', 'elementor-addon' ),
+				'label'   => esc_html__( 'Add To Container?', 'plants' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'no'  => false,
@@ -194,7 +194,7 @@ class Articles_Widget extends Widget_Base {
 			)
 		);
 
-		$category_options = array( 'all' => esc_html__( 'All Articles', 'elementor-addon' ) );
+		$category_options = array( 'all' => esc_html__( 'All Articles', 'plants' ) );
 
 		foreach ( $categories as $category ) {
 			$category_options[ $category->term_id ] = $category->name;

@@ -20,7 +20,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'products_widget', 'elementor-addon' );
+		return esc_html__( 'products_widget', 'plants' );
 	}
 
 	/**
@@ -29,7 +29,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return text
 	 */
 	public function get_title() {
-		return esc_html__( 'Products Widget', 'elementor-addon' );
+		return esc_html__( 'Products Widget', 'plants' );
 	}
 
 	/**
@@ -56,59 +56,75 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return void
 	 */
 	protected function _register_controls() {
-		$this->start_controls_section(
-			'section_content',
-			array(
-				'label' => esc_html__( 'Content', 'elementor-addon' ),
-			)
-		);
+		if ( plants_is_wc_exist() ) {
+			$this->start_controls_section(
+				'section_content',
+				array(
+					'label' => esc_html__( 'Content', 'plants' ),
+				)
+			);
 
-		$this->add_control(
-			'category',
-			array(
-				'label'   => esc_html__( 'Product Category', 'elementor-addon' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => $this->get_product_categories(),
-				'default' => 'all',
-			)
-		);
+			$this->add_control(
+				'category',
+				array(
+					'label'   => esc_html__( 'Product Category', 'plants' ),
+					'type'    => Controls_Manager::SELECT,
+					'options' => $this->get_product_categories(),
+					'default' => 'all',
+				)
+			);
 
-		$this->add_control(
-			'posts_per_page',
-			array(
-				'label'   => esc_html__( 'Number of Products', 'elementor-addon' ),
-				'type'    => Controls_Manager::NUMBER,
-				'default' => 4,
-			)
-		);
+			$this->add_control(
+				'posts_per_page',
+				array(
+					'label'   => esc_html__( 'Number of Products', 'plants' ),
+					'type'    => Controls_Manager::NUMBER,
+					'default' => 4,
+				)
+			);
 
-		$this->add_control(
-			'is_slider',
-			array(
-				'label'   => esc_html__( 'Is slider', 'elementor-addon' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'options' => array(
-					'no'  => false,
-					'yes' => true,
-				),
-				'default' => 'no',
-			)
-		);
+			$this->add_control(
+				'is_slider',
+				array(
+					'label'   => esc_html__( 'Is slider', 'plants' ),
+					'type'    => Controls_Manager::SWITCHER,
+					'options' => array(
+						'no'  => false,
+						'yes' => true,
+					),
+					'default' => 'no',
+				)
+			);
 
-		$this->add_control(
-			'add_to_container',
-			array(
-				'label'   => esc_html__( 'Add To Container?', 'elementor-addon' ),
-				'type'    => Controls_Manager::SWITCHER,
-				'options' => array(
-					'no'  => false,
-					'yes' => true,
-				),
-				'default' => 'no',
-			)
-		);
+			$this->add_control(
+				'add_to_container',
+				array(
+					'label'   => esc_html__( 'Add To Container?', 'plants' ),
+					'type'    => Controls_Manager::SWITCHER,
+					'options' => array(
+						'no'  => false,
+						'yes' => true,
+					),
+					'default' => 'no',
+				)
+			);
+			$this->end_controls_section();
+		} else {
+			$this->start_controls_section(
+				'section_content',
+				array(
+					'label' => esc_html__( 'Content', 'plants' ),
+				)
+			);
+				$this->add_control(
+					'is_slider',
+					array(
+						'label' => esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' ),
+					)
+				);
 
-		$this->end_controls_section();
+			$this->end_controls_section();
+		}
 	}
 
 	/**
@@ -117,45 +133,47 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return void
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+		if ( plants_is_wc_exist() ) {
 
-		$args = array(
-			'post_type'      => 'product',
-			'posts_per_page' => $settings['posts_per_page'],
-			'orderby'        => 'date',
-			'order'          => 'DESC',
-		);
+			$settings = $this->get_settings_for_display();
 
-		if ( 'all' !== $settings['category'] ) {
-			$args['tax_query'] = array(
-				array(
-					'taxonomy' => 'product_cat',
-					'field'    => 'term_id',
-					'terms'    => $settings['category'],
-				),
+			$args = array(
+				'post_type'      => 'product',
+				'posts_per_page' => $settings['posts_per_page'],
+				'orderby'        => 'date',
+				'order'          => 'DESC',
 			);
-		}
 
-		$products_query = new WP_Query( $args );
-
-		if ( $products_query->have_posts() ) {
-			if ( 'yes' === $settings['add_to_container'] ) {
-				echo '<div class="container">';
-			}
-			if ( 'yes' === $settings['is_slider'] ) {
-				echo '<div class="swiper">';
-				echo '<div class="swiper-wrapper">';
-			} else {
-				echo '<div class="products display-flex gap">';
+			if ( 'all' !== $settings['category'] ) {
+				$args['tax_query'] = array(
+					array(
+						'taxonomy' => 'product_cat',
+						'field'    => 'term_id',
+						'terms'    => $settings['category'],
+					),
+				);
 			}
 
-			while ( $products_query->have_posts() ) {
-				$products_query->the_post();
-				global $product;
-				if ( 'yes' === $settings['is_slider'] ) {
-					echo '<div  style="text-align: center;" class="swiper-slide">';
+			$products_query = new WP_Query( $args );
+
+			if ( $products_query->have_posts() ) {
+				if ( 'yes' === $settings['add_to_container'] ) {
+					echo '<div class="container">';
 				}
-				?>
+				if ( 'yes' === $settings['is_slider'] ) {
+					echo '<div class="swiper">';
+					echo '<div class="swiper-wrapper">';
+				} else {
+					echo '<div class="products display-flex gap">';
+				}
+
+				while ( $products_query->have_posts() ) {
+					$products_query->the_post();
+					global $product;
+					if ( 'yes' === $settings['is_slider'] ) {
+						echo '<div  style="text-align: center;" class="swiper-slide">';
+					}
+					?>
 				<div style="text-align: center;" class="product ">
 					<?php
 					if ( has_post_thumbnail() ) {
@@ -176,34 +194,30 @@ class Products_Widget extends \Elementor\Widget_Base {
 
 						?>
 					</div>
-					<?php
-					echo '<div class="product-add-to-cart gap">';
-					woocommerce_template_loop_add_to_cart( array( 'button_text' => 'Select options' ) );
+						<?php
+						echo '<div class="product-add-to-cart gap">';
+						woocommerce_template_loop_add_to_cart( array( 'button_text' => 'Select options' ) );
+						echo '</div>';
+						echo ' </div>'; // swiper-slide ::end.
+				}
+
+				wp_reset_postdata();
+				if ( 'yes' === $settings['is_slider'] ) {
+					echo '</div>'; // Close .swiper.
+					echo '<div class="swiper-button-prev"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-left.svg" alt=""></div>';
+					echo '<div class="swiper-button-next"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-right.svg" alt=""></div>';
+					echo '</div>'; // Close .swiper-wrapper.
+				} else {
 					echo '</div>';
-
-					?>
-				
-
-
-
-				<?php
-				echo ' </div>'; // swiper-slide ::end.
-			}
-
-			wp_reset_postdata();
-			if ( 'yes' === $settings['is_slider'] ) {
-				echo '</div>'; // Close .swiper.
-				echo '<div class="swiper-button-prev"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-left.svg" alt=""></div>';
-				echo '<div class="swiper-button-next"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-right.svg" alt=""></div>';
-				echo '</div>'; // Close .swiper-wrapper.
+				}
+				if ( 'yes' === $settings['add_to_container'] ) {
+					echo '</div>';
+				}
 			} else {
-				echo '</div>';
-			}
-			if ( 'yes' === $settings['add_to_container'] ) {
-				echo '</div>';
+				echo esc_html__( 'No products found.', 'plants' );
 			}
 		} else {
-			echo esc_html__( 'No products found.', 'elementor-addon' );
+			echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
 		}
 	}
 
@@ -220,7 +234,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			)
 		);
 
-		$category_options = array( 'all' => esc_html__( 'All Products', 'elementor-addon' ) );
+		$category_options = array( 'all' => esc_html__( 'All Products', 'plants' ) );
 
 		foreach ( $categories as $category ) {
 			$category_options[ $category->term_id ] = $category->name;

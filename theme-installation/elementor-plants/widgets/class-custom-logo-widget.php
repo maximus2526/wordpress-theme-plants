@@ -20,7 +20,7 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'logo_widget', 'elementor-addon' );
+		return esc_html__( 'logo_widget', 'plants' );
 	}
 
 	/**
@@ -29,7 +29,7 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Logo Widget', 'elementor-addon' );
+		return esc_html__( 'Logo Widget', 'plants' );
 	}
 
 	/**
@@ -60,14 +60,14 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			array(
-				'label' => esc_html__( 'Content', 'elementor-addon' ),
+				'label' => esc_html__( 'Content', 'plants' ),
 			)
 		);
 
 		$this->add_control(
 			'choice',
 			array(
-				'label'   => esc_html__( 'Choose Image:', 'elementor-addon' ),
+				'label'   => esc_html__( 'Choose Image:', 'plants' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'default' => 'Default',

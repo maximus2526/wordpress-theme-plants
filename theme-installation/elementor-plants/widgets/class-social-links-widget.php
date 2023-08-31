@@ -20,7 +20,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'social_links_widget', 'elementor-addon' );
+		return esc_html__( 'social_links_widget', 'plants' );
 	}
 
 	/**
@@ -29,7 +29,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Social Links Widget', 'elementor-addon' );
+		return esc_html__( 'Social Links Widget', 'plants' );
 	}
 
 	/**
@@ -59,7 +59,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_social_links',
 			array(
-				'label' => esc_html__( 'Social Links', 'elementor-addon' ),
+				'label' => esc_html__( 'Social Links', 'plants' ),
 			)
 		);
 
@@ -68,7 +68,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'social_url',
 			array(
-				'label'         => esc_html__( 'URL', 'elementor-addon' ),
+				'label'         => esc_html__( 'URL', 'plants' ),
 				'type'          => Controls_Manager::URL,
 				'placeholder'   => esc_html( 'https://your-social-url.com' ),
 				'show_external' => true,
@@ -83,7 +83,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 		$repeater->add_control(
 			'social_abbreviation',
 			array(
-				'label'   => esc_html__( 'Abbreviation', 'elementor-addon' ),
+				'label'   => esc_html__( 'Abbreviation', 'plants' ),
 				'type'    => Controls_Manager::TEXT,
 				'default' => 'FB',
 			)
@@ -92,7 +92,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'social_links_list',
 			array(
-				'label'   => esc_html__( 'Social Links List', 'elementor-addon' ),
+				'label'   => esc_html__( 'Social Links List', 'plants' ),
 				'type'    => Controls_Manager::REPEATER,
 				'fields'  => $repeater->get_controls(),
 				'default' => array(

@@ -21,7 +21,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'menus_widget', 'elementor-addon' );
+		return esc_html__( 'menus_widget', 'plants' );
 	}
 
 	/**
@@ -30,7 +30,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_title() {
-		return esc_html__( 'Menus Widget', 'elementor-addon' );
+		return esc_html__( 'Menus Widget', 'plants' );
 	}
 
 	/**
@@ -60,14 +60,14 @@ class Menus_Widget extends \Elementor\Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			array(
-				'label' => esc_html__( 'Content', 'elementor-addon' ),
+				'label' => esc_html__( 'Content', 'plants' ),
 			)
 		);
 
 		$this->add_control(
 			'menus',
 			array(
-				'label'   => esc_html__( 'Choice Menu', 'elementor-addon' ),
+				'label'   => esc_html__( 'Choice Menu', 'plants' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => $this->get_menus_names(),
 			)
@@ -75,7 +75,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'vertical',
 			array(
-				'label'   => esc_html__( 'Vertical', 'elementor-addon' ),
+				'label'   => esc_html__( 'Vertical', 'plants' ),
 				'type'    => Controls_Manager::SWITCHER,
 				'options' => array(
 					'no'  => false,
@@ -88,7 +88,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 		$this->add_control(
 			'with_signs',
 			array(
-				'label'   => esc_html__( 'With Signs', 'elementor-addon' ),
+				'label'   => esc_html__( 'With Signs', 'plants' ),
 				'type'    => Controls_Manager::SELECT,
 				'options' => array(
 					'no'  => false,
