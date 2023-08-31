@@ -22,14 +22,13 @@
 <body <?php body_class(); ?>>
 
 	<?php
-	$plants_options = plants_get_options();
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
 	}
 	?>
 	<header>
-		<div class="header-promo text-center <?php echo ( 'Yes' !== $plants_options['header_banner_hide_option'] ) ? 'hide' : ''; ?>">
-			<a href="<?php echo esc_html( $plants_options['header_banner_anchor'] ); ?>"><?php echo esc_html( $plants_options['header_banner_info'] ); ?></a>
+		<div class="header-promo text-center <?php echo ( 'Yes' !== plants_get_options( 'header_banner_hide_option' ) ) ? 'hide' : ''; ?>">
+			<a href="<?php echo esc_html( plants_get_options( 'header_banner_anchor' ) ); ?>"><?php echo esc_html( plants_get_options( 'header_banner_info' ) ); ?></a>
 		</div>
 		<div class="container">
 			<div class="header scheme-dark display-flex space-between">
@@ -38,12 +37,24 @@
 					<?php
 					wp_nav_menu(
 						array(
-							'menu' => isset( $plants_options['header_menu'] ) ? $plants_options['header_menu'] : '',
+							'menu' => plants_get_options( 'header_menu' ),
 						)
 					);
 					?>
 					<div class="hamburger">
-						<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">
+							<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">
+							<div class="humburger-menu">
+								<div class="close-btn button">
+									X
+								</div>
+								<?php
+								wp_nav_menu(
+									array(
+										'menu' => isset( $plants_options['header_menu'] ) ? $plants_options['header_menu'] : '',
+									)
+								);
+								?>
+						</div>
 					</div>
 				</div>
 				<div class="logo-section">

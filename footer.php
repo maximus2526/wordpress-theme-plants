@@ -44,7 +44,7 @@
 				<div class="rights">
 					<span>
 						<?php
-							$footer_rights_text = plants_get_options()['footer_rights_text'];
+							$footer_rights_text = plants_get_options( 'footer_rights_text' );
 							echo esc_html( $footer_rights_text );
 						?>
 					</span>

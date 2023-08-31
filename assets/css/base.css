@@ -939,12 +939,42 @@ h6 {
   font-weight: 600;
 }
 
-/* WordPress Core
--------------------------------------------------------------- */
-.vertical-nav-item.menu-sign > ::after {
-  content: url("../../img/svg/dropdown-icons/ref-icon.svg");
-  width: 50px;
+.humburger-menu {
+  display: none;
+}
+
+.humburger-menu.active {
+  display: block;
+  background-color: #fafafa;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 50px;
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+
+@media screen and (max-width: 767px) {
+  .elementor-widget-container h1 {
+    display: inline;
+    width: 100%;
+    font-size: 36px;
+  }
+  .elementor-widget-container h1 img {
+    display: none;
+  }
+  .elementor-widget-container .quotes {
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+  .elementor-widget-container .quotes .quote-text {
+    max-width: 550px;
+  }
+}
+
+.entry-title {
+  font-weight: 600;
 }
 
 .inline {
@@ -953,6 +983,14 @@ h6 {
 
 a {
   color: #115817;
+}
+
+/* WordPress Core
+-------------------------------------------------------------- */
+.vertical-nav-item.menu-sign > ::after {
+  content: url("../../img/svg/dropdown-icons/ref-icon.svg");
+  width: 50px;
+  height: 50px;
 }
 
 .alignnone {

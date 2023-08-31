@@ -38,3 +38,12 @@ const swiper_banner = new Swiper(
 		loop: true,
 	}
 );
+
+// Hamburger
+$( document ).ready();
+{
+		$(".menu-hamburger-img").click(function(){
+				show($(".humburger-menu"));
+			});
+}
+

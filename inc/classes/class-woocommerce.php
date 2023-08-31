@@ -13,9 +13,9 @@
 use PLANTS\Inc\Traits\Singleton;
 
 /**
- * WCommerce
+ * WooCommerce
  */
-class WCommerce {
+class WooCommerce {
 
 	use Singleton;
 
@@ -77,7 +77,7 @@ class WCommerce {
 	 * @return void
 	 */
 	public function print_end_container() {
-			echo '<div class="container">';
+			echo '</div>';
 	}
 
 	/**
@@ -113,8 +113,6 @@ class WCommerce {
 	public function add_products_column( $class ) {
 
 		if ( is_shop() ) {
-			unset( $class );
-			$class[] = 'product';
 			$class[] = 'col-4';
 			$class[] = 'col-md-6';
 			$class[] = 'col-sm-12';
