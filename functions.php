@@ -126,8 +126,12 @@ if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 	 * @return void
 	 */
 	function plants_get_footer_menus() {
-		$menu_names        = plants_get_options( 'show_menu' );
-		$menu_titles       = plants_get_options( 'menus_titles' );
+		$menu_names  = plants_get_options( 'show_menu' );
+		$menu_titles = plants_get_options( 'menus_titles' );
+		if ( 0 === count( $menu_names ) ) {
+			echo 'No avaible menus';
+			return;
+		}
 		$arrays_difference = array_keys( array_diff_key( $menu_titles, $menu_names ) );
 
 		foreach ( $arrays_difference as $name ) {

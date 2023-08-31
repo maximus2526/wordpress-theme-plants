@@ -40,10 +40,12 @@ const swiper_banner = new Swiper(
 );
 
 // Hamburger
-$( document ).ready();
-{
-		$(".menu-hamburger-img").click(function(){
-				show($(".humburger-menu"));
-			});
-}
 
+$(document).ready(function(){
+	$(".menu-hamburger-img").onclick(function() {
+			$(".hamburger-menu").addClass(".active");
+	});
+	$(".close-btn").onclick(function() {
+			$(".hamburger-menu").removeClass(".active");
+	});
+});

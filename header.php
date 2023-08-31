@@ -43,7 +43,7 @@
 					?>
 					<div class="hamburger">
 						<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">
-						<div class="humburger-menu">
+						<div class="hamburger-menu">
 							<div class="close-btn button">
 								X
 							</div>
