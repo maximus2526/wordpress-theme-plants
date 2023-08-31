@@ -61,7 +61,7 @@ function autoloader( $resource = '' ) {
 				 * otherwise find in inc/ directory.
 				 */
 				if ( ! empty( $path[2] ) ) {
-					$directory = sprintf( 'classes\%s', $path[1] );
+					$directory = sprintf( 'classes/%s', $path[1] );
 					$file_name = sprintf( 'class-%s', trim( strtolower( $path[2] ) ) );
 					break;
 				}
@@ -71,7 +71,7 @@ function autoloader( $resource = '' ) {
 				break;
 		}
 
-		$resource_path = sprintf( '%s\inc\%s\%s.php', untrailingslashit( PLANTS_DIR_PATH ), $directory, $file_name );
+		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( PLANTS_DIR_PATH ), $directory, $file_name );
 
 	}
 

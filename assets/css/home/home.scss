@@ -103,7 +103,7 @@ header .container {
 }
 
 .nav-img {
-    > ::after {
+    & > ::after {
         content: url('../../img/svg/dropdown-icons/ref-icon.svg');
         margin: 15px 0 0 10px;
         width: 15px;
