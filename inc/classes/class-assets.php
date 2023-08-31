@@ -36,11 +36,37 @@ class Assets {
 	 */
 	protected function setup_hooks() {
 		/**
-		* Actions.
+		* Hooks.
 		*/
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_font_preload' ) );
+		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag_filter_preload' ), 10, 2 );
+	}
 
+	/**
+	 * Enqueue_font_preload.
+	 *
+	 * @return void
+	 */
+	public function enqueue_font_preload() {
+		wp_enqueue_style( 'example-font-handle', PLANTS_FONTS_PATH . '/Satoshi-Light.woff2', array(), true );
+	}
+
+
+	/**
+	 * Style_loader_tag_filter_preload.
+	 *
+	 * @param  mixed $html HTML.
+	 * @param  mixed $handle Handle.
+	 * @return html
+	 */
+	public function style_loader_tag_filter_preload( $html, $handle ) {
+		if ( 'example-font-handle' === $handle ) {
+			$new_html = str_replace( 'text/css', 'font/woff2', $html );
+			return str_replace( "rel='stylesheet'", "rel='preload' as='font' crossorigin='anonymous'", $new_html );
+		}
+		return $html;
 	}
 
 	/**

@@ -7,9 +7,15 @@
 @import "woocommerce/cart/cart.scss";
 @import "woocommerce/checkout/checkout.scss";
 @import "woocommerce/shop/shop.scss";
+@import "clash-display.css";
 
 /* WordPress Core
 -------------------------------------------------------------- */
+
+.inline {
+    display: inline;
+}
+
 a {
     color: #115817;
 }
@@ -303,7 +309,7 @@ body {
 
 .hot {
     position: relative;
-
+    
     &::after {
         position: absolute;
         content: "Hot";

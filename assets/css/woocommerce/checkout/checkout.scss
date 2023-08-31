@@ -16,7 +16,8 @@
 }
 
 
-.woocommerce-billing-fields, .woocommerce-address-fields {
+.woocommerce-billing-fields,
+.woocommerce-address-fields {
  width: 95%;
 
  .input-text,
@@ -41,7 +42,7 @@
  }
 
  p.form-row-last {
-  float: right;
+  // float: right;
   width: calc(50% - 10px);
  }
 
@@ -82,6 +83,20 @@
 }
 
 
+.checkout_coupon input,
+.coupon #coupon_code {
+ padding-left: 10px;
+ margin-right: 10px;
+ margin-bottom: 10px;
+ height: 38px;
+ background: #e8e6db;
+ border: none;
+
+ &:focus {
+  outline: none;
+ }
+}
+
 // Order Details
 
 #order-detail-section {
@@ -113,7 +128,34 @@
  }
 }
 
+.order-detail-section table{
+ text-align: center;
+ .cart_item {
+  text-align: left;
+ }
+}
+
+.shop_table.woocommerce-checkout-review-order-table tr {
+ text-align: left;
+}
+
 .shop_table {
+ tr {
+  text-align: center;
+ }
+ .quantity {
+  input {
+   width: 50px;
+  }
+ }
+
+ th,
+ td {
+  padding: 20px;
+ }
+}
+
+.cart-collaterals {
  tr {
   display: flex;
   justify-content: space-between;
@@ -121,10 +163,6 @@
    padding: 20px;
   }
  }
- thead, tbody, tfoot, tr {
-  width: 100%;
- }
- 
 }
 
 .woocommerce-order {
@@ -137,7 +175,9 @@
  font-size: 30px;
 }
 
-.woocommerce-bacs-bank-details, .woocommerce-order-details, .woocommerce-customer-details {
+.woocommerce-bacs-bank-details,
+.woocommerce-order-details,
+.woocommerce-customer-details {
  padding: 40px;
  background: #ccc9bb;
  margin: 20px;

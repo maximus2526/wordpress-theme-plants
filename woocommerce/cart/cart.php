@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_cart' ); ?>
 <div class="row">
-<form class="woocommerce-cart-form col-6 scheme-dark" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
+<form class="woocommerce-cart-form col-6 col-md-12 scheme-dark" action="<?php echo esc_url( wc_get_cart_url() ); ?>" method="post">
 	<?php do_action( 'woocommerce_before_cart_table' ); ?>
 
 	<table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents" cellspacing="0">
@@ -159,7 +159,7 @@ do_action( 'woocommerce_before_cart' ); ?>
 	<?php wp_nonce_field( 'woocommerce-cart', 'woocommerce-cart-nonce' ); ?>
 </form>
 
-<div class="cart-collaterals col-6">
+<div class="cart-collaterals col-6 col-md-12">
 <?php do_action( 'woocommerce_before_cart_collaterals' ); ?>
 	<?php
 		/**
