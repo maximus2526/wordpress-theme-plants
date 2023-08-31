@@ -39,6 +39,17 @@ if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 	}
 }
 
+if ( ! function_exists( 'plants_is_wc_exist' ) ) {
+	/**
+	 * Plants_is_WooCommerce_exist.
+	 *
+	 * @return bool
+	 */
+	function plants_is_wc_exist() {
+		return class_exists( 'WooCommerce' );
+	}
+}
+
 if ( ! function_exists( 'plants_custom_allow_svg_upload' ) ) {
 	/**
 	 * Custom_allow_svg_upload.
@@ -125,18 +136,18 @@ if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 		$menus = array_combine( $menu_names, $menu_titles );
 		foreach ( $menus as $menu_name => $menu_title ) :
 			?>
-		<div class="footer-nav display-flex column scheme-dark output-padding">
-			<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
+			<div class="footer-nav display-flex column scheme-dark output-padding">
+				<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
+				<?php
+				wp_nav_menu(
+					array(
+						'menu' => $menu_name,
+					)
+				);
+				?>
+			</div>
 			<?php
-			wp_nav_menu(
-				array(
-					'menu' => $menu_name,
-				)
-			);
-			?>
-		</div>
-			<?php
-			endforeach;
+		endforeach;
 	}
 }
 

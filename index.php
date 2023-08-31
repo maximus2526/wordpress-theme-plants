@@ -18,30 +18,28 @@ get_header();
 	</div>
 </div>
 <div class="row">
-<?php if ( is_home() && ! empty( single_post_title( '', false ) ) ) : ?>
-	<?php
-	if ( have_posts() ) {
+	<?php if ( is_home() && ! empty( single_post_title( '', false ) ) ) : ?>
+		<?php
+		if ( have_posts() ) {
 
-		// Load posts loop.
-		while ( have_posts() ) {
-			the_post();
-			get_template_part( 'template-parts/content/content-post-card' );
+			// Load posts loop.
+			while ( have_posts() ) {
+				the_post();
+				get_template_part( 'template-parts/content/content-post-card' );
+			}
+			wp_link_pages();
+			the_posts_pagination();
+
+		} else {
+
+			// If no content, include the "No posts found" template.
+			get_template_part( 'template-parts/content/content-none' );
+
 		}
-		wp_link_pages();
-		the_posts_pagination();
-
-	} else {
-
-		// If no content, include the "No posts found" template.
-		get_template_part( 'template-parts/content/content-none' );
-
-	}
-	?>
+		?>
+	</div>
 </div>
-</div>
-	<?php
-
-	get_footer();
-
+		<?php
+		get_footer();
 endif;
-?>
+	?>

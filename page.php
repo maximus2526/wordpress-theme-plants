@@ -12,15 +12,17 @@ get_header();
 ?>
 <div class="container">
 	<?php
+
 	if ( have_posts() ) :
 		while ( have_posts() ) :
 			the_post();
-
 			the_content();
-
-		endwhile;
+			endwhile;
 	endif;
 
+	if ( ! plants_is_wc_exist() ) {
+		echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
+	}
 	?>
 
 </div>

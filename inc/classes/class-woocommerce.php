@@ -25,7 +25,12 @@ class WooCommerce {
 	 * @return void
 	 */
 	protected function __construct() {
-		$this->setup_hooks();
+		if ( plants_is_wc_exist() ) {
+			$this->setup_hooks();
+		} else {
+			return;
+		}
+
 	}
 
 	/**
@@ -34,11 +39,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	protected function setup_hooks() {
-
-		if ( ! is_shop() ) {
-			add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-		}
-
+		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 		add_filter( 'woocommerce_post_class', array( $this, 'add_products_column' ) );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		remove_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 10 );
