@@ -721,6 +721,11 @@ h6 {
   gap: 20px;
 }
 
+.out-of-stock {
+  color: red;
+  font-weight: 600;
+}
+
 .cart-collaterals {
   padding: 50px;
   background: #e7e5d9;
@@ -916,27 +921,23 @@ h6 {
   margin: 20px;
 }
 
-.shop-page .woocommerce-breadcrumb {
-  border-bottom: 2px solid #5e6821;
-  padding-bottom: 40px;
-  margin-bottom: 30px;
+.products .woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+  position: relative;
+  display: block;
+  text-align: center;
 }
-
-.product-card {
-  margin-bottom: 30px;
-}
-
-.woocommerce-loop-product__title h4 {
-  margin-bottom: 0;
-}
-.woocommerce-loop-product__title h4 a {
+.products .woocommerce-LoopProduct-link.woocommerce-loop-product__link .onsale {
+  padding: 5px;
+  background: white;
+  font-weight: 700;
   color: black;
+  position: absolute;
+  top: 20px;
+  left: 0;
 }
 
-.added_to_cart.wc-forward {
-  margin-left: 20px;
-  color: #5e6821;
-  font-weight: 600;
+.woocommerce-result-count {
+  float: right;
 }
 
 .humburger-menu {

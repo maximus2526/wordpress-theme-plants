@@ -1,26 +1,22 @@
-.shop-page {
- .woocommerce-breadcrumb {
-  border-bottom: 2px solid #5e6821;
-  padding-bottom: 40px;
-  margin-bottom: 30px;
+
+.products {
+ .woocommerce-LoopProduct-link.woocommerce-loop-product__link {
+  position: relative;
+  display: block;
+  text-align: center;
+  .onsale {
+   padding: 5px;
+   background: white;
+   font-weight: 700;
+   color: black;
+   position: absolute;
+   top: 20px;
+   left: 0;
+  }
+
  }
 }
 
-.product-card {
- margin-bottom: 30px;
-}
-
-.woocommerce-loop-product__title h4 {
- margin-bottom: 0;
-
- a {
-  color: black;
- }
-
-}
-
-.added_to_cart.wc-forward {
- margin-left: 20px;
- color: #5e6821;
- font-weight: 600;
+.woocommerce-result-count {
+ float: right;
 }
