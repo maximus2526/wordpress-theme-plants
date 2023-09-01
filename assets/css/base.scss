@@ -9,24 +9,88 @@
 @import "woocommerce/shop/shop.scss";
 @import "clash-display.css";
 
+
 .disabled {
     display: none;
 }
 // Hamburger
     .hamburger-menu {
-        visibility: hidden;
+        display: none;
+        .hamburger-header {
+            border-bottom: 2px solid #5E6821;
+        }
+    
+        .close-btn  {
+            display: flex;
+            align-items: center;
+            &:hover {
+                background: #869b6a;
+            }
+        }
+
+        .searchform {
+            div{
+              input[type="submit"] {
+                font-weight: 600;
+              }
+              input {
+                width: 100%;
+              }
+            }
+
+        }
+        .menu-header-menu-container {
+            ul {
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 0;
+                li {
+                    border-bottom: 1px solid #5E6821;
+                    &:last-child {
+                        border: none;
+                    }
+                    a {
+                        display: block;
+                        padding: 10px 0;
+                    }    
+                }
+             
+            }
+        }
     }
 
+    .searchform {
+        padding: 20px;
+        div{
+          width: 100%;
+          input[type="text"] {
+            border: none;
+            background: #dbdbdb;
+          }
+          
+          input[type="submit"] {
+            border: none;
+            background: #5E6821;
+            color: white;
+            padding: 0 20px;
+            &:hover {
+                background: #7d9683;
+            }
+          }
+        }
+
+    }
     .hamburger-menu.active {
-        z-index: 10;
-        visibility: visible;
+        z-index: 9999;
+        display: block;
         background-color: #fafafa;
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         bottom: 0;
-        width: 100%;
-        height: 500px;
+        width: 300px;
+        overflow-y: scroll;
     }
 
 // end burger

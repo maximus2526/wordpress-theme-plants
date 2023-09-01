@@ -44,9 +44,11 @@
 					<div class="hamburger">
 						<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">
 						<div class="hamburger-menu">
-							<div class="close-btn button">
-								X
+							<div class="hamburger-header display-flex gap">
+								<div class="close-btn button"><a href=""></a>X</div>
+								<?php get_search_form(); ?>
 							</div>
+
 							<?php
 							wp_nav_menu(
 								array(

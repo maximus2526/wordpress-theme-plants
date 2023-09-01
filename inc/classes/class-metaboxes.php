@@ -104,21 +104,18 @@ class MetaBoxes {
 	 * @return int
 	 */
 	public function true_save_meta( $post_id, $post ) {
-		 // Проверка одноразовых полей.
 		if ( ! isset( $_POST['_truenonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_truenonce'] ) ), 'postsettingsupdate-' . $post->ID ) ) {
 			return $post_id;
 		}
-		// Проверяем, может ли текущий юзер редактировать пост.
 		$post_type = get_post_type_object( $post->post_type );
 
 		if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 			return $post_id;
 		}
-		// Ничего не делаем для автосохранений.
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-		// Проверяем тип записи.
+
 		if ( 'page' !== $post->post_type ) {
 			return $post_id;
 		}

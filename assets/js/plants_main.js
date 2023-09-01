@@ -41,11 +41,17 @@ const swiper_banner = new Swiper(
 
 // Hamburger
 
-$(document).ready(function(){
-	$(".menu-hamburger-img").onclick(function() {
-			$(".hamburger-menu").addClass(".active");
+const $ = jQuery;
+
+$(document).ready(() => {
+	$(".menu-hamburger-img").click(function () {
+		$('body').fadeIn('slow');
+		$(".hamburger-menu").addClass("active").slideDown({
+			duration: 'slow',
+			easing: 'linear'
 	});
-	$(".close-btn").onclick(function() {
-			$(".hamburger-menu").removeClass(".active");
+	});
+	$(".close-btn").click(function () {
+		$(".hamburger-menu").removeClass("active");
 	});
 });
