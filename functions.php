@@ -8,6 +8,8 @@
  * @link     http://www.hashbangcode.com/
  */
 
+use PLANTS\Inc;
+
 define( 'PLANTS_DIR_PATH', untrailingslashit( get_template_directory() ) );
 define( 'PLANTS_DIR_URI', untrailingslashit( get_template_directory_uri() ) );
 define( 'PLANTS_URI', PLANTS_DIR_URI . '/assets' );
@@ -32,11 +34,12 @@ if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 	 * @return void
 	 */
 	function plants_get_theme_instances() {
-		PLANTS\Inc\THEME::get_instance();
-		PLANTS\Inc\Assets::get_instance();
-		PLANTS\Inc\Menus::get_instance();
-		PLANTS\Inc\WooCommerce::get_instance();
-		PLANTS\Inc\MetaBoxes::get_instance();
+		Inc\THEME::get_instance();
+		Inc\Assets::get_instance();
+		Inc\Menus::get_instance();
+		Inc\WooCommerce::get_instance();
+		Inc\MetaBoxes::get_instance();
+		Inc\Sidebars::get_instance();
 	}
 }
 
