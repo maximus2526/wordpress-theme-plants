@@ -26,7 +26,7 @@
 		wp_body_open();
 	}
 	?>
-	<header>
+	<header class="<?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_header', true ) && is_page() ) ? 'disabled' : ''; ?>">
 		<div class="header-promo text-center <?php echo ( 'Yes' !== plants_get_options( 'header_banner_hide_option' ) ) ? 'hide' : ''; ?>">
 			<a href="<?php echo esc_html( plants_get_options( 'header_banner_anchor' ) ); ?>"><?php echo esc_html( plants_get_options( 'header_banner_info' ) ); ?></a>
 		</div>

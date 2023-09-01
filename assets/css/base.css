@@ -940,6 +940,10 @@ h6 {
   float: right;
 }
 
+.disabled {
+  display: none;
+}
+
 .hamburger-menu {
   visibility: hidden;
 }

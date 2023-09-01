@@ -1,5 +1,4 @@
 <?php
-
 /**
  * MetaBoxes support.
  *
@@ -14,9 +13,10 @@ namespace PLANTS\Inc;
 use PLANTS\Inc\Traits\Singleton;
 
 /**
- * WooCommerce
+ * MetaBoxes
  */
 class MetaBoxes {
+
 
 
 
@@ -40,9 +40,6 @@ class MetaBoxes {
 		add_action( 'add_meta_boxes', ( array( $this, 'true_add_metabox' ) ) );
 		add_action( 'save_post', array( $this, 'true_save_meta' ), 10, 2 );
 		add_action( 'edit_attachment', array( $this, 'true_save_meta' ), 10, 2 );
-		add_action( 'get_header', array( $this, 'disable_header' ), 25 );
-		add_action( 'get_footer', array( $this, 'disable_footer' ), 25 );
-		add_action( 'get_sidebar', array( $this, 'disable_sidebar' ), 25 );
 	}
 
 	/**
@@ -74,28 +71,28 @@ class MetaBoxes {
 		$disable_sidebar = get_post_meta( $post->ID, 'disable_sidebar', true );
 
 		?>
-  <table class="form-table">
-   <tbody>
-	<tr>
-	 <th>Disable Header</th>
-	 <td>
-   <label><input type="checkbox" name="disable_header" <?php checked( 'on', $disable_header, false ); ?> /> Yes</label>
-	 </td>
-	</tr>
-	<tr>
-	 <th>Disable Footer</th>
-	 <td>
-   <label><input type="checkbox" name="disable_footer" <?php checked( 'on', $disable_footer, false ); ?> /> Yes</label>
-	 </td>
-	</tr>
-	<tr>
-	 <th>Disable SideBar</th>
-	 <td>
-   <label><input type="checkbox" name="disable_sidebar" <?php checked( 'on', $disable_sidebar, false ); ?> /> Yes</label>
-	 </td>
-	</tr>
-   </tbody>
-  </table>
+		<table class="form-table">
+			<tbody>
+				<tr>
+					<th>Disable Header</th>
+					<td>
+						<label><input type="checkbox" name="disable_header" <?php checked( 'on', $disable_header ); ?> /> Yes</label>
+					</td>
+				</tr>
+				<tr>
+					<th>Disable Footer</th>
+					<td>
+						<label><input type="checkbox" name="disable_footer" <?php checked( 'on', $disable_footer ); ?> /> Yes</label>
+					</td>
+				</tr>
+				<tr>
+					<th>Disable SideBar</th>
+					<td>
+						<label><input type="checkbox" name="disable_sidebar" <?php checked( 'on', $disable_sidebar ); ?> /> Yes</label>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 		<?php
 	}
 
@@ -107,7 +104,7 @@ class MetaBoxes {
 	 * @return int
 	 */
 	public function true_save_meta( $post_id, $post ) {
-		// Проверка одноразовых полей.
+		 // Проверка одноразовых полей.
 		if ( ! isset( $_POST['_truenonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_truenonce'] ) ), 'postsettingsupdate-' . $post->ID ) ) {
 			return $post_id;
 		}
@@ -145,62 +142,5 @@ class MetaBoxes {
 		}
 
 		return $post_id;
-
-	}
-
-
-
-	/**
-	 * Disable_header.
-	 *
-	 * @return void
-	 */
-	public function disable_header() {
-		if ( ! is_page() ) {
-			return;
-		}
-
-		if ( 'on' === get_post_meta( get_the_ID(), 'disable_header', true ) ) {
-
-		}
-	}
-
-	/**
-	 * Disable_footer.
-	 *
-	 * @return void
-	 */
-	public function disable_footer() {
-
-		if ( ! is_page() ) {
-			return;
-		}
-
-		if ( 'on' === get_post_meta( get_the_ID(), 'disable_footer', true ) && is_page() ) {
-			$post_id        = get_the_ID();
-			$disable_header = get_post_meta( $post_id, 'disable_header', true );
-			if ( $disable_header === 'on' ) {
-							remove_action( 'get_header', '__return_false' );
-			}
-		}
-	}
-
-	/**
-	 * Disable_sidebar.
-	 *
-	 * @return void
-	 */
-	public function disable_sidebar() {
-
-		if ( ! is_page() ) {
-			return;
-		}
-		if ( 'on' === get_post_meta( get_the_ID(), 'disable_footer', true ) && is_page() ) {
-			$post_id        = get_the_ID();
-			$disable_header = get_post_meta( $post_id, 'disable_header', true );
-			if ( $disable_header === 'on' ) {
-					remove_action( 'get_sidebar', '__return_false' );
-			}
-		}
 	}
 }
