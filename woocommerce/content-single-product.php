@@ -48,7 +48,9 @@ if (post_password_required()) {
 	} catch (\Throwable $e) {
 	?>
 		<script>
-			$(document).ready(function() {
+			const $ = jQuery;
+
+			$(document).ready(() => {
 				$('.woocommerce-product-gallery').css('width', '100%');
 			});
 		</script>
@@ -57,14 +59,7 @@ if (post_password_required()) {
 
 
 	?>
-	<script>
-		$(document).ready(function() {
-			$('.woocommerce-product-gallery').css('width', '100%');
-			// TODO: Дороби
-			$("h1").text("Привіт, світ!");
-			$("p").text("Це простий текст, виведений за допомогою jQuery.");
-		});
-	</script>
+
 	<div class="summary entry-summary">
 		<?php
 		/**

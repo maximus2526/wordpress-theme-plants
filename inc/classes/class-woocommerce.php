@@ -53,10 +53,6 @@ class WooCommerce
 		add_action('woocommerce_after_main_content', array($this, 'print_end_container'));
 		add_action('woocommerce_after_single_product_summary', array($this, 'css_clear_fix'), 9, 0);
 		add_filter('woocommerce_show_page_title', '__return_empty_array');
-		if (!has_post_thumbnail()) {
-			remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-		}
-		
 	}
 
 
