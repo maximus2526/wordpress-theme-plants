@@ -46,7 +46,7 @@ class Sidebars {
 		register_sidebar(
 			array(
 				'id'            => 'main-sidebar',
-				'name'          => 'Footer',
+				'name'          => 'Main-Sidebar',
 				'description'   => 'Drag here widgets.',
 				'before_widget' => '<div id="%1$s" class="main-sidebar widget %2$s">',
 				'after_widget'  => '</div>',
