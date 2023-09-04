@@ -25,11 +25,15 @@
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
 	}
-	?>
-	<header class="<?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_header', true ) && ( is_page() || is_single() ) ) ? 'disabled' : ''; ?>">
-		<div class="header-promo text-center <?php echo ( 'Yes' !== plants_get_options( 'header_banner_hide_option' ) ) ? 'hide' : ''; ?>">
-			<a href="<?php echo esc_html( plants_get_options( 'header_banner_anchor' ) ); ?>"><?php echo esc_html( plants_get_options( 'header_banner_info' ) ); ?></a>
-		</div>
+
+	if ( 'on' !== get_post_meta( get_the_ID(), 'disable_header', true ) ) :
+		?>
+	<header>
+		<?php if ( 'Yes' === plants_get_options( 'header_banner_hide_option' ) ) : ?>
+			<div class="header-promo text-center">
+				<a href="<?php echo esc_html( plants_get_options( 'header_banner_anchor' ) ); ?>"><?php echo esc_html( plants_get_options( 'header_banner_info' ) ); ?></a>
+			</div>
+		<?php endif; ?>
 		<div class="container">
 			<div class="header scheme-dark display-flex space-between">
 
@@ -115,3 +119,4 @@
 			</div>
 		</div>
 	</header>
+<?php endif; ?>

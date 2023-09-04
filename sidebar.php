@@ -8,6 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-if ( is_active_sidebar( 'main-sidebar' ) ) {
+if ( is_active_sidebar( 'main-sidebar' ) && 'on' !== get_post_meta( get_the_ID(), 'disable_sidebar', true ) ) {
 	dynamic_sidebar( 'main-sidebar' );
 }

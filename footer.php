@@ -10,7 +10,11 @@
 
 ?>
 <div class="clearfix"></div>
-<footer class="container <?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_footer', true ) ) ? 'disabled' : ''; ?>">
+<?php
+if ( 'on' !== get_post_meta( get_the_ID(), 'disable_footer', true ) ) :
+	;
+	?>
+<footer class="container">
 	<div class="top-footer">
 		<div class="row">
 			<div class="col-6 left-side col-md-12">
@@ -56,8 +60,9 @@
 </footer>
 
 
-<?php
-wp_footer();
+	<?php
+	wp_footer();
+endif;
 ?>
 </body>
 
