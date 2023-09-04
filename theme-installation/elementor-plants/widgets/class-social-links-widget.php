@@ -38,7 +38,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-social-icons';
+		return esc_html( 'eicon-social-icons' );
 	}
 
 	/**

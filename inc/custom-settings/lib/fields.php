@@ -79,8 +79,8 @@ if ( ! function_exists( 'plants_hide_header_banner' ) ) {
 	function plants_hide_header_banner() {
 		?>
 	<select name='plants_options[header_banner_hide_option]'>
-		<option value='Yes' <?php selected( plants_get_options( 'header_banner_hide_option' ), 'Yes' ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
-		<option value='No' <?php selected( plants_get_options( 'header_banner_hide_option' ), 'No' ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
+		<option value='<?php echo esc_attr__( 'Yes', 'plants' ); ?>' <?php selected( plants_get_options( 'header_banner_hide_option' ), esc_html__( 'Yes', 'plants' ) ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
+		<option value='<?php echo esc_html__( 'No', 'plants' ); ?>' <?php selected( plants_get_options( 'header_banner_hide_option' ), esc_html__( 'No', 'plants' ) ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
 
 	</select>
 		<?php
@@ -134,7 +134,7 @@ if ( ! function_exists( 'plants_render_footer_menus_field' ) ) {
 			?>
 		</br>
 		<div class="row">
-			<input value="<?php echo esc_attr( isset( $menus_title_options[ $name ] ) ? $menus_title_options[ $name ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
+			<input value="<?php echo esc_attr( isset( $menus_title_options[ $name ] ) ? $menus_title_options[ $name ] : '' ); ?>" placeholder=<?php echo esc_attr__( 'Menu title', 'plants' ); ?> type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
 			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		 
 			<input <?php checked( isset( $show_menu_options[ $name ] ) && $show_menu_options[ $name ] === $name, true ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[show_menu][<?php echo esc_attr( $name ); ?>]' type="checkbox" />
 		</div>

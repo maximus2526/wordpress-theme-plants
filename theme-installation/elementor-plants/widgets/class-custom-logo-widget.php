@@ -38,7 +38,7 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 	 * @return text
 	 */
 	public function get_icon() {
-		return 'eicon-logo';
+		return esc_html( 'eicon-logo' );
 	}
 
 	/**

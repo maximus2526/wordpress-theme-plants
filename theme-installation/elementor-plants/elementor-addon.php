@@ -51,7 +51,7 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 		$elements_manager->add_category(
 			'theme-widgets',
 			array(
-				'title' => __( 'Theme Widgets', 'plants' ),
+				'title' => esc_html__( 'Theme Widgets', 'plants' ),
 				'icon'  => 'fa fa-plug',
 			)
 		);

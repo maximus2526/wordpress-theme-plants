@@ -39,7 +39,7 @@ class Partners_Links_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-device-mobile';
+		return esc_html( 'eicon-device-mobile' );
 	}
 
 	/**

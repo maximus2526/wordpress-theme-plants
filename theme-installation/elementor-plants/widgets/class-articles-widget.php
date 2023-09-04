@@ -39,7 +39,7 @@ class Articles_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-post';
+		return esc_html( 'eicon-post' );
 	}
 
 	/**

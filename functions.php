@@ -135,9 +135,9 @@ if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 	 * @return void
 	 */
 	function plants_get_footer_menus() {
-		$menu_names = plants_get_options( 'show_menu' ) ? plants_get_options( 'show_menu' ) : '';
+		$menu_names = plants_get_options( 'show_menu' );
 		if ( empty( $menu_names ) ) {
-			echo 'No avaible menus';
+			echo esc_html__( 'No avaible menus', 'plants' );
 			return;
 		}
 		$menu_titles       = plants_get_options( 'menus_titles' );

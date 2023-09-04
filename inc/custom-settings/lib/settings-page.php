@@ -53,7 +53,7 @@ if ( ! function_exists( 'plants_option_page' ) ) {
 				do_settings_sections( __FILE__ );
 				settings_fields( $settings_output['plants_option_name'] );
 				?>
-				<input name="Submit" type="submit" class="button-primary" value="<?php esc_attr_e( 'Save Changes', 'plants' ); ?>" />
+				<input name="Submit" type="submit" class="button-primary" value="<?php echo esc_attr__( 'Save Changes', 'plants' ); ?>" />
 			</p>
 		</form>
 	</div>

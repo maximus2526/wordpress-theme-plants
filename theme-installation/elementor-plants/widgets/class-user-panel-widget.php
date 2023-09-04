@@ -38,7 +38,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-user-circle-o';
+		return esc_html( 'eicon-user-circle-o' );
 	}
 
 	/**
@@ -68,7 +68,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 				<a href><img src="<?php echo esc_html( esc_url( PLANTS_IMG_URI ) ); ?>/svg/search.svg" alt="search-sign"></a>
 			</div>
 			<div class="auth display-flex gap-5">
-				<a href="">Login</a> / <a href="/wp-login.php?action=register">Register</a>
+				<a href=""><?php esc_html__( 'Login', 'plants' ); ?></a> / <a href="/wp-login.php?action=register"><?php esc_html__( 'Register', 'plants' ); ?></a>
 
 			</div>
 			<?php if ( plants_is_wc_exist() ) : ?>

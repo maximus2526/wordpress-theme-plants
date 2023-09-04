@@ -55,7 +55,7 @@ class MetaBoxes {
 	 * @return void
 	 */
 	public function disabler_metabox_callback( $post ) {
-		$post_id                  = $post->ID;
+		$post_id = $post->ID;
 		wp_nonce_field( 'postsettingsupdate-' . $post_id, '_nonce' );
 
 		$disable_header  = get_post_meta( $post->ID, 'disable_header', true );
@@ -66,21 +66,21 @@ class MetaBoxes {
 		<table class="form-table">
 			<tbody>
 				<tr>
-					<th>Disable Header</th>
+					<th><?php echo esc_html__( 'Disable Header', 'plants' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="disable_header" <?php checked( 'on', $disable_header ); ?> /> Yes</label>
+						<label><input type="checkbox" name="disable_header" <?php checked( 'on', $disable_header ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
 					</td>
 				</tr>
 				<tr>
-					<th>Disable Footer</th>
+					<th><?php echo esc_html__( 'Disable Footer', 'plants' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="disable_footer" <?php checked( 'on', $disable_footer ); ?> /> Yes</label>
+						<label><input type="checkbox" name="disable_footer" <?php checked( 'on', $disable_footer ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
 					</td>
 				</tr>
 				<tr>
-					<th>Disable SideBar</th>
+					<th><?php echo esc_html__( 'Disable SideBar', 'plants' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="disable_sidebar" <?php checked( 'on', $disable_sidebar ); ?> /> Yes</label>
+						<label><input type="checkbox" name="disable_sidebar" <?php checked( 'on', $disable_sidebar ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
 					</td>
 				</tr>
 			</tbody>

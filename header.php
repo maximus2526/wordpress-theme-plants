@@ -118,7 +118,7 @@
 					</div>
 						<?php
 						else :
-							echo esc_html__( 'Install WooCommerce for site work correctly' );
+							echo esc_html__( 'Install WooCommerce for site work correctly', 'plants' );
 						endif;
 						?>
 

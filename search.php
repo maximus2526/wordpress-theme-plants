@@ -18,7 +18,7 @@ get_header();
 	);
 	$the_query = new WP_Query( $args );
 	if ( $the_query->have_posts() ) {
-		echo ( "<h2 style='font-weight:bold;color:#000'>Search Results for: " . esc_html( get_query_var( 's' ) ) . '</h2>' );
+		echo ( "<h2 style='font-weight:bold;color:#000'>" . esc_html__( 'Search Results for ', 'plants' ) . ': ' . esc_html( get_query_var( 's' ) ) . '</h2>' );
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			?>

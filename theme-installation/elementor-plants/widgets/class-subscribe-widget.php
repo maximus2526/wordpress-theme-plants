@@ -37,7 +37,7 @@ class Subscribe_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-star';
+		return esc_html( 'eicon-star' );
 	}
 
 	/**
@@ -56,7 +56,7 @@ class Subscribe_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render() {       ?>
 		<form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
-			<input placeholder="Enter your email" type="email" name="subscribe-email">
+			<input placeholder="<?php echo esc_html__( 'Enter your email', 'plants' ); ?>" type="email" name="subscribe-email">
 			<button class="button" type="submit"><?php echo esc_html__( 'Subscribe', 'plants' ); ?></button>
 		</form>
 		<?php

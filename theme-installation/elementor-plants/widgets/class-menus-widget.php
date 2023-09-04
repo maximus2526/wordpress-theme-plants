@@ -39,7 +39,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-menu-bar';
+		return esc_html( 'eicon-menu-bar' );
 	}
 
 	/**

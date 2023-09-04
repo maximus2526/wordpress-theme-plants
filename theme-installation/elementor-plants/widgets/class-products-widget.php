@@ -38,7 +38,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_icon() {
-		return 'eicon-products';
+		return esc_html( 'eicon-products' );
 	}
 
 	/**
