@@ -20,25 +20,6 @@ class Menus {
 	use Singleton;
 
 	/**
-	 * __construct
-	 *
-	 * @return void
-	 */
-	protected function __construct() {
-		$this->setup_hooks();
-
-	}
-
-	/**
-	 * Setup_hooks.
-	 *
-	 * @return void
-	 */
-	protected function setup_hooks() {
-
-	}
-
-	/**
 	 * Register_my_menus.
 	 *
 	 * @return void

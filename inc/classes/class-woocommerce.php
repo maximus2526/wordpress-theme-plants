@@ -120,7 +120,6 @@ class WooCommerce {
 			$class[] = 'content-center';
 			$class[] = 'display-flex column';
 		}
-
 		return $class;
 	}
 }

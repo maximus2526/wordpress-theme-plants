@@ -24,17 +24,9 @@ class Sidebars {
 	 * @return void
 	 */
 	protected function __construct() {
-		$this->setup_hooks();
-	}
-
-	/**
-	 * Setup_hooks.
-	 *
-	 * @return void
-	 */
-	protected function setup_hooks() {
 		add_action( 'widgets_init', array( $this, 'register_wp_sidebars' ) );
 	}
+
 
 
 	/**

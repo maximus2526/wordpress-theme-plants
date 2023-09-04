@@ -24,26 +24,12 @@ class THEME {
 	 * @return void
 	 */
 	protected function __construct() {
-		// Load class.
-		$this->setup_hooks();
-	}
-
-	/**
-	 * Setup_hooks.
-	 *
-	 * @return void
-	 */
-	protected function setup_hooks() {
 		/**
 		 * Actions.
 		 */
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
-		add_action( 'after_setup_theme', array( $this, 'true_load_theme_textdomain' ) );
-
+		add_action( 'after_setup_theme', array( $this, 'load_theme_textdomain' ) );
 	}
-
-
-
 
 	/**
 	 * Setup theme.
@@ -75,7 +61,7 @@ class THEME {
 	 *
 	 * @return void
 	 */
-	public function true_load_theme_textdomain() {
+	public function load_theme_textdomain() {
 		load_theme_textdomain( 'plants', get_template_directory() . '/languages' );
 	}
 }

@@ -61,8 +61,8 @@ if ( 'on' !== get_post_meta( get_the_ID(), 'disable_footer', true ) ) :
 
 
 	<?php
-	wp_footer();
 endif;
+wp_footer();
 ?>
 </body>
 

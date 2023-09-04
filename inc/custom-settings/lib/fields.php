@@ -97,17 +97,18 @@ if ( ! function_exists( 'plants_render_footer_menus_field' ) ) {
 		<?php
 		$input_id = 1;
 		foreach ( $menu_names as $name ) :
-			$name = esc_attr( $name );
-
+			$name                = esc_attr( $name );
+			$menus_title_options = plants_get_options( 'menus_titles' );
+			$show_menu_options   = plants_get_options( 'show_menu' );
 			?>
 		</br>
 		<div class="row">
-			<input value="<?php echo esc_attr( isset( plants_get_options( 'menus_titles' )[ $name ] ) ? plants_get_options( 'menus_titles' )[ $name ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
+			<input value="<?php echo esc_attr( isset( $menus_title_options[ $name ] ) ? $menus_title_options[ $name ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
 			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		 
-			<input <?php checked( isset( plants_get_options( 'show_menu' )[ $name ] ) && plants_get_options( 'show_menu' )[ $name ] === $name, true ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[show_menu][<?php echo esc_attr( $name ); ?>]' type="checkbox" />
+			<input <?php checked( isset( $show_menu_options[ $name ] ) && $show_menu_options[ $name ] === $name, true ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[show_menu][<?php echo esc_attr( $name ); ?>]' type="checkbox" />
 			<?php
-			if ( isset( plants_get_options( 'show_menu' )[ $name ] ) && '' === plants_get_options( 'show_menu' )[ $name ] ) {
-				unset( plants_get_options( 'show_menu' )[ $name ] );
+			if ( isset( $show_menu_options[ $name ] ) && '' === $show_menu_options[ $name ] ) {
+				unset( $show_menu_options[ $name ] );
 			}
 			?>
 		</div>

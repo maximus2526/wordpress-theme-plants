@@ -28,18 +28,8 @@ class MetaBoxes {
 	 * @return void
 	 */
 	protected function __construct() {
-		$this->setup_hooks();
-	}
-
-	/**
-	 * Setup_hooks.
-	 *
-	 * @return void
-	 */
-	protected function setup_hooks() {
 		add_action( 'add_meta_boxes', ( array( $this, 'add_metabox' ) ) );
 		add_action( 'save_post', array( $this, 'save_meta' ), 10, 2 );
-		add_action( 'edit_attachment', array( $this, 'save_meta' ), 10, 2 );
 	}
 
 	/**
@@ -49,10 +39,10 @@ class MetaBoxes {
 	 */
 	public function add_metabox() {
 		add_meta_box(
-			'disable_elements_metabox',
+			'plant_disable_elements_metabox',
 			'Display Control',
 			array( $this, 'disabler_metabox_callback' ),
-			array( 'post', 'page' ),
+			array( 'post', 'page', 'product' ),
 			'normal',
 			'default'
 		);

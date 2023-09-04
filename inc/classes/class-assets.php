@@ -26,16 +26,6 @@ class Assets {
 	 * @return void
 	 */
 	protected function __construct() {
-		// load class.
-		$this->setup_hooks();
-	}
-
-	/**
-	 * Setup_hooks.
-	 *
-	 * @return void
-	 */
-	protected function setup_hooks() {
 		/**
 		* Hooks.
 		*/
@@ -44,6 +34,8 @@ class Assets {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_font_preload' ) );
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag_filter_preload' ), 10, 2 );
 	}
+
+
 
 	/**
 	 * Enqueue_font_preload.
