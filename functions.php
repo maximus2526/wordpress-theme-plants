@@ -12,6 +12,8 @@ use PLANTS\Inc;
 
 // Get the theme version & make it a named constant.
 $theme_data = wp_get_theme();
+
+
 define( 'THEME_VERSION', $theme_data->version );
 define( 'PLANTS_DIR_PATH', untrailingslashit( get_template_directory() ) );
 define( 'PLANTS_DIR_URI', untrailingslashit( get_template_directory_uri() ) );
