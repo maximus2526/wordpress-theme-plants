@@ -14,7 +14,7 @@ get_header();
 <div class="container">
 	<h3 class="page-slag"><?php echo esc_html( 'Blog' ); ?></h3>
 	<div class="row">
-		<div class="col-3 <?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_sidebar', true ) && is_single() ) ? 'disabled' : ''; ?>">
+		<div class="<?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_sidebar', true ) && is_single() ) ? 'disabled' : ''; ?>">
 			<?php get_sidebar(); ?>
 		</div>
 		<div class="col-<?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_sidebar', true ) && is_single() ) ? '12' : '9'; ?>">
