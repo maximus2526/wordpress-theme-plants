@@ -89,8 +89,5 @@ class Assets {
 		// Enqueue Scripts.
 		wp_enqueue_script( 'swiper' );
 		wp_enqueue_script( 'plants-main' );
-		if ( ! is_admin() ) {
-			wp_enqueue_script( 'jquery' );
-		}
 	}
 }
