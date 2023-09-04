@@ -10,6 +10,4 @@
 
 if ( is_active_sidebar( 'main-sidebar' ) ) {
 	dynamic_sidebar( 'main-sidebar' );
-} else {
-	echo esc_html__( 'Sidebar is empty', 'plants' );
 }

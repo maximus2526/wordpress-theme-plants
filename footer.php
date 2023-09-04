@@ -10,7 +10,7 @@
 
 ?>
 <div class="clearfix"></div>
-<footer class="container <?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_footer', true ) && is_page() ) ? 'disabled' : ''; ?>">
+<footer class="container <?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_footer', true ) ) ? 'disabled' : ''; ?>">
 	<div class="top-footer">
 		<div class="row">
 			<div class="col-6 left-side col-md-12">

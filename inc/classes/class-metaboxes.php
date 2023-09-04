@@ -37,22 +37,22 @@ class MetaBoxes {
 	 * @return void
 	 */
 	protected function setup_hooks() {
-		add_action( 'add_meta_boxes', ( array( $this, 'true_add_metabox' ) ) );
-		add_action( 'save_post', array( $this, 'true_save_meta' ), 10, 2 );
-		add_action( 'edit_attachment', array( $this, 'true_save_meta' ), 10, 2 );
+		add_action( 'add_meta_boxes', ( array( $this, 'add_metabox' ) ) );
+		add_action( 'save_post', array( $this, 'save_meta' ), 10, 2 );
+		add_action( 'edit_attachment', array( $this, 'save_meta' ), 10, 2 );
 	}
 
 	/**
-	 * True_add_metabox.
+	 * Add_metabox.
 	 *
 	 * @return void
 	 */
-	public function true_add_metabox() {
+	public function add_metabox() {
 		add_meta_box(
 			'disable_elements_metabox',
 			'Display Control',
 			array( $this, 'disabler_metabox_callback' ),
-			'page',
+			array( 'post', 'page' ),
 			'normal',
 			'default'
 		);
@@ -61,11 +61,11 @@ class MetaBoxes {
 	/**
 	 * Disabler_metabox_callback.
 	 *
-	 * @param  mixed $post Post.
+	 * @param  object $post Post.
 	 * @return void
 	 */
 	public function disabler_metabox_callback( $post ) {
-		wp_nonce_field( 'postsettingsupdate-' . $post->ID, '_truenonce' );
+		wp_nonce_field( 'postsettingsupdate-' . $post->ID, '_nonce' );
 		$disable_header  = get_post_meta( $post->ID, 'disable_header', true );
 		$disable_footer  = get_post_meta( $post->ID, 'disable_footer', true );
 		$disable_sidebar = get_post_meta( $post->ID, 'disable_sidebar', true );
@@ -97,26 +97,23 @@ class MetaBoxes {
 	}
 
 	/**
-	 * True_save_meta.
+	 * Save_meta.
 	 *
-	 * @param  mixed $post_id Post_Id.
-	 * @param  mixed $post Post.
+	 * @param  int    $post_id Post_Id.
+	 * @param  object $post Post.
 	 * @return int
 	 */
-	public function true_save_meta( $post_id, $post ) {
-		if ( ! isset( $_POST['_truenonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_truenonce'] ) ), 'postsettingsupdate-' . $post->ID ) ) {
+	public function save_meta( $post_id, $post ) {
+		if ( ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_nonce'] ) ), 'postsettingsupdate-' . $post->ID ) ) {
 			return $post_id;
 		}
+
 		$post_type = get_post_type_object( $post->post_type );
 
 		if ( ! current_user_can( $post_type->cap->edit_post, $post_id ) ) {
 			return $post_id;
 		}
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
-			return $post_id;
-		}
-
-		if ( 'page' !== $post->post_type ) {
 			return $post_id;
 		}
 

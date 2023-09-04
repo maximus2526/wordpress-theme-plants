@@ -85,7 +85,7 @@ class WooCommerce {
 	/**
 	 * Dequeue_styles.
 	 *
-	 * @param  mixed $enqueue_styles WC Styles.
+	 * @param  array $enqueue_styles WC Styles.
 	 * @return array
 	 */
 	public function dequeue_styles( $enqueue_styles ) {
@@ -102,12 +102,13 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function add_woocommerce_support() {
-		 add_theme_support( 'woocommerce' );
+		add_theme_support( 'woocommerce' );
 	}
+
 	/**
 	 * Add to products column system.
 	 *
-	 * @param mixed $class Class.
+	 * @param string $class Class.
 	 *
 	 * @return string
 	 */

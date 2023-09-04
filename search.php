@@ -23,7 +23,7 @@ get_header();
 			$the_query->the_post();
 			?>
    <li>
-	<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
    </li>
 			<?php
 		}
@@ -31,7 +31,7 @@ get_header();
 		?>
   <h2 style='font-weight:bold;color:#000'>Nothing Found</h2>
   <div class="alert alert-info">
-   <p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
+   <p><?php echo esc_html__( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'plants' ); ?></p>
   </div>
 	<?php } ?>
  <?php get_sidebar(); ?>
