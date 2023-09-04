@@ -8,9 +8,7 @@
  * @link     http://www.hashbangcode.com/
  */
 
-$blog_page_id = get_option( 'page_for_posts' );
 get_header();
-
 
 ?>
 <div class="container">

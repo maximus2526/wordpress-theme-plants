@@ -8,11 +8,17 @@
  * @link     http://www.hashbangcode.com/
  */
 
+
+$page_id = get_the_ID();
+if ( is_home() ) {
+	$page_id = get_option( 'page_for_posts' );
+} elseif ( is_shop() ) {
+	$page_id = get_option( 'woocommerce_shop_page_id' );
+}
 ?>
 <div class="clearfix"></div>
 <?php
-if ( 'on' !== get_post_meta( get_the_ID(), 'disable_footer', true ) ) :
-	;
+if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 	?>
 <footer class="container">
 	<div class="top-footer">

@@ -56,10 +56,7 @@ class MetaBoxes {
 	 */
 	public function disabler_metabox_callback( $post ) {
 		$post_id                  = $post->ID;
-		$blog_page_id             = get_option( 'page_for_posts' );
-		$woocommerce_shop_page_id = get_option( 'woocommerce_shop_page_id' );
-
-		wp_nonce_field( 'postsettingsupdate-' . $post_id . '_nonce' );
+		wp_nonce_field( 'postsettingsupdate-' . $post_id, '_nonce' );
 
 		$disable_header  = get_post_meta( $post->ID, 'disable_header', true );
 		$disable_footer  = get_post_meta( $post->ID, 'disable_footer', true );

@@ -26,7 +26,14 @@
 		wp_body_open();
 	}
 
-	if ( 'on' !== get_post_meta( get_the_ID(), 'disable_header', true ) ) :
+	$page_id = get_the_ID();
+	if ( is_home() ) {
+		$page_id = get_option( 'page_for_posts' );
+	} elseif ( is_shop() ) {
+		$page_id = get_option( 'woocommerce_shop_page_id' );
+	}
+
+	if ( 'on' !== get_post_meta( $page_id, 'disable_header', true ) ) :
 		?>
 	<header>
 		<?php if ( 'Yes' === plants_get_options( 'header_banner_hide_option' ) ) : ?>
