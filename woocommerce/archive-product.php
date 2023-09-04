@@ -31,10 +31,13 @@ do_action( 'woocommerce_before_main_content' );
 ?>
 	<h3 class="green-text"><?php esc_html__( 'Blog', 'plants' ); ?></h3>
 <div class="row">
-
-	<div class="col-3 <?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? 'disabled' : ''; ?>">
-			<?php get_sidebar(); ?>
+	<?php
+	if ( 'on' !== get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) :
+		?>
+		<div class="col-3">
+				<?php get_sidebar(); ?>
 		</div>
+		<?php endif; ?>
 	<div class="col-<?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>">
 	<header class="woocommerce-products-header">
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>

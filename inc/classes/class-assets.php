@@ -43,7 +43,7 @@ class Assets {
 	 * @return void
 	 */
 	public function enqueue_font_preload() {
-		wp_enqueue_style( 'font-handle', PLANTS_FONTS_PATH . '/Satoshi-Light.woff2', array(), THEME_VERSION );
+		wp_enqueue_style( 'font-handle', PLANTS_FONTS_PATH . '/Satoshi-Light.woff2', array(), PLANTS_VERSION );
 	}
 
 	/**
@@ -68,8 +68,8 @@ class Assets {
 	 */
 	public function register_styles() {
 		// Register styles.
-		wp_register_style( 'base', get_template_directory_uri() . '/assets/css/base.css', array(), THEME_VERSION );
-		wp_register_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper/swiper-min.css', array(), THEME_VERSION );
+		wp_register_style( 'base', get_template_directory_uri() . '/assets/css/base.css', array(), PLANTS_VERSION );
+		wp_register_style( 'swiper', get_template_directory_uri() . '/assets/css/swiper/swiper-min.css', array(), PLANTS_VERSION );
 		// Enqueue Styles.
 		wp_enqueue_style( 'swiper' );
 		wp_enqueue_style( 'base' );
@@ -82,12 +82,18 @@ class Assets {
 	 */
 	public function register_scripts() {
 		// Register scripts.
-		wp_register_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', array(), filemtime( PLANTS_JS_DIR_PATH . '/plants_main.js' ), true );
-		wp_register_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-min.js', array(), THEME_VERSION, true );
+		wp_register_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', array( 'jquery', 'jquery-ui-slider' ), filemtime( PLANTS_JS_DIR_PATH . '/plants_main.js' ), true );
+		wp_register_script( 'swiper', get_template_directory_uri() . '/assets/js/swiper-min.js', array(), PLANTS_VERSION, true );
 
 		// Enqueue Scripts.
 		wp_enqueue_script( 'swiper' );
 		wp_enqueue_script( 'plants-main' );
+		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-widget' );
+		wp_enqueue_script( 'jquery-ui-mouse' );
+		wp_enqueue_script( 'jquery-ui-accordion' );
+		wp_enqueue_script( 'jquery-ui-autocomplete' );
+		wp_enqueue_script( 'jquery-ui-slider' );
 
 	}
 }

@@ -12,29 +12,28 @@
 
 if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	/**
-	 * Render_header_banner_text_field.
+	 * Plants_render_global_settings_field.
 	 *
 	 * @return void
 	 */
 	function plants_render_global_settings_field() {
 		?>
-
-		<input id="container-slider" type="range" name="global_container">
-					<script>  
-					// Range slider
-					const $ = jQuery;
-					$(document).ready(() => {
-						$("#container-slider").slider({
-							range: "max",
-							min: 1024, // min value
-							max: 2000, // max value
-							step: 0.1,
-							value: 1024, // default value of slider
-							slide: function(event, ui) {
-								$("#amount").val(ui.value);
-							}
-						});
-					}); 
+		<input value="<?php echo esc_html( get_option( 'global_container' ) ); ?>" min="1024" max="2000" id="container-slider" type="range" name="global_container">
+		<script>  
+		// Range slider
+		const $ = jQuery;
+		$(document).ready(() => {
+			$("#container-slider").slider({
+				range: "max",
+				min: 1024, // min value.
+				max: 2000, // max value.
+				step: 0.1,
+				value: 1024, // default value of slider.
+				slide: function(event, ui) {
+					$("#amount").val(ui.value);
+				}
+			});
+		}); 
 		</script>  
 		<?php
 	}

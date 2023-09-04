@@ -14,7 +14,7 @@ use PLANTS\Inc;
 $theme_data = wp_get_theme();
 
 
-define( 'THEME_VERSION', $theme_data->version );
+define( 'PLANTS_VERSION', $theme_data->version );
 define( 'PLANTS_DIR_PATH', untrailingslashit( get_template_directory() ) );
 define( 'PLANTS_DIR_URI', untrailingslashit( get_template_directory_uri() ) );
 define( 'PLANTS_URI', PLANTS_DIR_URI . '/assets' );
@@ -28,9 +28,6 @@ define( 'PLANTS_CSS_DIR_PATH', PLANTS_DIR_PATH . '/assets/css' );
 
 require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
 
-if ( ! isset( $content_width ) ) {
-	$content_width = 900;
-}
 
 
 if ( ! function_exists( 'plants_get_theme_instances' ) ) {
@@ -102,9 +99,10 @@ if ( ! function_exists( 'plants_custom_allow_svg_in_content' ) ) {
 
 		return $tags;
 	}
+	add_filter( 'wp_kses_allowed_html', 'plants_custom_allow_svg_in_content' );
 }
 
-add_filter( 'wp_kses_allowed_html', 'plants_custom_allow_svg_in_content' );
+
 
 plants_get_theme_instances();
 if ( is_admin() ) {

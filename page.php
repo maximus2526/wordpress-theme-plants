@@ -12,9 +12,11 @@ get_header();
 ?>
 <div class="container">
 	<div class="row">
-		<div class="col-3 <?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_sidebar', true ) && is_page() ) ? 'disabled' : ''; ?>">
-			<?php get_sidebar(); ?>
-		</div>
+		<?php if ( 'on' !== get_post_meta( get_the_ID(), 'disable_sidebar', true ) ) : ?>
+			<div class="col-3">
+				<?php get_sidebar(); ?>
+			</div>
+		<?php endif; ?>
 		<div class="col-<?php echo ( 'on' === get_post_meta( get_the_ID(), 'disable_sidebar', true ) && is_page() ) ? '12' : '9'; ?>">
 			<?php
 

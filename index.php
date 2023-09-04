@@ -13,11 +13,17 @@ get_header();
 <div class="container">
 	<h3 class="green-text"><?php esc_html__( 'Blog', 'plants' ); ?></h3>
 	<div class="row">
-		<div class="col-3 <?php echo ( 'on' === get_post_meta( $blog_page_id, 'disable_sidebar', true ) ) ? 'disabled' : ''; ?>">
+		<?php
+		$blog_page_id = get_option( 'page_for_posts' );
+		if ( 'on' !== get_post_meta( $blog_page_id, 'disable_sidebar', true ) ) :
+			?>
+		 
+		<div class="col-3">
 			<?php get_sidebar(); ?>
 		</div>
+		<?php endif; ?>
 		<div class="col-<?php echo ( 'on' === get_post_meta( $blog_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>">
-		<?php if ( is_home() && ! empty( single_post_title( '', false ) ) ) : ?>
+
 			<?php
 			if ( have_posts() ) {
 
@@ -39,5 +45,5 @@ get_header();
 </div>
 			<?php
 			get_footer();
-			endif;
-		?>
+
+			?>
