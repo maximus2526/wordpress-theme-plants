@@ -8,7 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-
 $page_id = get_the_ID();
 if ( is_home() ) {
 	$page_id = get_option( 'page_for_posts' );
