@@ -47,9 +47,11 @@ class WooCommerce {
 		add_filter( 'woocommerce_enqueue_styles', array( $this, 'dequeue_styles' ) );
 		add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 		add_action( 'woocommerce_before_main_content', array( $this, 'print_container' ), 10, 0 );
-		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ) );
+		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ), 99 );
 		add_action( 'woocommerce_after_single_product_summary', array( $this, 'css_clear_fix' ), 9, 0 );
 		add_filter( 'woocommerce_show_page_title', '__return_empty_array' );
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' );
+
 	}
 
 
@@ -71,6 +73,7 @@ class WooCommerce {
 	 */
 	public function print_container() {
 		 echo '<div class="container">';
+
 	}
 
 	/**
@@ -79,7 +82,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_end_container() {
-		 echo '</div>';
+		echo '</div>';
 	}
 
 	/**

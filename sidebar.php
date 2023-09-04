@@ -9,9 +9,9 @@
  */
 
 ?>
-<div class="container">
+<div class="container	side-bar">
 <?php
-if ( is_active_sidebar( 'main-sidebar' ) && 'on' !== get_post_meta( get_the_ID(), 'disable_sidebar', true ) && ! is_shop() ) {
+if ( is_active_sidebar( 'main-sidebar' ) && 'on' !== get_post_meta( get_the_ID(), 'disable_sidebar', true ) ) {
 	dynamic_sidebar( 'main-sidebar' );
 }
 ?>
