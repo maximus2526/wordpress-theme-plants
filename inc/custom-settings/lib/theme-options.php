@@ -36,7 +36,7 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 		$options[] = array(
 			'section'  => 'global_settings',
 			'id'       => 'global_settings',
-			'title'    => esc_html__( 'Text:', 'plants' ),
+			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_render_global_settings_field',
 		);
 

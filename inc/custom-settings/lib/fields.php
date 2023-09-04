@@ -17,8 +17,9 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	 * @return void
 	 */
 	function plants_render_global_settings_field() {
+		echo (int) plants_get_options( 'global_container' );
 		?>
-		<input value="<?php echo esc_html( get_option( 'global_container' ) ); ?>" min="1024" max="2000" id="container-slider" type="range" name="global_container">
+		<input value="<?php echo (int) get_option( 'global_container' ); ?>" min="1024" max="2000" id="container-slider" type="range" name="plants_options[global_container]">
 		<script>  
 		// Range slider
 		const $ = jQuery;
@@ -27,7 +28,7 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 				range: "max",
 				min: 1024, // min value.
 				max: 2000, // max value.
-				step: 0.1,
+				step: 1,
 				value: 1024, // default value of slider.
 				slide: function(event, ui) {
 					$("#amount").val(ui.value);
@@ -36,6 +37,7 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 		}); 
 		</script>  
 		<?php
+		plants_container_inline_css( plants_get_options( 'global_container' ) ); // @todo
 	}
 }
 

@@ -127,6 +127,24 @@ if ( ! function_exists( 'plants_get_options' ) ) {
 	}
 }
 
+if ( ! function_exists( 'plants_container_inline_css' ) ) {
+	/**
+	 * Plants_container_inline_css.
+	 *
+	 * @see custom-settings.
+	 * @param  int $option Width.
+	 * @return void
+	 */
+	function plants_container_inline_css( $option ) {
+		if ( isset( $option ) && is_numeric( $option ) ) {
+			$css = '.container {max-width: ' . (int) $option . '}';
+			wp_add_inline_style( 'plants-container-inline', $css );
+		}
+	}
+
+	add_action( 'wp_enqueue_scripts', 'plants_container_inline_css', 99 );
+}
+
 if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 	/**
 	 * Plants_get_footer_menus.
