@@ -46,7 +46,6 @@ class Assets {
 		wp_enqueue_style( 'font-handle', PLANTS_FONTS_PATH . '/Satoshi-Light.woff2', array(), THEME_VERSION );
 	}
 
-
 	/**
 	 * Style_loader_tag_filter_preload.
 	 *
@@ -89,5 +88,6 @@ class Assets {
 		// Enqueue Scripts.
 		wp_enqueue_script( 'swiper' );
 		wp_enqueue_script( 'plants-main' );
+
 	}
 }

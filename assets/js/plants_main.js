@@ -55,3 +55,4 @@ $(document).ready(() => {
 		$(".hamburger-menu").removeClass("active");
 	});
 });
+

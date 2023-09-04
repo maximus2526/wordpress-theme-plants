@@ -9,7 +9,6 @@
  */
 
 get_header();
-
 ?>
 <div class="container">
 	<h3 class="green-text"><?php esc_html__( 'Blog', 'plants' ); ?></h3>

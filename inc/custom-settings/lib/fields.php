@@ -8,6 +8,38 @@
  * @link     http://www.hashbangcode.com/
  */
 
+// Global settings.
+
+if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
+	/**
+	 * Render_header_banner_text_field.
+	 *
+	 * @return void
+	 */
+	function plants_render_global_settings_field() {
+		?>
+
+		<input id="container-slider" type="range" name="global_container">
+					<script>  
+					// Range slider
+					const $ = jQuery;
+					$(document).ready(() => {
+						$("#container-slider").slider({
+							range: "max",
+							min: 1024, // min value
+							max: 2000, // max value
+							step: 0.1,
+							value: 1024, // default value of slider
+							slide: function(event, ui) {
+								$("#amount").val(ui.value);
+							}
+						});
+					}); 
+		</script>  
+		<?php
+	}
+}
+
 // Header banner.
 
 if ( ! function_exists( 'plants_render_header_banner_text_field' ) ) {
@@ -90,32 +122,27 @@ if ( ! function_exists( 'plants_render_footer_menus_field' ) ) {
 	function plants_render_footer_menus_field() {
 		$menu_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
 		if ( 0 === $menu_names ) {
-			echo 'No avaible menus';
+			echo esc_html__( 'No avaible menus', 'plants' );
 			return;
 		}
 		?>
 		<?php
-		$input_id = 1;
-		foreach ( $menu_names as $name ) :
-			$name                = esc_attr( $name );
-			$menus_title_options = plants_get_options( 'menus_titles' );
-			$show_menu_options   = plants_get_options( 'show_menu' );
+		$input_id            = 1;
+		$menus_title_options = plants_get_options( 'menus_titles' );
+		$show_menu_options   = plants_get_options( 'show_menu' );
+		foreach ( $menu_names as $name ) {
+			$name = esc_attr( $name );
 			?>
 		</br>
 		<div class="row">
 			<input value="<?php echo esc_attr( isset( $menus_title_options[ $name ] ) ? $menus_title_options[ $name ] : '' ); ?>" placeholder="Menu title" type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
 			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		 
 			<input <?php checked( isset( $show_menu_options[ $name ] ) && $show_menu_options[ $name ] === $name, true ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[show_menu][<?php echo esc_attr( $name ); ?>]' type="checkbox" />
-			<?php
-			if ( isset( $show_menu_options[ $name ] ) && '' === $show_menu_options[ $name ] ) {
-				unset( $show_menu_options[ $name ] );
-			}
-			?>
 		</div>
 			<?php
 
 			$input_id++;
-		endforeach;
+		}
 		?>
 		<?php
 	}

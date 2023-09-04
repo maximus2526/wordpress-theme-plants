@@ -16,6 +16,7 @@ if ( ! function_exists( 'plants_options_page_sections' ) ) {
 	 */
 	function plants_options_page_sections() {
 		$sections                         = array();
+		$sections['global_settings']      = esc_html__( 'Global settings:', 'plants' );
 		$sections['header_promo_section'] = esc_html__( 'Header Promo Section:', 'plants' );
 		$sections['header_menu_choice']   = esc_html__( 'Header Menu Section:', 'plants' );
 		$sections['footer_section']       = esc_html__( 'Footer Section:', 'plants' );
@@ -31,6 +32,14 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 	 * @return array Options array.
 	 */
 	function plants_options_page_fields() {
+		// Global settings.
+		$options[] = array(
+			'section'  => 'global_settings',
+			'id'       => 'global_settings',
+			'title'    => esc_html__( 'Text:', 'plants' ),
+			'callback' => 'plants_render_global_settings_field',
+		);
+
 		// Banner section.
 		$options[] = array(
 			'section'  => 'header_promo_section',
