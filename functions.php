@@ -204,7 +204,7 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 
 // Elementor sub-addon enabled.
 if ( is_plugin_active( 'elementor/elementor.php' ) ) {
-	require 'elementor-plants/elementor-addon.php';
+	require 'inc/elementor-plants/elementor-addon.php';
 }
 
 ?>
