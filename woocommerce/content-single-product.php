@@ -47,7 +47,7 @@ if ( post_password_required() ) {
 			 * @hooked woocommerce_show_product_sale_flash - 10
 			 * @hooked woocommerce_show_product_images - 20
 			 */
-			set_error_handler(
+			set_error_handler( // lint:ignore S1001.
 				function ( $err_severity, $err_msg, $err_file, $err_line, array $err_context ) {
 					throw new ErrorException( $err_msg, 0, $err_severity, $err_file, $err_line );
 				},
