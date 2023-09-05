@@ -14,21 +14,23 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	/**
 	 * Plants_render_global_settings_field.
 	 *
+	 * @param array $args Field's args.
 	 * @return void
 	 */
-	function plants_custom_global_settings_field() {
-		$field_result = null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024;
+	function plants_custom_global_settings_field( $args ) {
 		?>
 		<div class="current-container-width">
-		<b><span style="color:green" id="container-slider-result"><?php echo esc_html__( 'Current: ', 'plants' ) . (int) $field_result . esc_html( ' px.' ); ?></span></b>
+		<b><span style="color:green" id="container-slider-result"><?php echo esc_html__( 'Current: ', 'plants' ) . (int) $args['field_result'] . esc_html( ' px.' ); ?></span></b>
 		</div>
 		<div class="container-width-changer">
 			<div id="container-slider"></div>
-			<input id="container-value-input" value="<?php echo (int) $field_result; ?>" type="hidden" name="plants_options[global_container]">
+			<input id="container-value-input" value="<?php echo (int) $args['field_result']; ?>" type="hidden" name="plants_options[global_container]">
 		</div>
 		<?php
 	}
 }
+
+
 
 
 if ( ! function_exists( 'plants_boolean_choice' ) ) {

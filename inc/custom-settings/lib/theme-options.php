@@ -39,6 +39,7 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'id'       => 'global_settings',
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_custom_global_settings_field',
+			'args'     => array( 'field_result' => null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024 ),
 		);
 
 		// Banner section.
