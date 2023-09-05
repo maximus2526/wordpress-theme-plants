@@ -19,7 +19,9 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	function plants_render_global_settings_field() {
 		echo (int) plants_get_options( 'global_container' );
 		?>
-	<input value="<?php echo (int) get_option( 'global_container' ); ?>" min="1024" max="2000" id="container-slider" type="range" name="plants_options[global_container]">
+
+		<!-- <div id="container-slider"></div> -->
+	<input value="<?php echo (int) plants_get_options( 'global_container' ); ?>" min="1024" max="2000" id="container-slider" type="range" name="plants_options[global_container]">
 		<script>  
 		// Range slider
 		const $ = jQuery;
