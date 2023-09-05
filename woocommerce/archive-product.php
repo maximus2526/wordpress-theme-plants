@@ -35,10 +35,21 @@ do_action( 'woocommerce_before_main_content' );
 	<?php
 	if ( 'on' !== get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) :
 		?>
-		<div class="col-3 col-sm-12">
-				<?php get_sidebar(); ?>
+		<div class="<?php echo 'on' !== get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ? 'col-3 col-sm-12' : ''; ?>">
+				<?php
+				/**
+				 * Hook: woocommerce_sidebar.
+				 *
+				 * @hooked woocommerce_get_sidebar - 10
+				 */
+				do_action( 'woocommerce_sidebar' );
+				?>
 		</div>
-		<?php endif; ?>
+		<?php
+		else :
+			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+		endif;
+		?>
 	<div class="col-<?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>  col-sm-12">
 	<header class="woocommerce-products-header">
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>

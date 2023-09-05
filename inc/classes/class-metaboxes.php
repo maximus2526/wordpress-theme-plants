@@ -69,7 +69,7 @@ class MetaBoxes {
 			<tbody>
 			<?php foreach ( $disable_list as $key => $value ) : ?>
 				<tr>
-					<th><?php echo esc_html__( 'Disable Header', 'plants' ); ?></th>
+					<th><?php echo esc_html( ucwords( $key ) ); ?></th>
 					<td>
 						<label><input type="checkbox" name="<?php echo esc_html( $key ); ?>" <?php checked( 'on', esc_html( $value ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
 					</td>
@@ -110,7 +110,7 @@ class MetaBoxes {
 			if ( isset( $_POST[ $disable_item ] ) ) {
 				update_post_meta( $post_id, $disable_item, sanitize_text_field( isset( $_POST[ $disable_item ] ) ? wp_unslash( $_POST[ $disable_item ] ) : '' ) );
 			} else {
-				delete_post_meta( $post_id, 'disable_header' );
+				delete_post_meta( $post_id, $disable_item );
 			}
 		}
 

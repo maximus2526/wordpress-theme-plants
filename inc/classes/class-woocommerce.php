@@ -48,6 +48,10 @@ class WooCommerce {
 		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ), 99 );
 		add_action( 'woocommerce_after_single_product_summary', array( $this, 'css_clear_fix' ), 9, 0 );
 		add_filter( 'woocommerce_show_page_title', '__return_empty_array' );
+		if ( 'on' !== get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true ) ) {
+			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+		}
+
 	}
 
 
