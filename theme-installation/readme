@@ -1,14 +1,7 @@
 Requirements:
 WooCommerce,
-Elementor,
-Elementor-Plants.
+Elementor
 
-Installiation required plugin:
-
-This is a required plugin for theme Plants, 
-please install this in WordPress admin panel 
-! before archiving this in .zip !
-
-Istalliation Elementor design:
+Installiation Plants design for Elementor pages:
 
 Import elementor-kit in Elementor settings page/Tools.
