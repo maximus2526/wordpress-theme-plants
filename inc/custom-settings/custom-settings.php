@@ -40,8 +40,7 @@ if ( ! function_exists( 'plants_add_menu' ) ) {
 			'manage_options',
 			'theme-options',
 			'plants_option_page',
-			null,
-			99
+			null
 		);
 	}
 }
