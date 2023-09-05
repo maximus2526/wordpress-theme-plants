@@ -7,7 +7,7 @@
 					max: 2000, // max value.
 					step: 1,
 					name: 'plants_options[global_container]',
-					value: 1024, // default value of slider.
+					value: $("input[name='plants_options[global_container]'").val(), // default value of slider.
 					slide : function(event, ui) {    
 							$("#container-slider-result").text(ui.value + ' px.');    
 							$("#container-value-input").val(ui.value);    
