@@ -58,43 +58,35 @@ class MetaBoxes {
 		$post_id = $post->ID;
 		wp_nonce_field( 'postsettingsupdate-' . $post_id, '_nonce' );
 
-		$disable_header  = get_post_meta( $post->ID, 'disable_header', true );
-		$disable_footer  = get_post_meta( $post->ID, 'disable_footer', true );
-		$disable_sidebar = get_post_meta( $post->ID, 'disable_sidebar', true );
+		$disable_list = array(
+			'disable_header'  => get_post_meta( $post->ID, 'disable_header', true ),
+			'disable_footer'  => get_post_meta( $post->ID, 'disable_footer', true ),
+			'disable_sidebar' => get_post_meta( $post->ID, 'disable_sidebar', true ),
+		);
 
 		?>
 		<table class="form-table">
 			<tbody>
+			<?php foreach ( $disable_list as $key => $value ) : ?>
 				<tr>
 					<th><?php echo esc_html__( 'Disable Header', 'plants' ); ?></th>
 					<td>
-						<label><input type="checkbox" name="disable_header" <?php checked( 'on', $disable_header ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
+						<label><input type="checkbox" name="<?php echo esc_html( $key ); ?>" <?php checked( 'on', esc_html( $value ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
 					</td>
 				</tr>
-				<tr>
-					<th><?php echo esc_html__( 'Disable Footer', 'plants' ); ?></th>
-					<td>
-						<label><input type="checkbox" name="disable_footer" <?php checked( 'on', $disable_footer ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
-					</td>
-				</tr>
-				<tr>
-					<th><?php echo esc_html__( 'Disable SideBar', 'plants' ); ?></th>
-					<td>
-						<label><input type="checkbox" name="disable_sidebar" <?php checked( 'on', $disable_sidebar ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
-					</td>
-				</tr>
+			<?php endforeach; ?>
 			</tbody>
 		</table>
-		<?php
+			<?php
 	}
 
-	/**
-	 * Save_meta.
-	 *
-	 * @param  int    $post_id Post_Id.
-	 * @param  object $post Post.
-	 * @return int
-	 */
+		/**
+		 * Save_meta.
+		 *
+		 * @param  int    $post_id Post_Id.
+		 * @param  object $post Post.
+		 * @return int
+		 */
 	public function save_meta( $post_id, $post ) {
 		if ( ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_nonce'] ) ), 'postsettingsupdate-' . $post->ID ) ) {
 			return $post_id;
@@ -109,23 +101,17 @@ class MetaBoxes {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-
-		if ( isset( $_POST['disable_header'] ) ) {
-			update_post_meta( $post_id, 'disable_header', sanitize_text_field( isset( $_POST['disable_header'] ) ? wp_unslash( $_POST['disable_header'] ) : '' ) );
-		} else {
-			delete_post_meta( $post_id, 'disable_header' );
-		}
-
-		if ( isset( $_POST['disable_footer'] ) ) {
-			update_post_meta( $post_id, 'disable_footer', sanitize_text_field( isset( $_POST['disable_footer'] ) ? wp_unslash( $_POST['disable_footer'] ) : '' ) );
-		} else {
-			delete_post_meta( $post_id, 'disable_footer' );
-		}
-
-		if ( isset( $_POST['disable_sidebar'] ) ) {
-			update_post_meta( $post_id, 'disable_sidebar', sanitize_text_field( isset( $_POST['disable_sidebar'] ) ? wp_unslash( $_POST['disable_sidebar'] ) : '' ) );
-		} else {
-			delete_post_meta( $post_id, 'disable_sidebar' );
+		$disable_list = array(
+			'disable_header',
+			'disable_footer',
+			'disable_sidebar',
+		);
+		foreach ( $disable_list as $disable_item ) {
+			if ( isset( $_POST[ $disable_item ] ) ) {
+				update_post_meta( $post_id, $disable_item, sanitize_text_field( isset( $_POST[ $disable_item ] ) ? wp_unslash( $_POST[ $disable_item ] ) : '' ) );
+			} else {
+				delete_post_meta( $post_id, 'disable_header' );
+			}
 		}
 
 		return $post_id;

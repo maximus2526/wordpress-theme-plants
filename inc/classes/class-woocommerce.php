@@ -28,8 +28,6 @@ class WooCommerce {
 	protected function __construct() {
 		if ( plants_is_wc_exist() ) {
 			$this->setup_hooks();
-		} else {
-			return;
 		}
 	}
 
