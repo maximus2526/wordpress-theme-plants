@@ -132,12 +132,17 @@ if ( ! function_exists( 'plants_container_inline_css' ) ) {
 	 * Plants_container_inline_css.
 	 *
 	 * @see custom-settings.
-	 * @param  int $option Width.
 	 * @return void
 	 */
-	function plants_container_inline_css( $option ) {
+	function plants_container_inline_css() {
+		$option = plants_get_options( 'global_container' );
 		if ( isset( $option ) && is_numeric( $option ) ) {
-			$css = '.container {max-width: ' . (int) $option . '}';
+			$css = '
+			.container { max-width: ' . (int) $option . 'px; }
+			.elementor-container { max-width: ' . (int) $option . 'px !important; }
+			';
+			wp_register_style( 'plants-container-inline', false, 'jquery', PLANTS_VERSION );
+			wp_enqueue_style( 'plants-container-inline' );
 			wp_add_inline_style( 'plants-container-inline', $css );
 		}
 	}

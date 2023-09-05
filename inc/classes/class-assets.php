@@ -44,6 +44,7 @@ class Assets {
 	 */
 	public function enqueue_font_preload() {
 		wp_enqueue_style( 'font-handle', PLANTS_FONTS_PATH . '/Satoshi-Light.woff2', array(), PLANTS_VERSION );
+
 	}
 
 	/**
