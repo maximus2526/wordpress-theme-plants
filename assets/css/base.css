@@ -940,6 +940,10 @@ h6 {
   float: right;
 }
 
+.panel-fix {
+  margin-top: 32px;
+}
+
 .disabled {
   display: none;
 }

@@ -34,11 +34,11 @@ do_action( 'woocommerce_before_main_content' );
 	<?php
 	if ( 'on' !== get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) :
 		?>
-		<div class="col-3">
+		<div class="col-3 col-sm-12">
 				<?php get_sidebar(); ?>
 		</div>
 		<?php endif; ?>
-	<div class="col-<?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>">
+	<div class="col-<?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>  col-sm-12">
 	<header class="woocommerce-products-header">
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
 			<h1 class="woocommerce-products-header__title page-title"><?php woocommerce_page_title(); ?></h1>

@@ -17,12 +17,11 @@ get_header();
 		$blog_page_id = get_option( 'page_for_posts' );
 		if ( 'on' !== get_post_meta( $blog_page_id, 'disable_sidebar', true ) ) :
 			?>
-		 
-		<div class="col-3">
+		<div class="col-3 col-sm-12">
 			<?php get_sidebar(); ?>
 		</div>
 		<?php endif; ?>
-		<div class="col-<?php echo ( 'on' === get_post_meta( $blog_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>">
+		<div class="col-<?php echo ( 'on' === get_post_meta( $blog_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?> col-sm-12">
 
 			<?php
 			if ( have_posts() ) {
@@ -43,7 +42,7 @@ get_header();
 	</div>
 
 </div>
-			<?php
-			get_footer();
+<?php
+get_footer();
 
-			?>
+?>

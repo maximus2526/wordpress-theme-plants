@@ -24,7 +24,7 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 		<div class="row">
 			<div class="col-6 left-side col-md-12">
 				<div class="logo-section">
-					<a href="/"><img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/logo.svg" alt="Woodmart"></a>
+					<?php the_custom_logo(); ?>
 				</div>
 				<div class="subscribe-block display-flex column gap">
 					<label for="footer-subscribe-input"><?php echo esc_html__( 'Join our newsletter	to	stay up to date on features and releases.', 'plants' ); ?></label>

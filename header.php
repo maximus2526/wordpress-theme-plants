@@ -54,7 +54,7 @@
 					?>
 					<div class="hamburger">
 						<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">
-						<div class="hamburger-menu">
+						<div class="hamburger-menu <?php echo is_user_logged_in() ? 'panel-fix' : ''; ?>">
 							<div class="hamburger-header display-flex gap">
 								<div class="close-btn button"><a href=""></a>X</div>
 								<?php get_search_form(); ?>
