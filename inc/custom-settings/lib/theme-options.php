@@ -26,6 +26,7 @@ if ( ! function_exists( 'plants_options_page_sections' ) ) {
 }
 
 if ( ! function_exists( 'plants_options_page_fields' ) ) {
+	// TODO: EACH of type inputs must have 1 control.
 	/**
 	 * Plants_options_page_fields.
 	 *
@@ -36,6 +37,15 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 		$options[] = array(
 			'section'  => 'global_settings',
 			'id'       => 'global_settings',
+			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
+			'callback' => 'plants_render_global_settings_field',
+			'args'     => '',
+		);
+
+		// Global settings.
+		$options[] = array(
+			'section'  => 'global_settings',
+			'id'       => 'global_settings2',
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_render_global_settings_field',
 		);

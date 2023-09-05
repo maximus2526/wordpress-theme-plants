@@ -19,11 +19,10 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	function plants_render_global_settings_field() {
 		?>
 		<div class="current-container-width">
-			<?php echo esc_html__( 'Current: ', 'plants' ) . (int) plants_get_options( 'global_container' ) . esc_html( ' px.' ); ?>
+		<b><span style="color:green" id="container-slider-result"><?php echo esc_html__( 'Current: ', 'plants' ) . (int) plants_get_options( 'global_container' ) . esc_html( ' px.' ); ?></span></b>
 		</div>
 		<div class="container-width-changer">
 			<div id="container-slider"></div>
-			<b><span style="color:green" id="container-slider-result"></span></b>
 			<input id="container-value-input" value="<?php echo (int) plants_get_options( 'global_container' ); ?>" type="hidden" name="plants_options[global_container]">
 		</div>
 		<?php

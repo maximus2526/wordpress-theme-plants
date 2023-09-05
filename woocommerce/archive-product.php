@@ -36,6 +36,7 @@ do_action( 'woocommerce_before_main_content' );
 		?>
 		<div class="col-3 col-sm-12">
 				<?php get_sidebar(); ?>
+				
 		</div>
 		<?php endif; ?>
 	<div class="col-<?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>  col-sm-12">

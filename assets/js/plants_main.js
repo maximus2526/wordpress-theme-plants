@@ -43,23 +43,19 @@ const swiper_banner = new Swiper(
 
 const $ = jQuery;
 
-$( document ).ready(
-	() => {
-    $( ".menu-hamburger-img" ).click(
-			function () {
-				$( 'body' ).fadeIn( 'slow' );
-				$( ".hamburger-menu" ).addClass( "active" ).slideDown(
-					{
-						duration: 'slow',
-						easing: 'linear'
-					}
-				);
-			}
-		);
-	$( ".close-btn" ).click(
-		function () {
-			$( ".hamburger-menu" ).removeClass( "active" );
-		}
-	);
-	}
-);
+$(document).ready(() => {
+    $(".menu-hamburger-img").click(() => {
+        $('body').fadeIn('slow');
+        $(".hamburger-menu").addClass("active").slideDown({
+            duration: 'slow',
+            easing: 'linear'
+        });
+    });
+
+    $(".close-btn").click(() => {
+        $(".hamburger-menu").removeClass("active");
+    });
+    
+   
+});
+
