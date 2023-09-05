@@ -2,10 +2,10 @@
 /**
  * Theme functions
  *
- * @package  plants
- * @author   Maxim Kliakhin
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     http://www.hashbangcode.com/
+ * @package plants
+ * @author  Maxim Kliakhin
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    http://www.hashbangcode.com/
  */
 
 use PLANTS\Inc;
@@ -53,7 +53,7 @@ if ( ! function_exists( 'plants_is_wc_exist' ) ) {
 	 * @return bool
 	 */
 	function plants_is_wc_exist() {
-		 return class_exists( 'WooCommerce' );
+		return class_exists( 'WooCommerce' );
 	}
 }
 
@@ -65,7 +65,7 @@ if ( ! function_exists( 'plants_custom_allow_svg_upload' ) ) {
 	 * @return array
 	 */
 	function plants_custom_allow_svg_upload( $mimes ) {
-		 $mimes['svg'] = 'image/svg+xml';
+		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
 	}
 }
@@ -114,8 +114,8 @@ if ( ! function_exists( 'plants_get_options' ) ) {
 	/**
 	 * Plants_get_options helper function.
 	 *
-	 * @param string $key Param Key.
-	 * @param string $default Default value.
+	 * @param  string $key     Param Key.
+	 * @param  string $default Default value.
 	 * @return array
 	 */
 	function plants_get_options( $key, $default = '' ) {
@@ -131,7 +131,7 @@ if ( ! function_exists( 'plants_container_inline_css' ) ) {
 	/**
 	 * Plants_container_inline_css.
 	 *
-	 * @see custom-settings.
+	 * @see    custom-settings.
 	 * @return void
 	 */
 	function plants_container_inline_css() {
@@ -174,13 +174,13 @@ if ( ! function_exists( 'plants_get_footer_menus' ) ) {
 			?>
 			<div class="footer-nav display-flex column scheme-dark output-padding">
 				<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
-				<?php
-				wp_nav_menu(
-					array(
-						'menu' => $menu_name,
-					)
-				);
-				?>
+			<?php
+			wp_nav_menu(
+				array(
+					'menu' => $menu_name,
+				)
+			);
+			?>
 			</div>
 			<?php
 		endforeach;
@@ -191,8 +191,8 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 	/**
 	 * Plants_get_product_img.
 	 *
-	 * @param  int    $width Width.
-	 * @param  int    $height Height.
+	 * @param  int    $width   Width.
+	 * @param  int    $height  Height.
 	 * @param  object $product Instanse.
 	 * @return string
 	 */
@@ -204,7 +204,7 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 
 // Elementor sub-addon enabled.
 if ( is_plugin_active( 'elementor/elementor.php' ) ) {
-	require 'inc/elementor-plants/elementor-addon.php';
+	include 'inc/elementor-plants/elementor-addon.php';
 }
 
 ?>

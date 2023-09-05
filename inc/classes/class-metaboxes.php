@@ -2,10 +2,10 @@
 /**
  * MetaBoxes support.
  *
- * @package  plants
- * @author   Maxim Kliakhin
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     http://www.hashbangcode.com/
+ * @package plants
+ * @author  Maxim Kliakhin
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    http://www.hashbangcode.com/
  */
 
 namespace PLANTS\Inc;
@@ -16,6 +16,7 @@ use PLANTS\Inc\Traits\Singleton;
  * MetaBoxes
  */
 class MetaBoxes {
+
 
 
 
@@ -67,26 +68,26 @@ class MetaBoxes {
 		?>
 		<table class="form-table">
 			<tbody>
-			<?php foreach ( $disable_list as $key => $value ) : ?>
+		<?php foreach ( $disable_list as $key => $value ) : ?>
 				<tr>
 					<th><?php echo esc_html( ucwords( $key ) ); ?></th>
 					<td>
 						<label><input type="checkbox" name="<?php echo esc_html( $key ); ?>" <?php checked( 'on', esc_html( $value ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
 					</td>
 				</tr>
-			<?php endforeach; ?>
+		<?php endforeach; ?>
 			</tbody>
 		</table>
-			<?php
+		<?php
 	}
 
-		/**
-		 * Save_meta.
-		 *
-		 * @param  int    $post_id Post_Id.
-		 * @param  object $post Post.
-		 * @return int
-		 */
+	/**
+	 * Save_meta.
+	 *
+	 * @param  int    $post_id Post_Id.
+	 * @param  object $post    Post.
+	 * @return int
+	 */
 	public function save_meta( $post_id, $post ) {
 		if ( ! isset( $_POST['_nonce'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['_nonce'] ) ), 'postsettingsupdate-' . $post->ID ) ) {
 			return $post_id;

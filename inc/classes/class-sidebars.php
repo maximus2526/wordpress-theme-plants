@@ -2,10 +2,10 @@
 /**
  * Sidebars support.
  *
- * @package  plants
- * @author   Maxim Kliakhin
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     http://www.hashbangcode.com/
+ * @package plants
+ * @author  Maxim Kliakhin
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    http://www.hashbangcode.com/
  */
 
 namespace PLANTS\Inc;
@@ -16,6 +16,7 @@ use PLANTS\Inc\Traits\Singleton;
  * MetaBoxes
  */
 class Sidebars {
+
 	use Singleton;
 
 	/**

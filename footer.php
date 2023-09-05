@@ -2,10 +2,10 @@
 /**
  * Main template file.
  *
- * @package  plants
- * @author   Maxim Kliakhin
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     http://www.hashbangcode.com/
+ * @package plants
+ * @author  Maxim Kliakhin
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    http://www.hashbangcode.com/
  */
 
 $page_id = get_the_ID();
@@ -41,7 +41,7 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 					<a href=""><span class="social-icons">TW</span></a>
 					<a href=""><span class="social-icons">IN</span></a>
 				</div>
-			</div>		
+			</div>        
 			<div class="col-6 right-side display-flex justify-around col-md-12">
 				<?php
 					plants_get_footer_menus(); // Print footer menus.
@@ -53,8 +53,8 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 				<div class="rights">
 					<span>
 						<?php
-							$footer_rights_text = plants_get_options( 'footer_rights_text' );
-							echo esc_html( $footer_rights_text );
+						$footer_rights_text = plants_get_options( 'footer_rights_text' );
+						echo esc_html( $footer_rights_text );
 						?>
 					</span>
 				</div>

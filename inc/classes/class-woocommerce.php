@@ -2,10 +2,10 @@
 /**
  * Woocommerce support.
  *
- * @package  plants
- * @author   Maxim Kliakhin
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     http://www.hashbangcode.com/
+ * @package plants
+ * @author  Maxim Kliakhin
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    http://www.hashbangcode.com/
  */
 
 namespace PLANTS\Inc;
@@ -16,6 +16,7 @@ use PLANTS\Inc\Traits\Singleton;
  * WooCommerce
  */
 class WooCommerce {
+
 
 
 	use Singleton;
@@ -72,7 +73,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_container() {
-		 echo '<div class="container">';
+		echo '<div class="container">';
 
 	}
 

@@ -2,10 +2,10 @@
 /**
  * Include all assets
  *
- * @package  plants
- * @author   Maxim Kliakhin
- * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
- * @link     http://www.hashbangcode.com/
+ * @package plants
+ * @author  Maxim Kliakhin
+ * @license http://www.gnu.org/copyleft/gpl.html GNU General Public License
+ * @link    http://www.hashbangcode.com/
  */
 
 namespace PLANTS\Inc;
@@ -16,6 +16,7 @@ use PLANTS\Inc\Traits\Singleton;
  * Assets
  */
 class Assets {
+
 
 
 	use Singleton;
@@ -50,7 +51,7 @@ class Assets {
 	/**
 	 * Style_loader_tag_filter_preload.
 	 *
-	 * @param  string $html HTML.
+	 * @param  string $html   HTML.
 	 * @param  string $handle Handle.
 	 * @return string
 	 */
