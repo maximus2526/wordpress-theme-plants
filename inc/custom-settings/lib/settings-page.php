@@ -8,21 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-if ( ! function_exists( 'plants_enqueue_jquery_ui' ) ) {
-	/**
-	 * Plants_enqueue_jquery_ui.
-	 *
-	 * @return void
-	 */
-	function plants_enqueue_jquery_ui() {
-		wp_enqueue_script( 'jquery-ui-core' );
-		wp_enqueue_script( 'jquery-ui-slider' );
-	}
-	add_action( 'admin_enqueue_scripts', 'plants_enqueue_jquery_ui' );
-}
-
-
-
 if ( ! function_exists( 'plants_get_page_path' ) ) {
 	/**
 	 * Get_page_path.

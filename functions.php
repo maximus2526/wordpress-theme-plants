@@ -120,7 +120,7 @@ if ( ! function_exists( 'plants_get_options' ) ) {
 	 */
 	function plants_get_options( $key, $default = '' ) {
 		$get_options = get_option( 'plants_options' );
-		if ( '' !== $get_options[ $key ] ) {
+		if ( isset( $get_options[ $key ] ) || ! empty( $get_options[ $key ] ) ) {
 			return $get_options[ $key ];
 		}
 		return $default;

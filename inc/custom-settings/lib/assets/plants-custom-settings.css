@@ -1,0 +1,14 @@
+.current-container-width {
+	margin-bottom: 20px;
+}
+
+.ui-slider.ui-slider-horizontal {
+	background: #93a7ff;
+	height:12px;
+	border:none;
+}
+
+.ui-slider .ui-slider-range {
+	background: #337AB7;
+	height:12px;
+}
