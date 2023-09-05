@@ -16,7 +16,7 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	 *
 	 * @return void
 	 */
-	function plants_render_global_settings_field() {
+	function plants_custom_global_settings_field() {
 		?>
 		<div class="current-container-width">
 		<b><span style="color:green" id="container-slider-result"><?php echo esc_html__( 'Current: ', 'plants' ) . (int) plants_get_options( 'global_container' ) . esc_html( ' px.' ); ?></span></b>
@@ -29,71 +29,38 @@ if ( ! function_exists( 'plants_render_global_settings_field' ) ) {
 	}
 }
 
-// Header banner.
 
-if ( ! function_exists( 'plants_render_header_banner_text_field' ) ) {
+if ( ! function_exists( 'plants_boolean_choice' ) ) {
 	/**
-	 * Render_header_banner_text_field.
+	 * Plants_boolean_selection.
 	 *
+	 * @param array $args Field's args.
 	 * @return void
 	 */
-	function plants_render_header_banner_text_field() {
+	function plants_boolean_selection( $args ) {
 		?>
-	<input type='text' name='plants_options[header_banner_info]' value='<?php echo esc_attr( plants_get_options( 'header_banner_info' ) ); ?>'>
-		<?php
-	}
-}
-
-if ( ! function_exists( 'plants_header_banner_anchor' ) ) {
-
-	/**
-	 * Plants_header_banner_anchor.
-	 *
-	 * @return void
-	 */
-	function plants_header_banner_anchor() {
-		?>
-	<input type='url' name='plants_options[header_banner_anchor]' value='<?php echo esc_attr( plants_get_options( 'header_banner_anchor' ) ); ?>'>
-
-		<?php
-
-	}
-}
-
-if ( ! function_exists( 'plants_hide_header_banner' ) ) {
-	/**
-	 * Plants_hide_header_banner.
-	 *
-	 * @return void
-	 */
-	function plants_hide_header_banner() {
-		?>
-	<select name='plants_options[header_banner_hide_option]'>
-		<option value='<?php echo esc_attr__( 'Yes', 'plants' ); ?>' <?php selected( plants_get_options( 'header_banner_hide_option' ), esc_html__( 'Yes', 'plants' ) ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
-		<option value='<?php echo esc_html__( 'No', 'plants' ); ?>' <?php selected( plants_get_options( 'header_banner_hide_option' ), esc_html__( 'No', 'plants' ) ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
-
+	<select name='plants_options[<?php echo esc_html( $args['name'] ); ?>]'>
+		<option value='<?php echo esc_attr__( 'Yes', 'plants' ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_html__( 'Yes', 'plants' ) ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
+		<option value='<?php echo esc_html__( 'No', 'plants' ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_html__( 'No', 'plants' ) ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
 	</select>
 		<?php
-
 	}
 }
 
-// menu section.
-
-if ( ! function_exists( 'plants_render_menu_choice_field' ) ) {
+if ( ! function_exists( 'plants_multiple_choice' ) ) {
 	/**
-	 * Render_menu_choice_field.
+	 * Plants_multiple_choice field.
 	 *
+	 * @param array $args Field's args.
 	 * @return void
 	 */
-	function plants_render_menu_choice_field() {
-		$menus_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
+	function plants_multiple_choice( $args ) {
 		?>
-	<select name='plants_options[header_menu]'>
+	<select name='plants_options[<?php echo esc_html( $args['name'] ); ?>]'>
 		<?php
-		foreach ( $menus_names as $name ) :
+		foreach ( $args['multiple'] as $single ) :
 			?>
-		<option value='<?php echo esc_html( $name ); ?>' <?php selected( plants_get_options( 'header_menu' ), esc_html( $name ) ); ?>><?php echo esc_html( $name ); ?></option>
+		<option value='<?php echo esc_html( $single ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_html( $single ) ); ?>><?php echo esc_html( $single ); ?></option>
 			<?php
 		endforeach;
 		?>
@@ -102,13 +69,13 @@ if ( ! function_exists( 'plants_render_menu_choice_field' ) ) {
 	}
 }
 
-if ( ! function_exists( 'plants_render_footer_menus_field' ) ) {
+if ( ! function_exists( 'plants_custom_footer_menus_field' ) ) {
 	/**
-	 * Render_footer_menus_field.
+	 * Render_footer_menus_field. Custom field.
 	 *
 	 * @return void
 	 */
-	function plants_render_footer_menus_field() {
+	function plants_custom_footer_menus_field() {
 		$menu_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
 		if ( 0 === $menu_names ) {
 			echo esc_html__( 'No avaible menus', 'plants' );
@@ -137,16 +104,16 @@ if ( ! function_exists( 'plants_render_footer_menus_field' ) ) {
 	}
 }
 
-
-if ( ! function_exists( 'plants_render_rights_field' ) ) {
+if ( ! function_exists( 'plants_text_field' ) ) {
 	/**
-	 * Render_rights_field.
+	 * Plants_render_text_field.
 	 *
+	 * @param array $args Field's args.
 	 * @return void
 	 */
-	function plants_render_rights_field() {
+	function plants_text_field( $args ) {
 		?>
-	<input type='text' name='plants_options[footer_rights_text]' value='<?php echo esc_attr( plants_get_options( 'footer_rights_text' ) ); ?>'>
+		<input type='<?php echo isset( $args['type'] ) ? esc_html( $args['type'] ) : 'text'; ?>' name='plants_options[<?php echo esc_html( $args['name'] ); ?>]' value='<?php echo esc_attr( plants_get_options( $args['name'] ) ); ?>'>
 		<?php
 	}
 }

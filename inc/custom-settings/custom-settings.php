@@ -85,7 +85,7 @@ if ( ! function_exists( 'plants_register_settings' ) ) {
 			}
 			// call the add_settings_field for each!
 			foreach ( $settings_output['plants_page_fields'] as $field ) {
-				add_settings_field( $field['id'], $field['title'], $field['callback'], plants_get_page_path(), $field['section'] );
+				add_settings_field( $field['id'], $field['title'], $field['callback'], plants_get_page_path(), $field['section'], isset( $field['args'] ) ? $field['args'] : '' );
 			}
 		}
 	}

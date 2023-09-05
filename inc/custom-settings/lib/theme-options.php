@@ -38,16 +38,7 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'section'  => 'global_settings',
 			'id'       => 'global_settings',
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
-			'callback' => 'plants_render_global_settings_field',
-			'args'     => '',
-		);
-
-		// Global settings.
-		$options[] = array(
-			'section'  => 'global_settings',
-			'id'       => 'global_settings2',
-			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
-			'callback' => 'plants_render_global_settings_field',
+			'callback' => 'plants_custom_global_settings_field',
 		);
 
 		// Banner section.
@@ -55,28 +46,40 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'section'  => 'header_promo_section',
 			'id'       => 'plants_header_banner_text',
 			'title'    => esc_html__( 'Text:', 'plants' ),
-			'callback' => 'plants_render_header_banner_text_field',
+			'callback' => 'plants_text_field',
+			'args'     => array( 'name' => 'header_banner_info' ),
 		);
 
 		$options[] = array(
 			'section'  => 'header_promo_section',
 			'id'       => 'plants_hide_banner',
 			'title'    => esc_html__( 'Show:', 'plants' ),
-			'callback' => 'plants_hide_header_banner',
+			'callback' => 'plants_boolean_selection',
+			'args'     => array(
+				'name' => 'header_banner_hide_option',
+			),
 		);
 
 		$options[] = array(
 			'section'  => 'header_promo_section',
 			'id'       => 'plants_enter_anchor',
 			'title'    => esc_html__( 'Enter link for banner:', 'plants' ),
-			'callback' => 'plants_header_banner_anchor',
+			'callback' => 'plants_text_field',
+			'args'     => array(
+				'name' => 'header_banner_anchor',
+				'type' => 'url',
+			),
 		);
 
 		$options[] = array(
 			'section'  => 'header_menu_choice',
 			'id'       => 'plants_header_menu_choice',
 			'title'    => esc_html__( 'Choice menu:', 'plants' ),
-			'callback' => 'plants_render_menu_choice_field',
+			'callback' => 'plants_multiple_choice',
+			'args'     => array(
+				'name'     => 'header_menu',
+				'multiple' => wp_list_pluck( get_terms( 'nav_menu' ), 'name' ),
+			),
 		);
 
 		// Footer Section.
@@ -85,14 +88,15 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'section'  => 'footer_section',
 			'id'       => 'plants_another_section',
 			'title'    => esc_html__( 'Footer field:', 'plants' ),
-			'callback' => 'plants_render_footer_menus_field',
+			'callback' => 'plants_custom_footer_menus_field',
 		);
 
 		$options[] = array(
 			'section'  => 'footer_section',
 			'id'       => 'plants_rights_section',
 			'title'    => esc_html__( 'Footer rights field:', 'plants' ),
-			'callback' => 'plants_render_rights_field',
+			'callback' => 'plants_text_field',
+			'args'     => array( 'name' => 'footer_rights_text' ),
 		);
 
 		return (array) $options;

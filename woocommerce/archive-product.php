@@ -20,6 +20,7 @@ $woocommerce_shop_page_id = get_option( 'woocommerce_shop_page_id' );
 defined( 'ABSPATH' ) || exit;
 
 get_header( 'shop' );
+
 /**
  * Hook: woocommerce_before_main_content.
  *
@@ -36,7 +37,6 @@ do_action( 'woocommerce_before_main_content' );
 		?>
 		<div class="col-3 col-sm-12">
 				<?php get_sidebar(); ?>
-				
 		</div>
 		<?php endif; ?>
 	<div class="col-<?php echo ( 'on' === get_post_meta( $woocommerce_shop_page_id, 'disable_sidebar', true ) ) ? '12' : '9'; ?>  col-sm-12">
