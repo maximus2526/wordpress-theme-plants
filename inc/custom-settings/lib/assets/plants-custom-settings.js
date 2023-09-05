@@ -13,6 +13,6 @@
 							$("#container-value-input").val(ui.value);    
 					}
 				});
-				$( "#container-slider" ).text($( "#container-slider" ).slider( "container-slider-result" ));  
+				$("#container-slider" ).text($( "#container-slider" ).slider( "container-slider-result" ));  
 				$("#container-value-input").val($("#container-slider").slider("value"));  
 			}); 

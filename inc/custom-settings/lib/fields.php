@@ -83,11 +83,11 @@ if ( ! function_exists( 'plants_custom_footer_menus_field' ) ) {
 		}
 		?>
 		<?php
-		$input_id            = 1;
 		$menus_title_options = plants_get_options( 'menus_titles' );
 		$show_menu_options   = plants_get_options( 'show_menu' );
-		foreach ( $menu_names as $name ) {
+		foreach ( $menu_names as $input_id => $name ) {
 			$name = esc_attr( $name );
+			$input_id++;
 			?>
 		</br>
 		<div class="row">
@@ -97,7 +97,6 @@ if ( ! function_exists( 'plants_custom_footer_menus_field' ) ) {
 		</div>
 			<?php
 
-			$input_id++;
 		}
 		?>
 		<?php
