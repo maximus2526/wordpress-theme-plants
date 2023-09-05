@@ -11,7 +11,7 @@
 get_header();
 ?>
 <div class="container">
- <?php
+	<?php
 	get_search_form();
 	$args      = array(
 		's' => get_search_query(),
@@ -22,18 +22,18 @@ get_header();
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			?>
-   <li>
+			<li>
 				<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-   </li>
+			</li>
 			<?php
 		}
 	} else {
 		?>
-  <h2 style='font-weight:bold;color:#000'>Nothing Found</h2>
-  <div class="alert alert-info">
-   <p><?php echo esc_html__( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'plants' ); ?></p>
-  </div>
+		<h2 style='font-weight:bold;color:#000'><?php esc_html__( 'Nothing Found', 'plants' ); ?></h2>
+		<div class="alert alert-info">
+		<p><?php echo esc_html__( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'plants' ); ?></p>
+		</div>
 	<?php } ?>
- <?php get_sidebar(); ?>
+	<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

@@ -40,7 +40,7 @@ class MetaBoxes {
 	public function add_metabox() {
 		add_meta_box(
 			'plant_disable_elements_metabox',
-			'Display Control',
+			esc_html__( 'Display Control', 'plants' ),
 			array( $this, 'disabler_metabox_callback' ),
 			array( 'post', 'page', 'product' ),
 			'normal',
