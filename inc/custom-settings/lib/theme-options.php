@@ -36,10 +36,16 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 		// Global settings.
 		$options[] = array(
 			'section'  => 'global_settings',
-			'id'       => 'global_settings',
+			'id'       => 'container_width',
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
-			'callback' => 'plants_custom_global_settings_field',
-			'args'     => array( 'field_result' => null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024 ),
+			'callback' => 'plants_slider_field',
+			'args'     => array(
+				'field_unique_name'        => 'global_container',
+				'slider_unique_name'       => 'container-slider',
+				'hidden_input_unique_name' => 'container-value-input',
+				'result_text_unique_name'  => 'container-slider-result',
+				'field_result'             => null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024,
+			),
 		);
 
 		// Banner section.
