@@ -93,13 +93,6 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 
 		$options[] = array(
 			'section'  => 'footer_section',
-			'id'       => 'plants_another_section',
-			'title'    => esc_html__( 'Footer field:', 'plants' ),
-			'callback' => 'plants_custom_footer_menus_field',
-		);
-
-		$options[] = array(
-			'section'  => 'footer_section',
 			'id'       => 'plants_rights_section',
 			'title'    => esc_html__( 'Footer rights field:', 'plants' ),
 			'callback' => 'plants_text_field',

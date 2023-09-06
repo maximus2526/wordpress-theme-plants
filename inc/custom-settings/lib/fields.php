@@ -72,40 +72,6 @@ if ( ! function_exists( 'plants_multiple_choice' ) ) {
 	}
 }
 
-if ( ! function_exists( 'plants_custom_footer_menus_field' ) ) {
-	/**
-	 * Render_footer_menus_field. Custom field.
-	 *
-	 * @return void
-	 */
-	function plants_custom_footer_menus_field() {
-		$menu_names = wp_list_pluck( get_terms( 'nav_menu' ), 'name' );
-		if ( 0 === $menu_names ) {
-			echo esc_html__( 'No avaible menus', 'plants' );
-			return;
-		}
-		?>
-		<?php
-		$menus_title_options = plants_get_options( 'menus_titles' );
-		$show_menu_options   = plants_get_options( 'show_menu' );
-		foreach ( $menu_names as $input_id => $name ) {
-			$name = esc_attr( $name );
-			$input_id++;
-			?>
-		</br>
-		<div class="row">
-			<input value="<?php echo esc_attr( isset( $menus_title_options[ $name ] ) ? $menus_title_options[ $name ] : '' ); ?>" placeholder=<?php echo esc_attr__( 'Menu title', 'plants' ); ?> type="text" name="plants_options[menus_titles][<?php echo esc_attr( $name ); ?>]">
-			<label for="<?php echo 'footer_menu_' . (int) $input_id; ?>"><?php echo esc_html( $name ); ?></label>		 
-			<input <?php checked( isset( $show_menu_options[ $name ] ) && $show_menu_options[ $name ] === $name, true ); ?> id="<?php echo 'footer_menu_' . (int) $input_id; ?>" value="<?php echo esc_attr( $name ); ?>"  name='plants_options[show_menu][<?php echo esc_attr( $name ); ?>]' type="checkbox" />
-		</div>
-			<?php
-
-		}
-		?>
-		<?php
-	}
-}
-
 if ( ! function_exists( 'plants_text_field' ) ) {
 	/**
 	 * Plants_render_text_field.

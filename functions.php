@@ -150,43 +150,6 @@ if ( ! function_exists( 'plants_container_inline_css' ) ) {
 	add_action( 'wp_enqueue_scripts', 'plants_container_inline_css', 99 );
 }
 
-if ( ! function_exists( 'plants_get_footer_menus' ) ) {
-	/**
-	 * Plants_get_footer_menus.
-	 * Print footer menus in footer.
-	 *
-	 * @return void
-	 */
-	function plants_get_footer_menus() {
-		$menu_names = plants_get_options( 'show_menu' );
-		if ( empty( $menu_names ) ) {
-			echo esc_html__( 'No avaible menus', 'plants' );
-			return;
-		}
-		$menu_titles       = plants_get_options( 'menus_titles' );
-		$arrays_difference = array_keys( array_diff_key( $menu_titles, $menu_names ) );
-
-		foreach ( $arrays_difference as $name ) {
-			unset( $menu_titles[ $name ] );
-		}
-		$menus = array_combine( $menu_names, $menu_titles );
-		foreach ( $menus as $menu_name => $menu_title ) :
-			?>
-			<div class="footer-nav display-flex column scheme-dark output-padding">
-				<div class="nav-title"><?php echo esc_html( $menu_title ); ?></div>
-			<?php
-			wp_nav_menu(
-				array(
-					'menu' => $menu_name,
-				)
-			);
-			?>
-			</div>
-			<?php
-		endforeach;
-	}
-}
-
 if ( ! function_exists( 'plants_get_product_img' ) ) {
 	/**
 	 * Plants_get_product_img.
@@ -207,4 +170,4 @@ if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 	include 'inc/elementor-plants/elementor-addon.php';
 }
 
-?>
+
