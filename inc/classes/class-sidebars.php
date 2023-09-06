@@ -37,25 +37,29 @@ class Sidebars {
 	public function register_wp_sidebars() {
 		register_sidebar(
 			array(
-				'id'            => 'main-sidebar',
-				'name'          => 'Main-Sidebar',
-				'description'   => esc_html__( 'Drag here widgets.', 'plants' ),
-				'before_widget' => '<div id="%1$s" class="main-sidebar widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
+				'id'             => 'main-sidebar',
+				'name'           => 'Main-Sidebar',
+				'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
+				'before_widget'  => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'   => '</div>',
+				'before_sidebar' => '<div id="%1$s" class="main-sidebar">',
+				'after_sidebar'  => '</div>',
+				'before_title'   => '<h3 class="widget-title">',
+				'after_title'    => '</h3>',
 			)
 		);
 
 		register_sidebar(
 			array(
-				'id'            => 'footer-sidebar',
-				'name'          => 'Footer-Sidebar',
-				'description'   => esc_html__( 'Drag here widgets.', 'plants' ),
-				'before_widget' => '<div id="%1$s" class="footer-sidebar widget %2$s">',
-				'after_widget'  => '</div>',
-				'before_title'  => '<h3 class="widget-title">',
-				'after_title'   => '</h3>',
+				'id'             => 'footer-sidebar',
+				'name'           => 'Footer-Sidebar',
+				'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
+				'before_widget'  => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'   => '</div>',
+				'after_widget'   => '</div>',
+				'before_sidebar' => '<div id="%1$s" class="footer-sidebar">',
+				'before_title'   => '<h3 class="widget-title">',
+				'after_title'    => '</h3>',
 			)
 		);
 	}

@@ -40,15 +40,20 @@ class WooCommerce {
 	protected function setup_hooks() {
 		add_action( 'after_setup_theme', array( $this, 'add_woocommerce_support' ) );
 		add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+		add_filter( 'woocommerce_output_content_wrapper', '__return_empty_array' );
+		remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20 );
+		add_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 10 );
 		add_filter( 'woocommerce_post_class', array( $this, 'add_products_column' ) );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		remove_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 10 );
 		add_filter( 'woocommerce_enqueue_styles', array( $this, 'dequeue_styles' ) );
 		add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
-		add_action( 'woocommerce_before_main_content', array( $this, 'print_container' ), 10, 0 );
-		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ), 99 );
+		add_action( 'woocommerce_before_main_content', array( $this, 'print_container' ), 1, 0 );
+		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ), 999 );
 		add_action( 'woocommerce_after_single_product_summary', array( $this, 'css_clear_fix' ), 9, 0 );
 		add_filter( 'woocommerce_show_page_title', '__return_empty_array' );
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+		add_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 );
 		if ( 'on' === get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true ) && null !== get_option( 'woocommerce_shop_page_id' ) ) {
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 		}
@@ -73,8 +78,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_container() {
-		echo '<div class="container">';
-
+		echo '<div class="container wc-page">';
 	}
 
 	/**

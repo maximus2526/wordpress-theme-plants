@@ -944,6 +944,15 @@ h6 {
   width: 90%;
 }
 
+.container.wc-page #primary {
+  float: right;
+  width: 65%;
+}
+.container.wc-page .main-sidebar {
+  float: left;
+  width: 30%;
+}
+
 .panel-fix {
   margin-top: 32px;
 }

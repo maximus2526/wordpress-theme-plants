@@ -16,19 +16,26 @@ use PLANTS\Inc\Traits\Singleton;
  * MetaBoxes
  */
 class MetaBoxes {
-
-
-
-
-
 	use Singleton;
-
+	/**
+	 * Field_list.
+	 *
+	 * @var array
+	 */
+	protected $field_list = array();
 	/**
 	 * __construct
 	 *
 	 * @return void
 	 */
 	protected function __construct() {
+	
+		$this->field_list = array(
+				'disable_header' => 'Display Control',
+				'disable_header' => 'Display Control',
+				'disable_header' => 'Display Control',
+		);
+		
 		add_action( 'add_meta_boxes', ( array( $this, 'add_metabox' ) ) );
 		add_action( 'save_post', array( $this, 'save_meta' ), 10, 2 );
 	}
