@@ -17,6 +17,7 @@ use PLANTS\Inc\Traits\Singleton;
  */
 class Sidebars {
 
+
 	use Singleton;
 
 	/**

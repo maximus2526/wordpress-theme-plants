@@ -33,7 +33,7 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 	 * @return array Options array.
 	 */
 	function plants_options_page_fields() {
-		// Global settings.
+		 // Global settings.
 		$options[] = array(
 			'section'  => 'global_settings',
 			'id'       => 'container_width',
@@ -116,4 +116,3 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 		return (array) $options;
 	}
 }
-

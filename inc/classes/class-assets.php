@@ -16,9 +16,6 @@ use PLANTS\Inc\Traits\Singleton;
  * Assets
  */
 class Assets {
-
-
-
 	use Singleton;
 
 	/**
@@ -36,8 +33,6 @@ class Assets {
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag_filter_preload' ), 10, 2 );
 	}
 
-
-
 	/**
 	 * Enqueue_font_preload.
 	 *
@@ -45,7 +40,6 @@ class Assets {
 	 */
 	public function enqueue_font_preload() {
 		wp_enqueue_style( 'font-handle', PLANTS_FONTS_PATH . '/Satoshi-Light.woff2', array(), PLANTS_VERSION );
-
 	}
 
 	/**
@@ -85,6 +79,5 @@ class Assets {
 		wp_enqueue_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', array( 'jquery', 'jquery-ui-slider' ), filemtime( PLANTS_JS_DIR_PATH . '/plants_main.js' ), true );
 		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-slider' );
-
 	}
 }

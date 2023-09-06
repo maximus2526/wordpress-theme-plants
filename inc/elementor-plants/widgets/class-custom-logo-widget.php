@@ -9,6 +9,7 @@
  */
 
 use \Elementor\Controls_Manager;
+
 /**
  * Custom_Logo_Widget
  */
@@ -115,5 +116,3 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 		}
 	}
 }
-
-

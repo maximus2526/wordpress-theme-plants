@@ -8,11 +8,13 @@
  * @link     http://www.hashbangcode.com/
  */
 
-	use \Elementor\Controls_Manager;
+use \Elementor\Controls_Manager;
+
 /**
  * Products_Widget
  */
 class Products_Widget extends \Elementor\Widget_Base {
+
 
 	/**
 	 * Get_name.
@@ -108,7 +110,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 					'default' => 'no',
 				)
 			);
-			$this->end_controls_section();
+			 $this->end_controls_section();
 		} else {
 			$this->start_controls_section(
 				'section_content',
@@ -116,12 +118,12 @@ class Products_Widget extends \Elementor\Widget_Base {
 					'label' => esc_html__( 'Content', 'plants' ),
 				)
 			);
-				$this->add_control(
-					'is_slider',
-					array(
-						'label' => esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' ),
-					)
-				);
+			$this->add_control(
+				'is_slider',
+				array(
+					'label' => esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' ),
+				)
+			);
 
 			$this->end_controls_section();
 		}
@@ -174,31 +176,31 @@ class Products_Widget extends \Elementor\Widget_Base {
 						echo '<div  style="text-align: center;" class="swiper-slide">';
 					}
 					?>
-				<div style="text-align: center;" class="product ">
-					<?php
-					if ( has_post_thumbnail() ) {
-						echo '<div class="product-image">';
-						the_post_thumbnail( 'thumbnail', array( 'style' => 'width: 100%;height: 400px;' ) );
-						echo '</div>';
-					}
-
-					echo '<p><a  class="scheme-dark title" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( get_the_title() ) . '</a></p>';
-					?>
-					<div class="banner-rating">
+					<div style="text-align: center;" class="product ">
 						<?php
-						$product_obj = wc_get_product( $product->get_id() );
-
-						if ( 'yes' === $settings['is_slider'] ) {
-							echo '</div>'; // end swiper slide.
+						if ( has_post_thumbnail() ) {
+							echo '<div class="product-image">';
+							the_post_thumbnail( 'thumbnail', array( 'style' => 'width: 100%;height: 400px;' ) );
+							echo '</div>';
 						}
 
+						echo '<p><a  class="scheme-dark title" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( get_the_title() ) . '</a></p>';
 						?>
-					</div>
-						<?php
-						echo '<div class="product-add-to-cart gap">';
-						woocommerce_template_loop_add_to_cart( array( 'button_text' => 'Select options' ) );
-						echo '</div>';
-						echo ' </div>'; // swiper-slide ::end.
+						<div class="banner-rating">
+							<?php
+							$product_obj = wc_get_product( $product->get_id() );
+
+							if ( 'yes' === $settings['is_slider'] ) {
+								echo '</div>'; // end swiper slide.
+							}
+
+							?>
+						</div>
+					<?php
+					echo '<div class="product-add-to-cart gap">';
+					woocommerce_template_loop_add_to_cart( array( 'button_text' => 'Select options' ) );
+					echo '</div>';
+					echo ' </div>'; // swiper-slide ::end.
 				}
 
 				wp_reset_postdata();

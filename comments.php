@@ -13,30 +13,30 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" <?php echo comment_class( 'comments-area' ); ?> >
+<div id="comments" <?php echo comment_class( 'comments-area' ); ?>>
 
 	<?php
 	if ( have_comments() ) :
 		?>
 		<h2 class="comments-title">
-		<?php
-		$comments_number = get_comments_number();
-		if ( 1 === $comments_number ) {
-			echo esc_html__( '1 Comment ', 'plants' );
-		} else {
-			echo (int) $comments_number . esc_html__( ' Comments', 'plants' );
-		}
-		?>
+			<?php
+			$comments_number = get_comments_number();
+			if ( 1 === $comments_number ) {
+				echo esc_html__( '1 Comment ', 'plants' );
+			} else {
+				echo (int) $comments_number . esc_html__( ' Comments', 'plants' );
+			}
+			?>
 		</h2>
 
 		<ol class="comment-list">
-		<?php
-		wp_list_comments(
-			array(
-				'style' => 'color:black;',
-			)
-		);
-		?>
+			<?php
+			wp_list_comments(
+				array(
+					'style' => 'color:black;',
+				)
+			);
+			?>
 		</ol>
 
 		<?php
@@ -65,4 +65,3 @@ if ( post_password_required() ) {
 	?>
 
 </div><!-- #comments -->
-

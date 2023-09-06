@@ -72,7 +72,6 @@ function autoloader( $resource = '' ) {
 		}
 
 		$resource_path = sprintf( '%s/inc/%s/%s.php', untrailingslashit( PLANTS_DIR_PATH ), $directory, $file_name );
-
 	}
 
 	/**
@@ -82,9 +81,8 @@ function autoloader( $resource = '' ) {
 
 	if ( file_exists( $resource_path ) && ( 0 === $is_valid_file || 2 === $is_valid_file ) ) {
 		// We already making sure that file is exists and valid.
-     require_once( $resource_path ); // phpcs:ignore
+		require_once($resource_path); // phpcs:ignore
 	}
-
 }
 
 spl_autoload_register( '\PLANTS\Inc\Helpers\autoloader' );

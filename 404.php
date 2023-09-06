@@ -15,4 +15,4 @@ get_header();
 	<?php esc_html__( 'Page not found', 'plants' ); ?>
 </div>
 
-	<?php get_footer(); ?>
+<?php get_footer(); ?>

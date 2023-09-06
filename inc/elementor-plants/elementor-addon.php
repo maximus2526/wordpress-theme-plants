@@ -59,6 +59,3 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 	}
 	add_action( 'elementor/elements/categories_registered', 'plants_custom_elementor_widget_category' );
 }
-
-
-

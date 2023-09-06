@@ -16,7 +16,6 @@
 				<div class="article-img">
 					<?php echo get_the_post_thumbnail(); ?>
 				</div>
-
 				<div class="article-content-wrapper display-flex space-between align-center">
 					<div class="article-content">
 						<div class="author">

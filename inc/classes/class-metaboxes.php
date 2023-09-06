@@ -16,6 +16,7 @@ use PLANTS\Inc\Traits\Singleton;
  * MetaBoxes
  */
 class MetaBoxes {
+
 	use Singleton;
 	/**
 	 * Field_list.
@@ -29,7 +30,6 @@ class MetaBoxes {
 	 * @return void
 	 */
 	protected function __construct() {
-
 		$this->field_list = array(
 			'disable_header' => 'Display Control',
 			'disable_header' => 'Display Control',
@@ -75,14 +75,14 @@ class MetaBoxes {
 		?>
 		<table class="form-table">
 			<tbody>
-		<?php foreach ( $disable_list as $key => $value ) : ?>
-				<tr>
-					<th><?php echo esc_html( ucwords( $key ) ); ?></th>
-					<td>
-						<label><input type="checkbox" name="<?php echo esc_html( $key ); ?>" <?php checked( 'on', esc_html( $value ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
-					</td>
-				</tr>
-		<?php endforeach; ?>
+				<?php foreach ( $disable_list as $key => $value ) : ?>
+					<tr>
+						<th><?php echo esc_html( ucwords( $key ) ); ?></th>
+						<td>
+							<label><input type="checkbox" name="<?php echo esc_html( $key ); ?>" <?php checked( 'on', esc_html( $value ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
+						</td>
+					</tr>
+				<?php endforeach; ?>
 			</tbody>
 		</table>
 		<?php

@@ -19,6 +19,7 @@ class WooCommerce {
 
 
 
+
 	use Singleton;
 
 	/**
@@ -55,7 +56,7 @@ class WooCommerce {
 		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 		add_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 );
 		if ( 'on' !== get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true ) && null !== get_option( 'woocommerce_shop_page_id' ) ) {
-				remove_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 ); // TODO: FIX. Side bar disable on all woocommerce pages.
+			remove_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 ); // TODO: FIX. Side bar disable on all woocommerce pages.
 		}
 	}
 
@@ -77,7 +78,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_container() {
-		echo '<div class="container wc-page">';
+		 echo '<div class="container wc-page">';
 	}
 
 	/**
@@ -86,7 +87,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_end_container() {
-		echo '</div>';
+		 echo '</div>';
 	}
 
 	/**
@@ -109,7 +110,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function add_woocommerce_support() {
-		add_theme_support( 'woocommerce' );
+		 add_theme_support( 'woocommerce' );
 	}
 
 	/**

@@ -20,7 +20,6 @@ if ( ! function_exists( 'plants_styles_scripts_enqueue' ) ) {
 		wp_enqueue_style( 'jquery-ui', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/jquery-ui/jquery-ui.min.css', false, PLANTS_VERSION );
 		wp_enqueue_style( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.css', false, PLANTS_VERSION );
 		wp_enqueue_script( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.js', false, PLANTS_VERSION, true );
-
 	}
 	add_action( 'admin_enqueue_scripts', 'plants_styles_scripts_enqueue' );
 }

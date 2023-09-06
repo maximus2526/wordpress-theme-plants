@@ -18,6 +18,7 @@ use PLANTS\Inc\Traits\Singleton;
 class Menus {
 
 
+
 	use Singleton;
 
 	/**
@@ -30,8 +31,4 @@ class Menus {
 			get_nav_menu_locations()
 		);
 	}
-
-
-
-
 }

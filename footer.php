@@ -33,7 +33,7 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 						<button class="button" type="submit"><?php echo esc_html__( 'Subscribe', 'plants' ); ?></button>
 					</form>
 					<div class="text">
-					<?php echo esc_html__( 'By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.', 'plants' ); ?>
+						<?php echo esc_html__( 'By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.', 'plants' ); ?>
 					</div>
 				</div>
 				<div class="social">
@@ -41,7 +41,7 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 					<a href=""><span class="social-icons">TW</span></a>
 					<a href=""><span class="social-icons">IN</span></a>
 				</div>
-			</div>        
+			</div>
 			<div class="col-6 right-side display-flex justify-around col-md-12">
 				<?php
 				if ( is_active_sidebar( 'footer-sidebar' ) ) {
@@ -49,24 +49,22 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 				}
 				?>
 			</div>
+		</div>
 	</div>
-</div>
 	<div class="bottom-footer display-flex space-between align-center">
-				<div class="rights">
-					<span>
-						<?php
-						$footer_rights_text = plants_get_options( 'footer_rights_text' );
-						echo esc_html( $footer_rights_text );
-						?>
-					</span>
-				</div>
-				<div class="partners">
-					<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/partners.svg" alt>
-				</div>
-			</div>
+		<div class="rights">
+			<span>
+				<?php
+				$footer_rights_text = plants_get_options( 'footer_rights_text' );
+				echo esc_html( $footer_rights_text );
+				?>
+			</span>
+		</div>
+		<div class="partners">
+			<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/partners.svg" alt>
+		</div>
+	</div>
 </footer>
-
-
 	<?php
 endif;
 wp_footer();
@@ -74,4 +72,3 @@ wp_footer();
 </body>
 
 </html>
-

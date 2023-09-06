@@ -128,8 +128,9 @@
  }
 }
 
-.order-detail-section table{
+.order-detail-section table {
  text-align: center;
+
  .cart_item {
   text-align: left;
  }
@@ -143,6 +144,7 @@
  tr {
   text-align: center;
  }
+
  .quantity {
   input {
    width: 50px;
@@ -159,6 +161,7 @@
  tr {
   display: flex;
   justify-content: space-between;
+
   td {
    padding: 20px;
   }

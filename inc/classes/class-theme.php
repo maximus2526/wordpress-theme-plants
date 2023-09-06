@@ -11,10 +11,12 @@
 namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
+
 /**
  * THEME
  */
 class THEME {
+
 
 
 	use Singleton;
@@ -26,8 +28,8 @@ class THEME {
 	 */
 	protected function __construct() {
 		/**
-		 * Actions.
-		 */
+		   * Actions.
+		   */
 		add_action( 'after_setup_theme', array( $this, 'setup_theme' ) );
 		add_action( 'after_setup_theme', array( $this, 'load_theme_textdomain' ) );
 	}
@@ -38,7 +40,7 @@ class THEME {
 	 * @return void
 	 */
 	public function setup_theme() {
-		/**
+		 /**
 		 * Let WordPress manage the document title.
 		 * By adding theme support, we declare that this theme does not use a
 		 * hard-coded <title> tag in the document head, and expect WordPress to

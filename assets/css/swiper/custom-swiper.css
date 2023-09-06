@@ -2,7 +2,8 @@
   height: 100%;
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   --swiper-navigation-sides-offset: 200px;
 }
 

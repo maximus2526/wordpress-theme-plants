@@ -169,5 +169,3 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 	include 'inc/elementor-plants/elementor-addon.php';
 }
-
-

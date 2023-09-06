@@ -24,7 +24,7 @@ if ( ! function_exists( 'plants_slider_field' ) ) {
 				<b><span style="color:green" class="slider-result"><?php echo esc_html__( 'Current: ', 'plants' ) . (int) $args['field_result'] . esc_html( ' px.' ); ?></span></b>
 			</div>
 			<div class="value-changer">
-				<div data-range="{'min': '<?php echo (int) $args['min']; ?>','max': '<?php echo (int) $args['max']; ?>'}"  class="jquery-slider"></div>
+				<div data-range="{'min': '<?php echo (int) $args['min']; ?>','max': '<?php echo (int) $args['max']; ?>'}" class="jquery-slider"></div>
 				<input value="<?php echo (int) $args['field_result']; ?>" type="hidden" name="plants_options[<?php echo esc_html( $args['field_unique_name'] ); ?>]">
 			</div>
 		</div>
@@ -44,10 +44,10 @@ if ( ! function_exists( 'plants_boolean_choice' ) ) {
 	 */
 	function plants_boolean_selection( $args ) {
 		?>
-	<select name='plants_options[<?php echo esc_html( $args['name'] ); ?>]'>
-		<option value='<?php echo esc_attr( 'yes' ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_attr( 'yes' ) ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
-		<option value='<?php echo esc_attr( 'no' ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_attr( 'no' ) ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
-	</select>
+		<select name='plants_options[<?php echo esc_html( $args['name'] ); ?>]'>
+			<option value='<?php echo esc_attr( 'yes' ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_attr( 'yes' ) ); ?>><?php echo esc_html__( 'Yes', 'plants' ); ?></option>
+			<option value='<?php echo esc_attr( 'no' ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_attr( 'no' ) ); ?>><?php echo esc_html__( 'No', 'plants' ); ?></option>
+		</select>
 		<?php
 	}
 }
@@ -61,15 +61,15 @@ if ( ! function_exists( 'plants_multiple_choice' ) ) {
 	 */
 	function plants_multiple_choice( $args ) {
 		?>
-	<select name='plants_options[<?php echo esc_html( $args['name'] ); ?>]'>
-		<?php
-		foreach ( $args['multiple'] as $single ) :
-			?>
-		<option value='<?php echo esc_html( $single ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_html( $single ) ); ?>><?php echo esc_html( $single ); ?></option>
+		<select name='plants_options[<?php echo esc_html( $args['name'] ); ?>]'>
 			<?php
-		endforeach;
-		?>
-	</select>
+			foreach ( $args['multiple'] as $single ) :
+				?>
+				<option value='<?php echo esc_html( $single ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_html( $single ) ); ?>><?php echo esc_html( $single ); ?></option>
+				<?php
+			endforeach;
+			?>
+		</select>
 		<?php
 	}
 }

@@ -9,10 +9,12 @@
  */
 
 use \Elementor\Controls_Manager;
+
 /**
  * Social_Links_Widget
  */
 class Social_Links_Widget extends \Elementor\Widget_Base {
+
 
 	/**
 	 * Get_name.
@@ -127,7 +129,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 			$url   = $link['social_url']['url'];
 			$title = $link['social_abbreviation'];
 			?>
-				<a href="<?php echo esc_url( $url ); ?>"><span class="social-icons"><?php echo esc_html( $title ); ?></span></a>
+			<a href="<?php echo esc_url( $url ); ?>"><span class="social-icons"><?php echo esc_html( $title ); ?></span></a>
 			<?php
 
 		}
@@ -135,4 +137,3 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 		echo '</div>';
 	}
 }
-

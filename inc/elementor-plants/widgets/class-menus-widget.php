@@ -15,6 +15,7 @@ use \Elementor\Controls_Manager;
  */
 class Menus_Widget extends \Elementor\Widget_Base {
 
+
 	/**
 	 * Get_name.
 	 *
@@ -108,12 +109,12 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-			wp_nav_menu(
-				array(
-					'menu'       => $this->get_menus_names()[ $settings['menus'] ],
-					'menu_class' => 'scheme-dark ' . ( 'no' === $settings['vertical'] ? 'display-flex gap' : 'vertical-nav' ) . ( 'no' === $settings['with_signs'] ? '' : ' menu-sign vertical-nav-item nav-img' ),
-				)
-			);
+		wp_nav_menu(
+			array(
+				'menu'       => $this->get_menus_names()[ $settings['menus'] ],
+				'menu_class' => 'scheme-dark ' . ( 'no' === $settings['vertical'] ? 'display-flex gap' : 'vertical-nav' ) . ( 'no' === $settings['with_signs'] ? '' : ' menu-sign vertical-nav-item nav-img' ),
+			)
+		);
 	}
 
 	/**

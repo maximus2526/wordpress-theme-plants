@@ -10,10 +10,12 @@
 
 use \Elementor\Controls_Manager;
 use \Elementor\Widget_Base;
+
 /**
  * Articles_Widget
  */
 class Articles_Widget extends Widget_Base {
+
 
 	/**
 	 * Get_name.
@@ -158,13 +160,13 @@ class Articles_Widget extends Widget_Base {
 			} else {
 				?>
 				<div class="row">
-				<?php
-				while ( $articles_query->have_posts() ) {
-					$articles_query->the_post();
+					<?php
+					while ( $articles_query->have_posts() ) {
+						$articles_query->the_post();
 
-					get_template_part( 'template-parts/content/content-post-card' );
-				}
-				?>
+						get_template_part( 'template-parts/content/content-post-card' );
+					}
+					?>
 				</div>
 				<?php
 			}

@@ -3,6 +3,7 @@
  width: 20%;
  margin-right: 40px;
  float: left;
+
  li {
   a {
    color: black;
@@ -23,9 +24,10 @@
  content: "";
  clear: both;
  display: table;
-} 
+}
 
 .woocommerce-MyAccount-content {
+
  .input-text,
  .select2-selection__rendered,
  .select2-selection {

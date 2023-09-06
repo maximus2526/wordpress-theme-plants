@@ -24,12 +24,13 @@ get_header();
 		while ( $the_query->have_posts() ) {
 			$the_query->the_post();
 			?>
-				<li>
-					<a href='<?php the_permalink(); ?>'><?php the_title(); ?></a>
-				</li>
+			<li>
+				<a href='<?php the_permalink(); ?>'><?php the_title(); ?></a>
+			</li>
 			<?php
-		} else :
-			?>
+		}
+	else :
+		?>
 		<h2><?php esc_html__( 'Nothing Found', 'plants' ); ?></h2>
 		<div class="alert alert-info">
 			<p><?php echo esc_html__( 'Sorry, but nothing matched your search criteria. Please try again with some different keywords.', 'plants' ); ?></p>

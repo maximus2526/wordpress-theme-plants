@@ -33,6 +33,7 @@ namespace PLANTS\Inc\Traits;
 trait Singleton {
 
 
+
 	/**
 	 * Protected class constructor to prevent direct object creation
 	 *
@@ -40,14 +41,12 @@ trait Singleton {
 	 * this trait. This is ideal for doing stuff that you only want to
 	 * do once, such as hooking into actions and filters, etc.
 	 */
-	protected function __construct() {
-	}
+	protected function __construct() {}
 
 	/**
 	 * Prevent object cloning
 	 */
-	final protected function __clone() {
-	}
+	final protected function __clone() {}
 
 	/**
 	 * This method returns new or existing Singleton instance
@@ -57,7 +56,6 @@ trait Singleton {
 	 * @return object Singleton instance of the class.
 	 */
 	final public static function get_instance() {
-
 		/**
 		 * Collection of instance.
 		 *

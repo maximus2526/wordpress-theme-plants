@@ -14,6 +14,8 @@
 class User_Panel_Widget extends \Elementor\Widget_Base {
 
 
+
+
 	/**
 	 * Get_name.
 	 *
@@ -55,21 +57,21 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function _register_controls(){}
+	protected function _register_controls() {}
 
 	/**
 	 * Render.
 	 *
 	 * @return void
 	 */
-	protected function render() {       ?>
+	protected function render() {
+		?>
 		<div class="profile-section display-flex align-center gap col-right scheme-dark">
 			<div class="search-field">
 				<a href><img src="<?php echo esc_html( esc_url( PLANTS_IMG_URI ) ); ?>/svg/search.svg" alt="search-sign"></a>
 			</div>
 			<div class="auth display-flex gap-5">
 				<a href=""><?php esc_html__( 'Login', 'plants' ); ?></a> / <a href="/wp-login.php?action=register"><?php esc_html__( 'Register', 'plants' ); ?></a>
-
 			</div>
 			<?php if ( plants_is_wc_exist() ) : ?>
 				<div class="cart-section display-flex gap ">
@@ -94,7 +96,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 						</a>
 					</div>
 				<?php endif; ?>
-			</div>
+				</div>
 		</div>
 		<?php
 	}

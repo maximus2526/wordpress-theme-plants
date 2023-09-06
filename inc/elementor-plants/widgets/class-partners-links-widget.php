@@ -11,10 +11,12 @@
 use \Elementor\Utils;
 use \Elementor\Controls_Manager;
 use \Elementor\Widget_Base;
+
 /**
  * Partners_Links_Widget
  */
 class Partners_Links_Widget extends Widget_Base {
+
 	/**
 	 * Get_name.
 	 *
@@ -159,6 +161,4 @@ class Partners_Links_Widget extends Widget_Base {
 		}
 		echo '</div>';
 	}
-
 }
-
