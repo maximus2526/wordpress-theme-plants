@@ -13,7 +13,7 @@
     width: 90%;
 }
 
-.container.wc-page {
+.container.wc-page:has(.main-sidebar) {
     #primary {
         float: right;
         width: 65%;

@@ -944,11 +944,11 @@ h6 {
   width: 90%;
 }
 
-.container.wc-page #primary {
+.container.wc-page:has(.main-sidebar) #primary {
   float: right;
   width: 65%;
 }
-.container.wc-page .main-sidebar {
+.container.wc-page:has(.main-sidebar) .main-sidebar {
   float: left;
   width: 30%;
 }
