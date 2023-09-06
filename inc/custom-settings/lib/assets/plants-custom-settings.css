@@ -4,13 +4,11 @@
 
 .ui-slider.ui-slider-horizontal {
 	background: #93a7ff;
-	height:12px;
-	border:none;
+	height: 12px;
+	border: none;
 }
 
 .ui-slider .ui-slider-range {
 	background: #337AB7;
-	height:12px;
+	height: 12px;
 }
-
-
