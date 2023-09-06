@@ -59,31 +59,30 @@
 								<div class="close-btn button"><a href=""></a>X</div>
 								<?php get_search_form(); ?>
 							</div>
-
-		  <?php
-			wp_nav_menu(
-				array(
-					'menu' => plants_get_options( 'header_menu' ),
-				)
-			);
-			?>
+							<?php
+								wp_nav_menu(
+									array(
+										'menu' => plants_get_options( 'header_menu' ),
+									)
+								);
+							?>
 						</div>
 					</div>
 				</div>
 				<div class="logo-section">
 					<a href="/">
-		 <?php
-			echo wp_kses(
-				get_custom_logo(),
-				array(
-					'img' => array(
-						'src' => array(),
-						'alt' => array(),
-					),
-					'a',
-				)
-			);
-			?>
+					<?php
+					echo wp_kses(
+						get_custom_logo(),
+						array(
+							'img' => array(
+								'src' => array(),
+								'alt' => array(),
+							),
+							'a',
+						)
+					);
+					?>
 					</a>
 				</div>
 				<div class="profile-section display-flex align-center gap col-right">

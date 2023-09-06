@@ -20,8 +20,8 @@
 }
 @media screen and (max-width: 900px) {
   .header .hamburger {
-	display: block;
-	width: 50px;
+    display: block;
+    width: 50px;
   }
 }
 .header .profile-section,
@@ -31,23 +31,23 @@
 @media screen and (max-width: 900px) {
   .header .profile-section .hamburger,
   .header .menu-header-menu-container .hamburger {
-	width: 50px;
+    width: 50px;
   }
   .header .profile-section #menu-header-menu,
   .header .menu-header-menu-container #menu-header-menu {
-	display: none;
+    display: none;
   }
 }
 @media screen and (max-width: 900px) {
   .header .profile-section .favorite,
   .header .profile-section .search-field {
-	display: none;
+    display: none;
   }
 }
 
 @media screen and (max-width: 900px) {
   .elementor-widget-container {
-	border: none !important;
+    border: none !important;
   }
 }
 header .container {
@@ -228,9 +228,9 @@ footer .right-side {
 }
 @media screen and (max-width: 1024px) {
   footer .right-side {
-	border-left: none;
-	margin-top: 40px;
-	justify-content: space-evenly;
+    border-left: none;
+    margin-top: 40px;
+    justify-content: space-evenly;
   }
 }
 footer .right-side .nav-title {
@@ -371,7 +371,7 @@ footer .menu-item {
   margin: 30px auto;
   width: 50%;
   -o-object-fit: cover;
-	 object-fit: cover;
+     object-fit: cover;
 }
 
 * {
@@ -398,10 +398,10 @@ img {
 /* Удаляем все анимации и переходы для людей, которые предпочитай их не использовать */
 @media (prefers-reduced-motion: reduce) {
   * {
-	animation-duration: 0.01ms !important;
-	animation-iteration-count: 1 !important;
-	transition-duration: 0.01ms !important;
-	scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 ol,
@@ -760,7 +760,7 @@ h6 {
 
 @media screen and (max-width: 1024px) {
   .woocommerce-billing-fields {
-	width: 100% !important;
+    width: 100% !important;
   }
 }
 .woocommerce-billing-fields,
@@ -940,6 +940,10 @@ h6 {
   float: right;
 }
 
+#block-8 {
+  width: 90%;
+}
+
 .panel-fix {
   margin-top: 32px;
 }
@@ -1018,19 +1022,19 @@ h6 {
 
 @media screen and (max-width: 767px) {
   .elementor-widget-container h1 {
-	display: inline;
-	width: 100%;
-	font-size: 36px;
+    display: inline;
+    width: 100%;
+    font-size: 36px;
   }
   .elementor-widget-container h1 img {
-	display: none;
+    display: none;
   }
   .elementor-widget-container .quotes {
-	width: -moz-fit-content;
-	width: fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .elementor-widget-container .quotes .quote-text {
-	max-width: 550px;
+    max-width: 550px;
   }
 }
 
@@ -1145,7 +1149,7 @@ a img.aligncenter {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);
   -webkit-clip-path: inset(50%);
-		  clip-path: inset(50%);
+          clip-path: inset(50%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
@@ -1160,7 +1164,7 @@ a img.aligncenter {
   background-color: #eee;
   clip: auto !important;
   -webkit-clip-path: none;
-		  clip-path: none;
+          clip-path: none;
   color: #444;
   display: block;
   font-size: 1em;
@@ -1228,7 +1232,7 @@ body {
 
 @media screen and (max-width: 1200px) {
   .promo-block {
-	opacity: 0%;
+    opacity: 0%;
   }
 }
 
@@ -1337,8 +1341,8 @@ body {
 }
 @media screen and (max-width: 1024px) {
   .hot::after {
-	font-size: 8px;
-	min-width: 20px;
+    font-size: 8px;
+    min-width: 20px;
   }
 }
 
@@ -1494,7 +1498,7 @@ body {
 }
 @media screen and (max-width: 1200px) {
   .input-form .select-category {
-	display: none;
+    display: none;
   }
 }
 .input-form .input-field {
@@ -1727,175 +1731,175 @@ h1 {
 
 @media screen and (max-width: 1024px) {
   .col-md-1 {
-	flex-basis: 8.3333333333%;
-	max-width: 8.3333333333%;
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-2 {
-	flex-basis: 16.6666666667%;
-	max-width: 16.6666666667%;
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-3 {
-	flex-basis: 25%;
-	max-width: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-4 {
-	flex-basis: 33.3333333333%;
-	max-width: 33.3333333333%;
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-5 {
-	flex-basis: 41.6666666667%;
-	max-width: 41.6666666667%;
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-6 {
-	flex-basis: 50%;
-	max-width: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-7 {
-	flex-basis: 58.3333333333%;
-	max-width: 58.3333333333%;
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-8 {
-	flex-basis: 66.6666666667%;
-	max-width: 66.6666666667%;
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-9 {
-	flex-basis: 75%;
-	max-width: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-10 {
-	flex-basis: 83.3333333333%;
-	max-width: 83.3333333333%;
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-11 {
-	flex-basis: 91.6666666667%;
-	max-width: 91.6666666667%;
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .col-md-12 {
-	flex-basis: 100%;
-	max-width: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-1 {
-	flex-basis: 8.3333333333%;
-	max-width: 8.3333333333%;
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-2 {
-	flex-basis: 16.6666666667%;
-	max-width: 16.6666666667%;
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-3 {
-	flex-basis: 25%;
-	max-width: 25%;
+    flex-basis: 25%;
+    max-width: 25%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-4 {
-	flex-basis: 33.3333333333%;
-	max-width: 33.3333333333%;
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-5 {
-	flex-basis: 41.6666666667%;
-	max-width: 41.6666666667%;
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-6 {
-	flex-basis: 50%;
-	max-width: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-7 {
-	flex-basis: 58.3333333333%;
-	max-width: 58.3333333333%;
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-8 {
-	flex-basis: 66.6666666667%;
-	max-width: 66.6666666667%;
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-9 {
-	flex-basis: 75%;
-	max-width: 75%;
+    flex-basis: 75%;
+    max-width: 75%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-10 {
-	flex-basis: 83.3333333333%;
-	max-width: 83.3333333333%;
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-11 {
-	flex-basis: 91.6666666667%;
-	max-width: 91.6666666667%;
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
   }
 }
 
 @media screen and (max-width: 767px) {
   .col-sm-12 {
-	flex-basis: 100%;
-	max-width: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
   }
 }
 
 @media screen and (max-width: 1200px) {
   .container {
-	max-width: 95%;
+    max-width: 95%;
   }
 }
 .article {

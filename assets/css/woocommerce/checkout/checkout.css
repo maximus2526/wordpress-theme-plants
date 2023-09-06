@@ -11,7 +11,7 @@
 
 @media screen and (max-width: 1024px) {
   .woocommerce-billing-fields {
-	width: 100% !important;
+    width: 100% !important;
   }
 }
 .woocommerce-billing-fields,

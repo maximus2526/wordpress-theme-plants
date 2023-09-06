@@ -141,13 +141,13 @@ if ( ! function_exists( 'plants_container_inline_css' ) ) {
 			.container { max-width: ' . (int) $option . 'px; }
 			.elementor-container { max-width: ' . (int) $option . 'px !important; }
 			';
-			wp_register_style( 'plants-container-inline', false, 'jquery', PLANTS_VERSION );
+			wp_register_style( 'plants-container-inline', false, false, PLANTS_VERSION );
 			wp_enqueue_style( 'plants-container-inline' );
 			wp_add_inline_style( 'plants-container-inline', $css );
 		}
 	}
 
-	add_action( 'wp_enqueue_scripts', 'plants_container_inline_css', 99 );
+	add_action( 'wp_enqueue_scripts', 'plants_container_inline_css' );
 }
 
 if ( ! function_exists( 'plants_get_product_img' ) ) {

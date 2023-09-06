@@ -39,6 +39,7 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 		$widgets_manager->register( new \Social_Links_Widget() );
 		$widgets_manager->register( new \Partners_Links_Widget() );
 	}
+	add_action( 'elementor/widgets/register', 'plants_register_widgets' );
 }
 if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 	/**
@@ -56,8 +57,8 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 			)
 		);
 	}
+	add_action( 'elementor/elements/categories_registered', 'plants_custom_elementor_widget_category' );
 }
-add_action( 'elementor/elements/categories_registered', 'plants_custom_elementor_widget_category' );
 
 
-add_action( 'elementor/widgets/register', 'plants_register_widgets' );
+
