@@ -54,10 +54,9 @@ class WooCommerce {
 		add_filter( 'woocommerce_show_page_title', '__return_empty_array' );
 		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
 		add_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 );
-		if ( 'on' === get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true ) && null !== get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true ) ) {
-				remove_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 );
+		if ( 'on' !== get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true ) && null !== get_option( 'woocommerce_shop_page_id' ) ) {
+				remove_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 ); // TODO: FIX. Side bar disable on all woocommerce pages.
 		}
-
 	}
 
 
