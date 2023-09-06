@@ -19,13 +19,13 @@ if ( ! function_exists( 'plants_slider_field' ) ) {
 	 */
 	function plants_slider_field( $args ) {
 		?>
-		<div class="slider-field">
+		<div id="<?php echo esc_html( $args['unique_prefix'] ); ?>-slider-field">
 			<div class="current-value">
-				<b><span style="color:green" class="slider-result"><?php echo esc_html__( 'Current: ', 'plants' ) . (int) $args['field_result'] . esc_html( ' px.' ); ?></span></b>
+				<b><span style="color:green" id="<?php echo esc_html( $args['unique_prefix'] ); ?>-slider-result"> <?php echo null !== plants_get_options( $args['unique_prefix'] . '_slider_input' ) ? esc_html( plants_get_options( $args['unique_prefix'] . '_slider_input' ) ) . ' px.' : (int) $args['default']; ?></span></b>
 			</div>
 			<div class="value-changer">
-				<div data-range="{'min': '<?php echo (int) $args['min']; ?>','max': '<?php echo (int) $args['max']; ?>'}" class="jquery-slider"></div>
-				<input value="<?php echo (int) $args['field_result']; ?>" type="hidden" name="plants_options[<?php echo esc_html( $args['field_unique_name'] ); ?>]">
+				<div data-prefix="<?php echo esc_html( $args['unique_prefix'] ); ?>" class="jquery-slider"></div>
+				<input  data-max="<?php echo (int) $args['max']; ?>" data-min="<?php echo (int) $args['min']; ?>" data-name="<?php echo esc_html( $args['unique_prefix'] ) . '_slider_input'; ?>" value="<?php echo null !== plants_get_options( $args['unique_prefix'] . '_slider_input' ) ? (int) plants_get_options( $args['unique_prefix'] . '_slider_input' ) : (int) $args['default']; ?>" type="hidden" name="plants_options[<?php echo esc_html( $args['unique_prefix'] ) . '_slider_input'; ?>]">
 			</div>
 		</div>
 		<?php

@@ -40,11 +40,10 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_slider_field',
 			'args'     => array(
-				'field_unique_name'  => 'global_container',
-				'slider_unique_name' => 'container-slider',
-				'field_result'       => null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024,
-				'min'                => '1024',
-				'max'                => '2000',
+				'unique_prefix' => 'first',
+				'default'       => null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024, // Field result.
+				'min'           => '1024',
+				'max'           => '2000',
 			),
 		);
 
@@ -54,11 +53,10 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_slider_field',
 			'args'     => array(
-				'field_unique_name'  => 'global_container2',
-				'slider_unique_name' => 'container-slider2',
-				'field_result'       => null !== plants_get_options( 'global_container2' ) ? (int) plants_get_options( 'global_container2' ) : 1024,
-				'min'                => '1024',
-				'max'                => '2000',
+				'unique_prefix' => 'second',
+				'default'       => null !== plants_get_options( 'global_container2' ) ? (int) plants_get_options( 'global_container2' ) : 1024,
+				'min'           => '1024',
+				'max'           => '2000',
 			),
 		);
 

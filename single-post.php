@@ -15,7 +15,7 @@ get_header();
 	<h3 class="page-slag"><?php echo esc_html( 'Blog' ); ?></h3>
 	<div class="row">
 		<?php if ( 'on' !== get_post_meta( get_the_ID(), 'disable_sidebar', true ) ) : ?>
-			<div class="col-3  col-sm-12">
+			<div class="col-3 col-sm-12">
 				<?php get_sidebar(); ?>
 			</div>
 		<?php endif; ?>
