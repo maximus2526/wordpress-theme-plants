@@ -13,7 +13,7 @@ namespace PLANTS\Inc;
 use PLANTS\Inc\Traits\Singleton;
 
 /**
- * MetaBoxes
+ * Sidebars
  */
 class Sidebars {
 
@@ -27,7 +27,6 @@ class Sidebars {
 	protected function __construct() {
 		add_action( 'widgets_init', array( $this, 'register_wp_sidebars' ) );
 	}
-
 
 
 	/**
@@ -47,8 +46,17 @@ class Sidebars {
 				'after_title'   => '</h3>',
 			)
 		);
+
+		register_sidebar(
+			array(
+				'id'            => 'footer-sidebar',
+				'name'          => 'Footer-Sidebar',
+				'description'   => esc_html__( 'Drag here widgets.', 'plants' ),
+				'before_widget' => '<div id="%1$s" class="footer-sidebar widget %2$s">',
+				'after_widget'  => '</div>',
+				'before_title'  => '<h3 class="widget-title">',
+				'after_title'   => '</h3>',
+			)
+		);
 	}
-
-
-
 }

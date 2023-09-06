@@ -44,7 +44,9 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 			</div>        
 			<div class="col-6 right-side display-flex justify-around col-md-12">
 				<?php
-					plants_get_footer_menus(); // Print footer menus.
+				if ( is_active_sidebar( 'footer-sidebar' ) ) {
+					dynamic_sidebar( 'footer-sidebar' );
+				}
 				?>
 			</div>
 	</div>
