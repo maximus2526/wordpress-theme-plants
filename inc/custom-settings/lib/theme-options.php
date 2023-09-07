@@ -41,20 +41,7 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'callback' => 'plants_slider_field',
 			'args'     => array(
 				'unique_prefix' => 'first',
-				'default'       => null !== plants_get_options( 'global_container' ) ? (int) plants_get_options( 'global_container' ) : 1024, // Field result.
-				'min'           => '1024',
-				'max'           => '2000',
-			),
-		);
-
-		$options[] = array(
-			'section'  => 'global_settings',
-			'id'       => 'container_width2',
-			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
-			'callback' => 'plants_slider_field',
-			'args'     => array(
-				'unique_prefix' => 'second',
-				'default'       => null !== plants_get_options( 'global_container2' ) ? (int) plants_get_options( 'global_container2' ) : 1024,
+				'default'       => null !== plants_get_options( 'first_slider_input' ) ? (int) plants_get_options( 'first_slider_input' ) : 1024, // Field result.
 				'min'           => '1024',
 				'max'           => '2000',
 			),
