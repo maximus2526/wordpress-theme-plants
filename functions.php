@@ -68,9 +68,8 @@ if ( ! function_exists( 'plants_custom_allow_svg_upload' ) ) {
 		$mimes['svg'] = 'image/svg+xml';
 		return $mimes;
 	}
+	add_filter( 'upload_mimes', 'plants_custom_allow_svg_upload' );
 }
-
-add_filter( 'upload_mimes', 'plants_custom_allow_svg_upload' );
 
 if ( ! function_exists( 'plants_custom_allow_svg_in_content' ) ) {
 	/**
@@ -165,7 +164,7 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 }
 
 
-// Elementor sub-addon enabled.
+// Elementor sub-addon enable.
 if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 	include 'inc/elementor-plants/elementor-addon.php';
 }

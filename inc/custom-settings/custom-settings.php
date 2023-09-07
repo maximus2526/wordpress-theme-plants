@@ -90,10 +90,12 @@ if ( ! function_exists( 'plants_register_settings' ) ) {
 		}
 	}
 	add_action( 'admin_init', 'plants_register_settings' );
+
+	// Includes section.
+	require_once 'lib/fields.php';
+	require_once 'lib/theme-options.php';
+	require_once 'lib/settings-page.php';
+
 }
 
 
-// Includes section.
-require_once 'lib/fields.php';
-require_once 'lib/theme-options.php';
-require_once 'lib/settings-page.php';
