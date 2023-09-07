@@ -52,16 +52,31 @@ class Sidebars {
 
 		register_sidebar(
 			array(
-				'id'             => 'footer-sidebar',
-				'name'           => 'Footer-Sidebar',
+				'id'             => 'footer-sidebar-left',
+				'name'           => 'Footer-Sidebar-Left',
 				'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
 				'before_widget'  => '<div id="%1$s" class="widget %2$s">',
 				'after_widget'   => '</div>',
 				'after_sidebar'  => '</div>',
-				'before_sidebar' => '<div id="%1$s" class="footer-sidebar">',
+				'before_sidebar' => '<div id="%1$s" class="footer-sidebar-left">',
+				'before_title'   => '<h3 class="widget-title">',
+				'after_title'    => '</h3>',
+			)
+		);
+
+		register_sidebar(
+			array(
+				'id'             => 'footer-sidebar-right',
+				'name'           => 'Footer-Sidebar-Right',
+				'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
+				'before_widget'  => '<div id="%1$s" class="widget %2$s">',
+				'after_widget'   => '</div>',
+				'after_sidebar'  => '</div>',
+				'before_sidebar' => '<div id="%1$s" class="footer-sidebar-right">',
 				'before_title'   => '<h3 class="widget-title">',
 				'after_title'    => '</h3>',
 			)
 		);
 	}
+
 }

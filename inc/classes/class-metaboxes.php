@@ -116,12 +116,10 @@ class MetaBoxes {
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 			return $post_id;
 		}
-		$disable_list = array(
-			'disable_header',
-			'disable_footer',
-			'disable_sidebar',
-		);
+		$disable_list = $this->field_list['disable-controls'];
+
 		foreach ( $disable_list as $disable_item ) {
+			$disable_item = $disable_item['field_name'];
 			if ( isset( $_POST[ $disable_item ] ) ) {
 				update_post_meta( $post_id, $disable_item, sanitize_text_field( isset( $_POST[ $disable_item ] ) ? wp_unslash( $_POST[ $disable_item ] ) : '' ) );
 			} else {

@@ -32,9 +32,6 @@ if ( ! function_exists( 'plants_slider_field' ) ) {
 	}
 }
 
-
-
-
 if ( ! function_exists( 'plants_boolean_choice' ) ) {
 	/**
 	 * Plants_boolean_selection.

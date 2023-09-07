@@ -26,16 +26,11 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 				<div class="logo-section">
 					<?php the_custom_logo(); ?>
 				</div>
-				<div class="subscribe-block display-flex column gap">
-					<label for="footer-subscribe-input"><?php echo esc_html__( 'Join our newsletter	to	stay up to date on features and releases.', 'plants' ); ?></label>
-					<form action="" method="post" id="footer-subscribe-input" class="subscribe-input display-flex gap-5">
-						<input placeholder=<?php echo esc_html__( 'Enter your email', 'plants' ); ?> type="email" name="subscribe-email">
-						<button class="button" type="submit"><?php echo esc_html__( 'Subscribe', 'plants' ); ?></button>
-					</form>
-					<div class="text">
-						<?php echo esc_html__( 'By subscribing you agree to with our Privacy Policy and provide consent to receive updates from our company.', 'plants' ); ?>
-					</div>
-				</div>
+				<?php
+				if ( is_active_sidebar( 'footer-sidebar-left' ) ) {
+					dynamic_sidebar( 'footer-sidebar-left' );
+				}
+				?>
 				<div class="social">
 					<a href=""><span class="social-icons">FB</span></a>
 					<a href=""><span class="social-icons">TW</span></a>
@@ -44,8 +39,8 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 			</div>
 			<div class="col-6 right-side display-flex justify-around col-md-12">
 				<?php
-				if ( is_active_sidebar( 'footer-sidebar' ) ) {
-					dynamic_sidebar( 'footer-sidebar' );
+				if ( is_active_sidebar( 'footer-sidebar-right' ) ) {
+					dynamic_sidebar( 'footer-sidebar-right' );
 				}
 				?>
 			</div>
