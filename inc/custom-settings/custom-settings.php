@@ -9,19 +9,23 @@
  */
 
 if ( ! function_exists( 'plants_styles_scripts_enqueue' ) ) {
-	/**
-	 * Custom Settings Enqueue Styles/Scripts.
-	 *
-	 * @return void
-	 */
-	function plants_styles_scripts_enqueue() {
-		wp_enqueue_script( 'jquery-ui-core' );
-		wp_enqueue_script( 'jquery-ui-slider' );
-		wp_enqueue_style( 'jquery-ui', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/jquery-ui/jquery-ui.min.css', false, PLANTS_VERSION );
-		wp_enqueue_style( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.css', false, PLANTS_VERSION );
-		wp_enqueue_script( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.js', false, PLANTS_VERSION, true );
+	$url_parts = wp_parse_url( add_query_arg( null, null ) );
+	isset( $url_parts['query'] ) ? parse_str( $url_parts['query'], $query_params ) : '';
+	$page_name = isset( $query_params['page'] ) ? $query_params['page'] : '';
+	if ( 'theme-options' === $page_name ) {
+		/**
+		 * Custom Settings Enqueue Styles/Scripts.
+		 *
+		 * @return void
+		 */
+		function plants_styles_scripts_enqueue() {
+			wp_enqueue_script( 'jquery-ui-slider' );
+			wp_enqueue_style( 'jquery-ui', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/jquery-ui/jquery-ui.min.css', false, PLANTS_VERSION );
+			wp_enqueue_style( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.css', false, PLANTS_VERSION );
+			wp_enqueue_script( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.js', false, PLANTS_VERSION, true );
+		}
+		add_action( 'admin_enqueue_scripts', 'plants_styles_scripts_enqueue' );
 	}
-	add_action( 'admin_enqueue_scripts', 'plants_styles_scripts_enqueue' );
 }
 
 

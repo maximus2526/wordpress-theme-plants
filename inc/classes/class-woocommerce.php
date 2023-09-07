@@ -75,13 +75,13 @@ class WooCommerce {
 	public function disable_sidebar() {
 		if ( is_product() ) {
 			$option = get_post_meta( get_the_ID(), 'disable_sidebar', true );
-			if ( 'on' === $option && isset( $option ) ) {
+			if ( 'on' === $option ) {
 				remove_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 );
 			}
 		}
 		if ( is_shop() ) {
 			$option = get_post_meta( get_option( 'woocommerce_shop_page_id' ), 'disable_sidebar', true );
-			if ( 'on' === $option && isset( $option ) ) {
+			if ( 'on' === $option ) {
 				remove_action( 'woocommerce_after_main_content', 'woocommerce_get_sidebar', 10 );
 			}
 		}
