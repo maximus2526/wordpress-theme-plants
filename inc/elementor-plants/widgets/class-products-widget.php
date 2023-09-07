@@ -110,7 +110,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 					'default' => 'no',
 				)
 			);
-			 $this->end_controls_section();
+			$this->end_controls_section();
 		} else {
 			$this->start_controls_section(
 				'section_content',

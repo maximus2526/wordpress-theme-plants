@@ -16,6 +16,7 @@ use PLANTS\Inc\Traits\Singleton;
  * WooCommerce
  */
 class WooCommerce {
+
 	use Singleton;
 
 	/**
@@ -92,7 +93,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_container() {
-		 echo '<div class="container wc-page">';
+		echo '<div class="container wc-page">';
 	}
 
 	/**
@@ -101,7 +102,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function print_end_container() {
-		 echo '</div>';
+		echo '</div>';
 	}
 
 	/**
@@ -124,7 +125,7 @@ class WooCommerce {
 	 * @return void
 	 */
 	public function add_woocommerce_support() {
-		 add_theme_support( 'woocommerce' );
+		add_theme_support( 'woocommerce' );
 	}
 
 	/**

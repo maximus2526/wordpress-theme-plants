@@ -28,7 +28,7 @@ if ( ! function_exists( 'plants_option_page' ) ) {
 	 * @return void
 	 */
 	function plants_option_page() {
-		 $settings_output = plants_get_settings();
+		$settings_output = plants_get_settings();
 		?>
 		<div class="wrap">
 			<h2><?php echo esc_html( $settings_output['plants_page_title'] ); ?></h2>
