@@ -133,7 +133,7 @@ if ( ! function_exists( 'plants_container_inline_css' ) ) {
 	 * @return void
 	 */
 	function plants_container_inline_css() {
-		$option = plants_get_options( 'first_slider_input' );
+		$option = plants_get_options( 'first' );
 		if ( isset( $option ) && is_numeric( $option ) ) {
 			$css = '
 			.container { max-width: ' . (int) $option . 'px; }

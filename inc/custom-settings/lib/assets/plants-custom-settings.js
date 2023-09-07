@@ -2,19 +2,20 @@
 const $ = jQuery;
 
 $(document).ready(() => {
-	$(".jquery-slider").each(function () {
-		let prefix = $(this).data('prefix'); // ДИВИСЬ ПРО $(this)!
-		let name =  $(this).data('name');
-		$(this).slider({
-			min: $(this).data('min'), // min value.
-			max: $(this).data('max'), // max value.
+	$(".slider-field").each(function () {
+		let this_pointer = $(this);
+		let name = this_pointer.find('.jquery-slider').data('name');
+		this_pointer.find('.jquery-slider').slider({
+			min: this_pointer.find('.jquery-slider').data('min'), 
+			max: this_pointer.find('.jquery-slider').data('max'), 
 			step: 1,
-			name: 'plants_options[' + name + ']',
-			value: $("input[name='plants_options[" + name + "]'").val(), // default value of slider.
+			name: 'plants_options[' + name + ']', 
+			value: $("input[name='plants_options[" + name + "]']").val(),
 			slide: function (event, ui) {
-				$("#" + prefix + "-slider-result").text(ui.value + ' px.');
-				$("#" + prefix + "-slider-field input").val(ui.value);
+				this_pointer.find('.slider-result').text(ui.value + ' px.');
+				this_pointer.find('input').val(ui.value);
 			}
 		});
-	})
-}); 
+	});
+});
+
