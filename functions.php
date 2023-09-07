@@ -39,7 +39,6 @@ if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 	function plants_get_theme_instances() {
 		Inc\THEME::get_instance();
 		Inc\Assets::get_instance();
-		Inc\Menus::get_instance();
 		Inc\WooCommerce::get_instance();
 		Inc\MetaBoxes::get_instance();
 		Inc\Sidebars::get_instance();
