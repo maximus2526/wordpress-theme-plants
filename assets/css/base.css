@@ -196,13 +196,13 @@ footer .subscribe-block {
 footer .subscribe-block label {
   font-size: 24px;
 }
-footer .subscribe-block input {
+footer .subscribe-block input:not([class=button]) {
   width: 70%;
 }
-footer .subscribe-block input::-moz-placeholder {
+footer .subscribe-block input:not([class=button])::-moz-placeholder {
   padding-left: 10px;
 }
-footer .subscribe-block input::placeholder {
+footer .subscribe-block input:not([class=button])::placeholder {
   padding-left: 10px;
 }
 footer .social-icons {

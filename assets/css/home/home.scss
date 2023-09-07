@@ -259,13 +259,14 @@ footer {
 
 
 
-        input {
+        input:not([class='button']) {
             width: 70%;
 
             &::placeholder {
                 padding-left: 10px;
             }
         }
+        
     }
 
     .social-icons {
