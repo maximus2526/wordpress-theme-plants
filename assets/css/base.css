@@ -465,7 +465,8 @@ h6 {
   height: 100%;
 }
 
-.swiper-button-prev, .swiper-button-next {
+.swiper-button-prev,
+.swiper-button-next {
   --swiper-navigation-sides-offset: 200px;
 }
 
@@ -946,11 +947,11 @@ h6 {
 
 .container.wc-page:has(.main-sidebar) #primary {
   float: right;
-  width: 65%;
+  width: 75%;
 }
 .container.wc-page:has(.main-sidebar) .main-sidebar {
   float: left;
-  width: 30%;
+  width: 25%;
 }
 
 .panel-fix {
