@@ -20,6 +20,7 @@ if ( ! function_exists( 'plants_options_page_sections' ) ) {
 		$sections['header_promo_section'] = esc_html__( 'Header Promo Section:', 'plants' );
 		$sections['header_menu_choice']   = esc_html__( 'Header Menu Section:', 'plants' );
 		$sections['footer_section']       = esc_html__( 'Footer Section:', 'plants' );
+		$sections['widget_section']       = esc_html__( 'Widget Section:', 'plants' );
 
 		return $sections;
 	}
@@ -109,6 +110,18 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 			'title'    => esc_html__( 'Footer rights field:', 'plants' ),
 			'callback' => 'plants_text_field',
 			'args'     => array( 'name' => 'footer_rights_text' ),
+		);
+		// Widget.
+
+		$options[] = array(
+			'section'  => 'widget_section',
+			'id'       => 'plants_widget_column_choice',
+			'title'    => esc_html__( 'Select footer sidebar columns:', 'plants' ),
+			'callback' => 'plants_multiple_choice',
+			'args'     => array(
+				'name'     => 'widget_column_choice',
+				'multiple' => range( 1, 6 ),
+			),
 		);
 
 		return (array) $options;

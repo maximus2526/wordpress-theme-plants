@@ -12,6 +12,7 @@ namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
 
+
 /**
  * Sidebars
  */
@@ -49,34 +50,24 @@ class Sidebars {
 				'after_title'    => '</h3>',
 			)
 		);
+		// Register footer columns.
 
-		register_sidebar(
-			array(
-				'id'             => 'footer-sidebar-left',
-				'name'           => 'Footer-Sidebar-Left',
-				'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
-				'before_widget'  => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'   => '</div>',
-				'after_sidebar'  => '</div>',
-				'before_sidebar' => '<div id="%1$s" class="footer-sidebar-left">',
-				'before_title'   => '<h3 class="widget-title">',
-				'after_title'    => '</h3>',
-			)
-		);
+		foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) {
+			register_sidebar(
+				array(
+					'id'             => 'footer-sidebar-' . $sidebar_id,
+					'name'           => 'Footer-Sidebar-Column-' . $sidebar_id,
+					'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
+					'before_widget'  => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'   => '</div>',
+					'after_sidebar'  => '</div>',
+					'before_sidebar' => '<div id="%1$s" class="footer-sidebar-column">',
+					'before_title'   => '<h3 class="widget-title">',
+					'after_title'    => '</h3>',
+				)
+			);
+		}
 
-		register_sidebar(
-			array(
-				'id'             => 'footer-sidebar-right',
-				'name'           => 'Footer-Sidebar-Right',
-				'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
-				'before_widget'  => '<div id="%1$s" class="widget %2$s">',
-				'after_widget'   => '</div>',
-				'after_sidebar'  => '</div>',
-				'before_sidebar' => '<div id="%1$s" class="footer-sidebar-right">',
-				'before_title'   => '<h3 class="widget-title">',
-				'after_title'    => '</h3>',
-			)
-		);
 	}
 
 }

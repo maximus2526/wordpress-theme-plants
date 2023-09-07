@@ -21,30 +21,13 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 	?>
 <footer class="container">
 	<div class="top-footer">
-		<div class="row">
-			<div class="col-6 left-side col-md-12">
-				<div class="logo-section">
-					<?php the_custom_logo(); ?>
-				</div>
-				<?php
-				if ( is_active_sidebar( 'footer-sidebar-left' ) ) {
-					dynamic_sidebar( 'footer-sidebar-left' );
-				}
-				?>
-				<div class="social">
-					<a href=""><span class="social-icons">FB</span></a>
-					<a href=""><span class="social-icons">TW</span></a>
-					<a href=""><span class="social-icons">IN</span></a>
-				</div>
-			</div>
-			<div class="col-6 right-side display-flex justify-around col-md-12">
-				<?php
-				if ( is_active_sidebar( 'footer-sidebar-right' ) ) {
-					dynamic_sidebar( 'footer-sidebar-right' );
-				}
-				?>
-			</div>
-		</div>
+	<?php
+	foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) {
+		if ( is_active_sidebar( 'footer-sidebar-' . $sidebar_id ) ) {
+					dynamic_sidebar( 'footer-sidebar-' . $sidebar_id ); // TODO !НЕ виводить!
+		}
+	}
+	?>
 	</div>
 	<div class="bottom-footer display-flex space-between align-center">
 		<div class="rights">
