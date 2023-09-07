@@ -11,7 +11,6 @@
 get_header();
 ?>
 <div class="container">
-	<h3 class="green-text"><?php esc_html__( 'Blog', 'plants' ); ?></h3>
 	<div class="row">
 		<?php
 		$blog_page_id = get_option( 'page_for_posts' );
