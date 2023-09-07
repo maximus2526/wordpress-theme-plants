@@ -31,9 +31,20 @@ class MetaBoxes {
 	 */
 	protected function __construct() {
 		$this->field_list = array(
-			'disable_header' => 'Display Control',
-			'disable_header' => 'Display Control',
-			'disable_header' => 'Display Control',
+			'disable-controls' => array(
+				'disable_header_field'  => array(
+					'display_name' => esc_html__( 'Disable header', 'plants' ),
+					'field_name'   => 'disable_header',
+				),
+				'disable_footer_field'  => array(
+					'display_name' => esc_html__( 'Disable footer', 'plants' ),
+					'field_name'   => 'disable_footer',
+				),
+				'disable_sidebar_field' => array(
+					'display_name' => esc_html__( 'Disable sidebar', 'plants' ),
+					'field_name'   => 'disable_sidebar',
+				),
+			),
 		);
 
 		add_action( 'add_meta_boxes', ( array( $this, 'add_metabox' ) ) );
@@ -48,11 +59,12 @@ class MetaBoxes {
 	public function add_metabox() {
 		add_meta_box(
 			'plant_disable_elements_metabox',
-			esc_html__( 'Display Control', 'plants' ),
+			esc_html__( 'Disable controls', 'plants' ),
 			array( $this, 'disabler_metabox_callback' ),
 			array( 'post', 'page', 'product' ),
 			'normal',
-			'default'
+			'default',
+			$this->field_list,
 		);
 	}
 
@@ -60,32 +72,27 @@ class MetaBoxes {
 	 * Disabler_metabox_callback.
 	 *
 	 * @param  object $post Post.
+	 * @param array  $fields Options for fields.
 	 * @return void
 	 */
-	public function disabler_metabox_callback( $post ) {
+	public function disabler_metabox_callback( $post, $fields ) {
 		$post_id = $post->ID;
+		$fields  = $fields['args']['disable-controls'];
 		wp_nonce_field( 'postsettingsupdate-' . $post_id, '_nonce' );
-
-		$disable_list = array(
-			'disable_header'  => get_post_meta( $post->ID, 'disable_header', true ),
-			'disable_footer'  => get_post_meta( $post->ID, 'disable_footer', true ),
-			'disable_sidebar' => get_post_meta( $post->ID, 'disable_sidebar', true ),
-		);
-
-		?>
-		<table class="form-table">
-			<tbody>
-				<?php foreach ( $disable_list as $key => $value ) : ?>
-					<tr>
-						<th><?php echo esc_html( ucwords( $key ) ); ?></th>
-						<td>
-							<label><input type="checkbox" name="<?php echo esc_html( $key ); ?>" <?php checked( 'on', esc_html( $value ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
-						</td>
-					</tr>
-				<?php endforeach; ?>
-			</tbody>
-		</table>
-		<?php
+		foreach ( $fields as $field ) :
+			?>
+			<table class="form-table">
+				<tbody>
+						<tr>
+							<th><?php echo esc_html( ucwords( $field['display_name'] ) ); ?></th>
+							<td>
+								<label><input type="checkbox" name="<?php echo esc_html( $field['field_name'] ); ?>" <?php checked( 'on', esc_html( get_post_meta( $post->ID, $field['field_name'], true ) ) ); ?> /> <?php echo esc_html__( ' Yes', 'plants' ); ?></label>
+							</td>
+						</tr>
+				</tbody>
+			</table>
+			<?php
+		endforeach;
 	}
 
 	/**
@@ -124,4 +131,5 @@ class MetaBoxes {
 
 		return $post_id;
 	}
+
 }
