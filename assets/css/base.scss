@@ -9,6 +9,12 @@
 @import "woocommerce/shop/shop.scss";
 @import "clash-display.css";
 
+.social-icons.widget-social-error {
+    border-radius: 0;
+    background: rgba(255, 146, 119, 0.856);
+    width: 100px;
+}
+
 #block-8 {
     width: 90%;
 }
