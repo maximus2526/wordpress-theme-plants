@@ -99,7 +99,7 @@ class Footer_Menus_Widget extends WP_Widget {
 	/**
 	 * Update.
 	 *
-	 * @param  object $instance instance.
+	 * @param  object $new_instance new_instance.
 	 * @param  object $old_instance old_instance.
 	 * @return object
 	 */
