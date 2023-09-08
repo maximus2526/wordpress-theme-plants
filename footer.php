@@ -21,13 +21,22 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 	?>
 <footer class="container">
 	<div class="top-footer">
+	<div class="row">
 	<?php
 	foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) {
-		if ( is_active_sidebar( 'footer-sidebar-' . $sidebar_id ) ) {
-					dynamic_sidebar( 'footer-sidebar-' . $sidebar_id ); // TODO !НЕ виводить!
-		}
+		?>
+		<div class="col-<?php echo (int) ceil( 12 / (int) plants_get_options( 'widget_column_choice' ) ); ?>">
+			<?php
+			if ( is_active_sidebar( 'footer-sidebar-' . $sidebar_id ) ) {
+				dynamic_sidebar( 'footer-sidebar-' . $sidebar_id );
+			}
+			?>
+		</div>
+		<?php
 	}
 	?>
+
+	</div>
 	</div>
 	<div class="bottom-footer display-flex space-between align-center">
 		<div class="rights">
