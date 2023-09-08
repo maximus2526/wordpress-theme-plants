@@ -17,7 +17,7 @@ if ( ! function_exists( 'plants_styles_scripts_enqueue' ) ) {
 	 */
 	function plants_styles_scripts_enqueue() {
 		$url_parts = wp_parse_url( add_query_arg( null, null ) );
-		isset( $url_parts['query'] ) ? parse_str( $url_parts['query'], $query_params ) : '';
+		parse_str( $url_parts['query'], $query_params );
 		$page_name = isset( $query_params['page'] ) ? $query_params['page'] : '';
 		if ( 'theme-options' === $page_name ) {
 			wp_enqueue_script( 'jquery-ui-slider' );

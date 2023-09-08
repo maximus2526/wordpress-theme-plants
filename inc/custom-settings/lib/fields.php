@@ -25,7 +25,7 @@ if ( ! function_exists( 'plants_slider_field' ) ) {
 			</div>
 			<div class="value-changer">
 				<div data-max="<?php echo (int) $args['max']; ?>" data-min="<?php echo (int) $args['min']; ?>" data-name="<?php echo esc_html( $args['field_name'] ); ?>" class="jquery-slider"></div>
-				<input  value="<?php echo null !== plants_get_options( $args['field_name'] ) ? (int) plants_get_options( $args['field_name'] ) : (int) $args['default']; ?>" type="hidden" name="plants_options[<?php echo esc_html( $args['field_name'] ); ?>]">
+				<input value="<?php echo null !== plants_get_options( $args['field_name'] ) ? (int) plants_get_options( $args['field_name'] ) : (int) $args['default']; ?>" type="hidden" name="plants_options[<?php echo esc_html( $args['field_name'] ); ?>]">
 			</div>
 		</div>
 		<?php

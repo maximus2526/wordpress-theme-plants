@@ -37,11 +37,11 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 		// Global settings.
 		$options[] = array(
 			'section'  => 'global_settings',
-			'id'       => 'container_width4',
+			'id'       => 'container_width',
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_slider_field',
 			'args'     => array(
-				'field_name' => 'field-container-width4',
+				'field_name' => 'field-container-width',
 				'default'    => 1024,
 				'min'        => 1024,
 				'max'        => 2000,
