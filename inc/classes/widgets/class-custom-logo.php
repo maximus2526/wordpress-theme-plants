@@ -37,7 +37,7 @@ class Custom_Logo extends WP_Widget {
 	 * Widget.
 	 *
 	 * @param  array  $args args.
-	 * @param  object $instance instance.
+	 * @param  array $instance instance.
 	 * @return void
 	 */
 	public function widget( $args, $instance ) {

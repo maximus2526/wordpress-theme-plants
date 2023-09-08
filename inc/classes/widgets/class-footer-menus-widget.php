@@ -38,7 +38,7 @@ class Footer_Menus_Widget extends WP_Widget {
 	 * Widget.
 	 *
 	 * @param  array  $args args.
-	 * @param  object $instance instance.
+	 * @param  array $instance instance.
 	 * @return void
 	 */
 	public function widget( $args, $instance ) {
@@ -64,7 +64,7 @@ class Footer_Menus_Widget extends WP_Widget {
 	/**
 	 * Form.
 	 *
-	 * @param  object $instance instance.
+	 * @param  array $instance instance.
 	 * @return void
 	 */
 	public function form( $instance ) {
@@ -83,10 +83,10 @@ class Footer_Menus_Widget extends WP_Widget {
 			?>
 			<p>
 			<label for="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?> )"><?php echo esc_html__( 'Title:', 'plants' ); ?></label>
-			<input class="widefat" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
+			<input class="widget-field" id="<?php echo esc_html( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 			<label for="<?php echo esc_attr( $this->get_field_id( 'menu-select' ) ); ?>"><?php echo esc_html__( 'Menu:', 'plants' ); ?></label>
-			<select class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'menu-select' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'menu-select' ) ); ?>">
+			<select class="widget-field" id="<?php echo esc_attr( $this->get_field_id( 'menu-select' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'menu-select' ) ); ?>">
 				<?php foreach ( wp_list_pluck( get_terms( 'nav_menu' ), 'name' ) as $menu ) : ?>
 					<option value="<?php echo esc_attr( $menu ); ?>" <?php selected( $selected_menu, $menu ); ?>><?php echo esc_html( $menu ); ?></option>
 				<?php endforeach; ?>
@@ -98,9 +98,9 @@ class Footer_Menus_Widget extends WP_Widget {
 	/**
 	 * Update.
 	 *
-	 * @param  object $new_instance new_instance.
-	 * @param  object $old_instance old_instance.
-	 * @return object
+	 * @param  array $new_instance new_instance.
+	 * @param  array $old_instance old_instance.
+	 * @return array
 	 */
 	public function update( $new_instance, $old_instance ) {
 		$instance                = $old_instance;
