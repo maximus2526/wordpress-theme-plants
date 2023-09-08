@@ -37,14 +37,14 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 		// Global settings.
 		$options[] = array(
 			'section'  => 'global_settings',
-			'id'       => 'container_width2',
+			'id'       => 'container_width4',
 			'title'    => esc_html__( 'Choice width of site container:', 'plants' ),
 			'callback' => 'plants_slider_field',
 			'args'     => array(
-				'field_name' => 'field-container-width2',
-				'default'    => null !== plants_get_options( 'field-container-width2' ) ? (int) plants_get_options( 'field-container-width2' ) : 1024, // Field result.
-				'min'        => '1024',
-				'max'        => '2000',
+				'field_name' => 'field-container-width4',
+				'default'    => 1024,
+				'min'        => 1024,
+				'max'        => 2000,
 			),
 		);
 

@@ -21,10 +21,10 @@ if ( ! function_exists( 'plants_slider_field' ) ) {
 		?>
 		<div class="slider-field">
 			<div class="current-value">
-				<b><span style="color:green" class="slider-result"> <?php echo null !== plants_get_options( $args['field_name'] ) ? esc_html( plants_get_options( $args['field_name'] ) ) . ' px.' : (int) $args['default']; ?></span></b>
+				<b><span style="color:green" class="slider-result"> <?php echo plants_get_options( $args['field_name'] ) ? esc_html( plants_get_options( $args['field_name'] ) ) . ' px.' : (int) $args['default'] . ' px.'; ?></span></b>
 			</div>
 			<div class="value-changer">
-				<div data-max="<?php echo (int) $args['max']; ?>" data-min="<?php echo (int) $args['min']; ?>" data-name="<?php echo esc_html( $args['field_name'] ); ?>"; class="jquery-slider"></div>
+				<div data-max="<?php echo (int) $args['max']; ?>" data-min="<?php echo (int) $args['min']; ?>" data-name="<?php echo esc_html( $args['field_name'] ); ?>" class="jquery-slider"></div>
 				<input  value="<?php echo null !== plants_get_options( $args['field_name'] ) ? (int) plants_get_options( $args['field_name'] ) : (int) $args['default']; ?>" type="hidden" name="plants_options[<?php echo esc_html( $args['field_name'] ); ?>]">
 			</div>
 		</div>
