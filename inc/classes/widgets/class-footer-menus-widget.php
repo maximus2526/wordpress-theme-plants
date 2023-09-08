@@ -53,7 +53,7 @@ class Footer_Menus_Widget extends WP_Widget {
 			<h3 class="widget-title">
 				<?php echo esc_html( $instance['title'] ); ?>
 			</h3>
-		<?
+		<?php
 		wp_nav_menu( $selected_menu );
 		// This is where you run the code and display the output.
 

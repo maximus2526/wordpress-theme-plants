@@ -76,6 +76,6 @@ class Assets {
 	public function register_scripts() {
 		// Enqueue Scripts.
 		wp_enqueue_script( 'plants-swiper', PLANTS_DIR_URI . '/assets/js/swiper-min.js', array(), PLANTS_VERSION, true );
-		wp_enqueue_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', 'jquery', filemtime( PLANTS_JS_DIR_PATH . '/plants_main.js' ), true );
+		wp_enqueue_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', 'jquery', PLANTS_VERSION, true );
 	}
 }

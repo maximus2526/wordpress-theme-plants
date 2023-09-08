@@ -23,8 +23,9 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 	<div class="top-footer">
 	<div class="row">
 	<?php
-	foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) {
-		?>
+	if ( plants_get_options( 'widget_column_choice' ) > 0 && plants_get_options( 'widget_column_choice' ) ) :
+		foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) :
+			?>
 		<div class="col-<?php echo (int) ceil( 12 / (int) plants_get_options( 'widget_column_choice' ) ); ?>">
 			<?php
 			if ( is_active_sidebar( 'footer-sidebar-' . $sidebar_id ) ) {
@@ -32,8 +33,9 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 			}
 			?>
 		</div>
-		<?php
-	}
+			<?php
+		endforeach;
+	endif;
 	?>
 
 	</div>
@@ -53,8 +55,8 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 	</div>
 </footer>
 	<?php
-endif;
-wp_footer();
+	endif;
+	wp_footer();
 ?>
 </body>
 

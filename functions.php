@@ -134,8 +134,8 @@ if ( ! function_exists( 'plants_container_inline_css' ) ) {
 	 * @return void
 	 */
 	function plants_container_inline_css() {
-		$option = plants_get_options( 'first' );
-		if ( isset( $option ) && is_numeric( $option ) ) {
+		$option = plants_get_options( 'field-container-width' );
+		if ( $option && is_numeric( $option ) ) {
 			$css = '
 			.container { max-width: ' . (int) $option . 'px; }
 			.elementor-container { max-width: ' . (int) $option . 'px !important; }

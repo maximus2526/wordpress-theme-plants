@@ -35,7 +35,7 @@
 	if ( 'on' !== get_post_meta( $page_id, 'disable_header', true ) ) :
 		?>
 		<header>
-			<?php if ( 'Yes' === plants_get_options( 'header_banner_hide_option' ) ) : ?>
+			<?php if ( 'yes' === plants_get_options( 'header_banner_hide_option' ) ) : ?>
 				<div class="header-promo text-center">
 					<a href="<?php echo esc_html( plants_get_options( 'header_banner_anchor' ) ); ?>"><?php echo esc_html( plants_get_options( 'header_banner_info' ) ); ?></a>
 				</div>
