@@ -12,6 +12,7 @@ namespace PLANTS\Inc;
 
 use WP_Widget;
 
+
 /**
  * Custom_Logo_Widget
  */
@@ -23,13 +24,11 @@ class Custom_Logo extends WP_Widget {
 	 */
 	public function __construct() {
 		parent::__construct(
-			// ID of widget.
 			'plants_custom_logo',
-			// Widget name will appear in UI.
 			esc_html__( 'Custom Logo', 'plants' ),
-			// Widget description.
 			array( 'description' => esc_html__( 'Display Custom Logo', 'plants' ) )
 		);
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
 
 
@@ -47,26 +46,11 @@ class Custom_Logo extends WP_Widget {
 
 
 	/**
-	 * Form.
+	 * Register Widgets.
 	 *
-	 * @param  object $instance instance.
 	 * @return void
 	 */
-	public function form( $instance ) {
-
+	public function register_widgets() {
+		register_widget( __CLASS__ );
 	}
-
-
-	/**
-	 * Update.
-	 *
-	 * @param  object $new_instance new_instance.
-	 * @param  object $old_instance old_instance.
-	 * @return void
-	 */
-	public function update( $new_instance, $old_instance ) {
-
-	}
-
-
 }

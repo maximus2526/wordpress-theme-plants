@@ -16,7 +16,6 @@ use WP_Widget;
  * Social_Widget
  */
 class Footer_Menus_Widget extends WP_Widget {
-
 	/**
 	 * __construct
 	 *
@@ -31,6 +30,7 @@ class Footer_Menus_Widget extends WP_Widget {
 			// Widget description.
 			array( 'description' => esc_html__( 'Menus widget.', 'plants' ) )
 		);
+		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
 
 
@@ -58,7 +58,6 @@ class Footer_Menus_Widget extends WP_Widget {
 		// This is where you run the code and display the output.
 
 		echo wp_kses_post( $args['after_widget'] );
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
 
 
@@ -117,6 +116,6 @@ class Footer_Menus_Widget extends WP_Widget {
 	 * @return void
 	 */
 	public function register_widgets() {
-		register_widget( 'plants_menus_widget' );
+		register_widget( __CLASS__ );
 	}
 }

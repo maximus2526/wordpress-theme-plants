@@ -17,13 +17,15 @@ if ( ! function_exists( 'plants_styles_scripts_enqueue' ) ) {
 	 */
 	function plants_styles_scripts_enqueue() {
 		$url_parts = wp_parse_url( add_query_arg( null, null ) );
-		parse_str( $url_parts['query'], $query_params );
-		$page_name = isset( $query_params['page'] ) ? $query_params['page'] : '';
-		if ( 'theme-options' === $page_name ) {
-			wp_enqueue_script( 'jquery-ui-slider' );
-			wp_enqueue_style( 'jquery-ui', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/jquery-ui/jquery-ui.min.css', false, PLANTS_VERSION );
-			wp_enqueue_style( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.css', false, PLANTS_VERSION );
-			wp_enqueue_script( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.js', false, PLANTS_VERSION, true );
+		if ( isset( $url_parts['query'] ) ) {
+			parse_str( $url_parts['query'], $query_params );
+			$page_name = isset( $query_params['page'] ) ? $query_params['page'] : '';
+			if ( 'theme-options' === $page_name ) {
+				wp_enqueue_script( 'jquery-ui-slider' );
+				wp_enqueue_style( 'jquery-ui', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/jquery-ui/jquery-ui.min.css', false, PLANTS_VERSION );
+				wp_enqueue_style( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.css', false, PLANTS_VERSION );
+				wp_enqueue_script( 'plants-custom-settings', PLANTS_DIR_URI . '/inc/custom-settings/lib/assets/plants-custom-settings.js', false, PLANTS_VERSION, true );
+			}
 		}
 	}
 
