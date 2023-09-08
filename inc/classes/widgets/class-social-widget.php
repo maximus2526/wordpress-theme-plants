@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Theme adding support
  *
@@ -61,17 +60,22 @@ class Social_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		echo wp_kses_post( $args['before_widget'] );
 		echo '<div class="social">';
-		foreach ( range( 1, $this->max_links ) as $link_id ) {
-			$url_key      = 'social_url_' . (int) $link_id;
-			$url          = isset( $instance[ $url_key ] ) ? $instance[ $url_key ] : '';
-			$abbreviation = $this->get_abbreviation( $url ) ? $this->get_abbreviation( $url ) : esc_html( 'Invalid link' );
-			$error_class  = esc_html__( 'Invalid link', 'plants' ) === $abbreviation ? 'widget-social-error' : '';
+		$social_list = array(
+			'facebook'  => 'FB',
+			'instagram' => 'IN',
+			'twitter'   => 'TW',
+			'linkedin'  => 'LI',
+			'instagram' => 'IN',
+		);
+		foreach ( $social_list as $social_name => $abbreviation ) {
+
+			$url          = isset( $instance[ 'social_url_' . $social_name ] ) ? $instance[ 'social_url_' . $social_name ] : '';
 			?>
-			<a href="<?php echo esc_url( $url ); ?>"><span class="social-icons <?php echo esc_html( $error_class ); ?>"><?php echo esc_html( $abbreviation ); ?></span></a>
+		<a href="<?php echo esc_url( $url ); ?>"><span class="social-icons"><?php echo esc_html( $abbreviation ); ?></span></a>
 			<?php
 		}
-		echo '</div>';
-		echo wp_kses_post( $args['after_widget'] );
+			echo '</div>';
+			echo wp_kses_post( $args['after_widget'] );
 	}
 
 
@@ -81,20 +85,20 @@ class Social_Widget extends WP_Widget {
 	 * @param string $link Link.
 	 * @return array
 	 */
-	public function get_abbreviation( $link ) {
-		$abbreviation_list = array(
-			'facebook'  => 'FB',
-			'instagram' => 'IN',
-			'twitter'   => 'TW',
-			'linkedin'  => 'LI',
-			'instagram' => 'IN',
-		);
-		$url_parts         = wp_parse_url( $link );
-		$hostname          = isset( $url_parts['host'] ) ? $url_parts['host'] : '';
-		$delete_extra      = explode( '.', $hostname )[0];
-		$abbreviation      = isset( $abbreviation_list[ $delete_extra ] ) ? $abbreviation_list[ $delete_extra ] : '';
-		return $abbreviation;
-	}
+	// public function get_abbreviation( $link ) {
+	// $abbreviation_list = array(
+	// 'facebook'  => 'FB',
+	// 'instagram' => 'IN',
+	// 'twitter'   => 'TW',
+	// 'linkedin'  => 'LI',
+	// 'instagram' => 'IN',
+	// );
+	// $url_parts         = wp_parse_url( $link );
+	// $hostname          = isset( $url_parts['host'] ) ? $url_parts['host'] : '';
+	// $delete_extra      = explode( '.', $hostname )[0];
+	// $abbreviation      = isset( $abbreviation_list[ $delete_extra ] ) ? $abbreviation_list[ $delete_extra ] : '';
+	// return $abbreviation;
+	// }
 
 	/**
 	 * Form.
@@ -103,15 +107,15 @@ class Social_Widget extends WP_Widget {
 	 * @return void
 	 */
 	public function form( $instance ) {
-		foreach ( range( 1, $this->max_links ) as $link_id ) {
-			$url_key    = 'social_url_' . (int) $link_id;
-			$social_url = isset( $instance[ $url_key ] ) ? $instance[ $url_key ] : esc_html( 'your-site.url' );
+		$social_names = array( 'facebook', 'instagram', 'twitter', 'linkedin', 'instagram' );
+		foreach ( $social_names as $name ) {
+			$social_url = isset( $instance[ 'social_url_' . $name ] ) ? $instance[ 'social_url_' . $name ] : esc_html( 'your-site.url' );
 			?>
-			<span><?php echo esc_html__( 'Link id: ', 'plants' ) . esc_html( $link_id ); ?></span>
-			<p>
-				<label for="<?php echo esc_html( $this->get_field_id( $url_key ) ); ?> )"><?php echo esc_html__( 'Social url:', 'plants' ); ?></label>
-				<input class="widget-field" id="<?php echo esc_html( $this->get_field_id( $url_key ) ); ?>" name="<?php echo esc_html( $this->get_field_name( $url_key ) ); ?>" type="text" value="<?php echo esc_attr( $social_url ); ?>" />
-			</p>
+		<span><?php echo esc_html( $name ); ?></span>
+		<p>
+			<label for="<?php echo esc_html( $this->get_field_id( 'social_url_' . $name ) ); ?> )"><?php echo esc_html__( 'Social url:', 'plants' ); ?></label>
+			<input class="widget-field" id="<?php echo esc_html( $this->get_field_id( 'social_url_' . $name ) ); ?>" name="<?php echo esc_html( $this->get_field_name( 'social_url_' . $name ) ); ?>" type="text" value="<?php echo esc_attr( $social_url ); ?>" />
+		</p>
 			<?php
 		}
 	}
@@ -127,9 +131,9 @@ class Social_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 
-		foreach ( range( 1, $this->max_links ) as $link_id ) {
-			$url_key              = 'social_url_' . (int) $link_id;
-			$instance[ $url_key ] = sanitize_text_field( $new_instance[ $url_key ] );
+		$social_names = array( 'facebook', 'instagram', 'twitter', 'linkedin', 'instagram' );
+		foreach ( $social_names as $name ) {
+			$instance[ 'social_url_facebook' . $name ] = sanitize_text_field( $new_instance[ 'social_url_facebook' . $name ] );
 		}
 
 		return $instance;
