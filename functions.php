@@ -42,6 +42,7 @@ if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 		Inc\WooCommerce::get_instance();
 		Inc\MetaBoxes::get_instance();
 		Inc\Sidebars::get_instance();
+		Inc\Widgets::get_instance();
 	}
 }
 
@@ -167,3 +168,15 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 	include 'inc/elementor-plants/elementor-addon.php';
 }
+
+
+/**
+ * Register_custom_widgets.
+ *
+ * @return void
+ */
+function register_custom_widgets() {
+	register_widget( 'PLANTS\Inc\Footer_Menus_Widget' );
+}
+
+add_action( 'widgets_init', 'register_custom_widgets' );

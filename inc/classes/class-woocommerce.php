@@ -44,7 +44,6 @@ class WooCommerce {
 		add_filter( 'woocommerce_post_class', array( $this, 'add_products_column' ) );
 		remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
 		remove_action( 'woocommerce_after_single_product', 'woocommerce_output_related_products', 10 );
-		add_filter( 'woocommerce_enqueue_styles', array( $this, 'dequeue_styles' ) );
 		add_filter( 'woocommerce_enable_order_notes_field', '__return_false' );
 		add_action( 'woocommerce_before_main_content', array( $this, 'print_container' ), 1, 0 );
 		add_action( 'woocommerce_after_main_content', array( $this, 'print_end_container' ), 999 );
@@ -105,19 +104,7 @@ class WooCommerce {
 		echo '</div>';
 	}
 
-	/**
-	 * Dequeue_styles.
-	 *
-	 * @param  array $enqueue_styles WC Styles.
-	 * @return array
-	 */
-	public function dequeue_styles( $enqueue_styles ) {
-		unset( $enqueue_styles['woocommerce-general'] );
-		unset( $enqueue_styles['woocommerce-layout'] );
-		unset( $enqueue_styles['woocommerce-smallscreen'] );
 
-		return $enqueue_styles;
-	}
 
 	/**
 	 * Add_woocommerce_support.

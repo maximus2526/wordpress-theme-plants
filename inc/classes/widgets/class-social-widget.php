@@ -28,7 +28,7 @@ class Social_Widget extends WP_Widget {
 			// Widget name will appear in UI.
 			esc_html__( 'Social Widget', 'plants' ),
 			// Widget description.
-			array( 'description' => esc_html__( 'Sample widget based on WPBeginner Tutorial', 'plants' ) )
+			array( 'description' => esc_html__( 'Social widget', 'plants' ) )
 		);
 	}
 

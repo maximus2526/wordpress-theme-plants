@@ -24,19 +24,10 @@ class Widgets {
 	 * @return void
 	 */
 	public function __construct() {
-			add_action( 'widgets_init', 'register_widgets' );
+		require_once 'widgets/class-footer-menus-widget.php';
+		new Footer_Menus_Widget();
 	}
 
-
-	/**
-	 * Register Widgets.
-	 *
-	 * @return void
-	 */
-	public function register_widgets() {
-		require_once 'widgets/class-social-widget.php';
-		register_widget( 'wpb_widget' );
-	}
 
 }
 
