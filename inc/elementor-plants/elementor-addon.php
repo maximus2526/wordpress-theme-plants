@@ -17,7 +17,7 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 	/**
 	 * Register_widgets.
 	 *
-	 * @param  mixed $widgets_manager Widjet Manager.
+	 * @param  mixed $widgets_manager Widget Manager.
 	 * @return void
 	 */
 	function plants_register_widgets( $widgets_manager ) {

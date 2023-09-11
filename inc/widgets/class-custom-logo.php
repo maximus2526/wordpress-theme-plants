@@ -8,15 +8,15 @@
  * @link    http://www.hashbangcode.com/
  */
 
-namespace PLANTS\Inc;
+namespace PLANTS\Inc\Widgets;
 
 use WP_Widget;
-
 
 /**
  * Custom_Logo_Widget
  */
 class Custom_Logo extends WP_Widget {
+
 	/**
 	 * __construct
 	 *
@@ -28,7 +28,7 @@ class Custom_Logo extends WP_Widget {
 			esc_html__( 'Custom Logo', 'plants' ),
 			array( 'description' => esc_html__( 'Display Custom Logo', 'plants' ) )
 		);
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
+
 	}
 
 
@@ -36,7 +36,7 @@ class Custom_Logo extends WP_Widget {
 	/**
 	 * Widget.
 	 *
-	 * @param  array  $args args.
+	 * @param  array $args args.
 	 * @param  array $instance instance.
 	 * @return void
 	 */
@@ -44,13 +44,6 @@ class Custom_Logo extends WP_Widget {
 			the_custom_logo();
 	}
 
-
-	/**
-	 * Register Widgets.
-	 *
-	 * @return void
-	 */
-	public function register_widgets() {
-		register_widget( __CLASS__ );
-	}
 }
+
+

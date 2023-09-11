@@ -55,6 +55,9 @@ function autoloader( $resource = '' ) {
 				break;
 
 			case 'widgets':
+				$directory = 'widgets';
+				$file_name = sprintf( 'class-%s', trim( strtolower( $path[2] ) ) );
+				break;
 			case 'blocks': // phpcs:ignore PSR2.ControlStructures.SwitchDeclaration.TerminatingComment
 				/**
 				 * If there is class name provided for specific directory then load that.

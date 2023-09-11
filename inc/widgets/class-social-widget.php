@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Theme adding support
  *
@@ -9,10 +8,9 @@
  * @link    http://www.hashbangcode.com/
  */
 
-namespace PLANTS\Inc;
+namespace PLANTS\Inc\Widgets;
 
 use WP_Widget;
-
 
 
 
@@ -57,7 +55,6 @@ class Social_Widget extends WP_Widget {
 			// Widget description.
 			array( 'description' => esc_html__( 'Social widget', 'plants' ) )
 		);
-		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 	}
 
 
@@ -121,12 +118,4 @@ class Social_Widget extends WP_Widget {
 		return $instance;
 	}
 
-	/**
-	 * Register Widgets.
-	 *
-	 * @return void
-	 */
-	public function register_widgets() {
-		register_widget( __CLASS__ );
-	}
 }

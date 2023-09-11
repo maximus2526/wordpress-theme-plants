@@ -52,7 +52,7 @@ class Sidebars {
 		);
 		// Register footer columns.
 		if ( plants_get_options( 'widget_column_choice' ) ) {
-			foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) {
+			foreach ( range( 1, ( plants_get_options( 'widget_column_choice' ) ) ) as $sidebar_id ) {
 				register_sidebar(
 					array(
 						'id'             => 'footer-sidebar-' . $sidebar_id,
@@ -67,6 +67,20 @@ class Sidebars {
 					)
 				);
 			}
+		} else {
+			register_sidebar(
+				array(
+					'id'             => 'footer-sidebar-' . 1,
+					'name'           => esc_html__( 'Footer-Sidebar-Column-' ) . 1,
+					'description'    => esc_html__( 'Drag here widgets.', 'plants' ),
+					'before_widget'  => '<div id="%1$s" class="widget %2$s">',
+					'after_widget'   => '</div>',
+					'after_sidebar'  => '</div>',
+					'before_sidebar' => '<div id="%1$s" class="footer-sidebar-column">',
+					'before_title'   => '<h3 class="widget-title">',
+					'after_title'    => '</h3>',
+				)
+			);
 		}
 
 	}
