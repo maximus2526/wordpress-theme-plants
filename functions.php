@@ -28,7 +28,35 @@ define( 'PLANTS_CSS_DIR_PATH', PLANTS_DIR_PATH . '/assets/css' );
 
 require_once PLANTS_DIR_PATH . '/inc/helpers/autoloader.php';
 
+if ( ! function_exists( 'plants_get_html_blocks_data' ) ) {
+	/**
+	 * Get_html_blocks_data.
+	 *
+	 * @return array
+	 */
+	function plants_get_html_blocks_data() {
+		$post_names = array();
+		$post_ids   = array();
+		$args       = array(
+			'post_type'      => 'html-block',
+			'posts_per_page' => -1,
+		);
 
+		$query = new WP_Query( $args );
+
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$post_ids[]   = get_the_ID();
+				$post_names[] = get_the_title();
+
+			}
+			wp_reset_postdata();
+
+		}
+		return array_combine( $post_ids, $post_names );
+	}
+}
 
 if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 	/**

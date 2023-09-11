@@ -1,6 +1,6 @@
 <?php
 /**
- * Theme adding support
+ * Custom_Logo_Widget
  *
  * @package plants
  * @author  Maxim Kliakhin

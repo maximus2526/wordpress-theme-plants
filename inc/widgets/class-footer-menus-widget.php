@@ -1,6 +1,6 @@
 <?php
 /**
- * Menu
+ * Footer_Menus_Widget
  *
  * @package plants
  * @author  Maxim Kliakhin

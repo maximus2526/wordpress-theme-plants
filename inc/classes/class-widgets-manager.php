@@ -10,8 +10,10 @@
 
 		namespace PLANTS\Inc;
 
-		use PLANTS\Inc\Traits\Singleton;
+use Html_Block;
+use PLANTS\Inc\Traits\Singleton;
 		use PLANTS\Inc\Widgets;
+use PLANTS\Inc\Widgets\Block_Widget;
 use PLANTS\Inc\Widgets\Custom_Logo;
 use PLANTS\Inc\Widgets\Footer_Menus_Widget;
 use PLANTS\Inc\Widgets\Social_Widget;
@@ -41,6 +43,7 @@ class Widgets_Manager {
 		register_widget( new Custom_Logo() );
 		register_widget( new Footer_Menus_Widget() );
 		register_widget( new Social_Widget() );
+		register_widget( new Block_Widget() );
 	}
 
 }
