@@ -70,8 +70,10 @@ if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 		Inc\WooCommerce::get_instance();
 		Inc\MetaBoxes::get_instance();
 		Inc\Sidebars::get_instance();
+		Inc\Admin_Menu_Fields::get_instance();
 		Inc\Post_Types::get_instance();
 		Inc\Widgets_Manager::get_instance();
+		Inc\Admin_Menu_Fields::init();  // WP-Admin Menu edit page extra fields.
 	}
 }
 
@@ -199,5 +201,6 @@ if ( ! function_exists( 'plants_get_product_img' ) ) {
 if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 	include 'inc/elementor-plants/elementor-addon.php';
 }
+
 
 

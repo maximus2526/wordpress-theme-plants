@@ -12,7 +12,7 @@
 
 use Html_Block;
 use PLANTS\Inc\Traits\Singleton;
-		use PLANTS\Inc\Widgets;
+use PLANTS\Inc\Widgets;
 use PLANTS\Inc\Widgets\Block_Widget;
 use PLANTS\Inc\Widgets\Custom_Logo;
 use PLANTS\Inc\Widgets\Footer_Menus_Widget;
