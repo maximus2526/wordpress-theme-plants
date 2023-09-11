@@ -9,6 +9,7 @@
  */
 
 use \Elementor\Controls_Manager;
+use \Elementor\Plugin as Plugin;
 
 /**
  * Html_Block Widget
@@ -66,11 +67,11 @@ class Html_Block extends \Elementor\Widget_Base {
 		);
 
 		$this->add_control(
-			'html_block_id',
+			'html_block_name',
 			array(
-				'label'       => esc_html__( 'Enter HTML-Block id:', 'plants' ),
-				'type'        => Controls_Manager::TEXT,
-				'placeholder' => 'Enter HTML-block id',
+				'label'   => esc_html__( 'Enter HTML-Block id:', 'plants' ),
+				'type'    => Controls_Manager::SELECT,
+				'options' => $this->get_html_blocks_data(),
 			)
 		);
 		$this->end_controls_section();
@@ -83,25 +84,38 @@ class Html_Block extends \Elementor\Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		if ( $settings['html_block_id'] ) {
-			$posts_id = $settings['html_block_id'];
-			$post     = get_post( $posts_id );
-			if ( 'html-block' === $post->post_type ) {
-				$args = array(
-					'post_type'      => 'html-block',
-					'posts_per_page' => 1,
-				);
-
-				$query = new WP_Query( $args );
-
-				if ( $query->have_posts() ) {
-					while ( $query->have_posts() ) {
-						$query->the_post();
-						the_content();
-					}
-					wp_reset_postdata();
-				}
-			}
+		if ( $settings['html_block_name'] ) {
+			$posts_id = $settings['html_block_name'];
+			echo Plugin::instance()->frontend->get_builder_content( $posts_id ); // phpcs:ignore
 		}
+	}
+
+	/**
+	 * Get_html_blocks_data.
+	 *
+	 * @return array
+	 */
+	public function get_html_blocks_data() {
+		$post_names = array();
+		$post_ids   = array();
+		$args       = array(
+			'post_type'      => 'html-block',
+			'posts_per_page' => -1,
+		);
+
+		$query = new WP_Query( $args );
+
+		if ( $query->have_posts() ) {
+			while ( $query->have_posts() ) {
+				$query->the_post();
+				$post_ids[]   = get_the_ID();
+				$post_names[] = get_the_title();
+
+			}
+			wp_reset_postdata();
+
+		}
+		return array_combine( $post_ids, $post_names );
+
 	}
 }
