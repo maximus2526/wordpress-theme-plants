@@ -36,7 +36,6 @@ if ( ! function_exists( 'plants_get_html_blocks_data' ) ) {
 	 */
 	function plants_get_html_blocks_data() {
 		$post_names = array();
-		$post_ids   = array();
 		$args       = array(
 			'post_type'      => 'html-block',
 			'posts_per_page' => -1,
@@ -47,14 +46,13 @@ if ( ! function_exists( 'plants_get_html_blocks_data' ) ) {
 		if ( $query->have_posts() ) {
 			while ( $query->have_posts() ) {
 				$query->the_post();
-				$post_ids[]   = get_the_ID();
-				$post_names[] = get_the_title();
+				$post_names[ get_the_ID() ] = get_the_title();
 
 			}
 			wp_reset_postdata();
 
 		}
-		return array_combine( $post_ids, $post_names );
+		return $post_names;
 	}
 }
 
@@ -204,3 +202,18 @@ if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 
 
 
+if ( ! function_exists( 'plants_get_menus_names' ) ) {
+	/**
+	 * Plants_get_menus_names.
+	 *
+	 * @return array Menus list.
+	 */
+	function plants_get_menus_names() {
+		$menus_obj  = wp_get_nav_menus();
+		$names_list = array();
+		foreach ( $menus_obj as $menu ) {
+			$names_list[] = $menu->name;
+		}
+		return $names_list;
+	}
+}

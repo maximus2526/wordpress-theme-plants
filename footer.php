@@ -23,10 +23,10 @@ if ( 'on' !== get_post_meta( $page_id, 'disable_footer', true ) ) :
 	<div class="top-footer">
 	<div class="row">
 	<?php
-	$widget_count = plants_get_options( 'widget_column_choice' ) ? plants_get_options( 'widget_column_choice' ) : 1;
-	foreach ( range( 1, plants_get_options( 'widget_column_choice' ) ) as $sidebar_id ) :
+	$widget_count = plants_get_options( 'widget_column_choice', 1 );
+	foreach ( range( 1, $widget_count ) as $sidebar_id ) :
 		?>
-		<div class="col-<?php echo (int) ceil( 12 / (int) plants_get_options( 'widget_column_choice' ) ); ?>">
+		<div class="col-<?php echo (int) ceil( 12 / (int) $widget_count ); ?>">
 			<?php
 			if ( is_active_sidebar( 'footer-sidebar-' . $sidebar_id ) ) {
 				dynamic_sidebar( 'footer-sidebar-' . $sidebar_id );

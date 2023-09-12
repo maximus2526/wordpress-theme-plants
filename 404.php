@@ -8,8 +8,7 @@
  * @link    http://www.hashbangcode.com/
  */
 
-get_header();
-?>
+get_header(); ?>
 
 <div class="container">
 	<?php esc_html__( 'Page not found', 'plants' ); ?>

@@ -43,7 +43,11 @@ class Block_Widget extends WP_Widget {
 	public function widget( $args, $instance ) {
 		echo wp_kses_post( $args['before_widget'] );
 		$posts_id = $instance['html-block-select'];
-		echo Plugin::instance()->frontend->get_builder_content( $posts_id ); // phpcs:ignore
+		if ( is_plugin_active( 'elementor/elementor.php' ) ) {
+			echo Plugin::instance()->frontend->get_builder_content( $posts_id ); // phpcs:ignore
+		} else {
+			echo esc_html__( 'Elementor disabled', 'plants' );
+		}
 		echo wp_kses_post( $args['after_widget'] );
 	}
 

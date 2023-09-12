@@ -42,8 +42,8 @@ class Post_Types {
 			'html-block',
 			array(
 				'labels'      => array(
-					'name'          => esc_html( 'Html Blocks' ),
-					'singular_name' => esc_html( 'Html Block' ),
+					'name'          => esc_html( 'Html ' ) . esc_html__( 'Blocks', 'plants' ),
+					'singular_name' => esc_html( 'Html ' ) . esc_html__( 'Block', 'plants' ),
 				),
 				'public'      => true,
 				'has_archive' => false,

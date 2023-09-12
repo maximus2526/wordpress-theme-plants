@@ -46,13 +46,10 @@ class Footer_Menus_Widget extends WP_Widget {
 		$selected_menu = isset( $instance['menu-select'] ) ? $instance['menu-select'] : '';
 		echo wp_kses_post( $args['before_widget'] );
 
-		if ( ! empty( $title ) ) {
-			echo esc_html( $args['before_title'] ) . esc_html( $title ) . esc_html( $args['after_title'] );
+		if ( ! $instance['title'] ) {
+			echo esc_html( $args['before_title'] ) . esc_html( $instance['title'] ) . esc_html( $args['after_title'] );
 		}
 		?>
-			<h3 class="widget-title">
-				<?php echo esc_html( $instance['title'] ); ?>
-			</h3>
 		<?php
 		wp_nav_menu( $selected_menu );
 		// This is where you run the code and display the output.

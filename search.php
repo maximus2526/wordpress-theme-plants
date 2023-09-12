@@ -20,7 +20,7 @@
 		if ( $the_query->have_posts() ) :
 			?>
 			<h2><?php echo esc_html__( 'Search Results for ', 'plants' ) . ': ' . esc_html( get_query_var( 's' ) ); ?></h2>
-			<ul><!-- Відкриваємо тег <ul> для списку результатів -->
+			<ul>
 			<?php
 			while ( $the_query->have_posts() ) :
 				$the_query->the_post();
@@ -31,7 +31,7 @@
 				<?php
 			endwhile;
 			?>
-			</ul><!-- Закриваємо тег <ul> -->
+			</ul>
 		<?php else : ?>
 			<h2><?php esc_html_e( 'Nothing Found', 'plants' ); ?></h2>
 			<div class="alert alert-info">
