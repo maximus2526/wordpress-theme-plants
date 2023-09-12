@@ -21,6 +21,10 @@
 <body <?php body_class(); ?>>
 
 	<?php
+
+	get_template_part( 'template-parts/content/content-menu-dropdown' );
+
+
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
 	}
@@ -50,6 +54,7 @@
 								'menu' => plants_get_options( 'header_menu' ),
 							)
 						);
+
 						?>
 						<div class="hamburger">
 							<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">

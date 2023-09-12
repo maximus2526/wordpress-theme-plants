@@ -68,10 +68,9 @@ if ( ! function_exists( 'plants_get_theme_instances' ) ) {
 		Inc\WooCommerce::get_instance();
 		Inc\MetaBoxes::get_instance();
 		Inc\Sidebars::get_instance();
-		Inc\Admin_Menu_Fields::get_instance();
 		Inc\Post_Types::get_instance();
 		Inc\Widgets_Manager::get_instance();
-		Inc\Admin_Menu_Fields::init();  // WP-Admin Menu edit page extra fields.
+		Inc\Admin_Menu_Fields::get_instance()->init();  // WP-Admin Menu edit page extra fields.
 	}
 }
 
@@ -135,6 +134,7 @@ if ( ! function_exists( 'plants_custom_allow_svg_in_content' ) ) {
 
 
 plants_get_theme_instances();
+
 if ( is_admin() ) {
 	include_once 'inc/custom-settings/custom-settings.php';
 }

@@ -15,7 +15,7 @@ use PLANTS\Inc\Traits\Singleton;
 /**
  * Admin_Menu_Fields
  */
-final class Admin_Menu_Fields {
+class Admin_Menu_Fields {
 
 	use Singleton;
 
@@ -24,34 +24,40 @@ final class Admin_Menu_Fields {
 	 *
 	 *  @var array $field_keys Field Keys.
 	 */
-	public static array $field_keys = array(
-		'menus-select' => array(
+	public $field_keys = array(
+		'menus-selection' => array(
 			'title' => 'Select menu for dropdown',
 		),
 	);
+
+	/**
+	 *  Menu Items Data Transit Property.
+	 *
+	 *  @var array $selected_items_data Items Data.
+	 */
+	public $selected_items_data = array();
 
 	/**
 	 * Init.
 	 *
 	 * @return void
 	 */
-	public static function init(): void {
+	public function init() {
 
 		if ( is_admin() ) {
-			add_action( 'wp_nav_menu_item_custom_fields', array( __CLASS__, 'add_fileds' ), 10, 2 );
-			add_action( 'wp_update_nav_menu_item', array( __CLASS__, 'save_fields' ), 10, 2 );
+			add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'add_fileds' ), 10, 2 );
+			add_action( 'wp_update_nav_menu_item', array( $this, 'save_fields' ), 10, 2 );
 		}
 	}
 
 	/**
 	 * Add_fileds.
 	 *
-	 * @param  int   $item_id Item_Id.
-	 * @param  array $item Item.
+	 * @param  int $item_id Item_Id.
 	 * @return void
 	 */
-	public static function add_fileds( $item_id, $item ) {
-		foreach ( self::$field_keys as $meta_key => $data ) {
+	public function add_fileds( $item_id ) {
+		foreach ( $this->field_keys as $meta_key => $data ) {
 			$value      = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
 			$title      = $data['title'];
 			$menus_list = plants_get_menus_names();
@@ -67,9 +73,22 @@ final class Admin_Menu_Fields {
 				</select>
 			</p>
 			<?php
+			if ( 'None' !== $value ) {
+				$this->selected_items_data[ $item_id ] = $value;
+			}
 		}
 	}
 
+
+
+	/**
+	 * Dropdown Data Getter.
+	 *
+	 * @return array || @return null
+	 */
+	public function dropdown_data_getter() {
+		return $this->selected_items_data ?? null;
+	}
 
 	/**
 	 * Save_fields.
@@ -78,10 +97,10 @@ final class Admin_Menu_Fields {
 	 * @param  int $item_id Item_id.
 	 * @return void
 	 */
-	public static function save_fields( $menu_id, $item_id ) {
+	public function save_fields( $menu_id, $item_id ) {
 
-		foreach ( self::$field_keys as $meta_key => $data ) {
-			self::save_field( $menu_id, $item_id, $meta_key );
+		foreach ( $this->field_keys as $meta_key => $data ) {
+			$this->save_field( $menu_id, $item_id, $meta_key );
 		}
 	}
 
@@ -94,7 +113,7 @@ final class Admin_Menu_Fields {
 	 * @param  string $meta_key meta_key.
 	 * @return void
 	 */
-	private static function save_field( $menu_id, $item_id, $meta_key ) {
+	private function save_field( $menu_id, $item_id, $meta_key ) {
 		if ( ! isset( $_POST[ $meta_key ][ $item_id ] ) ) {
 			return;
 		}
