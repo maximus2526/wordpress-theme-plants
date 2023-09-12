@@ -58,7 +58,7 @@ class Categories_Menus_Widget extends Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore
 		$this->start_controls_section(
 			'display_category_menu',
 			array(

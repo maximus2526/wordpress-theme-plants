@@ -58,7 +58,7 @@ class Articles_Widget extends Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore
 		$this->start_controls_section(
 			'section_content',
 			array(
@@ -131,7 +131,7 @@ class Articles_Widget extends Widget_Base {
 		);
 
 		if ( 'all' !== $settings['category'] ) {
-			$args['tax_query'] = array(
+			$args['tax_query'] = array( // phpcs:ignore
 				array(
 					'taxonomy' => 'category',
 					'field'    => 'term_id',

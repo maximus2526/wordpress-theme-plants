@@ -57,7 +57,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() {}
+	protected function _register_controls() {} // phpcs:ignore
 
 	/**
 	 * Render.

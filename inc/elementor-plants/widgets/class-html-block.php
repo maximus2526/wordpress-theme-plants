@@ -58,7 +58,7 @@ class Html_Block extends \Elementor\Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore
 		$this->start_controls_section(
 			'section_content',
 			array(

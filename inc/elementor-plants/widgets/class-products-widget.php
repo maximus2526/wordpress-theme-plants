@@ -57,7 +57,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() {
+	protected function _register_controls() { // phpcs:ignore
 		if ( plants_is_wc_exist() ) {
 			$this->start_controls_section(
 				'section_content',
@@ -147,7 +147,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 			);
 
 			if ( 'all' !== $settings['category'] ) {
-				$args['tax_query'] = array(
+				$args['tax_query'] = array( // phpcs:ignore
 					array(
 						'taxonomy' => 'product_cat',
 						'field'    => 'term_id',
