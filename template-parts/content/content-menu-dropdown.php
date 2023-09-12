@@ -7,16 +7,17 @@
  * @license  http://www.gnu.org/copyleft/gpl.html GNU General Public License
  * @link     http://www.hashbangcode.com/
  */
-use PLANTS\Inc;
+
+use \Elementor\Plugin as Plugin;
+$dropdown_data = get_option( 'dropdown-nav-menu-options' ) ?? '';
 ?>
-<div class="scheme-dark menus-item-dropdown">
+<div data-id="<?php echo (int) $dropdown_data['nav_menu_item_id']; ?>" class="scheme-dark menus-item-dropdown-section">
 	<?php
-	$dropdown_data = Inc\Admin_Menu_Fields::get_instance()->dropdown_data_getter();
-	var_dump( $dropdown_data );
-	wp_nav_menu(
-		array(
-			'menu' => 'header_menu',
-		)
-	);
+
+	if ( is_plugin_active( 'elementor/elementor.php' ) && $dropdown_data ) {
+		echo Plugin::instance()->frontend->get_builder_content( $dropdown_data['html_block_id'] ); // phpcs:ignore
+	} else {
+		echo esc_html__( 'Elementor disabled', 'plants' );
+	}
 	?>
 </div>

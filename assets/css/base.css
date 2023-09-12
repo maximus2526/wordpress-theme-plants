@@ -941,6 +941,27 @@ h6 {
   float: right;
 }
 
+.menus-item-dropdown-section {
+  display: none;
+  z-index: 20;
+  position: absolute;
+  background: white;
+  height: 150px;
+  top: 150px;
+  left: 0;
+  right: 0;
+}
+@media screen and (max-width: 770px) {
+  .menus-item-dropdown-section {
+    display: none;
+  }
+}
+
+#menu-header-menu > :has(img) {
+  display: flex;
+  gap: 5px;
+}
+
 .social-icons.widget-social-error {
   border-radius: 0;
   background: rgba(255, 146, 119, 0.856);
@@ -1069,7 +1090,7 @@ a {
 /* WordPress Core
 -------------------------------------------------------------- */
 .vertical-nav-item.menu-sign > ::after {
-  content: url("../../img/svg/dropdown-icons/ref-icon.svg");
+  content: url("../img/svg/dropdown-icons/ref-icon.svg");
   width: 50px;
   height: 50px;
 }

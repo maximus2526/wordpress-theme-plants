@@ -26,7 +26,7 @@ class Admin_Menu_Fields {
 	 */
 	public $field_keys = array(
 		'menus-selection' => array(
-			'title' => 'Select menu for dropdown',
+			'title' => 'Select html block for header menu option',
 		),
 	);
 
@@ -45,50 +45,56 @@ class Admin_Menu_Fields {
 	public function init() {
 
 		if ( is_admin() ) {
+
 			add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'add_fileds' ), 10, 2 );
 			add_action( 'wp_update_nav_menu_item', array( $this, 'save_fields' ), 10, 2 );
+			add_option( 'dropdown-nav-menu-options' );
 		}
 	}
 
 	/**
 	 * Add_fileds.
 	 *
-	 * @param  int $item_id Item_Id.
+	 * @param  int    $item_id Item_Id.
+	 * @param  object $item_obj Item_obj.
 	 * @return void
 	 */
-	public function add_fileds( $item_id ) {
+	public function add_fileds( $item_id, $item_obj ) {
+
 		foreach ( $this->field_keys as $meta_key => $data ) {
-			$value      = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
-			$title      = $data['title'];
-			$menus_list = plants_get_menus_names();
-			?>
+
+			if ( 'Shop' === $item_obj->title ) {
+				$value            = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
+				$title            = $data['title'];
+				$html_blocks_data = plants_get_html_blocks_data();
+				?>
 			<p class="field-<?php echo esc_html( $meta_key ); ?> description">
 				<?php echo esc_html( $title ); ?>
 				<br />
 				<select class="widefat edit-menu-item-<?php echo esc_html( $meta_key ); ?>" name="<?php echo sprintf( '%s[%s]', esc_attr( $meta_key ), esc_attr( $item_id ) ); ?>" id="menu-item-<?php echo esc_attr( $item_id ); ?>">
 					<option value="None" <?php selected( 'None', $value ); ?>><?php echo esc_html( 'None' ); ?></option>
-					<?php foreach ( $menus_list as $menu ) : ?>
-						<option value="<?php echo esc_html( $menu ); ?>" <?php selected( $menu, $value ); ?>><?php echo esc_html( $menu ); ?></option>
-					<?php endforeach; ?>
+					<?php
+					foreach ( $html_blocks_data as $block_id => $html_block ) :
+						?>
+						<option value="<?php echo esc_html( $block_id ); ?>" <?php selected( $block_id, $value ); ?>><?php echo esc_html( $html_block ); ?></option>
+							<?php
+					endforeach;
+					?>
 				</select>
 			</p>
-			<?php
-			if ( 'None' !== $value ) {
-				$this->selected_items_data[ $item_id ] = $value;
+				<?php
+				if ( 'None' !== $value ) {
+					$this->selected_items_data = array(
+						'html_block_id'    => $value,
+						'nav_menu_item_id' => $item_id,
+					);
+				}
+
+				update_option( 'dropdown-nav-menu-options', $this->selected_items_data );
 			}
 		}
 	}
 
-
-
-	/**
-	 * Dropdown Data Getter.
-	 *
-	 * @return array || @return null
-	 */
-	public function dropdown_data_getter() {
-		return $this->selected_items_data ?? null;
-	}
 
 	/**
 	 * Save_fields.
@@ -114,11 +120,11 @@ class Admin_Menu_Fields {
 	 * @return void
 	 */
 	private function save_field( $menu_id, $item_id, $meta_key ) {
-		if ( ! isset( $_POST[ $meta_key ][ $item_id ] ) ) {
+		if ( ! isset( $_POST[ $meta_key ][ $item_id ] ) ) { // phpcs:ignore
 			return;
 		}
 
-		$val = $_POST[ $meta_key ][ $item_id ];
+		$val = $_POST[ $meta_key ][ $item_id ]; // phpcs:ignore
 
 		if ( $val ) {
 			update_post_meta( $item_id, $meta_key, sanitize_text_field( $val ) );
