@@ -30,6 +30,7 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 		include_once __DIR__ . '/widgets/class-social-links-widget.php';
 		include_once __DIR__ . '/widgets/class-partners-links-widget.php';
 		include_once __DIR__ . '/widgets/class-html-block.php';
+		include_once __DIR__ . '/widgets/class-categories-menus-widget.php';
 
 		$widgets_manager->register( new \Products_Widget() );
 		$widgets_manager->register( new \Articles_Widget() );
@@ -40,6 +41,7 @@ if ( ! function_exists( 'plants_custom_elementor_widget_category' ) ) {
 		$widgets_manager->register( new \Social_Links_Widget() );
 		$widgets_manager->register( new \Partners_Links_Widget() );
 		$widgets_manager->register( new \Html_Block() );
+		$widgets_manager->register( new \Categories_Menus_Widget() );
 	}
 	add_action( 'elementor/widgets/register', 'plants_register_widgets' );
 }
