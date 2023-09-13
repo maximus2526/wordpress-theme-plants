@@ -41,7 +41,7 @@
 					<a href="<?php echo esc_html( plants_get_options( 'header_banner_anchor' ) ); ?>"><?php echo esc_html( plants_get_options( 'header_banner_info' ) ); ?></a>
 				</div>
 			<?php endif; ?>
-			<div class="container">
+			<div id="header" class="container">
 				<div class="header scheme-dark display-flex space-between">
 
 					<div class="nav-section">

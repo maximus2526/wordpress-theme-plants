@@ -123,7 +123,7 @@ class WooCommerce {
 	 * @return string
 	 */
 	public function add_products_column( $class ) {
-		if ( is_shop() ) {
+		if ( is_shop() || is_archive() ) {
 			$class[] = 'col-4';
 			$class[] = 'col-md-6';
 			$class[] = 'col-sm-12';

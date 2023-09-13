@@ -54,11 +54,11 @@ class Articles_Widget extends Widget_Base {
 	}
 
 	/**
-	 * _register_controls
+	 * Register_controls.
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() { // phpcs:ignore
+	protected function register_controls() {
 		$this->start_controls_section(
 			'section_content',
 			array(

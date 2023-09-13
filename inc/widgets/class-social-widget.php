@@ -112,7 +112,7 @@ class Social_Widget extends WP_Widget {
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
 		foreach ( $this->social_names as $name ) {
-			$instance[ 'social_url_facebook' . $name ] = sanitize_text_field( $new_instance[ 'social_url_facebook' . $name ] );
+			$instance[ 'social_url_' . $name ] = sanitize_text_field( $new_instance[ 'social_url_' . $name ] );
 		}
 
 		return $instance;

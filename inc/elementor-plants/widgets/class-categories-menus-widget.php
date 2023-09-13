@@ -8,7 +8,6 @@
  * @link     http://www.hashbangcode.com/
  */
 
-use \Elementor\Utils;
 use \Elementor\Controls_Manager;
 use \Elementor\Widget_Base;
 
@@ -16,6 +15,9 @@ use \Elementor\Widget_Base;
  * Categories_Menus_Widget
  */
 class Categories_Menus_Widget extends Widget_Base {
+
+
+
 
 	/**
 	 * Get_name.
@@ -54,11 +56,11 @@ class Categories_Menus_Widget extends Widget_Base {
 	}
 
 	/**
-	 * _register_controls
+	 * Register_controls.
 	 *
 	 * @return void
 	 */
-	protected function _register_controls() { // phpcs:ignore
+	protected function register_controls() {
 		$this->start_controls_section(
 			'display_category_menu',
 			array(
@@ -67,11 +69,13 @@ class Categories_Menus_Widget extends Widget_Base {
 		);
 
 		$this->add_control(
-			'menus',
+			'categories_count',
 			array(
-				'label'   => esc_html__( 'Choice Menu', 'plants' ),
-				'type'    => Controls_Manager::SELECT,
-				'options' => $this->get_menus_names(),
+				'label'   => esc_html__( '(max for row: 12) Count: ', 'plants' ),
+				'type'    => Controls_Manager::NUMBER,
+				'default' => 3,
+				'min'     => 1,
+				'max'     => 12,
 			)
 		);
 
@@ -85,27 +89,43 @@ class Categories_Menus_Widget extends Widget_Base {
 	 */
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		wp_nav_menu(
+
+		$categories = get_categories(
 			array(
-				'menu'       => $this->get_menus_names()[ $settings['menus'] ] ?? $this->get_menus_names()[0],
-				'menu_class' => 'scheme-dark ',
-			),
+				'hide_empty' => 0,
+				'number'     => $settings['categories_count'],
+				'taxonomy'   => 'product_cat',
+			)
 		);
-	}
-
-		/**
-		 * Get_menus_names.
-		 *
-		 * @return array
-		 */
-	protected function get_menus_names() {
-		$menus      = wp_get_nav_menus();
-		$menu_names = array();
-		foreach ( $menus as $menu ) {
-			$menu_names[] = $menu->name;
-		}
-
-		return $menu_names;
+		?>
+		<div class="container">
+			<div class="row row-spacing">
+				<?php
+				foreach ( $categories as $category ) {
+					$thumbnail_id = get_term_meta( $category->term_id, 'thumbnail_id', true );
+					?>
+					<div class="col-<?php echo (int) round( 12 / count( $categories ) ); ?> content-center">
+						<div class="category-block display-flex column gap-5 content-center">
+							<div class="category-img">
+								<?php
+								echo wp_get_attachment_image( $thumbnail_id, array( 75, 75 ) );
+								?>
+							</div>
+							<div class="category-name">
+								<a href="<?php echo esc_url( get_category_link( $category->term_id ) ); ?>">	<?php echo esc_html( $category->name ); ?></a>
+							</div>
+							<div class="product-count text">
+								<?php
+								echo (int) $category->count . esc_html__( ' products.', 'plants' );
+								?>
+							</div>
+						</div>
+					</div>
+					<?php
+				}
+				?>
+			</div>
+		</div>
+		<?php
 	}
 }
-

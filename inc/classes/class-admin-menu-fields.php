@@ -17,18 +17,14 @@ use PLANTS\Inc\Traits\Singleton;
  */
 class Admin_Menu_Fields {
 
-	use Singleton;
 
+	use Singleton;
 	/**
-	 *  Field_Keys.
+	 * Field_list.
 	 *
-	 *  @var array $field_keys Field Keys.
+	 * @var array
 	 */
-	public $field_keys = array(
-		'menus-selection' => array(
-			'title' => 'Select html block for header menu option',
-		),
-	);
+	protected $field_keys = array();
 
 	/**
 	 *  Menu Items Data Transit Property.
@@ -37,13 +33,22 @@ class Admin_Menu_Fields {
 	 */
 	public $selected_items_data = array();
 
+
+	/**
+	 * __construct
+	 *
+	 * @return void
+	 */
+	protected function __construct() {
+		$this->field_keys = array( 'menus-selection' => array( 'title' => esc_html__( 'Select html block for header menu option', 'plants' ) ) );
+	}
+
 	/**
 	 * Init.
 	 *
 	 * @return void
 	 */
 	public function init() {
-
 		if ( is_admin() ) {
 
 			add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'add_fileds' ), 10, 2 );
@@ -62,12 +67,10 @@ class Admin_Menu_Fields {
 	public function add_fileds( $item_id, $item_obj ) {
 
 		foreach ( $this->field_keys as $meta_key => $data ) {
-
-			if ( 'Shop' === $item_obj->title ) {
-				$value            = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
-				$title            = $data['title'];
-				$html_blocks_data = plants_get_html_blocks_data();
-				?>
+			$value            = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
+			$title            = $data['title'];
+			$html_blocks_data = plants_get_html_blocks_data();
+			?>
 			<p class="field-<?php echo esc_html( $meta_key ); ?> description">
 				<?php echo esc_html( $title ); ?>
 				<br />
@@ -77,24 +80,22 @@ class Admin_Menu_Fields {
 					foreach ( $html_blocks_data as $block_id => $html_block ) :
 						?>
 						<option value="<?php echo esc_html( $block_id ); ?>" <?php selected( $block_id, $value ); ?>><?php echo esc_html( $html_block ); ?></option>
-							<?php
+						<?php
 					endforeach;
 					?>
 				</select>
 			</p>
-				<?php
-				if ( 'None' !== $value ) {
-					$this->selected_items_data = array(
-						'html_block_id'    => $value,
-						'nav_menu_item_id' => $item_id,
-					);
-				}
-
-				update_option( 'dropdown-nav-menu-options', $this->selected_items_data );
+			<?php
+			if ( 'None' !== $value ) {
+				$this->selected_items_data = array(
+					'html_block_id'    => $value,
+					'nav_menu_item_id' => $item_id,
+				);
 			}
+
+			update_option( 'dropdown-nav-menu-options', $this->selected_items_data );
 		}
 	}
-
 
 	/**
 	 * Save_fields.
@@ -110,7 +111,6 @@ class Admin_Menu_Fields {
 		}
 	}
 
-
 	/**
 	 * Save_Field.
 	 *
@@ -120,11 +120,11 @@ class Admin_Menu_Fields {
 	 * @return void
 	 */
 	private function save_field( $menu_id, $item_id, $meta_key ) {
-		if ( ! isset( $_POST[ $meta_key ][ $item_id ] ) ) { // phpcs:ignore
+		if (!isset($_POST[$meta_key][$item_id])) { // phpcs:ignore
 			return;
 		}
 
-		$val = $_POST[ $meta_key ][ $item_id ]; // phpcs:ignore
+		$val = $_POST[$meta_key][$item_id]; // phpcs:ignore
 
 		if ( $val ) {
 			update_post_meta( $item_id, $meta_key, sanitize_text_field( $val ) );

@@ -9,12 +9,29 @@
 @import "woocommerce/shop/shop.scss";
 @import "clash-display.css";
 
+.dropdown-icon{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    &::after{
+        content: url('../img/svg/dropdown-icons/icon.svg');
+        display: block;
+
+    }
+}
+
+.category-block .category-img img {
+    border-radius: 50%;
+    overflow: hidden;
+}
 
 .menus-item-dropdown-section {
     display: none;
+
     @media screen and (max-width: 770px) {
         display: none;
     }
+
     z-index: 20;
     position: absolute;
     background: white;
@@ -24,7 +41,7 @@
     right: 0;
 }
 
-#menu-header-menu >:has(img) {
+#menu-header-menu>:has(img) {
     display: flex;
     gap: 5px
 }

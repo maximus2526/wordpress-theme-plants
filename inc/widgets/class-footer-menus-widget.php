@@ -46,8 +46,8 @@ class Footer_Menus_Widget extends WP_Widget {
 		$selected_menu = isset( $instance['menu-select'] ) ? $instance['menu-select'] : '';
 		echo wp_kses_post( $args['before_widget'] );
 
-		if ( ! $instance['title'] ) {
-			echo esc_html( $args['before_title'] ) . esc_html( $instance['title'] ) . esc_html( $args['after_title'] );
+		if ( $instance['title'] ) {
+			echo wp_kses_post( $args['before_title'] ) . esc_html( $instance['title'] ) . wp_kses_post( $args['after_title'] );
 		}
 		?>
 		<?php

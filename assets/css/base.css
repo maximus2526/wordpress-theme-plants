@@ -50,7 +50,7 @@
     border: none !important;
   }
 }
-header .container {
+header .container#header {
   border-bottom: 2px solid #5E6821;
   margin-bottom: 40px;
 }
@@ -939,6 +939,21 @@ h6 {
 
 .woocommerce-result-count {
   float: right;
+}
+
+.dropdown-icon {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.dropdown-icon::after {
+  content: url("../img/svg/dropdown-icons/icon.svg");
+  display: block;
+}
+
+.category-block .category-img img {
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .menus-item-dropdown-section {

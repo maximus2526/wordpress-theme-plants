@@ -1,3 +1,4 @@
+
 const swiper = new Swiper(
 	'.swiper',
 	{
@@ -39,49 +40,44 @@ const swiper_banner = new Swiper(
 	}
 );
 
-// Hamburger
-
-const $ = jQuery;
-
-$(document).ready(() => {
-	$(".menu-hamburger-img").click(() => {
-		$('body').fadeIn('slow');
-		$(".hamburger-menu").addClass("active").slideDown({
-			duration: 'slow',
-			easing: 'linear'
+(function ($) {
+	function hamburgerFunc() {
+		$(".menu-hamburger-img").on('click', function () {
+			$('body').fadeIn('slow');
+			$(".hamburger-menu").addClass("active").slideDown({
+				duration: 'slow',
+				easing: 'linear'
+			});
 		});
-	});
 
-	$(".close-btn").click(() => {
-		$(".hamburger-menu").removeClass("active");
-	});
+		$(".close-btn").on('click', function () {
+			$(".hamburger-menu").removeClass("active");
+		});
+	}
 
-	// Dropdown 
-	let nav_item = $(".menus-item-dropdown-section").data('id');
+	function dropdownFunc() {
+		// Dropdown 
+		let nav_item = $(".menus-item-dropdown-section").data('id');
 
-	$('.menus-item-dropdown-section').on('mouseenter', function () {
-		$(this).stop().slideDown();
-	}).on('mouseleave', function () {
-		$(this).stop().slideUp();
-	});
+		$('.menus-item-dropdown-section').on('mouseenter', function () {
+			$(this).stop().slideDown();
+		}).on('mouseleave', function () {
+			$(this).stop().slideUp();
+		});
 
-	$('#menu-item-' + nav_item).hover(
-		function () {
+		$('#menu-item-' + nav_item).on('mouseenter', function () {
 			$('.menus-item-dropdown-section').stop().slideDown('fast');
-		},
-		function () {
+		}).on('mouseleave', function () {
 			$('.menus-item-dropdown-section').stop().slideUp();
-		}
-	);
-	
-// Dropdown icon
-var img = $('<img>', {
-	src: '/wp-content/themes/wordpress-theme-plants/assets/img/svg/dropdown-icons/icon.svg',
-	alt: 'Dropdown Icon',
-});
-$('#menu-item-' + nav_item + ' a').after(img);
-
-	
+		});
 
 
-});
+		// Dropdown icon
+		$('#menu-item-' + nav_item + ' a').addClass('dropdown-icon');
+	}
+
+	$(document).ready(function () {
+		hamburgerFunc();
+		dropdownFunc();
+	});
+})(jQuery);

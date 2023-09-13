@@ -42,11 +42,11 @@ class Block_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		echo wp_kses_post( $args['before_widget'] );
-		$posts_id = $instance['html-block-select'];
+		$posts_id = $instance['html_block_select'];
 		if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 			echo Plugin::instance()->frontend->get_builder_content( $posts_id ); // phpcs:ignore
 		} else {
-			echo esc_html__( 'Elementor disabled', 'plants' );
+			// echo esc_html__( 'Elementor disabled', 'plants' ); TODO CONTENT
 		}
 		echo wp_kses_post( $args['after_widget'] );
 	}
@@ -60,7 +60,7 @@ class Block_Widget extends WP_Widget {
 	public function form( $instance ) {
 		$post_data = plants_get_html_blocks_data();
 		?>
-		<select class="widget-field" id="<?php echo esc_attr( $this->get_field_id( 'html-block-select' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'html-block-select' ) ); ?>">
+		<select class="widget-field" id="<?php echo esc_attr( $this->get_field_id( 'html_block_select' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'html_block_select' ) ); ?>">
 		<?php foreach ( $post_data  as $post_id => $post_name ) : ?>
 			<option value="<?php echo esc_attr( $post_id ); ?>" <?php selected( $post_name, $post_name ); ?>><?php echo esc_html( $post_name ); ?></option>
 		<?php endforeach; ?>
@@ -77,7 +77,7 @@ class Block_Widget extends WP_Widget {
 		 */
 	public function update( $new_instance, $old_instance ) {
 		$instance                      = $old_instance;
-		$instance['html-block-select'] = sanitize_text_field( $new_instance['html-block-select'] );
+		$instance['html_block_select'] = sanitize_text_field( $new_instance['html_block_select'] );
 		return $instance;
 	}
 
