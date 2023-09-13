@@ -46,7 +46,8 @@ class Block_Widget extends WP_Widget {
 		if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 			echo Plugin::instance()->frontend->get_builder_content( $posts_id ); // phpcs:ignore
 		} else {
-			// echo esc_html__( 'Elementor disabled', 'plants' ); TODO CONTENT
+			$post = get_post( $posts_id );
+			echo wp_kses_post( $post->post_content );
 		}
 		echo wp_kses_post( $args['after_widget'] );
 	}

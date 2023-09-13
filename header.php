@@ -51,7 +51,6 @@
 								'menu' => plants_get_options( 'header_menu' ),
 							)
 						);
-						get_template_part( 'template-parts/content/content-menu-dropdown' );
 						?>
 						<div class="hamburger">
 							<img class="menu-hamburger-img" src="<?php echo esc_url( PLANTS_IMG_URI ) . '/svg/menu_hamburger.svg'; ?>" alt="">

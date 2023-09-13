@@ -57,23 +57,26 @@ const swiper_banner = new Swiper(
 
 	function dropdownFunc() {
 		// Dropdown 
-		let nav_item = $(".menus-item-dropdown-section").data('id');
 
-		$('.menus-item-dropdown-section').on('mouseenter', function () {
-			$(this).stop().slideDown();
-		}).on('mouseleave', function () {
-			$(this).stop().slideUp();
+		$("header .menus-item-dropdown-section").each(function () {
+			let this_pointer = $(this);
+			let nav_item = this_pointer.data('id');
+			this_pointer.on('mouseenter', function () {
+				$(this).stop().slideDown();
+			}).on('mouseleave', function () {
+				$(this).stop().slideUp();
+			});
+
+			this_pointer.parent().find( $('#menu-item-' + nav_item + ' a') ).on('mouseenter', function () {
+				this_pointer.stop().slideDown('fast');
+			}).on('mouseleave', function () {
+				this_pointer.stop().slideUp();
+			});
+
+
+			// Dropdown icon
+			this_pointer.parent().find( $('#menu-item-' + nav_item + ' a') ).addClass('dropdown-icon');
 		});
-
-		$('#menu-item-' + nav_item).on('mouseenter', function () {
-			$('.menus-item-dropdown-section').stop().slideDown('fast');
-		}).on('mouseleave', function () {
-			$('.menus-item-dropdown-section').stop().slideUp();
-		});
-
-
-		// Dropdown icon
-		$('#menu-item-' + nav_item + ' a').addClass('dropdown-icon');
 	}
 
 	$(document).ready(function () {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Admin_Nav_Menu_Fields
  *
@@ -11,12 +12,12 @@
 namespace PLANTS\Inc;
 
 use PLANTS\Inc\Traits\Singleton;
+use \Elementor\Plugin as Plugin;
 
 /**
  * Admin_Menu_Fields
  */
 class Admin_Menu_Fields {
-
 
 	use Singleton;
 	/**
@@ -50,12 +51,42 @@ class Admin_Menu_Fields {
 	 */
 	public function init() {
 		if ( is_admin() ) {
-
 			add_action( 'wp_nav_menu_item_custom_fields', array( $this, 'add_fileds' ), 10, 2 );
 			add_action( 'wp_update_nav_menu_item', array( $this, 'save_fields' ), 10, 2 );
-			add_option( 'dropdown-nav-menu-options' );
+		} else {
+			add_filter( 'walker_nav_menu_start_el', array( $this, 'nav_menu_start_el' ), 10, 2 ); // Front.
 		}
 	}
+
+
+
+	/**
+	 * Nav_menu_start_el callback.
+	 *
+	 * @param  object $item_output Item_output.
+	 * @param  object $post Post.
+	 * @return object
+	 */
+	public function nav_menu_start_el( $item_output, $post ) {
+		$html_block = get_post_meta( $post->ID, 'menus-selection', true );
+		if ( 'None' !== $html_block ) {
+			?>
+			<div data-id="<?php echo (int) $post->ID; ?>" class="scheme-dark menus-item-dropdown-section">
+				<?php
+				if ( is_plugin_active( 'elementor/elementor.php' ) ) {
+					echo Plugin::instance()->frontend->get_builder_content($html_block); // phpcs:ignore
+				} else {
+					$post = get_post( $html_block );
+					echo wp_kses_post( $post->post_content );
+				}
+				?>
+			</div>
+			<?php
+		}
+		return $item_output;
+	}
+
+
 
 	/**
 	 * Add_fileds.
@@ -86,14 +117,6 @@ class Admin_Menu_Fields {
 				</select>
 			</p>
 			<?php
-			if ( 'None' !== $value ) {
-				$this->selected_items_data = array(
-					'html_block_id'    => $value,
-					'nav_menu_item_id' => $item_id,
-				);
-			}
-
-			update_option( 'dropdown-nav-menu-options', $this->selected_items_data );
 		}
 	}
 
