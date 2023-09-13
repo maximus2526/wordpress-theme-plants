@@ -67,7 +67,7 @@ const swiper_banner = new Swiper(
 				$(this).stop().slideUp();
 			});
 
-			this_pointer.parent().find( $('#menu-item-' + nav_item + ' a') ).on('mouseenter', function () {
+			$('#menu-item-' + nav_item + ' a').on('mouseenter', function () {
 				this_pointer.stop().slideDown('fast');
 			}).on('mouseleave', function () {
 				this_pointer.stop().slideUp();
@@ -75,7 +75,8 @@ const swiper_banner = new Swiper(
 
 
 			// Dropdown icon
-			this_pointer.parent().find( $('#menu-item-' + nav_item + ' a') ).addClass('dropdown-icon');
+
+			$('#menu-item-' + nav_item + ' a').addClass('dropdown-icon');
 		});
 	}
 

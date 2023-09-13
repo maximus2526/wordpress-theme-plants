@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Admin_Nav_Menu_Fields
  *
@@ -71,17 +70,17 @@ class Admin_Menu_Fields {
 		$html_block = get_post_meta( $post->ID, 'menus-selection', true );
 		if ( 'None' !== $html_block ) {
 			?>
-			<div data-id="<?php echo (int) $post->ID; ?>" class="scheme-dark menus-item-dropdown-section">
+			<?php $item_output .= '<div data-id="' . (int) $post->ID . '" class="scheme-dark menus-item-dropdown-section">'; ?>
 				<?php
 				if ( is_plugin_active( 'elementor/elementor.php' ) ) {
-					echo Plugin::instance()->frontend->get_builder_content($html_block); // phpcs:ignore
+					$item_output .= Plugin::instance()->frontend->get_builder_content($html_block); // phpcs:ignore
 				} else {
-					$post = get_post( $html_block );
-					echo wp_kses_post( $post->post_content );
+					$post         = get_post( $html_block );
+					$item_output .= wp_kses_post( $post->post_content );
 				}
 				?>
-			</div>
 			<?php
+			$item_output .= '</div>';
 		}
 		return $item_output;
 	}

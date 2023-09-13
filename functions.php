@@ -200,7 +200,19 @@ if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 	include 'inc/elementor-plants/elementor-addon.php';
 }
 
-
+if ( ! function_exists( 'ar' ) ) {
+	/**
+	 * AR helper output.
+	 *
+	 * @param mixed $data Data.
+	 * @return void
+	 */
+	function ar( $data ) {
+		echo '<pre>';
+		print_r( $data ); // phpcs:ignore
+		echo '</pre>';
+	}
+}
 
 if ( ! function_exists( 'plants_get_menus_names' ) ) {
 	/**
