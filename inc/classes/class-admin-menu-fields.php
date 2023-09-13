@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Admin_Nav_Menu_Fields
  *
@@ -17,6 +18,7 @@ use \Elementor\Plugin as Plugin;
  * Admin_Menu_Fields
  */
 class Admin_Menu_Fields {
+
 
 	use Singleton;
 	/**
@@ -69,17 +71,13 @@ class Admin_Menu_Fields {
 	public function nav_menu_start_el( $item_output, $post ) {
 		$html_block = get_post_meta( $post->ID, 'menus-selection', true );
 		if ( 'None' !== $html_block ) {
-			?>
-			<?php $item_output .= '<div data-id="' . (int) $post->ID . '" class="scheme-dark menus-item-dropdown-section">'; ?>
-				<?php
-				if ( is_plugin_active( 'elementor/elementor.php' ) ) {
-					$item_output .= Plugin::instance()->frontend->get_builder_content($html_block); // phpcs:ignore
-				} else {
-					$post         = get_post( $html_block );
-					$item_output .= wp_kses_post( $post->post_content );
-				}
-				?>
-			<?php
+			$item_output .= '<div data-id="' . (int) $post->ID . '" class="scheme-dark menus-item-dropdown-section">';
+			if ( is_plugin_active( 'elementor/elementor.php' ) ) {
+				$item_output .= Plugin::instance()->frontend->get_builder_content($html_block); // phpcs:ignore
+			} else {
+				$post         = get_post( $html_block );
+				$item_output .= wp_kses_post( $post->post_content );
+			}
 			$item_output .= '</div>';
 		}
 		return $item_output;
