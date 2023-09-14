@@ -56,29 +56,23 @@ const swiper_banner = new Swiper(
 	}
 
 	function dropdownFunc() {
-		// Dropdown 
-
+		// Dropdown
 		$("header .menus-item-dropdown-section").each(function () {
-			let this_pointer = $(this);
-			let nav_item = this_pointer.data('id');
-			this_pointer.on('mouseenter', function () {
-				$(this).stop().slideDown();
-			}).on('mouseleave', function () {
-				$(this).stop().slideUp();
-			});
-
-			$('#menu-item-' + nav_item + ' a').on('mouseenter', function () {
-				this_pointer.stop().slideDown('fast');
-			}).on('mouseleave', function () {
-				this_pointer.stop().slideUp();
-			});
-
-
-			// Dropdown icon
-
-			$('#menu-item-' + nav_item + ' a').addClass('dropdown-icon');
+			let $this_pointer = $(this);
+			let $nav_item = $this_pointer.data('id');
+			let $menu_item = $('#menu-item-' + $nav_item);
+			$menu_item.on('mouseenter', function () {
+				$this_pointer.stop().slideDown('fast');
+			}
+			);
+			$menu_item.on('mouseleave', function () {
+				$this_pointer.stop().slideUp();
+			}
+			);
 		});
 	}
+
+
 
 	$(document).ready(function () {
 		hamburgerFunc();
