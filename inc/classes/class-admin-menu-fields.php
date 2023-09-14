@@ -131,28 +131,32 @@ class Admin_Menu_Fields {
 				?>
 			</select>
 		</div>
-		
 		<div class="field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
 			<div class="field-title">
 				<span><?php echo esc_html__( 'Choice menu item icon:', 'plants' ); ?></span>
 				<?php
+				wp_create_nonce( 'menus_nonce' );
 				$img_id = (int) get_post_meta( $item_id, 'menu_icon_id', true );
 				$img    = wp_get_attachment_image( $img_id, array( 100, 100 ) );
-				if ( isset( $_POST['remove-img'] ) ) {
+
+				$change_img = wp_verify_nonce( isset( $_POST['change-img'] ) ? filter_var( wp_unslash( $_POST['change-img'] ) ) : '' );
+				$remove_img = wp_verify_nonce( isset( $_POST['remove-img'] ) ? filter_var( wp_unslash( $_POST['remove-img'] ) ) : '' );
+				if ( isset( $change_img ) ) {
 					delete_post_meta( $item_id, 'menu_icon_id' );
 					wp_delete_attachment( $img_id );
 					unset( $img );
 				}
+
 				?>
 			</div>
 			<?php
 
-			if ( $img_id && ! isset( $_POST['remove-img'] ) && ! isset( $_POST['change-img'] ) ) {
+			if ( $img_id && ! isset( $remove_img ) && ! isset( $change_img ) ) {
 				echo wp_kses_post( $img );
 				?>
-			<button name="change-img" class="button-link"><?php echo esc_html__( 'Change image', 'plants' ); ?></button>
+			<button name="<?php echo esc_html( 'change-img' ); ?>" class="button-link"><?php echo esc_html__( 'Change image', 'plants' ); ?></button>
 			<span><?php echo esc_html( ' | ' ); ?></span>
-			<button name="remove-img" class="button-link"><?php echo esc_html__( 'Remove image', 'plants' ); ?></button>
+			<button name="<?php echo esc_html( 'remove-img' ); ?>" class="button-link"><?php echo esc_html__( 'Remove image', 'plants' ); ?></button>
 				<?php
 			} else {
 
