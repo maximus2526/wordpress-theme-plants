@@ -42,7 +42,10 @@ class Admin_Menu_Fields {
 	 * @return void
 	 */
 	protected function __construct() {
-		$this->field_keys = array( 'menus-selection' => array( 'title' => esc_html__( 'Select html block for header menu option', 'plants' ) ) );
+		$this->field_keys = array(
+			'menus-selection' => array( 'title' => esc_html__( 'Select html block for header menu option', 'plants' ) ),
+			'img-upload'      => array( 'title' => esc_html__( 'Upload or delete img for menu item', 'plants' ) ),
+		);
 	}
 
 	/**
@@ -85,7 +88,7 @@ class Admin_Menu_Fields {
 	 * @return object
 	 */
 	public function nav_menu_start_el( $item_output, $post ) {
-		$img_id       = (int) get_post_meta( $post->ID, 'menu_icon_id', true );
+		$img_id       = (int) get_post_meta( $post->ID, 'img-upload', true );
 		$html_block   = get_post_meta( $post->ID, 'menus-selection', true );
 		$item_output .= wp_get_attachment_image( $img_id, array( 20, 20 ) );
 		if ( 'none' !== $html_block && isset( $html_block ) && ! empty( $html_block ) ) {
@@ -102,7 +105,25 @@ class Admin_Menu_Fields {
 	}
 
 
-
+	/**
+	 * Image_uploader_field.
+	 *
+	 * @param  string $name name.
+	 * @param  string $value value.
+	 * @return void
+	 */
+	public function image_uploader_field( $name, $value = '' ) {
+		echo '
+		<div>
+						<div>
+										' . wp_get_attachment_image( $value, array( 50, 50 ) ) . '
+										<input type="hidden" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '" />
+										<button type="submit" class="upload_image_button button-link"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>
+										<button type="submit" class="remove_image_button button-link">' . esc_html__( 'Remove', 'plants' ) . '</button>
+						</div>
+		</div>
+		';
+	}
 	/**
 	 * Add_fields.
 	 *
@@ -114,12 +135,11 @@ class Admin_Menu_Fields {
 		$meta_key         = key( $this->field_keys );
 		$data             = $this->field_keys[ $meta_key ];
 		$value            = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
-		$title            = $data['title'];
 		$html_blocks_data = plants_get_html_blocks_data();
 		?>
 		<div class="field-<?php echo esc_html( $meta_key ); ?> html-block-field">
-			<?php echo esc_html( $title ); ?>
-			<br />
+			<?php echo esc_html( $this->field_keys['menus-selection']['title'] ); ?>
+
 			<select class="widefat edit-menu-item-<?php echo esc_html( $meta_key ); ?>" name="<?php echo sprintf( '%s[%s]', esc_attr( $meta_key ), esc_attr( $item_id ) ); ?>" id="menu-item-<?php echo esc_attr( $item_id ); ?>">
 				<option value="none" <?php selected( 'none', $value ); ?>><?php echo esc_html( 'None' ); ?></option>
 				<?php
@@ -131,51 +151,21 @@ class Admin_Menu_Fields {
 				?>
 			</select>
 		</div>
+		
 		<div class="field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
-			<div class="field-title">
-				<span><?php echo esc_html__( 'Choice menu item icon:', 'plants' ); ?></span>
-				<?php
-				$img_id = (int) get_post_meta( $item_id, 'menu_icon_id', true );
-				$img    = wp_get_attachment_image( $img_id, array( 100, 100 ) );
 
-				if ( isset( $change_img ) ) {
-					delete_post_meta( $item_id, 'menu_icon_id' );
-					wp_delete_attachment( $img_id );
-					unset( $img );
-				}
+		<?php
+		echo esc_html( $this->field_keys['img-upload']['title'] );
+		?>
 
-				?>
-			</div>
-			<?php
+		<?php
+		$this->image_uploader_field( sprintf( '%s[%s]', esc_attr( 'img-upload' ), esc_attr( $item_id ) ), get_post_meta( $item_id, 'img-upload', true ) ?? 'None' );
+		?>
 
-			if ( $img_id && ! isset( $remove_img ) && ! isset( $change_img ) ) {
-				echo wp_kses_post( $img );
-				?>
-			<button value="<?php echo esc_html( 'change-img' ); ?>" name="<?php echo esc_html( 'change-img' ); ?>" class="button-link"><?php echo esc_html__( 'Change image', 'plants' ); ?></button>
-			<span><?php echo esc_html( ' | ' ); ?></span>
-			<button value="<?php echo esc_html( 'remove-img' ); ?>" name="<?php echo esc_html( 'remove-img' ); ?>" class="button-link"><?php echo esc_html__( 'Remove image', 'plants' ); ?></button>
-			<input type="hidden" name="change-img-nonce" value="<?php echo esc_html( wp_create_nonce( 'change-img' ) ); ?>">
-			<input type="hidden" name="remove-img-nonce" value="<?php echo esc_html( wp_create_nonce( 'remove-img' ) ); ?>">	
-				<?php
-			} else {
 
-				if ( isset( $img ) ) {
-					echo wp_kses_post( $img );
-					?>
-					<?php
-				}
-				?>
-				<input type="file" name="<?php echo 'menus-icon-' . (int) $item_id; ?>" accept="image/*">
-				<?php
-			}
-
-			?>
 		</div> 
 		<?php
 	}
-
-
-
 
 	/**
 	 * Save_fields.
@@ -185,13 +175,6 @@ class Admin_Menu_Fields {
 	 * @return void
 	 */
 	public function save_fields( $menu_id, $item_id ) {
-		if ( isset( $_FILES[ 'menus-icon-' . $item_id ] ) ) {
-			$img_id = media_handle_upload( 'menus-icon-' . $item_id, $item_id ); // Add the file to the media library.
-
-			if ( ! is_wp_error( $img_id ) ) {
-				update_post_meta( $item_id, 'menu_icon_id', $img_id ); // Save the img/attachment ID in a post meta.
-			}
-		}
 		foreach ( $this->field_keys as $meta_key => $data ) {
 			$this->save_field( $menu_id, $item_id, $meta_key );
 		}
@@ -214,8 +197,12 @@ class Admin_Menu_Fields {
 
 		if ( $val ) {
 			update_post_meta( $item_id, $meta_key, sanitize_text_field( $val ) );
+			update_post_meta( $item_id, $meta_key, sanitize_text_field( $val ) );
 		} else {
 			delete_post_meta( $item_id, $meta_key );
 		}
 	}
 }
+
+
+?>

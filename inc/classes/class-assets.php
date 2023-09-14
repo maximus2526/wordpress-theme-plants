@@ -31,6 +31,7 @@ class Assets {
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_font_preload' ) );
 		add_filter( 'style_loader_tag', array( $this, 'style_loader_tag_filter_preload' ), 10, 2 );
+		add_action( 'admin_enqueue_scripts', array( $this, 'add_media_script' ) );
 	}
 
 	/**
@@ -78,4 +79,22 @@ class Assets {
 		wp_enqueue_script( 'plants-swiper', PLANTS_DIR_URI . '/assets/js/swiper-min.js', array(), PLANTS_VERSION, true );
 		wp_enqueue_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', 'jquery', PLANTS_VERSION, true );
 	}
+
+	/**
+	 * Add_media_script.
+	 *
+	 * @return void
+	 */
+	public function add_media_script() {
+
+		wp_enqueue_media();
+
+		if ( ! did_action( 'wp_enqueue_media' ) ) {
+			wp_enqueue_media();
+		}
+		wp_enqueue_script( 'admin-js', PLANTS_JS_URI . '/plants_admin.js', array( 'jquery' ), PLANTS_VERSION, false );
+	}
+
 }
+
+
