@@ -40,6 +40,7 @@ const swiper_banner = new Swiper(
 	}
 );
 
+// JQuery
 (function ($) {
 	function hamburgerFunc() {
 		$(".menu-hamburger-img").on('click', function () {
@@ -58,20 +59,19 @@ const swiper_banner = new Swiper(
 	function dropdownFunc() {
 		// Dropdown
 		$("header .menus-item-dropdown-section").each(function () {
-			let $this_pointer = $(this);
-			let $nav_item = $this_pointer.data('id');
-			let $menu_item = $('#menu-item-' + $nav_item);
-			$menu_item.on('mouseenter', function () {
-				$this_pointer.stop().slideDown('fast');
+			let $thisPointer = $(this);
+			let $menuItem = $thisPointer.parent();
+			$menuItem.on('mouseenter', function () {
+				$thisPointer.stop().slideDown('fast');
 			}
 			);
-			$menu_item.on('mouseleave', function () {
-				$this_pointer.stop().slideUp();
+			$menuItem.on('mouseleave', function () {
+				$thisPointer.stop().slideUp();
 			}
 			);
 		});
 	}
-
+	
 
 
 	$(document).ready(function () {

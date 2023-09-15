@@ -1,0 +1,18 @@
+.field-menus-title {
+  display: block;
+  opacity: 80%;
+  margin-bottom: 10px;
+}
+
+.description.description-wide {
+  margin-bottom: 20px;
+}
+
+.attachment-control {
+  display: flex;
+  gap: 20px;
+}
+
+.attachment-control {
+  margin-bottom: 20px;
+}

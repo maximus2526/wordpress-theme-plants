@@ -114,15 +114,18 @@ class Admin_Menu_Fields {
 	 */
 	public function image_uploader_field( $name, $value = '' ) {
 		echo '
-		<div>
-						<div>
+		<div class="description description-wide">
+						<div class="attachment-control">
 										' . wp_get_attachment_image( $value, array( 50, 50 ) ) . '
 										<input type="hidden" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '" />
-										<button type="submit" class="upload_image_button button-link"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>
-										<button type="submit" class="remove_image_button button-link">' . esc_html__( 'Remove', 'plants' ) . '</button>
+										<button type="submit" class="upload_image_button button"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>';
+		if ( $value ) {
+			echo '<button type="submit" class="remove_image_button button-link">' . esc_html__( ' Remove', 'plants' ) . '</button>
 						</div>
 		</div>
 		';
+		}
+
 	}
 	/**
 	 * Add_fields.
@@ -133,12 +136,15 @@ class Admin_Menu_Fields {
 	 */
 	public function add_fields( $item_id, $item_obj ) {
 		$meta_key         = key( $this->field_keys );
-		$data             = $this->field_keys[ $meta_key ];
 		$value            = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
 		$html_blocks_data = plants_get_html_blocks_data();
+		$img_id           = get_post_meta( $item_id, 'img-upload', true );
+
 		?>
-		<div class="field-<?php echo esc_html( $meta_key ); ?> html-block-field">
-			<?php echo esc_html( $this->field_keys['menus-selection']['title'] ); ?>
+		<div class=" description description-wide field-<?php echo esc_html( $meta_key ); ?> html-block-field">
+			<span class="field-menus-title">
+				<?php echo esc_html( $this->field_keys['menus-selection']['title'] ); ?>
+			</span>
 
 			<select class="widefat edit-menu-item-<?php echo esc_html( $meta_key ); ?>" name="<?php echo sprintf( '%s[%s]', esc_attr( $meta_key ), esc_attr( $item_id ) ); ?>" id="menu-item-<?php echo esc_attr( $item_id ); ?>">
 				<option value="none" <?php selected( 'none', $value ); ?>><?php echo esc_html( 'None' ); ?></option>
@@ -151,16 +157,15 @@ class Admin_Menu_Fields {
 				?>
 			</select>
 		</div>
-		
-		<div class="field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
-
-		<?php
-		echo esc_html( $this->field_keys['img-upload']['title'] );
-		?>
-
-		<?php
-		$this->image_uploader_field( sprintf( '%s[%s]', esc_attr( 'img-upload' ), esc_attr( $item_id ) ), get_post_meta( $item_id, 'img-upload', true ) ?? 'None' );
-		?>
+		<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
+			<span class="field-menus-title">
+			<?php
+			echo esc_html( $this->field_keys['img-upload']['title'] );
+			?>
+			</span>
+			<?php
+			$this->image_uploader_field( sprintf( '%s[%s]', esc_attr( 'img-upload' ), esc_attr( $item_id ) ), $img_id ?? 'None' );
+			?>
 
 
 		</div> 
@@ -196,7 +201,6 @@ class Admin_Menu_Fields {
 		$val = $_POST[$meta_key][$item_id]; // phpcs:ignore
 
 		if ( $val ) {
-			update_post_meta( $item_id, $meta_key, sanitize_text_field( $val ) );
 			update_post_meta( $item_id, $meta_key, sanitize_text_field( $val ) );
 		} else {
 			delete_post_meta( $item_id, $meta_key );

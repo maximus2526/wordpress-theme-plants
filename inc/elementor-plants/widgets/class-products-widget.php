@@ -136,7 +136,9 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 */
 	protected function render() {
 		if ( plants_is_wc_exist() ) {
-
+			echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
+			return;
+		} else {
 			$settings = $this->get_settings_for_display();
 
 			$args = array(
@@ -218,8 +220,6 @@ class Products_Widget extends \Elementor\Widget_Base {
 			} else {
 				echo esc_html__( 'No products found.', 'plants' );
 			}
-		} else {
-			echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
 		}
 	}
 

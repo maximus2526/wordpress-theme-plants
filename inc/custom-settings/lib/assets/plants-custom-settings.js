@@ -1,21 +1,25 @@
 // Range slider
-const $ = jQuery;
 
-$(document).ready(() => {
-	$(".slider-field").each(function () {
-		let $this_pointer = $(this);
-		let $name = $this_pointer.find('.jquery-slider').data('name');
-		$this_pointer.find('.jquery-slider').slider({
-			min: $this_pointer.find('.jquery-slider').data('min'), 
-			max: $this_pointer.find('.jquery-slider').data('max'), 
-			step: 1,
-			name: 'plants_options[' + $name + ']', 
-			value: $("input[name='plants_options[" + $name + "]']").val(),
-			slide: function (event, ui) {
-				$this_pointer.find('.slider-result').text(ui.value + ' px.');
-				$this_pointer.find('input').val(ui.value);
-			}
+(function ($) {
+	function sliderHandlerFunc() {
+		$(".slider-field").each(function () {
+			let $thisPointer = $(this);
+			let $slider = $thisPointer.find('.jquery-slider');
+			let $name = $slider.data('name');
+			$thisPointer.find($slider ).slider({
+				min: $slider.data('min'),
+				max: $slider.data('max'),
+				step: 1,
+				name: $slider.next().attr('name'),
+				value: $slider.next().val(),
+				slide: function (event, ui) {
+					$thisPointer.find('.slider-result').text(ui.value + ' px.');
+					$thisPointer.find('input').val(ui.value);
+				}
+			});
 		});
+	}
+	$(document).ready(function () {
+		sliderHandlerFunc();
 	});
-});
-
+})(jQuery);

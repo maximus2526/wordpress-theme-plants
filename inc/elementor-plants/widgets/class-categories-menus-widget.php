@@ -88,16 +88,20 @@ class Categories_Menus_Widget extends Widget_Base {
 	 * @return void
 	 */
 	protected function render() {
-		$settings = $this->get_settings_for_display();
+		if ( ! plants_is_wc_exist() ) {
+			echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
+			return;
+		} else {
+			$settings = $this->get_settings_for_display();
 
-		$categories = get_categories(
-			array(
-				'hide_empty' => 0,
-				'number'     => $settings['categories_count'],
-				'taxonomy'   => 'product_cat',
-			)
-		);
-		?>
+			$categories = get_categories(
+				array(
+					'hide_empty' => 0,
+					'number'     => $settings['categories_count'],
+					'taxonomy'   => 'product_cat',
+				)
+			);
+			?>
 		<div class="container">
 			<div class="row row-spacing">
 				<?php
@@ -126,6 +130,7 @@ class Categories_Menus_Widget extends Widget_Base {
 				?>
 			</div>
 		</div>
-		<?php
+			<?php
+		}
 	}
 }
