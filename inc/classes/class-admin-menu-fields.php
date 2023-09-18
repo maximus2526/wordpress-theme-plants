@@ -116,7 +116,15 @@ class Admin_Menu_Fields {
 		echo '
 		<div class="description description-wide">
 						<div class="attachment-control">
-										' . wp_get_attachment_image( $value, array( 50, 50 ) ) . '
+										' . wp_get_attachment_image(
+			$value,
+			array( 50, 50 ),
+			'',
+			array(
+				'class' => 'form-attachment',
+				'alt'   => 'some',
+			)
+		) . '
 										<input type="hidden" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '" />
 										<button type="submit" class="upload_image_button button"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>';
 		if ( $value ) {

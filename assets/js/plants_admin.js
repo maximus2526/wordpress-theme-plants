@@ -11,15 +11,14 @@
 			},
 				multiple: false 
 			});
-			
+
+   frame.open();
+   
 			frame.on( 'select', function() {
 				let $attachment = frame.state().get('selection').first().toJSON();
-				$button.parent().find('input[type="hidden"]').val( $attachment.id );
-				$button.parent().find('img').attr('src', $attachment.url);
+				$button.parent().find('input[type="hidden"]').val( $attachment.id );;
+				$button.parent().find('img').removeAttr('srcset').attr('src',  $attachment.url);
 		});
-			
-	  // Finally, open the modal on click
-    frame.open();
 			return false;
 		}));
 	}
