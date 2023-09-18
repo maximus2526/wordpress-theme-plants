@@ -16,6 +16,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 
 
 
+
 	/**
 	 * Get_name.
 	 *
@@ -57,15 +58,14 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	 *
 	 * @return void
 	 */
-	protected function register_controls() {}
+	protected function register_controls() {    }
 
 	/**
 	 * Render.
 	 *
 	 * @return void
 	 */
-	protected function render() {
-		?>
+	protected function render() {       ?>
 		<div class="profile-section display-flex align-center gap col-right scheme-dark">
 			<div class="search-field">
 				<a href><img src="<?php echo esc_html( esc_url( PLANTS_IMG_URI ) ); ?>/svg/search.svg" alt="search-sign"></a>
@@ -73,30 +73,32 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 			<div class="auth display-flex gap-5">
 				<a href=""><?php esc_html__( 'Login', 'plants' ); ?></a> / <a href="/wp-login.php?action=register"><?php esc_html__( 'Register', 'plants' ); ?></a>
 			</div>
-			<?php if ( plants_is_wc_exist() ) : ?>
-				<div class="cart-section display-flex gap ">
-					<div class="favorite">
-						<a href class="display-flex gap-5">
-							<img src="<?php echo esc_html( esc_url( PLANTS_IMG_URI ) ); ?>/svg/profile-icons/favorite.svg" alt>
-							<span class="favorite-count">0</span>
-						</a>
-					</div>
-					<div class="cart">
-						<?php
-						global $woocommerce;
-						if ( ! WC()->cart ) {
-							return;
-						}
-						?>
-						<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="display-flex gap-5">
-							<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/cart.svg" alt>
-							<span class="cart-count">
-								<?php echo (int) $woocommerce->cart->get_cart_contents_count(); ?>
-							</span>
-						</a>
-					</div>
-				<?php endif; ?>
+
+			<?php
+			if ( ! plants_is_wc_exist() ) {
+				echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
+				return;
+			}
+			?>
+			<div class="cart-section display-flex gap ">
+				<div class="favorite">
+					<a href class="display-flex gap-5">
+						<img src="<?php echo esc_html( esc_url( PLANTS_IMG_URI ) ); ?>/svg/profile-icons/favorite.svg" alt>
+						<span class="favorite-count">0</span>
+					</a>
 				</div>
+				<div class="cart">
+					<?php
+					global $woocommerce;
+					?>
+					<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="display-flex gap-5">
+						<img src="<?php echo esc_url( PLANTS_IMG_URI ); ?>/svg/profile-icons/cart.svg" alt>
+						<span class="cart-count">
+							<?php echo (int) $woocommerce->cart->get_cart_contents_count(); ?>
+						</span>
+					</a>
+				</div>
+			</div>
 		</div>
 		<?php
 	}

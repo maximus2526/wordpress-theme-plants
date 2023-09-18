@@ -21,6 +21,7 @@ if ( ! function_exists( 'plants_options_page_sections' ) ) {
 		$sections['header_menu_choice']   = esc_html__( 'Header Menu Section:', 'plants' );
 		$sections['footer_section']       = esc_html__( 'Footer Section:', 'plants' );
 		$sections['widget_section']       = esc_html__( 'Widget Section:', 'plants' );
+		$sections['popup_section']        = esc_html__( 'PopUp Section:', 'plants' );
 
 		return $sections;
 	}
@@ -35,6 +36,39 @@ if ( ! function_exists( 'plants_options_page_fields' ) ) {
 	 */
 	function plants_options_page_fields() {
 		// Global settings.
+
+		// Popup section.
+		$options[] = array(
+			'section'  => 'popup_section',
+			'id'       => 'plants_hide_popup',
+			'title'    => esc_html__( 'Enable PopUp:', 'plants' ),
+			'callback' => 'plants_boolean_selection',
+			'args'     => array(
+				'name' => 'popup_enable_option',
+			),
+		);
+
+		$options[] = array(
+			'section'  => 'popup_section',
+			'id'       => 'promo_popup_width',
+			'title'    => esc_html__( 'Width:', 'plants' ),
+			'callback' => 'plants_text_field',
+			'args'     => array( 'name' => 'popup_width' ),
+		);
+
+		$options[] = array(
+			'section'  => 'popup_section',
+			'id'       => 'plants_popup_html_block',
+			'title'    => esc_html__( 'Choice html block:', 'plants' ),
+			'callback' => 'plants_multiple_choice',
+			'args'     => array(
+				'name'     => 'plants_popup_html_block',
+				'multiple' => plants_get_html_blocks_data(),
+			),
+		);
+
+		// Site width.
+
 		$options[] = array(
 			'section'  => 'global_settings',
 			'id'       => 'container_width',

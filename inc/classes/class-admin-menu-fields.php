@@ -20,6 +20,7 @@ class Admin_Menu_Fields {
 
 
 
+
 	use Singleton;
 	/**
 	 * Field_list.
@@ -91,7 +92,7 @@ class Admin_Menu_Fields {
 		$img_id       = (int) get_post_meta( $post->ID, 'img-upload', true );
 		$html_block   = get_post_meta( $post->ID, 'menus-selection', true );
 		$item_output .= wp_get_attachment_image( $img_id, array( 20, 20 ) );
-		if ( 'none' !== $html_block && isset( $html_block ) && ! empty( $html_block ) ) {
+		if ( 'none' !== $html_block && ! empty( $html_block ) ) {
 			$item_output .= '<div data-id="' . (int) $post->ID . '" class="scheme-dark menus-item-dropdown-section">';
 			if ( is_plugin_active( 'elementor/elementor.php' ) ) {
 				$item_output .= Plugin::instance()->frontend->get_builder_content($html_block); // phpcs:ignore
@@ -116,7 +117,7 @@ class Admin_Menu_Fields {
 		echo '
 		<div class="description description-wide">
 						<div class="attachment-control">
-										' . wp_get_attachment_image(
+							' . wp_get_attachment_image(
 			$value,
 			array( 50, 50 ),
 			'',
@@ -133,7 +134,6 @@ class Admin_Menu_Fields {
 		</div>
 		';
 		}
-
 	}
 	/**
 	 * Add_fields.
@@ -149,7 +149,7 @@ class Admin_Menu_Fields {
 		$img_id           = get_post_meta( $item_id, 'img-upload', true );
 
 		?>
-		<div class=" description description-wide field-<?php echo esc_html( $meta_key ); ?> html-block-field">
+		<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> html-block-field">
 			<span class="field-menus-title">
 				<?php echo esc_html( $this->field_keys['menus-selection']['title'] ); ?>
 			</span>
@@ -167,16 +167,16 @@ class Admin_Menu_Fields {
 		</div>
 		<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
 			<span class="field-menus-title">
-			<?php
-			echo esc_html( $this->field_keys['img-upload']['title'] );
-			?>
+				<?php
+				echo esc_html( $this->field_keys['img-upload']['title'] );
+				?>
 			</span>
 			<?php
 			$this->image_uploader_field( sprintf( '%s[%s]', esc_attr( 'img-upload' ), esc_attr( $item_id ) ), $img_id ?? 'None' );
 			?>
 
 
-		</div> 
+		</div>
 		<?php
 	}
 

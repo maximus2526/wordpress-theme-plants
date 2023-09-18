@@ -21,6 +21,11 @@
 <body <?php body_class(); ?>>
 
 	<?php
+	$is_popup_active = plants_get_options( 'popup_enable_option', 'no' );
+
+	if ( 'yes' === $is_popup_active ) {
+		get_template_part( 'template-parts/content/content-popup' );
+	}
 
 	if ( function_exists( 'wp_body_open' ) ) {
 		wp_body_open();
@@ -98,7 +103,11 @@
 								<a href="    <?php echo esc_url( site_url( '/wp-login.php?action=register&redirect_to=' . get_permalink() ) ); ?> "><?php echo esc_html__( 'Register', 'plants' ); ?></a>
 							</div>
 						<?php endif; ?>
-						<?php if ( plants_is_wc_exist() ) : ?>
+						<?php
+						if ( ! plants_is_wc_exist() ) :
+							echo esc_html__( 'Install WooCommerce for site work correctly', 'plants' );
+						else :
+							?>
 							<div class="cart-section display-flex gap ">
 								<div class="favorite">
 									<a href class="display-flex gap-5">
@@ -116,8 +125,6 @@
 								</div>
 							</div>
 							<?php
-						else :
-							echo esc_html__( 'Install WooCommerce for site work correctly', 'plants' );
 						endif;
 						?>
 					</div>

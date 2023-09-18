@@ -65,6 +65,7 @@ if ( ! function_exists( 'plants_multiple_choice' ) ) {
 				<option value='<?php echo esc_html( $single ); ?>' <?php selected( plants_get_options( $args['name'] ), esc_html( $single ) ); ?>><?php echo esc_html( $single ); ?></option>
 				<?php
 			endforeach;
+
 			?>
 		</select>
 		<?php

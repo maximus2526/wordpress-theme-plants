@@ -67,6 +67,8 @@ class Assets {
 		// Enqueue Styles.
 		wp_enqueue_style( 'plants-base', PLANTS_DIR_URI . '/assets/css/base.css', array(), PLANTS_VERSION );
 		wp_enqueue_style( 'plants-swiper', PLANTS_DIR_URI . '/assets/css/swiper/swiper-min.css', array(), PLANTS_VERSION );
+		wp_enqueue_style( 'magnific-popup', PLANTS_DIR_URI . '/assets/css/pop-up/magnific-popup.min.css', array(), '1.1.0' );
+		wp_enqueue_style( 'plants-magnetic', PLANTS_DIR_URI . '/assets/css/pop-up/plants-magnetic.css', array(), PLANTS_VERSION );
 	}
 
 	/**
@@ -78,6 +80,7 @@ class Assets {
 		// Enqueue Scripts.
 		wp_enqueue_script( 'plants-swiper', PLANTS_DIR_URI . '/assets/js/swiper-min.js', array(), PLANTS_VERSION, true );
 		wp_enqueue_script( 'plants-main', PLANTS_JS_URI . '/plants_main.js', 'jquery', PLANTS_VERSION, true );
+		wp_enqueue_script( 'magnific-popup', PLANTS_JS_URI . '/jquery.magnific-popup.min.js', 'jquery', '1.1.0', true );
 	}
 
 	/**
@@ -88,6 +91,7 @@ class Assets {
 	public function add_admin_assets() {
 		wp_enqueue_media();
 		wp_enqueue_script( 'admin-js', PLANTS_JS_URI . '/plants_admin.js', array( 'jquery' ), PLANTS_VERSION, false );
+		wp_enqueue_style( 'custom-admin-style', PLANTS_CSS_URI . '/admin/plants-admin.css', array(), PLANTS_VERSION );
 		wp_enqueue_style( 'custom-admin-style', PLANTS_CSS_URI . '/admin/plants-admin.css', array(), PLANTS_VERSION );
 	}
 

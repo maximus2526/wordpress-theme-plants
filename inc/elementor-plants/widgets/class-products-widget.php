@@ -16,6 +16,7 @@ use \Elementor\Controls_Manager;
 class Products_Widget extends \Elementor\Widget_Base {
 
 
+
 	/**
 	 * Get_name.
 	 *
@@ -138,88 +139,87 @@ class Products_Widget extends \Elementor\Widget_Base {
 		if ( plants_is_wc_exist() ) {
 			echo esc_html__( "This functionality don't work, must be installed WooCommerce!", 'plants' );
 			return;
-		} else {
-			$settings = $this->get_settings_for_display();
+		}
+		$settings = $this->get_settings_for_display();
 
-			$args = array(
-				'post_type'      => 'product',
-				'posts_per_page' => $settings['posts_per_page'],
-				'orderby'        => 'date',
-				'order'          => 'DESC',
+		$args = array(
+			'post_type'      => 'product',
+			'posts_per_page' => $settings['posts_per_page'],
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		);
+
+		if ( 'all' !== $settings['category'] ) {
+			$args['tax_query'] = array( // phpcs:ignore
+				array(
+					'taxonomy' => 'product_cat',
+					'field'    => 'term_id',
+					'terms'    => $settings['category'],
+				),
 			);
+		}
 
-			if ( 'all' !== $settings['category'] ) {
-				$args['tax_query'] = array( // phpcs:ignore
-					array(
-						'taxonomy' => 'product_cat',
-						'field'    => 'term_id',
-						'terms'    => $settings['category'],
-					),
-				);
+		$products_query = new WP_Query( $args );
+
+		if ( $products_query->have_posts() ) {
+			if ( 'yes' === $settings['add_to_container'] ) {
+				echo '<div class="container">';
+			}
+			if ( 'yes' === $settings['is_slider'] ) {
+				echo '<div class="swiper">';
+				echo '<div class="swiper-wrapper">';
+			} else {
+				echo '<div class="products display-flex gap">';
 			}
 
-			$products_query = new WP_Query( $args );
-
-			if ( $products_query->have_posts() ) {
-				if ( 'yes' === $settings['add_to_container'] ) {
-					echo '<div class="container">';
-				}
+			while ( $products_query->have_posts() ) {
+				$products_query->the_post();
+				global $product;
 				if ( 'yes' === $settings['is_slider'] ) {
-					echo '<div class="swiper">';
-					echo '<div class="swiper-wrapper">';
-				} else {
-					echo '<div class="products display-flex gap">';
+					echo '<div  style="text-align: center;" class="swiper-slide">';
 				}
-
-				while ( $products_query->have_posts() ) {
-					$products_query->the_post();
-					global $product;
-					if ( 'yes' === $settings['is_slider'] ) {
-						echo '<div  style="text-align: center;" class="swiper-slide">';
+				?>
+				<div style="text-align: center;" class="product ">
+					<?php
+					if ( has_post_thumbnail() ) {
+						echo '<div class="product-image">';
+						the_post_thumbnail( 'thumbnail', array( 'style' => 'width: 100%;height: 400px;' ) );
+						echo '</div>';
 					}
+
+					echo '<p><a  class="scheme-dark title" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( get_the_title() ) . '</a></p>';
 					?>
-					<div style="text-align: center;" class="product ">
+					<div class="banner-rating">
 						<?php
-						if ( has_post_thumbnail() ) {
-							echo '<div class="product-image">';
-							the_post_thumbnail( 'thumbnail', array( 'style' => 'width: 100%;height: 400px;' ) );
-							echo '</div>';
+						$product_obj = wc_get_product( $product->get_id() );
+
+						if ( 'yes' === $settings['is_slider'] ) {
+							echo '</div>'; // end swiper slide.
 						}
 
-						echo '<p><a  class="scheme-dark title" href="' . esc_url( get_permalink() ) . '">' . wp_kses_post( get_the_title() ) . '</a></p>';
 						?>
-						<div class="banner-rating">
-							<?php
-							$product_obj = wc_get_product( $product->get_id() );
-
-							if ( 'yes' === $settings['is_slider'] ) {
-								echo '</div>'; // end swiper slide.
-							}
-
-							?>
-						</div>
-					<?php
-					echo '<div class="product-add-to-cart gap">';
-					woocommerce_template_loop_add_to_cart( array( 'button_text' => 'Select options' ) );
-					echo '</div>';
-					echo ' </div>'; // swiper-slide ::end.
-				}
-
-				wp_reset_postdata();
-				if ( 'yes' === $settings['is_slider'] ) {
-					echo '</div>'; // Close .swiper.
-					echo '<div class="swiper-button-prev"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-left.svg" alt=""></div>';
-					echo '<div class="swiper-button-next"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-right.svg" alt=""></div>';
-					echo '</div>'; // Close .swiper-wrapper.
-				} else {
-					echo '</div>';
-				}
-				if ( 'yes' === $settings['add_to_container'] ) {
-					echo '</div>';
-				}
-			} else {
-				echo esc_html__( 'No products found.', 'plants' );
+					</div>
+				<?php
+				echo '<div class="product-add-to-cart gap">';
+				woocommerce_template_loop_add_to_cart( array( 'button_text' => 'Select options' ) );
+				echo '</div>';
+				echo ' </div>'; // swiper-slide ::end.
 			}
+
+			wp_reset_postdata();
+			if ( 'yes' === $settings['is_slider'] ) {
+				echo '</div>'; // Close .swiper.
+				echo '<div class="swiper-button-prev"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-left.svg" alt=""></div>';
+				echo '<div class="swiper-button-next"><img src="' . esc_url( PLANTS_IMG_URI ) . '/svg/swiper/slider-right.svg" alt=""></div>';
+				echo '</div>'; // Close .swiper-wrapper.
+			} else {
+				echo '</div>';
+			}
+			if ( 'yes' === $settings['add_to_container'] ) {
+				echo '</div>';
+			}
+		} else {
+			echo esc_html__( 'No products found.', 'plants' );
 		}
 	}
 

@@ -1,15 +1,14 @@
-
 (function ($) {
 	function openEditorFunc() {
-		$('.upload_image_button').on("click", (function () {
+		$('.upload_image_button').on('click', function () {
 			let $frame;
-			$button = $(this);
+			let $button = $(this);
 			$frame = wp.media({
 				title: 'Select or Upload Media For Menu Items',
 				button: {
-					text: 'Use this media'
+					text: 'Use this media',
 				},
-				multiple: false
+				multiple: false,
 			});
 
 			$frame.open();
@@ -18,7 +17,7 @@
 				let $attachment = $frame.state().get('selection').first().toJSON();
 				let $attachmentImg = $button.parent().find('img');
 				$button.parent().find('input[type="hidden"]').val($attachment.id);
-				if ( $attachmentImg.length > 0 ) {
+				if ($attachmentImg.length > 0) {
 					$attachmentImg.removeAttr('srcset').attr('src', $attachment.url);
 				} else {
 					let $image = new Image();
@@ -30,14 +29,12 @@
 				}
 			});
 			return false;
-		}));
+		});
 	}
 
-
-
 	function removeImageFunc() {
-		$('.remove_image_button').on("click", (function () {
-			let $r = confirm("You sure?");
+		$('.remove_image_button').on('click', function () {
+			let $r = confirm('You sure?');
 			var $thisPointer = $(this);
 			if ($r == true) {
 				$thisPointer.parent().find('input[type="hidden"]').val('');
@@ -45,12 +42,8 @@
 				$thisPointer.parent().find('img').remove();
 			}
 			return false;
-		}));
-		
+		});
 	}
-	
-		
-
 
 	$(document).ready(function () {
 		openEditorFunc();
