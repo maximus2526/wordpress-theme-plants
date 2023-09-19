@@ -18,8 +18,8 @@
 }
 @media screen and (max-width: 900px) {
   .header .hamburger {
-    display: block;
-    width: 50px;
+	display: block;
+	width: 50px;
   }
 }
 .header .profile-section,
@@ -29,23 +29,23 @@
 @media screen and (max-width: 900px) {
   .header .profile-section .hamburger,
   .header .menu-header-menu-container .hamburger {
-    width: 50px;
+	width: 50px;
   }
   .header .profile-section #menu-header-menu,
   .header .menu-header-menu-container #menu-header-menu {
-    display: none;
+	display: none;
   }
 }
 @media screen and (max-width: 900px) {
   .header .profile-section .favorite,
   .header .profile-section .search-field {
-    display: none;
+	display: none;
   }
 }
 
 @media screen and (max-width: 900px) {
   .elementor-widget-container {
-    border: none !important;
+	border: none !important;
   }
 }
 header .container#header {
@@ -226,9 +226,9 @@ footer .right-side {
 }
 @media screen and (max-width: 1024px) {
   footer .right-side {
-    border-left: none;
-    margin-top: 40px;
-    justify-content: space-evenly;
+	border-left: none;
+	margin-top: 40px;
+	justify-content: space-evenly;
   }
 }
 footer .right-side .nav-title {

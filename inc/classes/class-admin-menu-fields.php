@@ -21,6 +21,7 @@ class Admin_Menu_Fields {
 
 
 
+
 	use Singleton;
 	/**
 	 * Field_list.
@@ -116,8 +117,8 @@ class Admin_Menu_Fields {
 	public function image_uploader_field( $name, $value = '' ) {
 		echo '
 		<div class="description description-wide">
-						<div class="attachment-control">
-							' . wp_get_attachment_image(
+			<div class="attachment-control">
+				' . wp_get_attachment_image(
 			$value,
 			array( 50, 50 ),
 			'',
@@ -126,8 +127,8 @@ class Admin_Menu_Fields {
 				'alt'   => 'some',
 			)
 		) . '
-										<input type="hidden" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '" />
-										<button type="submit" class="upload_image_button button"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>';
+		<input type="hidden" name="' . esc_attr( $name ) . '" id="' . esc_attr( $name ) . '" value="' . esc_attr( $value ) . '" />
+		<button type="submit" class="upload_image_button button"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>';
 		if ( $value ) {
 			echo '<button type="submit" class="remove_image_button button-link">' . esc_html__( ' Remove', 'plants' ) . '</button>
 						</div>
@@ -146,9 +147,8 @@ class Admin_Menu_Fields {
 	public function add_fields( $item_id, $item_obj ) {
 		$meta_keys = $this->field_keys;
 		foreach ( $meta_keys as $meta_key => $meta_data ) {
-					$this->$meta_key( $item_id, $meta_key );
+			$this->$meta_key( $item_id, $meta_key );
 		}
-
 	}
 
 	/**
@@ -191,7 +191,7 @@ class Admin_Menu_Fields {
 	public function item_attachment( $item_id, $meta_key ) {
 		$img_id = get_post_meta( $item_id, $meta_key, true );
 		?>
-	<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
+		<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
 			<span class="field-menus-title">
 				<?php
 				echo esc_html( $this->field_keys[ $meta_key ]['title'] );
