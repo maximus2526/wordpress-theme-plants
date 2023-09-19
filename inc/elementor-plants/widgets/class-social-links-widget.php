@@ -22,7 +22,7 @@ class Social_Links_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'social_links_widget', 'plants' );
+		return esc_html( 'social_links_widget' );
 	}
 
 	/**

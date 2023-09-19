@@ -20,7 +20,7 @@ class Subscribe_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'subscribe_widget', 'plants' );
+		return esc_html( 'subscribe_widget' );
 	}
 
 	/**

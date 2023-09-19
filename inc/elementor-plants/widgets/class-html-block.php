@@ -22,7 +22,7 @@ class Html_Block extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'html_block', 'plants' );
+		return esc_html( 'html_block' );
 	}
 
 	/**

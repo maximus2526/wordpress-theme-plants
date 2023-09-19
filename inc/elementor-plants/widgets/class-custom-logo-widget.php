@@ -21,7 +21,7 @@ class Custom_Logo_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'logo_widget', 'plants' );
+		return esc_html( 'logo_widget' );
 	}
 
 	/**

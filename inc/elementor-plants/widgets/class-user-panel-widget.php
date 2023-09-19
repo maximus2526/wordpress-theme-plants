@@ -23,7 +23,7 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'user_panel_widget', 'plants' );
+		return esc_html( 'user_panel_widget' );
 	}
 
 	/**
@@ -52,13 +52,6 @@ class User_Panel_Widget extends \Elementor\Widget_Base {
 	public function get_categories() {
 		return array( 'theme-widgets' );
 	}
-
-	/**
-	 * Register_controls
-	 *
-	 * @return void
-	 */
-	protected function register_controls() {    }
 
 	/**
 	 * Render.

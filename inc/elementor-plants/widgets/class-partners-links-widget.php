@@ -23,7 +23,7 @@ class Partners_Links_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'partners_links_widget', 'plants' );
+		return esc_html( 'partners_links_widget' );
 	}
 
 	/**

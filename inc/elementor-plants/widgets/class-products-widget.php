@@ -23,7 +23,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'products_widget', 'plants' );
+		return esc_html( 'products_widget' );
 	}
 
 	/**
@@ -32,7 +32,7 @@ class Products_Widget extends \Elementor\Widget_Base {
 	 * @return text
 	 */
 	public function get_title() {
-		return esc_html__( 'Products Widget', 'plants' );
+		return esc_html__( 'Products Widget', 'plants');
 	}
 
 	/**

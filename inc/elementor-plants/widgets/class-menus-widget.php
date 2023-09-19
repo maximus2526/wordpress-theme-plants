@@ -22,7 +22,7 @@ class Menus_Widget extends \Elementor\Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'menus_widget', 'plants' );
+		return esc_html( 'menus_widget' );
 	}
 
 	/**

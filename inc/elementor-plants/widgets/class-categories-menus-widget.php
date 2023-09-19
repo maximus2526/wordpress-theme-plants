@@ -25,7 +25,7 @@ class Categories_Menus_Widget extends Widget_Base {
 	 * @return string
 	 */
 	public function get_name() {
-		return esc_html__( 'categories_menus_widget', 'plants' );
+		return esc_html( 'categories_menus_widget' );
 	}
 
 	/**

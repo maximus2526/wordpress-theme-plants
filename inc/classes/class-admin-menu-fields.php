@@ -17,11 +17,6 @@ use \Elementor\Plugin as Plugin;
  * Admin_Menu_Fields
  */
 class Admin_Menu_Fields {
-
-
-
-
-
 	use Singleton;
 	/**
 	 * Field_list.
@@ -76,7 +71,7 @@ class Admin_Menu_Fields {
 	 */
 	public function nav_menu_attributes( $li_atts, $menu_item ) {
 		$html_block = get_post_meta( $menu_item->ID, 'menus_selection', true );
-		if ( 'none' !== $html_block && isset( $html_block ) && ! empty( $html_block ) ) {
+		if ( 'none' !== $html_block && ! empty( $html_block ) ) {
 			$li_atts['class'] .= ' dropdown-icon';
 		}
 		return $li_atts;
@@ -131,10 +126,13 @@ class Admin_Menu_Fields {
 		<button type="submit" class="upload_image_button button"> ' . esc_html__( 'Upload', 'plants' ) . ' </button>';
 		if ( $value ) {
 			echo '<button type="submit" class="remove_image_button button-link">' . esc_html__( ' Remove', 'plants' ) . '</button>
+		';
+		}
+		echo '
 						</div>
 		</div>
 		';
-		}
+	
 	}
 
 	/**
