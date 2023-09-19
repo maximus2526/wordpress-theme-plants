@@ -44,8 +44,8 @@ class Admin_Menu_Fields {
 	 */
 	protected function __construct() {
 		$this->field_keys = array(
-			'menus-selection' => array( 'title' => esc_html__( 'Select html block for header menu option', 'plants' ) ),
-			'img-upload'      => array( 'title' => esc_html__( 'Upload or delete img for menu item', 'plants' ) ),
+			'menus_selection' => array( 'title' => esc_html__( 'Select html block for header menu option', 'plants' ) ),
+			'item_attachment' => array( 'title' => esc_html__( 'Upload or delete img for menu item', 'plants' ) ),
 		);
 	}
 
@@ -74,7 +74,7 @@ class Admin_Menu_Fields {
 	 * @return object
 	 */
 	public function nav_menu_attributes( $li_atts, $menu_item ) {
-		$html_block = get_post_meta( $menu_item->ID, 'menus-selection', true );
+		$html_block = get_post_meta( $menu_item->ID, 'menus_selection', true );
 		if ( 'none' !== $html_block && isset( $html_block ) && ! empty( $html_block ) ) {
 			$li_atts['class'] .= ' dropdown-icon';
 		}
@@ -89,8 +89,8 @@ class Admin_Menu_Fields {
 	 * @return object
 	 */
 	public function nav_menu_start_el( $item_output, $post ) {
-		$img_id       = (int) get_post_meta( $post->ID, 'img-upload', true );
-		$html_block   = get_post_meta( $post->ID, 'menus-selection', true );
+		$img_id       = (int) get_post_meta( $post->ID, 'item_attachment', true );
+		$html_block   = get_post_meta( $post->ID, 'menus_selection', true );
 		$item_output .= wp_get_attachment_image( $img_id, array( 20, 20 ) );
 		if ( 'none' !== $html_block && ! empty( $html_block ) ) {
 			$item_output .= '<div data-id="' . (int) $post->ID . '" class="scheme-dark menus-item-dropdown-section">';
@@ -135,6 +135,7 @@ class Admin_Menu_Fields {
 		';
 		}
 	}
+
 	/**
 	 * Add_fields.
 	 *
@@ -143,15 +144,27 @@ class Admin_Menu_Fields {
 	 * @return void
 	 */
 	public function add_fields( $item_id, $item_obj ) {
-		$meta_key         = key( $this->field_keys );
+		$meta_keys = $this->field_keys;
+		foreach ( $meta_keys as $meta_key => $meta_data ) {
+					$this->$meta_key( $item_id, $meta_key );
+		}
+
+	}
+
+	/**
+	 * Menus Selection Field.
+	 *
+	 * @param  int $item_id Item_id.
+	 * @param  int $meta_key Meta_key.
+	 * @return void
+	 */
+	public function menus_selection( $item_id, $meta_key ) {
 		$value            = get_post_meta( $item_id, $meta_key, true ) ?? 'None';
 		$html_blocks_data = plants_get_html_blocks_data();
-		$img_id           = get_post_meta( $item_id, 'img-upload', true );
-
 		?>
 		<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> html-block-field">
 			<span class="field-menus-title">
-				<?php echo esc_html( $this->field_keys['menus-selection']['title'] ); ?>
+				<?php echo esc_html( $this->field_keys[ $meta_key ]['title'] ); ?>
 			</span>
 
 			<select class="widefat edit-menu-item-<?php echo esc_html( $meta_key ); ?>" name="<?php echo sprintf( '%s[%s]', esc_attr( $meta_key ), esc_attr( $item_id ) ); ?>" id="menu-item-<?php echo esc_attr( $item_id ); ?>">
@@ -165,17 +178,28 @@ class Admin_Menu_Fields {
 				?>
 			</select>
 		</div>
-		<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
+		<?php
+	}
+
+	/**
+	 * Menus Attachment Field.
+	 *
+	 * @param  int $item_id Item_id.
+	 * @param  int $meta_key Meta_key.
+	 * @return void
+	 */
+	public function item_attachment( $item_id, $meta_key ) {
+		$img_id = get_post_meta( $item_id, $meta_key, true );
+		?>
+	<div class="description description-wide field-<?php echo esc_html( $meta_key ); ?> upload-icon-field">
 			<span class="field-menus-title">
 				<?php
-				echo esc_html( $this->field_keys['img-upload']['title'] );
+				echo esc_html( $this->field_keys[ $meta_key ]['title'] );
 				?>
 			</span>
 			<?php
-			$this->image_uploader_field( sprintf( '%s[%s]', esc_attr( 'img-upload' ), esc_attr( $item_id ) ), $img_id ?? 'None' );
+			$this->image_uploader_field( sprintf( '%s[%s]', esc_attr( $meta_key ), esc_attr( $item_id ) ), $img_id ?? 'None' );
 			?>
-
-
 		</div>
 		<?php
 	}
